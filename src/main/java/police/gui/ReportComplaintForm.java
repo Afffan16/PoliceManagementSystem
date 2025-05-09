@@ -5,7 +5,9 @@
 package police.gui;
 import javax.swing.*;
 import java.io.*;
+import java.text.SimpleDateFormat;
 import police.CSVHandler;
+import police.model.FormValidator;
 
 /**
  *
@@ -44,11 +46,9 @@ public class ReportComplaintForm extends javax.swing.JFrame {
         CNIClbl = new javax.swing.JLabel();
         ComplainerCNICtxt = new javax.swing.JTextField();
         IncidentDatelbl = new javax.swing.JLabel();
-        IncidentDatetxt = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         IncidentTimelbl = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        IncidentTimetxt = new javax.swing.JTextField();
         Locationlbl = new javax.swing.JLabel();
         Locationtxt = new javax.swing.JTextField();
         Descriptionlbl = new javax.swing.JLabel();
@@ -59,6 +59,15 @@ public class ReportComplaintForm extends javax.swing.JFrame {
         Evidencebtn = new javax.swing.JButton();
         Backbtn = new javax.swing.JButton();
         Submitbtn = new javax.swing.JButton();
+        dateChoosertxt = new com.toedter.calendar.JDateChooser();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        IncidentTimetxt = new com.github.lgooddatepicker.components.TimePicker();
 
         IncidentDatelbl1.setText("Incident Date  :");
 
@@ -81,6 +90,12 @@ public class ReportComplaintForm extends javax.swing.JFrame {
 
         ComplainerNamelbl.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         ComplainerNamelbl.setText("Complainer's Name :");
+
+        ComplainerNametxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComplainerNametxtActionPerformed(evt);
+            }
+        });
 
         ComplainerContactlbl.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         ComplainerContactlbl.setText("Contact Number :");
@@ -150,6 +165,11 @@ public class ReportComplaintForm extends javax.swing.JFrame {
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(157, 157, 157)
+                        .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addComponent(Submitbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
                         .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(mainPanelLayout.createSequentialGroup()
@@ -176,21 +196,23 @@ public class ReportComplaintForm extends javax.swing.JFrame {
                                     .addComponent(Locationlbl)
                                     .addComponent(Evidencelbl))
                                 .addGap(42, 42, 42)))
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ComplainerCNICtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IncidentDatetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ComplainerContacttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ComplainerNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IncidentTimetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Locationtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ComplainerCNICtxt)
+                            .addComponent(ComplainerNametxt)
+                            .addComponent(Locationtxt)
                             .addComponent(Evidencebtn)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(157, 157, 157)
-                        .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
-                        .addComponent(Submitbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
+                            .addComponent(dateChoosertxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ComplainerContacttxt, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(IncidentTimetxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(88, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel1)
@@ -199,48 +221,62 @@ public class ReportComplaintForm extends javax.swing.JFrame {
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addComponent(jLabel1)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
                 .addGap(40, 40, 40)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ComplainerNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ComplainerNamelbl))
-                .addGap(19, 19, 19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ComplainerContacttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ComplainerContactlbl))
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addGap(4, 4, 4)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ComplainerCNICtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CNIClbl))
-                .addGap(22, 22, 22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(IncidentDatetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addComponent(IncidentDatelbl)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)))
-                .addGap(28, 28, 28)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(IncidentTimetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2))
+                    .addComponent(dateChoosertxt, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addComponent(IncidentTimelbl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(27, 27, 27)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(IncidentTimetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addComponent(Locationtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel10)
+                        .addGap(9, 9, 9)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addComponent(Locationlbl)
                         .addGap(59, 59, 59)
                         .addComponent(Descriptionlbl)))
-                .addGap(18, 18, 18)
+                .addGap(5, 5, 5)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Evidencebtn)
                     .addComponent(Evidencelbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Backbtn)
                     .addComponent(Submitbtn)))
@@ -250,14 +286,14 @@ public class ReportComplaintForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 656, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 656, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -277,22 +313,55 @@ public class ReportComplaintForm extends javax.swing.JFrame {
     }//GEN-LAST:event_BackbtnActionPerformed
 
     private void SubmitbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitbtnActionPerformed
-        try 
-        {
-            String complaintId = String.valueOf(System.currentTimeMillis()); // Simple ID
-            CSVHandler csvHandler = new CSVHandler();
-            csvHandler.addComplaint(complaintId, ComplainerNametxt.getText(), ComplainerContacttxt.getText(),
-            ComplainerCNICtxt.getText(), IncidentDatetxt.getText(), IncidentTimetxt.getText(),
-            Locationtxt.getText(), Descriptiontxt.getText(), evidencePath, "PENDING");
-            JOptionPane.showMessageDialog(this, "Complaint submitted successfully!");
-            new HomePageForm().setVisible(true);
-            this.dispose();
-        } 
-        catch (IOException e) 
-        {
-            JOptionPane.showMessageDialog(this, "Error saving complaint: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
+     try 
+{
+    String complaintId = String.valueOf(System.currentTimeMillis()); // Simple ID
+    boolean isvalid = FormValidator.validateForm(ComplainerNametxt,
+            jLabel4, ComplainerContacttxt, 
+            jLabel6, ComplainerCNICtxt, jLabel7,
+            dateChoosertxt, jLabel8, IncidentTimetxt, 
+            jLabel9, Locationtxt, jLabel10,
+            Descriptiontxt, jLabel11);
+    if (!isvalid){
+        return ;
+    }
+    // Get the selected date as a string
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); // or any format you like
+    String dateString = "";
+    if (dateChoosertxt.getDate() != null) {
+        dateString = sdf.format(dateChoosertxt.getDate());
+    } else {
+        JOptionPane.showMessageDialog(this, "Please select a date.");
+        return; // Stop execution if date is not selected
+    }
+
+    CSVHandler csvHandler = new CSVHandler();
+    csvHandler.addComplaint(
+        complaintId,
+        ComplainerNametxt.getText(),
+        ComplainerContacttxt.getText(),
+        ComplainerCNICtxt.getText(),
+        dateString,
+        IncidentTimetxt.getText(),
+        Locationtxt.getText(),
+        Descriptiontxt.getText(),
+        evidencePath,
+        "PENDING"
+    );
+
+    JOptionPane.showMessageDialog(this, "Complaint submitted successfully!");
+    new HomePageForm().setVisible(true);
+    this.dispose();
+} 
+catch (IOException e) 
+{
+    JOptionPane.showMessageDialog(this, "Error saving complaint: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+}
     }//GEN-LAST:event_SubmitbtnActionPerformed
+
+    private void ComplainerNametxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComplainerNametxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComplainerNametxtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -343,16 +412,23 @@ public class ReportComplaintForm extends javax.swing.JFrame {
     private javax.swing.JLabel Evidencelbl;
     private javax.swing.JLabel IncidentDatelbl;
     private javax.swing.JLabel IncidentDatelbl1;
-    private javax.swing.JTextField IncidentDatetxt;
     private javax.swing.JTextField IncidentDatetxt1;
     private javax.swing.JLabel IncidentTimelbl;
-    private javax.swing.JTextField IncidentTimetxt;
+    private com.github.lgooddatepicker.components.TimePicker IncidentTimetxt;
     private javax.swing.JLabel Locationlbl;
     private javax.swing.JTextField Locationtxt;
     private javax.swing.JButton Submitbtn;
+    private com.toedter.calendar.JDateChooser dateChoosertxt;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

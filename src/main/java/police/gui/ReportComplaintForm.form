@@ -55,15 +55,15 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="mainPanel" alignment="0" pref="590" max="32767" attributes="0"/>
+          <Component id="mainPanel" alignment="0" pref="644" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="mainPanel" min="-2" pref="656" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <Component id="mainPanel" pref="656" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -89,7 +89,13 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
+                          <Component id="Backbtn" min="-2" pref="92" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                          <Component id="Submitbtn" min="-2" pref="102" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
@@ -125,29 +131,30 @@
                                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="ComplainerCNICtxt" min="-2" pref="298" max="-2" attributes="0"/>
-                              <Component id="IncidentDatetxt" min="-2" pref="298" max="-2" attributes="0"/>
-                              <Component id="ComplainerContacttxt" alignment="0" min="-2" pref="298" max="-2" attributes="0"/>
-                              <Component id="ComplainerNametxt" alignment="0" min="-2" pref="298" max="-2" attributes="0"/>
-                              <Component id="IncidentTimetxt" alignment="0" min="-2" pref="298" max="-2" attributes="0"/>
-                              <Component id="Locationtxt" alignment="0" min="-2" pref="298" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="ComplainerCNICtxt" max="32767" attributes="0"/>
+                              <Component id="ComplainerNametxt" alignment="0" max="32767" attributes="0"/>
+                              <Component id="Locationtxt" alignment="0" max="32767" attributes="0"/>
                               <Component id="Evidencebtn" min="-2" max="-2" attributes="0"/>
-                              <Component id="jScrollPane2" alignment="0" min="-2" pref="298" max="-2" attributes="0"/>
+                              <Component id="jScrollPane2" alignment="0" pref="298" max="32767" attributes="0"/>
+                              <Component id="dateChoosertxt" max="32767" attributes="0"/>
+                              <Component id="jLabel4" max="32767" attributes="0"/>
+                              <Component id="ComplainerContacttxt" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jLabel6" alignment="0" min="-2" pref="290" max="-2" attributes="0"/>
+                              <Component id="jLabel7" max="32767" attributes="0"/>
+                              <Component id="jLabel8" max="32767" attributes="0"/>
+                              <Component id="jLabel9" max="32767" attributes="0"/>
+                              <Component id="jLabel10" max="32767" attributes="0"/>
+                              <Component id="jLabel11" max="32767" attributes="0"/>
+                              <Component id="IncidentTimetxt" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
-                          <Component id="Backbtn" min="-2" pref="92" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                          <Component id="Submitbtn" min="-2" pref="102" max="-2" attributes="0"/>
-                      </Group>
                   </Group>
-                  <EmptySpace pref="34" max="32767" attributes="0"/>
+                  <EmptySpace pref="88" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -155,45 +162,57 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" pref="72" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="ComplainerNametxt" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="ComplainerNamelbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabel4" min="-2" pref="14" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="ComplainerContacttxt" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="ComplainerContactlbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="ComplainerCNICtxt" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="CNIClbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="IncidentDatetxt" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <Component id="IncidentDatelbl" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="dateChoosertxt" min="-2" pref="31" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="IncidentTimetxt" min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="IncidentTimelbl" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel3" min="-2" pref="11" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="IncidentTimetxt" min="-2" pref="26" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="Locationtxt" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                           <Component id="jScrollPane2" min="-2" pref="112" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
@@ -202,12 +221,14 @@
                           <Component id="Descriptionlbl" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                  <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="Evidencebtn" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="Evidencelbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="32" max="32767" attributes="0"/>
+                  <EmptySpace pref="61" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="Backbtn" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="Submitbtn" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -234,6 +255,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="ComplainerNametxt">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ComplainerNametxtActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="ComplainerContactlbl">
           <Properties>
@@ -263,8 +287,6 @@
             <Property name="text" type="java.lang.String" value="Incident Date  :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="IncidentDatetxt">
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -288,8 +310,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="( HH : MM )"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="IncidentTimetxt">
         </Component>
         <Component class="javax.swing.JLabel" name="Locationlbl">
           <Properties>
@@ -380,6 +400,24 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SubmitbtnActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="com.toedter.calendar.JDateChooser" name="dateChoosertxt">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel4">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel6">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel7">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel8">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel9">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel10">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel11">
+        </Component>
+        <Component class="com.github.lgooddatepicker.components.TimePicker" name="IncidentTimetxt">
         </Component>
       </SubComponents>
     </Container>
