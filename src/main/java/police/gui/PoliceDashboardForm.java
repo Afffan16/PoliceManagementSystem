@@ -242,7 +242,7 @@ public class PoliceDashboardForm extends javax.swing.JFrame {
     }//GEN-LAST:event_ProfileBtnActionPerformed
 
     private void FIRBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FIRBtnActionPerformed
-       new FIRForm().setVisible(true);
+       new FIRForm(loggedInUsername).setVisible(true);
        this.dispose();
     }//GEN-LAST:event_FIRBtnActionPerformed
 

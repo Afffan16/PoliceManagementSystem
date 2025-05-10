@@ -3,7 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package police.gui;
-
+import police.CSVHandler;
+import police.model.*;
+import javax.swing.*;
+import java.awt.*;
+import java.io.*;
 /**
  *
  * @author HP
@@ -13,8 +17,12 @@ public class FIRForm extends javax.swing.JFrame {
     /**
      * Creates new form FIRForm
      */
-    public FIRForm() {
+    private static String loggedInUsername;
+    public FIRForm(String loggedInUsername) 
+    {
+        this.loggedInUsername = loggedInUsername;
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -26,21 +34,145 @@ public class FIRForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton3 = new javax.swing.JButton();
+        mainPanel = new javax.swing.JPanel();
+        headinglbl = new javax.swing.JLabel();
+        checkComplainsbtn = new javax.swing.JButton();
+        ViewFIRsbtn = new javax.swing.JButton();
+        manageFIRsbtn = new javax.swing.JButton();
+        Backbtn = new javax.swing.JButton();
+
+        jButton3.setBackground(new java.awt.Color(255, 255, 204));
+        jButton3.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 0, 0));
+        jButton3.setText("View / Search FIRs");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("FIR MODULE");
+        setPreferredSize(new java.awt.Dimension(600, 400));
+        setResizable(false);
+
+        mainPanel.setBackground(new java.awt.Color(153, 153, 255));
+        mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
+
+        headinglbl.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        headinglbl.setForeground(new java.awt.Color(255, 0, 0));
+        headinglbl.setText("FIR MODULE");
+
+        checkComplainsbtn.setBackground(new java.awt.Color(255, 255, 204));
+        checkComplainsbtn.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        checkComplainsbtn.setForeground(new java.awt.Color(255, 0, 0));
+        checkComplainsbtn.setText("Check Complains");
+        checkComplainsbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkComplainsbtnActionPerformed(evt);
+            }
+        });
+
+        ViewFIRsbtn.setBackground(new java.awt.Color(255, 255, 204));
+        ViewFIRsbtn.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        ViewFIRsbtn.setForeground(new java.awt.Color(255, 0, 0));
+        ViewFIRsbtn.setText("View / Search FIRs");
+        ViewFIRsbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewFIRsbtnActionPerformed(evt);
+            }
+        });
+
+        manageFIRsbtn.setBackground(new java.awt.Color(255, 255, 204));
+        manageFIRsbtn.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        manageFIRsbtn.setForeground(new java.awt.Color(255, 0, 0));
+        manageFIRsbtn.setText("Manage FIRs");
+        manageFIRsbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manageFIRsbtnActionPerformed(evt);
+            }
+        });
+
+        Backbtn.setBackground(new java.awt.Color(255, 255, 204));
+        Backbtn.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        Backbtn.setForeground(new java.awt.Color(255, 0, 0));
+        Backbtn.setText("Back");
+        Backbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackbtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
+        mainPanel.setLayout(mainPanelLayout);
+        mainPanelLayout.setHorizontalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(headinglbl)
+                .addGap(214, 214, 214))
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(ViewFIRsbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(checkComplainsbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manageFIRsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 79, Short.MAX_VALUE))
+        );
+        mainPanelLayout.setVerticalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(headinglbl)
+                .addGap(81, 81, 81)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ViewFIRsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manageFIRsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(checkComplainsbtn, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                    .addComponent(Backbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(90, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
+        new PoliceDashboardForm(loggedInUsername).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BackbtnActionPerformed
+
+    private void checkComplainsbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkComplainsbtnActionPerformed
+        new CheckComplaintsForm().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_checkComplainsbtnActionPerformed
+
+    private void manageFIRsbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageFIRsbtnActionPerformed
+        new FIRManagementForm(loggedInUsername).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_manageFIRsbtnActionPerformed
+
+    private void ViewFIRsbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewFIRsbtnActionPerformed
+        new ViewFIRForm(loggedInUsername).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_ViewFIRsbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -72,11 +204,18 @@ public class FIRForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FIRForm().setVisible(true);
+                new FIRForm(loggedInUsername).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Backbtn;
+    private javax.swing.JButton ViewFIRsbtn;
+    private javax.swing.JButton checkComplainsbtn;
+    private javax.swing.JLabel headinglbl;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JPanel mainPanel;
+    private javax.swing.JButton manageFIRsbtn;
     // End of variables declaration//GEN-END:variables
 }

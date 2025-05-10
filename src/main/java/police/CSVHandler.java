@@ -12,7 +12,8 @@ import police.model.*;
 import java.io.*;
 import java.util.*;
 
-public class CSVHandler {
+public class CSVHandler 
+{
     private static final String COMPLAINTS_CSV = "resources/complaints.csv";
     private static final String FIRS_CSV = "resources/firs.csv";
     private static final String INVESTIGATIONS_CSV = "resources/investigations.csv";
@@ -33,7 +34,7 @@ public class CSVHandler {
         File firsFile = new File(FIRS_CSV);
         if (!firsFile.exists()) {
             try (FileWriter writer = new FileWriter(firsFile)) {
-                writer.write("firId,complainantName,contact,nicNumber,incidentDate,incidentTime,location,description\n");
+                writer.write("firId,complainantName,fathersName,contact,address,nicNumber,incidentDate,incidentTime,location,description,crimeType\n");
             }
         }
 
@@ -47,7 +48,7 @@ public class CSVHandler {
 
         // Criminals CSV
         File criminalsFile = new File(CRIMINALS_CSV);
-        if (!firsFile.exists()) {
+        if (!criminalsFile.exists()) {
             try (FileWriter writer = new FileWriter(criminalsFile)) {
                 writer.write("criminalId,name,nicNumber,photoPath,fingerprints,criminalHistory\n");
             }
@@ -66,8 +67,8 @@ public class CSVHandler {
         if (!officersFile.exists()) {
             try (FileWriter writer = new FileWriter(officersFile)) {
                 writer.write("officerId,username,password,role,name,badgeNumber,email,phone,serviceYears,casesSolved,successPercentage,imagePath\n");
-                writer.write("BDG-001,Affan,Afffan16,Head Constable,Muhammad Affan bin Aamir,BDG001,affan.aamir@police.gov,123-456-789,15,70,82.5,resources/images/affan.jpeg\n");
-                writer.write("BDG-002,Umar,UmarAzhar24,Inspector,Muhammad Umar Azhar,BDG002,umar.azhar@police.gov,987-654-321,06,48,95.0,resources/images/umar.jpeg\n");
+                writer.write("BDG-001,Affan,Afffan16,Head Constable,Muhammad Affan bin Aamir,BDG001,affan.aamir@police.gov,123-456-789,15,70,82.5,resources/images/affan.jpeg\n");                
+                writer.write("BDG-002,Umar,UmarAzhar24,Inspector,Muhammad Umar Azhar,BDG002,umar.azhar@police.gov,987-654-321,6,48,95,resources/images/umar.jpeg\n");
             }
         }
     }
@@ -88,7 +89,7 @@ public class CSVHandler {
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
                 if (data.length >= 3 && data[1].equals(username) && data[2].equals(password)) {
-                    Session.setLoggedInUsername(username); // Set session
+                    Session.setLoggedInUsername(username);
                     return true;
                 }
             }
@@ -122,5 +123,76 @@ public class CSVHandler {
         if (successPercentage >= 60) return "B";
         if (successPercentage >= 50) return "B-";
         return "C";
+    }
+
+    public void addFIR(FIR fir) throws IOException {
+        try (FileWriter writer = new FileWriter(FIRS_CSV, true)) {
+            writer.write(String.join(",", fir.getFirId(), fir.getComplainantName(), fir.getFathersName(),
+                fir.getContact(), fir.getAddress(), fir.getNicNumber(), fir.getIncidentDate(),
+                fir.getIncidentTime(), fir.getLocation(), fir.getDescription(), fir.getCrimeType()) + "\n");
+        }
+    }
+
+    public List<FIR> getAllFIRs() throws IOException {
+        List<FIR> firs = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(FIRS_CSV))) {
+            String line;
+            reader.readLine(); // Skip header
+            while ((line = reader.readLine()) != null) {
+                String[] data = line.split(",");
+                if (data.length >= 11) {
+                    firs.add(new FIR(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9], data[10]));
+                }
+            }
+        }
+        return firs;
+    }
+
+    public List<FIR> searchFIRs(String firId) throws IOException {
+        List<FIR> firs = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(FIRS_CSV))) {
+            String line;
+            reader.readLine(); 
+            while ((line = reader.readLine()) != null) {
+                String[] data = line.split(",");
+                if (data.length >= 11 && data[0].toLowerCase().contains(firId.toLowerCase())) {
+                    firs.add(new FIR(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9], data[10]));
+                }
+            }
+        }
+        return firs;
+    }
+
+    public void updateFIR(FIR updatedFIR) throws IOException {
+        List<FIR> firs = getAllFIRs();
+        try (FileWriter writer = new FileWriter(FIRS_CSV)) {
+            writer.write("firId,complainantName,fathersName,contact,address,nicNumber,incidentDate,incidentTime,location,description,crimeType\n");
+            for (FIR fir : firs) {
+                if (fir.getFirId().equals(updatedFIR.getFirId())) {
+                    writer.write(String.join(",", updatedFIR.getFirId(), updatedFIR.getComplainantName(),
+                        updatedFIR.getFathersName(), updatedFIR.getContact(), updatedFIR.getAddress(),
+                        updatedFIR.getNicNumber(), updatedFIR.getIncidentDate(), updatedFIR.getIncidentTime(),
+                        updatedFIR.getLocation(), updatedFIR.getDescription(), updatedFIR.getCrimeType()) + "\n");
+                } else {
+                    writer.write(String.join(",", fir.getFirId(), fir.getComplainantName(), fir.getFathersName(),
+                        fir.getContact(), fir.getAddress(), fir.getNicNumber(), fir.getIncidentDate(),
+                        fir.getIncidentTime(), fir.getLocation(), fir.getDescription(), fir.getCrimeType()) + "\n");
+                }
+            }
+        }
+    }
+
+    public void deleteFIR(String firId) throws IOException {
+        List<FIR> firs = getAllFIRs();
+        try (FileWriter writer = new FileWriter(FIRS_CSV)) {
+            writer.write("firId,complainantName,fathersName,contact,address,nicNumber,incidentDate,incidentTime,location,description,crimeType\n");
+            for (FIR fir : firs) {
+                if (!fir.getFirId().equals(firId)) {
+                    writer.write(String.join(",", fir.getFirId(), fir.getComplainantName(), fir.getFathersName(),
+                        fir.getContact(), fir.getAddress(), fir.getNicNumber(), fir.getIncidentDate(),
+                        fir.getIncidentTime(), fir.getLocation(), fir.getDescription(), fir.getCrimeType()) + "\n");
+                }
+            }
+        }
     }
 }
