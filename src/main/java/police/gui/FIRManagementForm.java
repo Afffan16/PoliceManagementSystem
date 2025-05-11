@@ -51,6 +51,29 @@ public class FIRManagementForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error loading FIRs: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+    
+    private void loadFIRs(String searchTxt) 
+    {
+         tableModel.setRowCount(0);
+            try
+            {
+                CSVHandler csvHandler = new CSVHandler();
+                List<FIR> firs = csvHandler.searchFIRs(searchTxt);
+                for (FIR fir : firs)
+                {
+                    tableModel.addRow(new Object[]
+                    {
+                        fir.getFirId(), fir.getComplainantName(), fir.getFathersName(), fir.getContact(),
+                        fir.getAddress(), fir.getNicNumber(), fir.getIncidentDate(), fir.getIncidentTime(),
+                        fir.getLocation(), fir.getDescription(), fir.getCrimeType(), "View Details"
+                    });
+                }
+            }
+            catch (IOException e)
+            {
+                JOptionPane.showMessageDialog(this, "Error searching FIRs: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -66,6 +89,7 @@ public class FIRManagementForm extends javax.swing.JFrame {
         searchlbl = new javax.swing.JLabel();
         searchbartxt = new javax.swing.JTextField();
         Searchbtn = new javax.swing.JButton();
+        lblsearcherr = new javax.swing.JLabel();
         headinglbl = new javax.swing.JLabel();
         tablePanel = new javax.swing.JPanel();
         tableScrollPane = new javax.swing.JScrollPane();
@@ -112,8 +136,10 @@ public class FIRManagementForm extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addComponent(searchlbl)
                 .addGap(31, 31, 31)
-                .addComponent(searchbartxt, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblsearcherr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(searchbartxt, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addComponent(Searchbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(58, 58, 58))
         );
@@ -125,7 +151,8 @@ public class FIRManagementForm extends javax.swing.JFrame {
                     .addComponent(searchbartxt, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchlbl)
                     .addComponent(Searchbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblsearcherr))
         );
 
         headinglbl.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -253,7 +280,7 @@ public class FIRManagementForm extends javax.swing.JFrame {
                 .addComponent(searchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(tablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
@@ -284,60 +311,70 @@ public class FIRManagementForm extends javax.swing.JFrame {
     }//GEN-LAST:event_BackbtnActionPerformed
 
     private void AddbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddbtnActionPerformed
-        JTextField firIdField = new JTextField(10);
-        JTextField complainantField = new JTextField(20);
-        JTextField fathersNameField = new JTextField(20);
-        JTextField contactField = new JTextField(15);
-        JTextField addressField = new JTextField(30);
-        JTextField nicField = new JTextField(15);
-        JTextField dateField = new JTextField(10);
-        JTextField timeField = new JTextField(10);
-        JTextField locationField = new JTextField(20);
-        JTextField descriptionField = new JTextField(30);
-        JTextField crimeTypeField = new JTextField(20);
 
-        JPanel panel = new JPanel(new GridLayout(11, 2, 10, 10));
-        panel.add(new JLabel("FIR ID:"));
-        panel.add(firIdField);
-        panel.add(new JLabel("Complainant Name:"));
-        panel.add(complainantField);
-        panel.add(new JLabel("Father's Name:"));
-        panel.add(fathersNameField);
-        panel.add(new JLabel("Contact:"));
-        panel.add(contactField);
-        panel.add(new JLabel("Address:"));
-        panel.add(addressField);
-        panel.add(new JLabel("NIC Number:"));
-        panel.add(nicField);
-        panel.add(new JLabel("Incident Date (YYYY-MM-DD):"));
-        panel.add(dateField);
-        panel.add(new JLabel("Incident Time (HH:MM):"));
-        panel.add(timeField);
-        panel.add(new JLabel("Location:"));
-        panel.add(locationField);
-        panel.add(new JLabel("Description:"));
-        panel.add(descriptionField);
-        panel.add(new JLabel("Crime Type:"));
-        panel.add(crimeTypeField);
+     ReportComplaintForm complaintForm = new ReportComplaintForm(this);
+     complaintForm.setVisible(true);
 
-        int result = JOptionPane.showConfirmDialog(this, panel, "Add FIR", JOptionPane.OK_CANCEL_OPTION);
-        if (result == JOptionPane.OK_OPTION) 
-        {
-            try 
-            {
-                CSVHandler csvHandler = new CSVHandler();
-                FIR fir = new FIR(firIdField.getText(), complainantField.getText(), fathersNameField.getText(),
-                contactField.getText(), addressField.getText(), nicField.getText(), dateField.getText(),
-                timeField.getText(), locationField.getText(), descriptionField.getText(), crimeTypeField.getText());
-                csvHandler.addFIR(fir);
-                loadFIRs();
-                JOptionPane.showMessageDialog(this, "FIR added successfully!");
-            } 
-            catch (IOException e) 
-            {
-                JOptionPane.showMessageDialog(this, "Error adding FIR: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        }
+
+ 
+//        JTextField firIdField = new JTextField(10);
+//        JTextField complainantField = new JTextField(20);
+//        JTextField fathersNameField = new JTextField(20);
+//        JTextField contactField = new JTextField(15);
+//        JTextField addressField = new JTextField(30);
+//        JTextField nicField = new JTextField(15);
+//        JTextField dateField = new JTextField(10);
+//        JTextField timeField = new JTextField(10);
+//        JTextField locationField = new JTextField(20);
+//        JTextField descriptionField = new JTextField(30);
+//        JTextField crimeTypeField = new JTextField(20);
+//
+//        JPanel panel = new JPanel(new GridLayout(11, 2, 10, 10));
+//        panel.add(new JLabel("FIR ID:"));
+//        panel.add(firIdField);
+//        panel.add(new JLabel("Complainant Name:"));
+//        panel.add(complainantField);
+//        panel.add(new JLabel("Father's Name:"));
+//        panel.add(fathersNameField);
+//        panel.add(new JLabel("Contact:"));
+//        panel.add(contactField);
+//        panel.add(new JLabel("Address:"));
+//        panel.add(addressField);
+//        panel.add(new JLabel("NIC Number:"));
+//        panel.add(nicField);
+//        panel.add(new JLabel("Incident Date (YYYY-MM-DD):"));
+//        panel.add(dateField);
+//        panel.add(new JLabel("Incident Time (HH:MM):"));
+//        panel.add(timeField);
+//        panel.add(new JLabel("Location:"));
+//        panel.add(locationField);
+//        panel.add(new JLabel("Description:"));
+//        panel.add(descriptionField);
+//        panel.add(new JLabel("Crime Type:"));
+//        panel.add(crimeTypeField);
+//
+//        int result = JOptionPane.showConfirmDialog(this, panel, "Add FIR", JOptionPane.OK_CANCEL_OPTION);
+//        if (result == JOptionPane.OK_OPTION) 
+//        {
+//            try 
+//            {
+//                
+//                CSVHandler csvHandler = new CSVHandler();
+//                FIR fir = new FIR(txt.getText(), complainantField.getText(), fathersNameField.getText(),
+//                contactField.getText(), addressField.getText(), nicField.getText(), dateField.getText(),
+//                timeField.getText(), locationField.getText(), descriptionField.getText(), crimeTypeField.getText());
+//                csvHandler.addFIR(fir);
+//
+//                loadFIRs();
+//                JOptionPane.showMessageDialog(this, "FIR added successfully!");
+//            } 
+//            catch (IOException e) 
+//            {
+//                JOptionPane.showMessageDialog(this, "Error adding FIR: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+//            }
+////        }
+
+
     }//GEN-LAST:event_AddbtnActionPerformed
 
     private void UpdatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdatebtnActionPerformed
@@ -381,7 +418,7 @@ public class FIRManagementForm extends javax.swing.JFrame {
         panel.add(descriptionField);
         panel.add(new JLabel("Crime Type:"));
         panel.add(crimeTypeField);
-
+    
         int result = JOptionPane.showConfirmDialog(this, panel, "Update FIR", JOptionPane.OK_CANCEL_OPTION);
         if (result == JOptionPane.OK_OPTION) 
         {
@@ -402,6 +439,36 @@ public class FIRManagementForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_UpdatebtnActionPerformed
 
+    public void addfirtocsv(
+    String firId,
+    String complainantField,
+    String fathersNameField,
+    String contactField,
+    String addressField,
+    String nicField,
+    String dateField,
+    String timeField,
+    String locationField,
+    String descriptionField,
+    String crimeTypeField
+) throws IOException {
+    CSVHandler csvHandler = new CSVHandler();
+    FIR fir = new FIR(
+        firId,
+        complainantField,
+        fathersNameField,
+        contactField,
+        addressField,
+        nicField,
+        dateField,
+        timeField,
+        locationField,
+        descriptionField,
+        crimeTypeField
+    );
+    csvHandler.addFIR(fir);
+    loadFIRs();
+}
     private void DeletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletebtnActionPerformed
        int selectedRow = SearchResultsTable.getSelectedRow();
        if (selectedRow == -1) 
@@ -428,31 +495,17 @@ public class FIRManagementForm extends javax.swing.JFrame {
     }//GEN-LAST:event_DeletebtnActionPerformed
 
     private void SearchbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchbtnActionPerformed
-       if (searchbartxt.getText().isEmpty()) 
+        
+        boolean isvalid = FormValidator.searerr(searchbartxt, lblsearcherr);
+        
+        
+        if (searchbartxt.getText().isEmpty()) 
         {
             loadFIRs();
         } 
         else 
         {
-            tableModel.setRowCount(0);
-            try
-            {
-                CSVHandler csvHandler = new CSVHandler();
-                List<FIR> firs = csvHandler.searchFIRs(searchbartxt.getText());
-                for (FIR fir : firs)
-                {
-                    tableModel.addRow(new Object[]
-                    {
-                        fir.getFirId(), fir.getComplainantName(), fir.getFathersName(), fir.getContact(),
-                        fir.getAddress(), fir.getNicNumber(), fir.getIncidentDate(), fir.getIncidentTime(),
-                        fir.getLocation(), fir.getDescription(), fir.getCrimeType(), "View Details"
-                    });
-                }
-            }
-            catch (IOException e)
-            {
-                JOptionPane.showMessageDialog(this, "Error searching FIRs: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            }
+           
         }
     }//GEN-LAST:event_SearchbtnActionPerformed
 
@@ -463,25 +516,7 @@ public class FIRManagementForm extends javax.swing.JFrame {
         } 
         else 
         {
-            tableModel.setRowCount(0);
-            try 
-            {
-                CSVHandler csvHandler = new CSVHandler();
-                List<FIR> firs = csvHandler.searchFIRs(searchbartxt.getText());
-                for (FIR fir : firs) 
-                {
-                    tableModel.addRow(new Object[] 
-                    {
-                        fir.getFirId(), fir.getComplainantName(), fir.getFathersName(), fir.getContact(),
-                        fir.getAddress(), fir.getNicNumber(), fir.getIncidentDate(), fir.getIncidentTime(),
-                        fir.getLocation(), fir.getDescription(), fir.getCrimeType(), "View Details"
-                    });
-                }
-            } 
-            catch (IOException e) 
-            {
-                JOptionPane.showMessageDialog(this, "Error searching FIRs: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            }
+            loadFIRs(searchbartxt.getText());
         }
                           
     }//GEN-LAST:event_searchbartxtKeyReleased
@@ -530,6 +565,7 @@ public class FIRManagementForm extends javax.swing.JFrame {
     private javax.swing.JButton Updatebtn;
     private javax.swing.JLabel headinglbl;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblsearcherr;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel searchPanel;
     private javax.swing.JTextField searchbartxt;

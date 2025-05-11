@@ -14,70 +14,94 @@ import javax.swing.*;
  */
 public class FormValidator {
      public static boolean validateForm(
-        JTextField ComplainerNametxt, JLabel jLabel4,
-        JTextField ComplainerContacttxt, JLabel jLabel6,
-        JTextField ComplainerCNICtxt, JLabel jLabel7,
-        JDateChooser dateChoosertxt, JLabel jLabel8,
-        TimePicker IncidentTimetxt, JLabel jLabel9, 
-        JTextField Locationtxt, JLabel jLabel10,
-        JTextArea Descriptiontxt, JLabel jLabel11
+        JTextField txtID, JLabel lblerrID,
+        JTextField ComplainerNametxt, JLabel lblerrname,
+        JTextField txtcomplainfather, JLabel lblerrfather,
+        JTextField ComplainerContacttxt, JLabel lblerrcontact,
+        JTextField txtaddress, JLabel lblerraddress,
+        JTextField ComplainerCNICtxt, JLabel lblerrcnic,
+        JDateChooser dateChoosertxt, JLabel lblerrdate,
+        TimePicker IncidentTimetxt, JLabel lblerrtime, 
+        JTextField Locationtxt, JLabel lblerrlocation,
+        JTextArea Descriptiontxt, JLabel lblerrdescrip,
+        JTextField txtcrimetype, JLabel lblcrimetype
     ) {
         boolean isValid = true;
 
         // clear all error labels
-        jLabel4.setText("");
-        jLabel6.setText("");
-        jLabel7.setText("");
-        jLabel8.setText("");
-        jLabel9.setText("");
-        jLabel10.setText("");
-        jLabel11.setText("");
+        lblerrID.setText("");
+        lblerrname.setText("");
+        lblerrfather.setText("");
+        lblerrcontact.setText("");
+        lblerraddress.setText("");
+        lblerrcnic.setText("");
+        lblerrdate.setText("");
+        lblerrtime.setText("");
+        lblerrlocation.setText("");
+        lblerrdescrip.setText("");
+        lblcrimetype.setText("");
 
         if (ComplainerNametxt.getText().trim().isEmpty()) {
-            jLabel4.setText("<html><span style='color:red; font-weight:bold;'>Name is required.</span></html>");
+            lblerrname.setText("<html><span style='color:red; font-weight:bold;'>Name is required.</span></html>");
             isValid = false;
         }
-        if (!validateCNIC(ComplainerCNICtxt, jLabel7)) {
+        if (txtcrimetype.getText().trim().isEmpty()) {
+            lblcrimetype.setText("<html><span style='color:red; font-weight:bold;'>Type is required.</span></html>");
+            isValid = false;
+        }
+        if (txtID.getText().trim().isEmpty()) {
+            lblerrID.setText("<html><span style='color:red; font-weight:bold;'>ID is required.</span></html>");
+            isValid = false;
+        }
+        if (txtcomplainfather.getText().trim().isEmpty()) {
+            lblerrfather.setText("<html><span style='color:red; font-weight:bold;'>Father name is required.</span></html>");
+            isValid = false;
+        }
+        if (txtaddress.getText().trim().isEmpty()) {
+            lblerraddress.setText("<html><span style='color:red; font-weight:bold;'>Address is required.</span></html>");
+            isValid = false;
+        }
+        if (!validateCNIC(ComplainerCNICtxt, lblerrcnic)) {
             isValid = false;
         }
          Date selectedDate = dateChoosertxt.getDate();
         Date today = new Date();
 
         if (selectedDate == null) {
-            jLabel8.setText("<html><span style='color:red; font-weight:bold;'>Date is required.</span></html>");
+            lblerrdate.setText("<html><span style='color:red; font-weight:bold;'>Date is required.</span></html>");
             isValid = false;
         } else if (selectedDate.after(today)) {
-            jLabel8.setText("<html><span style='color:red; font-weight:bold;'>Future date not allowed.</span></html>");
+            lblerrdate.setText("<html><span style='color:red; font-weight:bold;'>Future date not allowed.</span></html>");
             isValid = false;
         } else {
-            jLabel8.setText("");  // Clear error
+            lblerrdate.setText("");  // Clear error
         }
 
         String phone = ComplainerContacttxt.getText().trim();
         if (phone.isEmpty()) {
-            jLabel6.setText("<html><span style='color:red; font-weight:bold;'>Phone number is required.</span></html>");
+            lblerrcontact.setText("<html><span style='color:red; font-weight:bold;'>Phone number is required.</span></html>");
             isValid = false;
         } else if (!phone.matches("\\d{11}")) {
-            jLabel6.setText("<html><span style='color:red; font-weight:bold;'>Enter 11 digit phone number.</span></html>");
+            lblerrcontact.setText("<html><span style='color:red; font-weight:bold;'>Enter 11 digit phone number.</span></html>");
             isValid = false;
         }
      if (IncidentTimetxt.getText().trim().isEmpty()) {
-    jLabel9.setText("<html><span style='color:red; font-weight:bold;'>Time required.</span></html>");
+    lblerrtime.setText("<html><span style='color:red; font-weight:bold;'>Time required.</span></html>");
     isValid = false;
 }
 
         if (Locationtxt.getText().trim().isEmpty()) {
-            jLabel10.setText("<html><span style='color:red; font-weight:bold;'>Location is required.</span></html>");
+            lblerrlocation.setText("<html><span style='color:red; font-weight:bold;'>Location is required.</span></html>");
             isValid = false;
         }
 
         String description = Descriptiontxt.getText().trim();
         int wordCount = description.isEmpty() ? 0 : description.split("\\s+").length;
         if (description.isEmpty()) {
-            jLabel11.setText("<html><span style='color:red; font-weight:bold;'>Description is required.</span></html>");
+            lblerrdescrip.setText("<html><span style='color:red; font-weight:bold;'>Description is required.</span></html>");
             isValid = false;
         } else if (wordCount > 100) {
-            jLabel11.setText("<html><span style='color:red; font-weight:bold;'>Max 100 words allowed. Currently: </span></html>" + wordCount);
+            lblerrdescrip.setText("<html><span style='color:red; font-weight:bold;'>Max 100 words allowed. Currently: </span></html>" + wordCount);
             isValid = false;
         }
 
@@ -111,5 +135,18 @@ public class FormValidator {
                              + digitsOnly.substring(12);
             txtcnic.setText(formatted);
         }
+    }
+    public static boolean searerr(JTextField searchbartxt,JLabel lblsearcherr){
+        boolean isvalid = true;
+        lblsearcherr.setText("");
+        
+        if(searchbartxt.getText().trim().isEmpty()){
+            lblsearcherr.setText("<html><span style='color:red; font-weight:bold;'>Must enter the ID (for search).</span></html>");
+         return isvalid = false;
+                 
+        }else {
+           lblsearcherr.setText("");
+        }        
+        return isvalid;
     }
 }

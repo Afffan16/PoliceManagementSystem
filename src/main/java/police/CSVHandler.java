@@ -132,6 +132,7 @@ public class CSVHandler
                 fir.getIncidentTime(), fir.getLocation(), fir.getDescription(), fir.getCrimeType()) + "\n");
         }
     }
+    
 
     public List<FIR> getAllFIRs() throws IOException {
         List<FIR> firs = new ArrayList<>();

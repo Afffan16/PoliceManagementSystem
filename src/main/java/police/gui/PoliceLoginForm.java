@@ -44,7 +44,7 @@ public class PoliceLoginForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Police Login");
         setResizable(false);
-        getContentPane().setLayout(new java.awt.GridLayout());
+        getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
@@ -53,6 +53,12 @@ public class PoliceLoginForm extends javax.swing.JFrame {
 
         Passwordlbl.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         Passwordlbl.setText("Password :");
+
+        Usernametxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UsernametxtActionPerformed(evt);
+            }
+        });
 
         headinglbl.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         headinglbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -175,6 +181,10 @@ public class PoliceLoginForm extends javax.swing.JFrame {
     private void PasswordtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordtxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PasswordtxtActionPerformed
+
+    private void UsernametxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernametxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UsernametxtActionPerformed
 
     /**
      * @param args the command line arguments
