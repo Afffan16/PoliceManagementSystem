@@ -31,7 +31,6 @@ public class ViewFIRForm extends javax.swing.JFrame
         initComponents();
         firs = new ArrayList<>();
         setLocationRelativeTo(null);
-        tableModel = (DefaultTableModel) SearchResultsTable.getModel();
         configureTable();
         loadFIRs();
     }
@@ -44,36 +43,37 @@ public class ViewFIRForm extends javax.swing.JFrame
         SearchResultsTable.getColumnModel().getColumn(11).setCellRenderer(new ButtonRenderer());
         SearchResultsTable.getColumnModel().getColumn(11).setCellEditor(new ButtonEditor(new JCheckBox()));
     }   
-    private void loadFIRs() 
-    {
-            List<FIR> loadedFIRs = CSVHandler.loadFIRs();
-            firs = (loadedFIRs != null) ? loadedFIRs : new ArrayList<>();
-            System.out.println("Loaded FIRs in ViewSearchFIRForm: " + firs.size()); // Debug
-            String[] columnNames = {"FIR ID", "Complainant Name", "Contact", "NIC", "Crime Type"};
-            Object[][] data = new Object[firs.size()][5];
-            for (int i = 0; i < firs.size(); i++) 
-            {
-                FIR f = firs.get(i);
-                data[i][0] = f.getFirId();
-                data[i][1] = f.getComplainantName();
-                data[i][2] = f.getContact() != null ? f.getContact() : "";
-                data[i][3] = f.getNicNumber() != null ? f.getNicNumber() : "";
-                data[i][4] = f.getCrimeType() != null ? f.getCrimeType() : "";
-            }
-            if (tableModel == null) 
-            {
-                System.out.println("Error: tableModel is null in loadFIRs ViewSearchFIRForm"); // Debug
-                tableModel = new DefaultTableModel();
-                SearchResultsTable.setModel(tableModel);
-            }
-            tableModel.setDataVector(data, columnNames);
-            SearchResultsTable.getColumnModel().getColumn(0).setPreferredWidth(100);
-            SearchResultsTable.getColumnModel().getColumn(1).setPreferredWidth(150);
-            SearchResultsTable.getColumnModel().getColumn(2).setPreferredWidth(120);
-            SearchResultsTable.getColumnModel().getColumn(3).setPreferredWidth(120);
-            SearchResultsTable.getColumnModel().getColumn(4).setPreferredWidth(100);
-   }
-    
+    public void loadFIRs() {
+        List<FIR> loadedFIRs = CSVHandler.loadFIRs();
+        firs = (loadedFIRs != null) ? loadedFIRs : new ArrayList<>();
+        System.out.println("Loaded FIRs in ViewSearchFIRForm: " + firs.size()); 
+        String[] columnNames = {"FIR ID", "Complainant Name", "Contact", "NIC", "Crime Type", "View Details"};
+        Object[][] data = new Object[firs.size()][6];
+        for (int i = 0; i < firs.size(); i++) {
+            FIR f = firs.get(i);
+            data[i][0] = f.getFirId();
+            data[i][1] = f.getComplainantName();
+            data[i][2] = f.getContact() != null ? f.getContact() : "";
+            data[i][3] = f.getNicNumber() != null ? f.getNicNumber() : "";
+            data[i][4] = f.getCrimeType() != null ? f.getCrimeType() : "";
+            data[i][5] = "View Details";
+        }
+        if (tableModel == null) {
+            System.out.println("Error: tableModel is null in loadFIRs ViewSearchFIRForm"); 
+            tableModel = new DefaultTableModel();
+            SearchResultsTable.setModel(tableModel);
+        }
+        tableModel.setDataVector(data, columnNames);
+        SearchResultsTable.getColumnModel().getColumn(0).setPreferredWidth(100);
+        SearchResultsTable.getColumnModel().getColumn(1).setPreferredWidth(150);
+        SearchResultsTable.getColumnModel().getColumn(2).setPreferredWidth(120);
+        SearchResultsTable.getColumnModel().getColumn(3).setPreferredWidth(120);
+        SearchResultsTable.getColumnModel().getColumn(4).setPreferredWidth(100);
+        SearchResultsTable.getColumnModel().getColumn(5).setPreferredWidth(100);
+        SearchResultsTable.getColumnModel().getColumn(5).setCellRenderer(new ButtonRenderer());
+        SearchResultsTable.getColumnModel().getColumn(5).setCellEditor(new ButtonEditor(new JCheckBox()));
+    }          
+            
     class ButtonRenderer extends JButton implements TableCellRenderer 
     {
         public ButtonRenderer() 
