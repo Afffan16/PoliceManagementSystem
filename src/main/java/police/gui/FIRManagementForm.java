@@ -29,6 +29,7 @@ public class FIRManagementForm extends javax.swing.JFrame {
         firs = new ArrayList<>();
         loadFIRs();
         setLocationRelativeTo(null);
+        tableModel = (DefaultTableModel) SearchResultsTable.getModel();
         this.loggedInUsername = loggedInUsername;
     }
     public void loadFIRs() 
@@ -317,87 +318,72 @@ public class FIRManagementForm extends javax.swing.JFrame {
     }//GEN-LAST:event_UpdatebtnActionPerformed
 
     private void DeletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletebtnActionPerformed
-       int selectedRow = SearchResultsTable.getSelectedRow();
-       if (selectedRow == -1) 
-       {
-            JOptionPane.showMessageDialog(this, "Please select an FIR to delete", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        String firId = (String) tableModel.getValueAt(selectedRow, 0);
-        int result = JOptionPane.showConfirmDialog(this, "Delete FIR " + firId + "?", "Confirm Delete", JOptionPane.YES_NO_OPTION);
-        if (result == JOptionPane.YES_OPTION) 
+        int selectedRow = SearchResultsTable.getSelectedRow();
+        if (selectedRow >= 0) 
         {
-            try 
+            String firId = (String) SearchResultsTable.getValueAt(selectedRow, 0);
+            System.out.println("Selected FIR for deletion: " + firId); // Debug
+            int confirm = JOptionPane.showConfirmDialog(this,
+                "Are you sure you want to delete FIR: " + firId + "?",
+                "Confirm Deletion", JOptionPane.OK_CANCEL_OPTION);
+            if (confirm == JOptionPane.OK_OPTION) 
             {
-                CSVHandler csvHandler = new CSVHandler();
-                csvHandler.deleteFIR(firId);
+                CSVHandler.deleteFIR(firId);
                 loadFIRs();
-                JOptionPane.showMessageDialog(this, "FIR deleted successfully!");
-            } 
-            catch (IOException e) 
-            {
-                JOptionPane.showMessageDialog(this, "Error deleting FIR: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "FIR deleted successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
             }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Please select an FIR to delete.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_DeletebtnActionPerformed
 
     private void SearchbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchbtnActionPerformed
-       if (searchbartxt.getText().isEmpty()) 
-        {
-            loadFIRs();
-        } 
-        else 
-        {
-            tableModel.setRowCount(0);
-            try
-            {
-                CSVHandler csvHandler = new CSVHandler();
-                List<FIR> firs = csvHandler.searchFIRs(searchbartxt.getText());
-                for (FIR fir : firs)
+            String searchText = searchbartxt.getText().trim().toLowerCase();
+            System.out.println("Search button clicked with text: " + searchText); 
+            if (tableModel == null) {
+                System.out.println("Error: tableModel is null in SearchbtnActionPerformed"); 
+                return;
+            }
+            tableModel.setRowCount(0); // Clear table
+                for (FIR fir : firs) 
                 {
-                    tableModel.addRow(new Object[]
+                    if (fir.getFirId().toLowerCase().contains(searchText) ||
+                        fir.getComplainantName().toLowerCase().contains(searchText) ||
+                       (fir.getCrimeType() != null && fir.getCrimeType().toLowerCase().contains(searchText))) 
                     {
-                        fir.getFirId(), fir.getComplainantName(), fir.getFathersName(), fir.getContact(),
-                        fir.getAddress(), fir.getNicNumber(), fir.getIncidentDate(), fir.getIncidentTime(),
-                        fir.getLocation(), fir.getDescription(), fir.getCrimeType(), "View Details"
-                    });
+                        tableModel.addRow(new Object[]{
+                            fir.getFirId(),
+                            fir.getComplainantName(),
+                            fir.getContact() != null ? fir.getContact() : "",
+                            fir.getNicNumber() != null ? fir.getNicNumber() : "",
+                            fir.getCrimeType() != null ? fir.getCrimeType() : ""
+                        });
+                    }
                 }
-            }
-            catch (IOException e)
-            {
-                JOptionPane.showMessageDialog(this, "Error searching FIRs: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        }
+            System.out.println("Filtered FIRs: " + tableModel.getRowCount()); 
     }//GEN-LAST:event_SearchbtnActionPerformed
 
     private void searchbartxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchbartxtKeyReleased
-        if (searchbartxt.getText().isEmpty()) 
+        String searchText = searchbartxt.getText().trim().toUpperCase();
+        System.out.println("Searching FIRs with text: " + searchText); 
+        tableModel.setRowCount(0);
+        for (FIR fir : firs) 
         {
-            loadFIRs();
-        } 
-        else 
-        {
-            tableModel.setRowCount(0);
-            try 
+            if (fir.getFirId().toLowerCase().contains(searchText) )
             {
-                CSVHandler csvHandler = new CSVHandler();
-                List<FIR> firs = csvHandler.searchFIRs(searchbartxt.getText());
-                for (FIR fir : firs) 
+                tableModel.addRow(new Object[]
                 {
-                    tableModel.addRow(new Object[] 
-                    {
-                        fir.getFirId(), fir.getComplainantName(), fir.getFathersName(), fir.getContact(),
-                        fir.getAddress(), fir.getNicNumber(), fir.getIncidentDate(), fir.getIncidentTime(),
-                        fir.getLocation(), fir.getDescription(), fir.getCrimeType(), "View Details"
-                    });
-                }
-            } 
-            catch (IOException e) 
-            {
-                JOptionPane.showMessageDialog(this, "Error searching FIRs: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                    fir.getFirId(),
+                    fir.getComplainantName(),
+                    fir.getContact() != null ? fir.getContact() : "",
+                    fir.getNicNumber() != null ? fir.getNicNumber() : "",
+                    fir.getCrimeType() != null ? fir.getCrimeType() : ""
+                });
             }
         }
-                          
+        System.out.println("Filtered FIRs: " + tableModel.getRowCount()); 
     }//GEN-LAST:event_searchbartxtKeyReleased
 
     /**

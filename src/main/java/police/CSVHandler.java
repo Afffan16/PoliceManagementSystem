@@ -215,19 +215,35 @@ public class CSVHandler
         }
     }
 
-    public void deleteFIR(String firId) throws IOException {
+    public static void deleteFIR(String firId) 
+    {
         List<FIR> firs = loadFIRs();
-        try (FileWriter writer = new FileWriter(FIRS_CSV)) {
-            writer.write("firId,complainantName,fathersName,contact,address,nicNumber,incidentDate,incidentTime,location,description,crimeType\n");
-            for (FIR fir : firs) {
-                if (!fir.getFirId().equals(firId)) {
-                    writer.write(String.join(",", fir.getFirId(), fir.getComplainantName(), fir.getFathersName(),
-                        fir.getContact(), fir.getAddress(), fir.getNicNumber(), fir.getIncidentDate(),
-                        fir.getIncidentTime(), fir.getLocation(), fir.getDescription(), fir.getCrimeType()) + "\n");
-                }
+        boolean deleted = firs.removeIf(f -> f.getFirId().equals(firId));
+        if (!deleted) 
+        {
+            System.out.println("Failed to delete FIR: " + firId);
+            return;
+        }
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("resources/firs.csv"))) 
+        {
+            bw.write("firId,complainantName,fathersName,contact,address,nicNumber,incidentDate,incidentTime,location,description,crimeType");
+            bw.newLine();
+            for (FIR f : firs) 
+            {
+                bw.write(String.join(",", f.getFirId(), f.getComplainantName(), f.getFathersName(),
+                                    f.getContact(), f.getAddress(), f.getNicNumber(), f.getIncidentDate(),
+                                    f.getIncidentTime(), f.getLocation(), f.getDescription(), f.getCrimeType()));
+                bw.newLine();
             }
+            System.out.println("FIR deleted successfully: " + firId); // Debug
+        } 
+        catch (IOException e) 
+        {
+            System.out.println("Failed to delete FIR from CSV: " + e.getMessage());
+            e.printStackTrace();
         }
     }
+
     
     public static List<Complaint> loadComplaints() 
     {

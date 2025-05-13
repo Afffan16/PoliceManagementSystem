@@ -8,6 +8,7 @@ import police.model.*;
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
+import java.util.ArrayList;
 import javax.swing.table.*;
 import java.util.List;
 /**
@@ -23,11 +24,12 @@ public class ViewFIRForm extends javax.swing.JFrame
     
     private static String loggedInUsername;
     private DefaultTableModel tableModel;
-    
+    private List<FIR> firs = new ArrayList<>();;
     public ViewFIRForm(String loggedInUsername) 
     {
         this.loggedInUsername = loggedInUsername;
         initComponents();
+        firs = new ArrayList<>();
         setLocationRelativeTo(null);
         tableModel = (DefaultTableModel) SearchResultsTable.getModel();
         configureTable();
@@ -44,18 +46,34 @@ public class ViewFIRForm extends javax.swing.JFrame
     }   
     private void loadFIRs() 
     {
-        tableModel.setRowCount(0);
-        CSVHandler csvHandler = new CSVHandler();
-        List<FIR> firs = csvHandler.loadFIRs();
-        for (FIR fir : firs) 
-        {
-            tableModel.addRow(new Object[] {
-                fir.getFirId(), fir.getComplainantName(), fir.getFathersName(), fir.getContact(),
-                fir.getAddress(), fir.getNicNumber(), fir.getIncidentDate(), fir.getIncidentTime(),
-                fir.getLocation(), fir.getDescription(), fir.getCrimeType(), "View Details"
-            });
-         }  
-    }
+            List<FIR> loadedFIRs = CSVHandler.loadFIRs();
+            firs = (loadedFIRs != null) ? loadedFIRs : new ArrayList<>();
+            System.out.println("Loaded FIRs in ViewSearchFIRForm: " + firs.size()); // Debug
+            String[] columnNames = {"FIR ID", "Complainant Name", "Contact", "NIC", "Crime Type"};
+            Object[][] data = new Object[firs.size()][5];
+            for (int i = 0; i < firs.size(); i++) 
+            {
+                FIR f = firs.get(i);
+                data[i][0] = f.getFirId();
+                data[i][1] = f.getComplainantName();
+                data[i][2] = f.getContact() != null ? f.getContact() : "";
+                data[i][3] = f.getNicNumber() != null ? f.getNicNumber() : "";
+                data[i][4] = f.getCrimeType() != null ? f.getCrimeType() : "";
+            }
+            if (tableModel == null) 
+            {
+                System.out.println("Error: tableModel is null in loadFIRs ViewSearchFIRForm"); // Debug
+                tableModel = new DefaultTableModel();
+                SearchResultsTable.setModel(tableModel);
+            }
+            tableModel.setDataVector(data, columnNames);
+            SearchResultsTable.getColumnModel().getColumn(0).setPreferredWidth(100);
+            SearchResultsTable.getColumnModel().getColumn(1).setPreferredWidth(150);
+            SearchResultsTable.getColumnModel().getColumn(2).setPreferredWidth(120);
+            SearchResultsTable.getColumnModel().getColumn(3).setPreferredWidth(120);
+            SearchResultsTable.getColumnModel().getColumn(4).setPreferredWidth(100);
+   }
+    
     class ButtonRenderer extends JButton implements TableCellRenderer 
     {
         public ButtonRenderer() 
@@ -297,32 +315,27 @@ public class ViewFIRForm extends javax.swing.JFrame
     }// </editor-fold>//GEN-END:initComponents
 
     private void SearchbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchbtnActionPerformed
-        if (searchbartxt.getText().isEmpty()) 
-        {
-            loadFIRs();
-        } 
-        else 
-        {
-            tableModel.setRowCount(0);
-            try
-            {
-                CSVHandler csvHandler = new CSVHandler();
-                List<FIR> firs = csvHandler.searchFIRs(searchbartxt.getText());
-                for (FIR fir : firs)
+        String searchText = searchbartxt.getText().trim().toLowerCase();
+            System.out.println("Search button clicked with text: " + searchText); 
+            if (tableModel == null) {
+                System.out.println("Error: tableModel is null in SearchbtnActionPerformed"); 
+                return;
+            }
+            tableModel.setRowCount(0); 
+                for (FIR fir : firs) 
                 {
-                    tableModel.addRow(new Object[]
+                    if (fir.getFirId().toLowerCase().contains(searchText)) 
                     {
-                        fir.getFirId(), fir.getComplainantName(), fir.getFathersName(), fir.getContact(),
-                        fir.getAddress(), fir.getNicNumber(), fir.getIncidentDate(), fir.getIncidentTime(),
-                        fir.getLocation(), fir.getDescription(), fir.getCrimeType(), "View Details"
-                    });
+                        tableModel.addRow(new Object[]{
+                            fir.getFirId(),
+                            fir.getComplainantName(),
+                            fir.getContact() != null ? fir.getContact() : "",
+                            fir.getNicNumber() != null ? fir.getNicNumber() : "",
+                            fir.getCrimeType() != null ? fir.getCrimeType() : ""
+                        });
+                    }
                 }
-            }
-            catch (IOException e)
-            {
-                JOptionPane.showMessageDialog(this, "Error searching FIRs: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        }
+            System.out.println("Filtered FIRs: " + tableModel.getRowCount());  
     }//GEN-LAST:event_SearchbtnActionPerformed
 
     private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
@@ -335,32 +348,28 @@ public class ViewFIRForm extends javax.swing.JFrame
     }//GEN-LAST:event_SearchResultsTableMouseClicked
 
     private void searchbartxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchbartxtKeyReleased
-        if (searchbartxt.getText().isEmpty()) 
-        {
-            loadFIRs();
-        } 
-        else 
-        {
-            tableModel.setRowCount(0);
-            try 
-            {
-                CSVHandler csvHandler = new CSVHandler();
-                List<FIR> firs = csvHandler.searchFIRs(searchbartxt.getText());
-                for (FIR fir : firs) 
-                {
-                    tableModel.addRow(new Object[] 
-                    {
-                        fir.getFirId(), fir.getComplainantName(), fir.getFathersName(), fir.getContact(),
-                        fir.getAddress(), fir.getNicNumber(), fir.getIncidentDate(), fir.getIncidentTime(),
-                        fir.getLocation(), fir.getDescription(), fir.getCrimeType(), "View Details"
-                    });
-                }
-            } 
-            catch (IOException e) 
-            {
-                JOptionPane.showMessageDialog(this, "Error searching FIRs: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        String searchText = searchbartxt.getText().trim().toLowerCase();
+        System.out.println("Searching FIRs in ViewSearchFIRForm with text: " + searchText); // Debug
+        if (tableModel == null) {
+            System.out.println("Error: tableModel is null in searchbartxtKeyReleased ViewSearchFIRForm"); // Debug
+            tableModel = new DefaultTableModel();
+            SearchResultsTable.setModel(tableModel);
+        }
+        tableModel.setRowCount(0);
+        for (FIR fir : firs) {
+            if (fir.getFirId().toLowerCase().contains(searchText) ||
+                fir.getComplainantName().toLowerCase().contains(searchText) ||
+                (fir.getCrimeType() != null && fir.getCrimeType().toLowerCase().contains(searchText))) {
+                tableModel.addRow(new Object[]{
+                    fir.getFirId(),
+                    fir.getComplainantName(),
+                    fir.getContact() != null ? fir.getContact() : "",
+                    fir.getNicNumber() != null ? fir.getNicNumber() : "",
+                    fir.getCrimeType() != null ? fir.getCrimeType() : ""
+                });
             }
         }
+        System.out.println("Filtered FIRs in ViewSearchFIRForm: " + tableModel.getRowCount());
     }//GEN-LAST:event_searchbartxtKeyReleased
 
     /**
