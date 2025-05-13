@@ -1,0 +1,3 @@
+officerId,username,password,role,name,badgeNumber,email,phone,serviceYears,casesSolved,successPercentage,imagePath
+BDG-001,Affan,Afffan16,Head Constable,Muhammad Affan bin Aamir,BDG001,affan.aamir@police.gov,123-456-789,15,70,82.5,resources/images/affan.jpeg
+BDG-002,Umar,UmarAzhar24,Inspector,Muhammad Umar Azhar,BDG002,umar.azhar@police.gov,987-654-321,6,48,95,resources/images/umar.jpeg

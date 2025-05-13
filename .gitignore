@@ -1,0 +1,20 @@
+# NetBeans
+nbproject/private/
+build/
+dist/
+*.nbm
+
+# Compiled classes
+*.class
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.dbtarget/
