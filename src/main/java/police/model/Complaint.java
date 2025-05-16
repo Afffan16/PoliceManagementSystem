@@ -4,6 +4,8 @@
  */
 package police.model;
 
+import java.util.Date;
+
 /**
  *
  * @author HP
@@ -14,7 +16,7 @@ public class Complaint {
     private String complainantName;
     private String contact;
     private String nicNumber;
-    private String incidentDate;
+    private Date incidentDate;
     private String incidentTime;
     private String location;
     private String description;
@@ -22,7 +24,7 @@ public class Complaint {
     private String status;
 
     public Complaint(String complaintId, String complainantName, String contact, String nicNumber,
-                     String incidentDate, String incidentTime, String location, String description,
+                     Date incidentDate, String incidentTime, String location, String description,
                      String evidencePath, String status) {
         this.complaintId = complaintId;
         this.complainantName = complainantName;
@@ -37,7 +39,7 @@ public class Complaint {
     }
 
     public Complaint(String complaintId, String complainantName, String contact, String nicNumber, 
-                     String incidentDate, String incidentTime, String location, String description, 
+                     Date incidentDate, String incidentTime, String location, String description, 
                      String selectedStatus) 
     {
         this.complaintId = complaintId;
@@ -57,7 +59,7 @@ public class Complaint {
     public String getComplainantName() { return complainantName; }
     public String getContact() { return contact; }
     public String getNicNumber() { return nicNumber; }
-    public String getIncidentDate() { return incidentDate; }
+    public Date getIncidentDate() { return incidentDate; }
     public String getIncidentTime() { return incidentTime; }
     public String getLocation() { return location; }
     public String getDescription() { return description; }

@@ -10,6 +10,8 @@ package police;
  */
 import police.model.*;
 import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import javax.swing.JOptionPane;
 
@@ -74,11 +76,12 @@ public class CSVHandler
         }
     }
 
-    public void addComplaint(String complaintId, String complainantName, String contact, String nicNumber,
+    public void addComplaint(String complaintId, String complainantName,String complainerFathername, 
+                              String contact, String nicNumber,String Address,
                              String incidentDate, String incidentTime, String location, String description,
                              String evidencePath, String status) throws IOException {
         try (FileWriter writer = new FileWriter(COMPLAINTS_CSV, true)) {
-            writer.write(String.join(",", complaintId, complainantName, contact, nicNumber, incidentDate,
+            writer.write(String.join(",", complaintId, complainantName ,complainerFathername, contact, nicNumber,Address, incidentDate,
                 incidentTime, location, description, evidencePath, status) + "\n");
         }
     }
@@ -151,6 +154,7 @@ public class CSVHandler
 
     public static List<FIR> loadFIRs() 
     {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         List<FIR> firs = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("resources/firs.csv")))
         {
@@ -159,7 +163,13 @@ public class CSVHandler
             while ((line = br.readLine()) != null) 
             {
                 String[] data = line.split(",", -1);
-                firs.add(new FIR(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9], data[10]));
+                  Date incidentDate = null;
+            try {
+                incidentDate = sdf.parse(data[6]); // assuming 7th index is date string
+            } catch (ParseException e) {
+              e.printStackTrace();
+            }
+                firs.add(new FIR(data[0], data[1], data[2], data[3], data[4], data[5], incidentDate, data[7], data[8], data[9], data[10]));
             }
         } 
         catch (IOException e) 
@@ -171,14 +181,21 @@ public class CSVHandler
     }
 
     public List<FIR> searchFIRs(String firId) throws IOException {
+         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         List<FIR> firs = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(FIRS_CSV))) {
             String line;
             reader.readLine(); 
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
+                 Date incidentDate = null;
+            try {
+                incidentDate = sdf.parse(data[6]); // assuming 7th index is date string
+            } catch (ParseException e) {
+              e.printStackTrace();
+            }
                 if (data.length >= 11 && data[0].toLowerCase().contains(firId.toLowerCase())) {
-                    firs.add(new FIR(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9], data[10]));
+                    firs.add(new FIR(data[0], data[1], data[2], data[3], data[4], data[5], incidentDate, data[7], data[8], data[9], data[10]));
                 }
             }
         }
@@ -224,19 +241,32 @@ public class CSVHandler
             System.out.println("Failed to delete FIR: " + firId);
             return;
         }
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("resources/firs.csv"))) 
-        {
-            bw.write("firId,complainantName,fathersName,contact,address,nicNumber,incidentDate,incidentTime,location,description,crimeType");
-            bw.newLine();
-            for (FIR f : firs) 
-            {
-                bw.write(String.join(",", f.getFirId(), f.getComplainantName(), f.getFathersName(),
-                                    f.getContact(), f.getAddress(), f.getNicNumber(), f.getIncidentDate(),
-                                    f.getIncidentTime(), f.getLocation(), f.getDescription(), f.getCrimeType()));
-                bw.newLine();
-            }
-            System.out.println("FIR deleted successfully: " + firId); // Debug
-        } 
+     try (BufferedWriter bw = new BufferedWriter(new FileWriter("resources/firs.csv"))) 
+{
+    bw.write("firId,complainantName,fathersName,contact,address,nicNumber,incidentDate,incidentTime,location,description,crimeType");
+    bw.newLine();
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    for (FIR f : firs) 
+    {
+        String incidentDateStr = f.getIncidentDate() != null ? sdf.format(f.getIncidentDate()) : "";
+        
+        bw.write(String.join(",", 
+            f.getFirId(), 
+            f.getComplainantName(), 
+            f.getFathersName(),
+            f.getContact(), 
+            f.getAddress(), 
+            f.getNicNumber(), 
+            incidentDateStr,
+            f.getIncidentTime(), 
+            f.getLocation(), 
+            f.getDescription(), 
+            f.getCrimeType()
+        ));
+        bw.newLine();
+    }
+    System.out.println("FIR deleted successfully: " + firId);
+}
         catch (IOException e) 
         {
             System.out.println("Failed to delete FIR from CSV: " + e.getMessage());
@@ -247,6 +277,7 @@ public class CSVHandler
     
     public static List<Complaint> loadComplaints() 
     {
+         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         List<Complaint> complaints = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("resources/complaints.csv"))) 
         {
@@ -255,8 +286,14 @@ public class CSVHandler
             while ((line = br.readLine()) != null) 
             {
                 String[] data = line.split(",", -1); // Handle empty fields
+                 Date incidentDate = null;
+            try {
+                incidentDate = sdf.parse(data[4]); // assuming 7th index is date string
+            } catch (ParseException e) {
+              e.printStackTrace();
+            }
                 complaints.add(new Complaint(
-                    data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9]
+                    data[0], data[1], data[2], data[3], incidentDate, data[5], data[6], data[7], data[8], data[9]
                 ));
             }
         }
