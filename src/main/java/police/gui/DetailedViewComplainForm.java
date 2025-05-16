@@ -7,6 +7,7 @@ import police.model.Complaint;
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import police.CSVHandler;
 import police.gui.CheckComplaintsForm;
@@ -320,7 +321,12 @@ public class DetailedViewComplainForm extends javax.swing.JFrame {
         Namelbl.setText(complaint.getComplainantName());
         Contactlbl.setText(complaint.getContact() != null ? complaint.getContact() : "");
         NIClbl.setText(complaint.getNicNumber() != null ? complaint.getNicNumber() : "");
-        Datelbl.setText(complaint.getIncidentDate() != null ? complaint.getIncidentDate() : "");
+        if (complaint.getIncidentDate() != null) {
+        String dateString = new SimpleDateFormat("yyyy-MM-dd").format(complaint.getIncidentDate());
+        Datelbl.setText(dateString);
+        } else {
+            Datelbl.setText("");
+        }
         Timelbl.setText(complaint.getIncidentTime() != null ? complaint.getIncidentTime() : "");
         Locationlbl.setText(complaint.getLocation() != null ? complaint.getLocation() : "");
         Descriptiontxt.setText(complaint.getDescription() != null ? complaint.getDescription() : "");
@@ -329,6 +335,11 @@ public class DetailedViewComplainForm extends javax.swing.JFrame {
         Statuslbl.setText(complaint.getStatus());
     }
     
+//     if (fir.getIncidentDate() != null) {
+//            incidentDatetxt.setDate(fir.getIncidentDate());
+//        } else {
+//            incidentDatetxt.setDate(null);
+//        }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Backbtn;

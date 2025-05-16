@@ -4,6 +4,8 @@
  */
 package police.model;
 
+import java.util.Date;
+
 /**
  *
  * @author HP
@@ -16,14 +18,14 @@ public class FIR
     private String contact;
     private String address;
     private String nicNumber;
-    private String incidentDate;
+    private Date incidentDate;
     private String incidentTime;
     private String location;
     private String description;
     private String crimeType;
 
     public FIR(String firId, String complainantName, String fathersName, String contact, String address, String nicNumber,
-               String incidentDate, String incidentTime, String location, String description, String crimeType) {
+               Date incidentDate, String incidentTime, String location, String description, String crimeType) {
         this.firId = firId;
         this.complainantName = complainantName;
         this.contact = contact;
@@ -44,7 +46,7 @@ public class FIR
     public String getContact() { return contact; }
     public String getAddress() { return address; }
     public String getNicNumber() { return nicNumber; }
-    public String getIncidentDate() { return incidentDate; }
+    public Date getIncidentDate() { return incidentDate; }
     public String getIncidentTime() { return incidentTime; }
     public String getLocation() { return location; }
     public String getDescription() { return description; }

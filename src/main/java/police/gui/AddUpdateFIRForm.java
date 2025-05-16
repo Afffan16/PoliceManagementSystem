@@ -8,10 +8,16 @@ import police.CSVHandler;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import police.model.FormValidator;
 
 /**
  *
@@ -60,63 +66,74 @@ public class AddUpdateFIRForm extends javax.swing.JFrame {
         fatherNametxt = new javax.swing.JTextField();
         contacttxt = new javax.swing.JTextField();
         addresstxt = new javax.swing.JTextField();
-        incidentDatetxt = new javax.swing.JTextField();
-        incidentTimetxt = new javax.swing.JTextField();
         locationtxt = new javax.swing.JTextField();
-        descriptiontxt = new javax.swing.JTextField();
         crimeTypetxt = new javax.swing.JTextField();
         nicNotxt = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
         okbtn = new javax.swing.JButton();
         cancelbtn = new javax.swing.JButton();
+        incidentDatetxt = new com.toedter.calendar.JDateChooser();
+        IncidentTimetxt = new com.github.lgooddatepicker.components.TimePicker();
+        lblerrname = new javax.swing.JLabel();
+        lblerrFathername = new javax.swing.JLabel();
+        lblerrcontact = new javax.swing.JLabel();
+        lblerrcinc = new javax.swing.JLabel();
+        lblerrAddress = new javax.swing.JLabel();
+        lblerrdate = new javax.swing.JLabel();
+        lblerrtime = new javax.swing.JLabel();
+        lblerrdiscription = new javax.swing.JLabel();
+        lblerrCrimeType = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        descriptiontxt = new javax.swing.JTextArea();
+        lblerrlocation = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("                                                                                            Add / Update FIR");
         setBackground(new java.awt.Color(240, 240, 240));
-        setPreferredSize(new java.awt.Dimension(640, 560));
+        setPreferredSize(new java.awt.Dimension(640, 800));
         setResizable(false);
 
         mainPanel.setPreferredSize(new java.awt.Dimension(620, 540));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("FIR ID :");
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Complainant Name :");
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Father's Name :");
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Contact : ");
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Address :");
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Incident Date ( YYYY-MM-DD ) : ");
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Incident Time ( HH : MM ) : ");
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
-        jLabel8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Location : ");
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
-        jLabel9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Description : ");
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
-        jLabel10.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Crime Type : ");
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
         complainantNametxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,27 +159,9 @@ public class AddUpdateFIRForm extends javax.swing.JFrame {
             }
         });
 
-        incidentDatetxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                incidentDatetxtActionPerformed(evt);
-            }
-        });
-
-        incidentTimetxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                incidentTimetxtActionPerformed(evt);
-            }
-        });
-
         locationtxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 locationtxtActionPerformed(evt);
-            }
-        });
-
-        descriptiontxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                descriptiontxtActionPerformed(evt);
             }
         });
 
@@ -178,9 +177,9 @@ public class AddUpdateFIRForm extends javax.swing.JFrame {
             }
         });
 
-        jLabel31.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel31.setText("NIC No :");
+        jLabel31.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
         okbtn.setText("OK");
         okbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -196,50 +195,67 @@ public class AddUpdateFIRForm extends javax.swing.JFrame {
             }
         });
 
+        descriptiontxt.setColumns(20);
+        descriptiontxt.setRows(5);
+        jScrollPane1.setViewportView(descriptiontxt);
+
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
+                .addGap(230, 230, 230)
+                .addComponent(okbtn)
+                .addGap(33, 33, 33)
+                .addComponent(cancelbtn))
+            .addGroup(mainPanelLayout.createSequentialGroup()
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
                         .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(mainPanelLayout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(82, 82, 82))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(descriptiontxt, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(locationtxt, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(incidentTimetxt, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(incidentDatetxt, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(addresstxt, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nicNotxt, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(contacttxt, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fatherNametxt, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(complainantNametxt, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(firIDtxt, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(crimeTypetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(12, 12, 12)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(82, 82, 82))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(locationtxt, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(addresstxt, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nicNotxt, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(contacttxt, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(fatherNametxt, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(complainantNametxt, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(firIDtxt, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(crimeTypetxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
+                    .addComponent(incidentDatetxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(IncidentTimetxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(230, 230, 230)
-                        .addComponent(okbtn)
-                        .addGap(33, 33, 33)
-                        .addComponent(cancelbtn)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(lblerrname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblerrFathername, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblerrcontact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblerrcinc, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblerrAddress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblerrdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblerrtime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblerrdiscription, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblerrCrimeType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1))
+                            .addComponent(lblerrlocation, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,51 +264,75 @@ public class AddUpdateFIRForm extends javax.swing.JFrame {
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(firIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(complainantNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblerrname)
+                .addGap(1, 1, 1)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fatherNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblerrFathername)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(contacttxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblerrcontact)
+                .addGap(4, 4, 4)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nicNotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblerrcinc)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addresstxt, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(addresstxt)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3)
+                .addComponent(lblerrAddress)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(incidentDatetxt, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
+                .addGap(1, 1, 1)
+                .addComponent(lblerrdate)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(incidentDatetxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(incidentTimetxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(IncidentTimetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(2, 2, 2)
+                .addComponent(lblerrtime)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(locationtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(descriptiontxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(3, 3, 3))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblerrlocation)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(lblerrdiscription)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(crimeTypetxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblerrCrimeType)
+                .addGap(5, 5, 5)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(okbtn)
                     .addComponent(cancelbtn))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addGap(186, 186, 186))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -308,8 +348,8 @@ public class AddUpdateFIRForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pack();
@@ -331,39 +371,41 @@ public class AddUpdateFIRForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_addresstxtActionPerformed
 
-    private void incidentDatetxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_incidentDatetxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_incidentDatetxtActionPerformed
-
-    private void incidentTimetxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_incidentTimetxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_incidentTimetxtActionPerformed
-
     private void locationtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_locationtxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_locationtxtActionPerformed
 
-    private void crimeTypetxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crimeTypetxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_crimeTypetxtActionPerformed
-
-    private void descriptiontxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descriptiontxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_descriptiontxtActionPerformed
-
     private void okbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okbtnActionPerformed
+           
+            
+         
+        
+        
             String firId = firIDtxt.getText();
             String complainantName = complainantNametxt.getText();
             String fathersName = fatherNametxt.getText();
             String contact = contacttxt.getText();
             String address = addresstxt.getText();
             String nicNumber = nicNotxt.getText();
-            String incidentDate = incidentDatetxt.getText();
-            String incidentTime = incidentTimetxt.getText();
+            Date incidentDate =incidentDatetxt.getDate();
+            String incidentTime = IncidentTimetxt.getText();
             String location = locationtxt.getText();
             String description = descriptiontxt.getText();
             String crimeType = crimeTypetxt.getText();
 
+            
+            boolean isvalid = FormValidator.validateADDupdateForm(complainantNametxt,
+            lblerrname,fatherNametxt,lblerrFathername, contacttxt, 
+            lblerrcontact, nicNotxt, lblerrcinc,addresstxt, lblerrAddress,
+            incidentDatetxt, lblerrdate, IncidentTimetxt, 
+            lblerrtime, locationtxt, lblerrlocation,
+            descriptiontxt, lblerrdiscription,
+            crimeTypetxt,lblerrCrimeType);
+            if (!isvalid){
+                return ;
+            }    
+            
+            
             if (complainantName.isEmpty()) 
             {
                 JOptionPane.showMessageDialog(this, "Complainant Name is required.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -401,6 +443,10 @@ public class AddUpdateFIRForm extends javax.swing.JFrame {
     private void cancelbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelbtnActionPerformed
         this.dispose();
     }//GEN-LAST:event_cancelbtnActionPerformed
+
+    private void crimeTypetxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crimeTypetxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_crimeTypetxtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -446,40 +492,49 @@ public class AddUpdateFIRForm extends javax.swing.JFrame {
             contacttxt.setText("");
             addresstxt.setText("");
             nicNotxt.setText("");
-            incidentDatetxt.setText("");
-            incidentTimetxt.setText("");
+            incidentDatetxt.setDate(null);
+            IncidentTimetxt.setText("");
             locationtxt.setText("");
             descriptiontxt.setText("");
             crimeTypetxt.setText("");
         } 
-        else if (fir != null) 
-        {
-            firIDtxt.setText(fir.getFirId() != null ? fir.getFirId() : "");
-            firIDtxt.setEditable(true); 
-            complainantNametxt.setText(fir.getComplainantName() != null ? fir.getComplainantName() : "");
-            fatherNametxt.setText(fir.getFathersName() != null ? fir.getFathersName() : "");
-            contacttxt.setText(fir.getContact() != null ? fir.getContact() : "");
-            addresstxt.setText(fir.getAddress() != null ? fir.getAddress() : "");
-            nicNotxt.setText(fir.getNicNumber() != null ? fir.getNicNumber() : "");
-            incidentDatetxt.setText(fir.getIncidentDate() != null ? fir.getIncidentDate() : "");
-            incidentTimetxt.setText(fir.getIncidentTime() != null ? fir.getIncidentTime() : "");
-            locationtxt.setText(fir.getLocation() != null ? fir.getLocation() : "");
-            descriptiontxt.setText(fir.getDescription() != null ? fir.getDescription() : "");
-            crimeTypetxt.setText(fir.getCrimeType() != null ? fir.getCrimeType() : "");
+else if (fir != null) 
+{
+    firIDtxt.setText(fir.getFirId() != null ? fir.getFirId() : "");
+    firIDtxt.setEditable(true); 
+    complainantNametxt.setText(fir.getComplainantName() != null ? fir.getComplainantName() : "");
+    fatherNametxt.setText(fir.getFathersName() != null ? fir.getFathersName() : "");
+    contacttxt.setText(fir.getContact() != null ? fir.getContact() : "");
+    addresstxt.setText(fir.getAddress() != null ? fir.getAddress() : "");
+    nicNotxt.setText(fir.getNicNumber() != null ? fir.getNicNumber() : "");
+
+    // Date conversion
+        if (fir.getIncidentDate() != null) {
+            incidentDatetxt.setDate(fir.getIncidentDate());
+        } else {
+            incidentDatetxt.setDate(null);
         }
-    }
+        IncidentTimetxt.setText(fir.getIncidentTime() != null? fir.getIncidentTime(): "" );
+    // Time conversion (assuming format HH:mm)
+      
+
+    locationtxt.setText(fir.getLocation() != null ? fir.getLocation() : "");
+    descriptiontxt.setText(fir.getDescription() != null ? fir.getDescription() : "");
+    crimeTypetxt.setText(fir.getCrimeType() != null ? fir.getCrimeType() : "");
+}
+    } 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.github.lgooddatepicker.components.TimePicker IncidentTimetxt;
     private javax.swing.JTextField addresstxt;
     private javax.swing.JButton cancelbtn;
     private javax.swing.JTextField complainantNametxt;
     private javax.swing.JTextField contacttxt;
     private javax.swing.JTextField crimeTypetxt;
-    private javax.swing.JTextField descriptiontxt;
+    private javax.swing.JTextArea descriptiontxt;
     private javax.swing.JTextField fatherNametxt;
     private javax.swing.JTextField firIDtxt;
-    private javax.swing.JTextField incidentDatetxt;
-    private javax.swing.JTextField incidentTimetxt;
+    private com.toedter.calendar.JDateChooser incidentDatetxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -491,6 +546,17 @@ public class AddUpdateFIRForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblerrAddress;
+    private javax.swing.JLabel lblerrCrimeType;
+    private javax.swing.JLabel lblerrFathername;
+    private javax.swing.JLabel lblerrcinc;
+    private javax.swing.JLabel lblerrcontact;
+    private javax.swing.JLabel lblerrdate;
+    private javax.swing.JLabel lblerrdiscription;
+    private javax.swing.JLabel lblerrlocation;
+    private javax.swing.JLabel lblerrname;
+    private javax.swing.JLabel lblerrtime;
     private javax.swing.JTextField locationtxt;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JTextField nicNotxt;
