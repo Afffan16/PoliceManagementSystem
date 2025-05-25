@@ -37,6 +37,7 @@ public class ReportComplaintForm extends javax.swing.JFrame {
         IncidentDatetxt1 = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
         mainPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         ComplainerNamelbl = new javax.swing.JLabel();
@@ -83,13 +84,13 @@ public class ReportComplaintForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Report a Complain");
-        setPreferredSize(new java.awt.Dimension(644, 850));
+        setPreferredSize(new java.awt.Dimension(650, 700));
         setResizable(false);
-        setSize(new java.awt.Dimension(600, 850));
+        setSize(new java.awt.Dimension(650, 700));
 
         mainPanel.setBackground(new java.awt.Color(255, 255, 204));
         mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
-        mainPanel.setPreferredSize(new java.awt.Dimension(600, 700));
+        mainPanel.setPreferredSize(new java.awt.Dimension(750, 1000));
 
         jLabel1.setText("Report a Complain");
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -186,17 +187,8 @@ public class ReportComplaintForm extends javax.swing.JFrame {
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(161, 161, 161))
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(157, 157, 157)
-                        .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
-                        .addComponent(Submitbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(mainPanelLayout.createSequentialGroup()
@@ -213,7 +205,7 @@ public class ReportComplaintForm extends javax.swing.JFrame {
                                             .addComponent(jLabel2))
                                         .addGap(43, 43, 43)))
                                 .addGroup(mainPanelLayout.createSequentialGroup()
-                                    .addGap(61, 61, 61)
+                                    .addGap(30, 30, 30)
                                     .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(Descriptionlbl)
                                         .addComponent(ComplainerContactlbl)
@@ -244,17 +236,26 @@ public class ReportComplaintForm extends javax.swing.JFrame {
                                 .addComponent(lblerrAddress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addGap(180, 180, 180)
-                        .addComponent(Evidencelbl)
-                        .addGap(42, 42, 42)
-                        .addComponent(Evidencebtn)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(mainPanelLayout.createSequentialGroup()
+                                .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(54, 54, 54)
+                                .addComponent(Submitbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(mainPanelLayout.createSequentialGroup()
+                                .addComponent(Evidencelbl)
+                                .addGap(42, 42, 42)
+                                .addComponent(Evidencebtn))))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(192, 192, 192)
+                        .addComponent(jLabel1)))
+                .addContainerGap(187, Short.MAX_VALUE))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(15, 15, 15)
                 .addComponent(jLabel1)
-                .addGap(62, 62, 62)
+                .addGap(30, 30, 30)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ComplainerNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ComplainerNamelbl))
@@ -320,35 +321,41 @@ public class ReportComplaintForm extends javax.swing.JFrame {
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Evidencebtn)
                     .addComponent(Evidencelbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addGap(38, 38, 38)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Backbtn)
                     .addComponent(Submitbtn)))
         );
 
+        jScrollPane4.setViewportView(mainPanel);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 737, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void ComplainerNametxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComplainerNametxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComplainerNametxtActionPerformed
+
     private void EvidencebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EvidencebtnActionPerformed
         JFileChooser fileChooser = new JFileChooser();
         if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-        evidencePath = fileChooser.getSelectedFile().getAbsolutePath();
-        JOptionPane.showMessageDialog(this, "Selected: " + evidencePath);
-}
+            evidencePath = fileChooser.getSelectedFile().getAbsolutePath();
+            JOptionPane.showMessageDialog(this, "Selected: " + evidencePath);
+        }
     }//GEN-LAST:event_EvidencebtnActionPerformed
 
     private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
@@ -357,57 +364,56 @@ public class ReportComplaintForm extends javax.swing.JFrame {
     }//GEN-LAST:event_BackbtnActionPerformed
 
     private void SubmitbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitbtnActionPerformed
-     try 
-{
-    String complaintId = String.valueOf(System.currentTimeMillis()); // Simple ID
-    boolean isvalid = FormValidator.validateForm(ComplainerNametxt,
-            jLabel4,ComplainerFatherNametxt1,jLabel12, ComplainerContacttxt, 
-            jLabel6, ComplainerCNICtxt, jLabel7,txtAddress, lblerrAddress,
-            dateChoosertxt, jLabel8, IncidentTimetxt, 
-            jLabel9, Locationtxt, jLabel10,
-            Descriptiontxt, jLabel11);
-    if (!isvalid){
-        return ;
-    }
-    // Get the selected date as a string
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); // or any format you like
-    String dateString = "";
-    if (dateChoosertxt.getDate() != null) {
-        dateString = sdf.format(dateChoosertxt.getDate());
-    } else {
-        JOptionPane.showMessageDialog(this, "Please select a date.");
-        return; // Stop execution if date is not selected
-    }
+        try {
+            String complaintId = String.valueOf(System.currentTimeMillis());
+            boolean isvalid = FormValidator.validateForm(ComplainerNametxt,
+                jLabel4, ComplainerFatherNametxt1, jLabel12, ComplainerContacttxt,
+                jLabel6, ComplainerCNICtxt, jLabel7, txtAddress, lblerrAddress,
+                dateChoosertxt, jLabel8, IncidentTimetxt,
+                jLabel9, Locationtxt, jLabel10,
+                Descriptiontxt, jLabel11);
+            if (!isvalid)
+            {
+                return;
+            }
+            // Get the selected date as a string
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+            String dateString = "";
+            if (dateChoosertxt.getDate() != null) 
+            {
+                dateString = sdf.format(dateChoosertxt.getDate());
+            }
+            else 
+            {
+                JOptionPane.showMessageDialog(this, "Please select a date.");
+                return;
+            }
 
-    CSVHandler csvHandler = new CSVHandler();
-    csvHandler.addComplaint(
-        complaintId,
-        ComplainerNametxt.getText(),
-        ComplainerFatherNametxt1.getText(),
-        ComplainerContacttxt.getText(),
-        ComplainerCNICtxt.getText(),
-        txtAddress.getText(),
-        dateString,
-        IncidentTimetxt.getText(),
-        Locationtxt.getText(),
-        Descriptiontxt.getText(),
-        evidencePath,
-        "PENDING"
-    );
+            CSVHandler csvHandler = new CSVHandler();
+            csvHandler.addComplaint(
+                complaintId,
+                ComplainerNametxt.getText(),
+                ComplainerFatherNametxt1.getText(),
+                ComplainerContacttxt.getText(),
+                ComplainerCNICtxt.getText(),
+                txtAddress.getText(),
+                dateString,
+                IncidentTimetxt.getText(),
+                Locationtxt.getText(),
+                Descriptiontxt.getText(),
+                evidencePath,
+                "PENDING"
+            );
 
-    JOptionPane.showMessageDialog(this, "Complaint submitted successfully!");
-    new HomePageForm().setVisible(true);
-    this.dispose();
-} 
-catch (IOException e) 
-{
-    JOptionPane.showMessageDialog(this, "Error saving complaint: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-}
+            JOptionPane.showMessageDialog(this, "Complaint submitted successfully!");
+            new HomePageForm().setVisible(true);
+            this.dispose();
+        } 
+        catch (IOException e) 
+        {
+            JOptionPane.showMessageDialog(this, "Error saving complaint: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_SubmitbtnActionPerformed
-
-    private void ComplainerNametxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComplainerNametxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ComplainerNametxtActionPerformed
 
     private void ComplainerFatherNametxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComplainerFatherNametxt1ActionPerformed
         // TODO add your handling code here:
@@ -490,6 +496,7 @@ catch (IOException e)
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblerrAddress;
     private javax.swing.JPanel mainPanel;

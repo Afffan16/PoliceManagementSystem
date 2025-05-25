@@ -7,6 +7,7 @@ import police.model.Complaint;
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import police.CSVHandler;
@@ -22,14 +23,30 @@ public class DetailedViewComplainForm extends javax.swing.JFrame {
      * Creates new form DetailedViewComplainForm
      */
     private static String loggedInUsername;
-    private static Complaint complaint;
+    private Complaint complaint;
     private String evidencePath;
+//    public DetailedViewComplainForm(Complaint complaint, String loggedInUsername) 
+//    {
+//        initComponents();
+//        setLocationRelativeTo(null);
+//        populateFields(); 
+//        this.loggedInUsername = loggedInUsername;
+//    }
+    
     public DetailedViewComplainForm(Complaint complaint, String loggedInUsername) 
     {
+        if (complaint == null || complaint.getComplaintId() == null || complaint.getComplaintId().isEmpty()) {
+            System.err.println("Error: Invalid complaint provided to DetailedViewComplainForm, complaint: " + complaint);
+            JOptionPane.showMessageDialog(null, "Invalid complaint data.", "Error", JOptionPane.ERROR_MESSAGE);
+            dispose();
+            return;
+        }
+        this.complaint = complaint;
+        this.loggedInUsername = loggedInUsername;
+        System.out.println("Constructing DetailedViewComplainForm for complaint ID: " + complaint.getComplaintId());
         initComponents();
         setLocationRelativeTo(null);
-        populateFields(complaint); 
-        this.loggedInUsername = loggedInUsername;
+        populateFields();
     }
 
     /**
@@ -65,6 +82,10 @@ public class DetailedViewComplainForm extends javax.swing.JFrame {
         Statuslbl = new javax.swing.JLabel();
         Backbtn = new javax.swing.JButton();
         CheckEvidencebtn = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        Addresslbl = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        FatherNamelbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Complain Details");
@@ -107,6 +128,7 @@ public class DetailedViewComplainForm extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel10.setText("Status :");
 
+        Descriptiontxt.setEditable(false);
         Descriptiontxt.setColumns(20);
         Descriptiontxt.setRows(5);
         jScrollPane1.setViewportView(Descriptiontxt);
@@ -129,6 +151,12 @@ public class DetailedViewComplainForm extends javax.swing.JFrame {
             }
         });
 
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel11.setText("Address :");
+
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel12.setText("Father's Name :");
+
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
@@ -136,46 +164,73 @@ public class DetailedViewComplainForm extends javax.swing.JFrame {
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Statuslbl, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Datelbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Timelbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(NIClbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Contactlbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Namelbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(IDlbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Locationlbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)))
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(jLabel9)
+                        .addGap(64, 64, 64)
+                        .addComponent(jLabel8)
                         .addGap(18, 18, 18)
-                        .addComponent(CheckEvidencebtn)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Timelbl, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 14, Short.MAX_VALUE))
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel5))
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Contactlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(FatherNamelbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(mainPanelLayout.createSequentialGroup()
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(Namelbl, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)
+                                        .addComponent(IDlbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(NIClbl, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Addresslbl, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Datelbl, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                .addContainerGap(191, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
                         .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(198, 198, 198))
+                        .addGap(195, 195, 195))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
                         .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40))))
+                        .addGap(38, 38, 38))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Locationlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addComponent(jLabel9)
+                        .addGap(18, 18, 18)
+                        .addComponent(CheckEvidencebtn))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addComponent(jLabel10)
+                        .addGap(18, 18, 18)
+                        .addComponent(Statuslbl, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,40 +246,52 @@ public class DetailedViewComplainForm extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(Namelbl, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel12)
+                    .addComponent(FatherNamelbl, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(Contactlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4)
                     .addComponent(NIClbl, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(Addresslbl, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5)
                     .addComponent(Datelbl, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel6)
                     .addComponent(Timelbl, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
+                .addGap(18, 18, 18)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel7)
                     .addComponent(Locationlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                        .addGap(18, 18, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CheckEvidencebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addComponent(CheckEvidencebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel10)
                     .addComponent(Statuslbl, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+                .addGap(24, 24, 24))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -253,28 +320,28 @@ public class DetailedViewComplainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_BackbtnActionPerformed
 
     private void CheckEvidencebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckEvidencebtnActionPerformed
-       if (evidencePath != null && !evidencePath.trim().isEmpty()) {
+        if (evidencePath != null && !evidencePath.trim().isEmpty()) {
             try {
                 File file = new File(evidencePath);
-                if (file.exists()) 
+                if (file.exists())
                 {
                     Desktop.getDesktop().open(file);
-                } 
-                else 
+                }
+                else
                 {
                     JOptionPane.showMessageDialog(this, "Evidence file not found: " + evidencePath, "Error", JOptionPane.ERROR_MESSAGE);
                 }
-            } 
-            catch (IOException e) 
+            }
+            catch (IOException e)
             {
                 JOptionPane.showMessageDialog(this, "Failed to open evidence: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            } 
+            }
             catch (UnsupportedOperationException e)
             {
                 JOptionPane.showMessageDialog(this, "Opening files is not supported on this system.", "Error", JOptionPane.ERROR_MESSAGE);
             }
-        } 
-        else 
+        }
+        else
         {
             JOptionPane.showMessageDialog(this, "No evidence provided.", "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -284,7 +351,7 @@ public class DetailedViewComplainForm extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -315,38 +382,65 @@ public class DetailedViewComplainForm extends javax.swing.JFrame {
             }
         });
     }
-    private void populateFields(Complaint complaint) 
+    
+    private void populateFields() 
     {
-        IDlbl.setText(complaint.getComplaintId());
-        Namelbl.setText(complaint.getComplainantName());
-        Contactlbl.setText(complaint.getContact() != null ? complaint.getContact() : "");
-        NIClbl.setText(complaint.getNicNumber() != null ? complaint.getNicNumber() : "");
-        if (complaint.getIncidentDate() != null) {
-        String dateString = new SimpleDateFormat("yyyy-MM-dd").format(complaint.getIncidentDate());
-        Datelbl.setText(dateString);
-        } else {
-            Datelbl.setText("");
+        if (complaint == null) 
+        {
+            System.err.println("Error: Complaint is null in populateFields");
+            JOptionPane.showMessageDialog(this, "Invalid complaint data.", "Error", JOptionPane.ERROR_MESSAGE);
+            dispose();
+            return;
         }
-        Timelbl.setText(complaint.getIncidentTime() != null ? complaint.getIncidentTime() : "");
-        Locationlbl.setText(complaint.getLocation() != null ? complaint.getLocation() : "");
-        Descriptiontxt.setText(complaint.getDescription() != null ? complaint.getDescription() : "");
-        evidencePath = complaint.getEvidencePath();
-        CheckEvidencebtn.setEnabled(evidencePath != null && !evidencePath.trim().isEmpty());
-        Statuslbl.setText(complaint.getStatus());
+        try 
+        {
+            System.out.println("Populating fields for complaint ID: " + complaint.getComplaintId());
+            System.out.println("Complaint details: " +
+                "ID=" + complaint.getComplaintId() + ", " +
+                "Name=" + complaint.getComplainantName() + ", " +
+                "FatherName=" + complaint.getComplainantFatherName() + ", " +
+                "Contact=" + complaint.getContact() + ", " +
+                "NIC=" + complaint.getNicNumber() + ", " +
+                "Address=" + complaint.getAddress() + ", " +
+                "IncidentDate=" + complaint.getIncidentDate() + ", " +
+                "IncidentTime=" + complaint.getIncidentTime() + ", " +
+                "Location=" + complaint.getLocation() + ", " +
+                "Description=" + complaint.getDescription() + ", " +
+                "EvidencePath=" + complaint.getEvidencePath() + ", " +
+                "Status=" + complaint.getStatus());
+
+            IDlbl.setText(complaint.getComplaintId() != null ? complaint.getComplaintId() : "N/A");
+            Namelbl.setText(complaint.getComplainantName() != null ? complaint.getComplainantName() : "N/A");
+            FatherNamelbl.setText(complaint.getComplainantFatherName() != null ? complaint.getComplainantFatherName() : "N/A");
+            Contactlbl.setText(complaint.getContact() != null ? complaint.getContact() : "N/A");
+            NIClbl.setText(complaint.getNicNumber() != null ? complaint.getNicNumber() : "N/A");
+            Addresslbl.setText(complaint.getAddress() != null ? complaint.getAddress() : "N/A");
+            Datelbl.setText(complaint.getIncidentDate() != null ? complaint.getIncidentDate() : "N/A");
+            Timelbl.setText(complaint.getIncidentTime() != null ? complaint.getIncidentTime() : "N/A");
+            Locationlbl.setText(complaint.getLocation() != null ? complaint.getLocation() : "N/A");
+            Descriptiontxt.setText(complaint.getDescription() != null ? complaint.getDescription() : "N/A");
+            evidencePath = complaint.getEvidencePath();
+            CheckEvidencebtn.setText(complaint.getEvidencePath() != null && !complaint.getEvidencePath().isEmpty() ? "View Evidence" : "No Evidence");
+            Statuslbl.setText(complaint.getStatus() != null ? complaint.getStatus() : "N/A");
+            System.out.println("Successfully populated complaint details: " + complaint.getComplaintId());
+        } 
+        catch (Exception e) 
+        {
+            System.err.println("Error populating complaint details: " + e.getMessage());
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error displaying complaint: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            dispose();
+        }
     }
     
-//     if (fir.getIncidentDate() != null) {
-//            incidentDatetxt.setDate(fir.getIncidentDate());
-//        } else {
-//            incidentDatetxt.setDate(null);
-//        }
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Addresslbl;
     private javax.swing.JButton Backbtn;
     private javax.swing.JButton CheckEvidencebtn;
     private javax.swing.JLabel Contactlbl;
     private javax.swing.JLabel Datelbl;
     private javax.swing.JTextArea Descriptiontxt;
+    private javax.swing.JLabel FatherNamelbl;
     private javax.swing.JLabel IDlbl;
     private javax.swing.JLabel Locationlbl;
     private javax.swing.JLabel NIClbl;
@@ -356,6 +450,8 @@ public class DetailedViewComplainForm extends javax.swing.JFrame {
     private javax.swing.JLabel headinglbl;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -12,15 +12,18 @@ public class Session {
     
     private static String loggedInUsername;
 
-    public static void setLoggedInUsername(String username) {
+    public static void setLoggedInUsername(String username) 
+    {
         loggedInUsername = username;
     }
 
-    public static String getLoggedInUsername() {
+    public static String getLoggedInUsername() 
+    {
         return loggedInUsername;
     }
 
-    public static void clearSession() {
+    public static void clearSession() 
+    {
         loggedInUsername = null;
     }
 }

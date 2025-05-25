@@ -6,14 +6,14 @@ package police.gui;
 import java.awt.*;
 import javax.swing.*;
 import java.io.*;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import police.model.Complaint;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.swing.table.DefaultTableModel;
 import police.CSVHandler;
-import police.model.FIR;
+import police.model.*;
 
 
 /**
@@ -27,13 +27,14 @@ public class CheckComplaintsForm extends javax.swing.JFrame {
      */
     private List<Complaint> complaints;
     private static String loggedInUsername;
+
     public CheckComplaintsForm(String loggedInUsername) 
     {
         initComponents();
         setLocationRelativeTo(null);
         loadPendingComplaints();
         this.loggedInUsername = loggedInUsername;
-    }        
+    } 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -185,17 +186,27 @@ public class CheckComplaintsForm extends javax.swing.JFrame {
 
     private void ViewComplainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewComplainActionPerformed
         int selectedRow = complainsTable.getSelectedRow();
+        Complaint complaint = complaints.get(selectedRow);
+        System.out.println("Selected complaint at row " + selectedRow + ": " + 
+            (complaint != null ? 
+                "ID=" + complaint.getComplaintId() + ", Name=" + complaint.getComplainantName() + 
+                ", Status=" + complaint.getStatus() : "null"));
+            if (complaint == null || complaint.getComplaintId() == null || complaint.getComplaintId().isEmpty()) 
+            {
+                System.err.println("Error: Invalid complaint at row " + selectedRow + ", complaint: " + complaint);
+                JOptionPane.showMessageDialog(this, "Invalid complaint data.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }  
         if (selectedRow >= 0 && selectedRow < complaints.size()) 
         {
-            Complaint complaint = complaints.get(selectedRow);
-            new DetailedViewComplainForm(complaint,loggedInUsername).setVisible(true);
+            complaint = complaints.get(selectedRow);
+            new DetailedViewComplainForm(complaint, loggedInUsername).setVisible(true);
             this.dispose();
         } 
         else 
         {
             JOptionPane.showMessageDialog(this, "Please select a complaint to view.", "Error", JOptionPane.ERROR_MESSAGE);
         }
-
     }//GEN-LAST:event_ViewComplainActionPerformed
 
     private void ChangeStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChangeStatusActionPerformed
@@ -203,11 +214,18 @@ public class CheckComplaintsForm extends javax.swing.JFrame {
         if (selectedRow >= 0 && selectedRow < complaints.size()) 
         {
             Complaint complaint = complaints.get(selectedRow);
-            showChangeStatusDialog(complaint);
-        } 
+            try 
+            {
+                showChangeStatusDialog(complaint);
+            }
+            catch (Exception ex) {
+                System.err.println("Error opening status dialog: " + ex.getMessage());
+                JOptionPane.showMessageDialog(this, "Error changing status: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
         else 
         {
-            JOptionPane.showMessageDialog(this, "Please select a complaint to change status.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please select a complaint.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_ChangeStatusActionPerformed
 
@@ -246,6 +264,8 @@ public class CheckComplaintsForm extends javax.swing.JFrame {
             }
         });
     }
+    
+    
     private void loadPendingComplaints() 
     {
         complaints = CSVHandler.loadComplaints().stream()
@@ -253,7 +273,8 @@ public class CheckComplaintsForm extends javax.swing.JFrame {
                 .collect(Collectors.toList());
         String[] columnNames = {"Complaint ID", "Complainant Name", "Phone No", "NIC", "Status"};
         Object[][] data = new Object[complaints.size()][5];
-        for (int i = 0; i < complaints.size(); i++) {
+        for (int i = 0; i < complaints.size(); i++) 
+        {
             Complaint c = complaints.get(i);
             data[i][0] = c.getComplaintId();
             data[i][1] = c.getComplainantName();
@@ -261,10 +282,11 @@ public class CheckComplaintsForm extends javax.swing.JFrame {
             data[i][3] = c.getNicNumber() != null ? c.getNicNumber() : "";
             data[i][4] = c.getStatus();
         }
-        complainsTable.setModel(new DefaultTableModel(data, columnNames)
+        complainsTable.setModel(new DefaultTableModel(data, columnNames) 
         {
             @Override
-            public boolean isCellEditable(int row, int column) {
+            public boolean isCellEditable(int row, int column) 
+            {
                 return false;
             }
         });
@@ -275,7 +297,23 @@ public class CheckComplaintsForm extends javax.swing.JFrame {
         complainsTable.getColumnModel().getColumn(4).setPreferredWidth(100);
     }
     
-        private void showChangeStatusDialog(Complaint complaint) {
+    private void showChangeStatusDialog(Complaint complaint)
+    {
+        if (complaint == null) 
+        {
+            System.err.println("Error: Complaint is null in showChangeStatusDialog");
+            JOptionPane.showMessageDialog(this, "Invalid complaint selected.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        System.out.println("Opening status dialog for complaint: " + complaint.getComplaintId());
+        System.out.println("Incident Date: " + complaint.getIncidentDate());
+
+        // Validate complainantName
+        if (complaint.getComplainantName() == null || complaint.getComplainantName().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Complainant name is required.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
         JDialog dialog = new JDialog(this, "Change Complaint Status", true);
         dialog.setSize(400, 300);
         dialog.setLocationRelativeTo(this);
@@ -306,9 +344,9 @@ public class CheckComplaintsForm extends javax.swing.JFrame {
         JPanel radioPanel = new JPanel();
         radioPanel.setLayout(new BoxLayout(radioPanel, BoxLayout.Y_AXIS));
         radioPanel.setBackground(new Color(240, 240, 240));
-        JRadioButton pendingRadio = new JRadioButton("Pending", true);
-        JRadioButton approvedRadio = new JRadioButton("Approved");
-        JRadioButton disapprovedRadio = new JRadioButton("Disapproved");
+        JRadioButton pendingRadio = new JRadioButton("Pending", complaint.getStatus().equals("PENDING"));
+        JRadioButton approvedRadio = new JRadioButton("Approved", complaint.getStatus().equals("APPROVED"));
+        JRadioButton disapprovedRadio = new JRadioButton("Disapproved", complaint.getStatus().equals("DISAPPROVED"));
         pendingRadio.setFont(new Font("Arial", Font.PLAIN, 14));
         approvedRadio.setFont(new Font("Arial", Font.PLAIN, 14));
         disapprovedRadio.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -341,66 +379,96 @@ public class CheckComplaintsForm extends javax.swing.JFrame {
 
         dialog.add(contentPanel, BorderLayout.CENTER);
         dialog.add(buttonPanel, BorderLayout.SOUTH);
+
         doneButton.addActionListener(e -> {
-            String selectedStatus = pendingRadio.isSelected() ? "Pending" :
-                                   approvedRadio.isSelected() ? "Approved" : "Disapproved";
-            if (!selectedStatus.equals(complaint.getStatus())) 
-            {
-                if (selectedStatus.equals("Approved")) 
-                {
-                    int confirm = JOptionPane.showConfirmDialog(dialog,
-                            "Are you sure you want to approve the complaint? This will register an FIR.",
-                            "Confirm Approval", JOptionPane.OK_CANCEL_OPTION);
-                    if (confirm == JOptionPane.OK_OPTION) 
-                    {
-                        JTextField crimeTypeField = new JTextField();
-                        JPanel panel = new JPanel(new GridLayout(0, 1));
-                        panel.add(new JLabel("Enter Crime Type:"));
-                        panel.add(crimeTypeField);
-                        int crimeTypeResult = JOptionPane.showConfirmDialog(dialog, panel, "Crime Type", JOptionPane.OK_CANCEL_OPTION);
-                        if (crimeTypeResult == JOptionPane.OK_OPTION)
-                        {
-                            String crimeType = crimeTypeField.getText().trim();
-                            if (crimeType.isEmpty()) 
-                            {
-                                JOptionPane.showMessageDialog(dialog, "Crime Type is required.", "Error", JOptionPane.ERROR_MESSAGE);
-                                return;
+            String selectedStatus = pendingRadio.isSelected() ? "PENDING" :
+                                   approvedRadio.isSelected() ? "APPROVED" : "DISAPPROVED";
+            System.out.println("Selected status: " + selectedStatus + " for complaint: " + complaint.getComplaintId());
+            if (!selectedStatus.equals(complaint.getStatus())) {
+                try {
+                    if (selectedStatus.equals("APPROVED")) {
+                        int confirm = JOptionPane.showConfirmDialog(dialog,
+                                "Are you sure you want to approve the complaint? This will register an FIR.",
+                                "Confirm Approval", JOptionPane.OK_CANCEL_OPTION);
+                        if (confirm == JOptionPane.OK_OPTION) {
+                            JTextField crimeTypeField = new JTextField();
+                            JPanel panel = new JPanel(new GridLayout(0, 1));
+                            panel.add(new JLabel("Enter Crime Type:"));
+                            panel.add(crimeTypeField);
+                            int crimeTypeResult = JOptionPane.showConfirmDialog(dialog, panel, "Crime Type", JOptionPane.OK_CANCEL_OPTION);
+                            if (crimeTypeResult == JOptionPane.OK_OPTION) {
+                                String crimeType = crimeTypeField.getText().trim();
+                                if (crimeType.isEmpty()) {
+                                    JOptionPane.showMessageDialog(dialog, "Crime Type is required.", "Error", JOptionPane.ERROR_MESSAGE);
+                                    return;
+                                }
+                                System.out.println("Approving complaint: " + complaint.getComplaintId() + ", Crime Type: " + crimeType);
+                                String firId = "FIR" + new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+
+                                FIR fir = new FIR(
+                                    firId,
+                                    complaint.getComplainantName(),
+                                    complaint.getComplainantFatherName() != null ? complaint.getComplainantFatherName() : "",
+                                    complaint.getContact() != null ? complaint.getContact() : "",
+                                    complaint.getAddress() != null ? complaint.getAddress() : "",
+                                    complaint.getNicNumber() != null ? complaint.getNicNumber() : "",
+                                    complaint.getIncidentDate() != null ? complaint.getIncidentDate() : "",
+                                    complaint.getIncidentTime()!= null ? complaint.getIncidentTime() : "",
+                                    complaint.getLocation() != null ? complaint.getLocation() : "",
+                                    complaint.getDescription() != null ? complaint.getDescription() : "",
+                                    crimeType
+                                );
+                                CSVHandler.addFIR(fir);
+                                CSVHandler.updateComplaintStatus(complaint.getComplaintId(), "APPROVED");
+                                loadPendingComplaints();
+                                JOptionPane.showMessageDialog(dialog, "FIR Registered Successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+                                dialog.dispose();
                             }
-                            System.out.println("Approving complaint: " + complaint.getComplaintId() + ", Crime Type: " + crimeType); 
-                            String firId = "FIR" + new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
-                            FIR fir = new FIR(firId, complaint.getComplainantName(), "",
-                                              complaint.getContact(), "", complaint.getNicNumber(), complaint.getIncidentDate(),
-                                              complaint.getIncidentTime(), complaint.getLocation(), complaint.getDescription(), crimeType);
-                            System.out.println("Creating FIR from complaint: " + complaint.getComplaintId() + ", FIR ID: " + firId); 
-                            CSVHandler.addFIR(fir);
-                            CSVHandler.deleteComplaint(complaint.getComplaintId());
+                        }
+                    } else {
+                        int confirm = JOptionPane.showConfirmDialog(dialog,
+                                "Are you sure you want to change the complaint status to " + selectedStatus + "?",
+                                "Confirm Status Change", JOptionPane.OK_CANCEL_OPTION);
+                        if (confirm == JOptionPane.OK_OPTION) {
+                            CSVHandler.updateComplaintStatus(complaint.getComplaintId(), selectedStatus);
                             loadPendingComplaints();
-                            JOptionPane.showMessageDialog(dialog, "FIR Registered Successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(dialog, "Complaint Status Updated to " + selectedStatus, "Success", JOptionPane.INFORMATION_MESSAGE);
                             dialog.dispose();
                         }
                     }
+                } catch (IllegalArgumentException ex) {
+                    System.err.println("Invalid FIR data: " + ex.getMessage());
+                    JOptionPane.showMessageDialog(dialog, "Error creating FIR: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                } catch (IOException ex) {
+                    System.err.println("Error processing status change: " + ex.getMessage());
+                    JOptionPane.showMessageDialog(dialog, "Error updating status: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                 }
-                else if (selectedStatus.equals("Disapproved")) 
-                {
-                    int confirm = JOptionPane.showConfirmDialog(dialog,
-                            "Are you sure you want to disapprove the complaint? This will delete the complaint.",
-                            "Confirm Disapproval", JOptionPane.OK_CANCEL_OPTION);
-                    if (confirm == JOptionPane.OK_OPTION) 
-                    {
-                        CSVHandler.deleteComplaint(complaint.getComplaintId());
-                        loadPendingComplaints();
-                        JOptionPane.showMessageDialog(dialog, "Complaint Disapproved", "Success", JOptionPane.INFORMATION_MESSAGE);
-                        dialog.dispose();
-                    }
-                } 
-            } 
-            else 
-            {
+            } else {
                 dialog.dispose();
             }
         });
+
         cancelButton.addActionListener(e -> dialog.dispose());
         dialog.setVisible(true);
+    }
+
+
+    private String convertDateFormat(String inputDate, SimpleDateFormat fromFormat, SimpleDateFormat toFormat) throws ParseException 
+    {
+        if (inputDate == null || inputDate.trim().isEmpty()) 
+        {
+            throw new ParseException("Incident date is empty", 0);
+        }
+        try 
+        {
+            fromFormat.setLenient(false);
+            Date date = fromFormat.parse(inputDate);
+            return toFormat.format(date);
+        } 
+        catch (ParseException e) 
+        {
+            throw new ParseException("Cannot convert date: " + inputDate, 0);
+        }
     }
 
     

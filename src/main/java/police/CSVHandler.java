@@ -29,7 +29,7 @@ public class CSVHandler
         File complaintsFile = new File(COMPLAINTS_CSV);
         if (!complaintsFile.exists()) {
             try (FileWriter writer = new FileWriter(complaintsFile)) {
-                writer.write("complaintId,complainantName,contact,nicNumber,incidentDate,incidentTime,location,description,evidencePath,status\n");
+                writer.write("complaintId,complainantName,complainantFatherName,contact,nicNumber,address,incidentDate,incidentTime,location,description,evidencePath,status\n");
             }
         }
 
@@ -70,26 +70,41 @@ public class CSVHandler
         if (!officersFile.exists()) {
             try (FileWriter writer = new FileWriter(officersFile)) {
                 writer.write("officerId,username,password,role,name,badgeNumber,email,phone,serviceYears,casesSolved,successPercentage,imagePath\n");
-                writer.write("BDG-001,Affan,Afffan16,Head Constable,Muhammad Affan bin Aamir,BDG001,affan.aamir@police.gov,123-456-789,15,70,82.5,resources/images/affan.jpeg\n");                
-                writer.write("BDG-002,Umar,UmarAzhar24,Inspector,Muhammad Umar Azhar,BDG002,umar.azhar@police.gov,987-654-321,6,48,95,resources/images/umar.jpeg\n");
             }
         }
     }
 
-    public void addComplaint(String complaintId, String complainantName,String complainerFathername, 
-                              String contact, String nicNumber,String Address,
-                             String incidentDate, String incidentTime, String location, String description,
+    public void addComplaint(String complaintId, String complainantName, String complainantFatherName,
+                             String contact, String nicNumber, String address, String incidentDate,
+                             String incidentTime, String location, String description,
                              String evidencePath, String status) throws IOException {
-        try (FileWriter writer = new FileWriter(COMPLAINTS_CSV, true)) {
-            writer.write(String.join(",", complaintId, complainantName ,complainerFathername, contact, nicNumber,Address, incidentDate,
-                incidentTime, location, description, evidencePath, status) + "\n");
+        File file = new File(COMPLAINTS_CSV);
+        boolean fileExists = file.exists();
+        try (FileWriter writer = new FileWriter(file, true)) {
+            if (!fileExists) {
+                writer.write("complaintId,complainantName,complainantFatherName,contact,nicNumber,address,incidentDate,incidentTime,location,description,evidencePath,status\n");
+            }
+            writer.write(String.join(",", 
+                complaintId, 
+                complainantName != null ? complainantName : "",
+                complainantFatherName != null ? complainantFatherName : "",
+                contact != null ? contact : "",
+                nicNumber != null ? nicNumber : "",
+                address != null ? address : "",
+                incidentDate != null ? incidentDate : "",
+                incidentTime != null ? incidentTime : "",
+                location != null ? location : "",
+                description != null ? description : "",
+                evidencePath != null ? evidencePath : "",
+                status != null ? status : "") + "\n");
+            System.out.println("Added complaint to CSV: " + complaintId);
         }
     }
 
     public boolean authenticateOfficer(String username, String password) throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader(OFFICERS_CSV))) {
             String line;
-            reader.readLine(); // Skip header
+            reader.readLine(); 
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
                 if (data.length >= 3 && data[1].equals(username) && data[2].equals(password)) {
@@ -104,7 +119,7 @@ public class CSVHandler
     public Officer getOfficerDetails(String username) throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader(OFFICERS_CSV))) {
             String line;
-            reader.readLine(); // Skip header
+            reader.readLine(); 
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
                 if (data.length >= 12 && data[1].equals(username)) {
@@ -120,7 +135,8 @@ public class CSVHandler
         return null;
     }
 
-    private String calculateGrade(double successPercentage) {
+    private String calculateGrade(double successPercentage) 
+    {
         if (successPercentage >= 90) return "A+";
         if (successPercentage >= 80) return "A";
         if (successPercentage >= 70) return "B+";
@@ -129,24 +145,28 @@ public class CSVHandler
         return "C";
     }
 
-    public static void addFIR(FIR fir) 
+    public static void addFIR(FIR fir)
     {
-        try (PrintWriter pw = new PrintWriter(new FileWriter("resources/firs.csv", true))) 
+        try (PrintWriter pw = new PrintWriter(new FileWriter(FIRS_CSV, true))) 
         {
-            pw.println(fir.getFirId() + "," + 
-                    (fir.getComplainantName() != null ? fir.getComplainantName() : "") + "," +
-                    (fir.getFathersName() != null ? fir.getFathersName() : "") + "," +
-                    (fir.getContact() != null ? fir.getContact() : "") + "," +
-                    (fir.getAddress() != null ? fir.getAddress() : "") + "," +
-                    (fir.getNicNumber() != null ? fir.getNicNumber() : "") + "," +
-                    (fir.getIncidentDate() != null ? fir.getIncidentDate() : "") + "," +
-                    (fir.getIncidentTime() != null ? fir.getIncidentTime() : "") + "," +
-                    (fir.getLocation() != null ? fir.getLocation() : "") + "," +
-                    (fir.getDescription() != null ? fir.getDescription() : "") + "," +
-                    (fir.getCrimeType() != null ? fir.getCrimeType() : ""));
-        } 
+            pw.println(String.join(",",
+                escapeCSV(fir.getFirId()),
+                escapeCSV(fir.getComplainantName()),
+                escapeCSV(fir.getFathersName() != null ? fir.getFathersName() : ""),
+                escapeCSV(fir.getContact() != null ? fir.getContact() : ""),
+                escapeCSV(fir.getAddress() != null ? fir.getAddress() : ""),
+                escapeCSV(fir.getNicNumber() != null ? fir.getNicNumber() : ""),
+                escapeCSV(fir.getIncidentDate() != null ? fir.getIncidentDate() : ""),
+                escapeCSV(fir.getIncidentTime() != null ? fir.getIncidentTime() : ""),
+                escapeCSV(fir.getLocation() != null ? fir.getLocation() : ""),
+                escapeCSV(fir.getDescription() != null ? fir.getDescription() : ""),
+                escapeCSV(fir.getCrimeType() != null ? fir.getCrimeType() : "")
+            ));
+            System.out.println("FIR added: " + fir);
+        }
         catch (IOException e) 
         {
+            System.err.println("Failed to add FIR: " + e.getMessage());
             JOptionPane.showMessageDialog(null, "Failed to register FIR: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
         }
@@ -154,51 +174,102 @@ public class CSVHandler
 
     public static List<FIR> loadFIRs() 
     {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        SimpleDateFormat fallbackSdf = new SimpleDateFormat("yyyy-MM-dd");
+        sdf.setLenient(false);
         List<FIR> firs = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("resources/firs.csv")))
+        try (BufferedReader br = new BufferedReader(new FileReader(FIRS_CSV))) 
         {
             br.readLine();
             String line;
-            while ((line = br.readLine()) != null) 
+            int lineNumber = 1;
+            while ((line = br.readLine()) != null)
             {
-                String[] data = line.split(",", -1);
-                  Date incidentDate = null;
-            try {
-                incidentDate = sdf.parse(data[6]); // assuming 7th index is date string
-            } catch (ParseException e) {
-              e.printStackTrace();
-            }
-                firs.add(new FIR(data[0], data[1], data[2], data[3], data[4], data[5], incidentDate, data[7], data[8], data[9], data[10]));
+                lineNumber++;
+                String[] data = splitCSV(line);
+                if (data.length >= 11)
+                {
+                    try
+                    {
+                        String parsedDate = data[6];
+                        if (!data[6].isEmpty()) 
+                        {
+                            try 
+                            {
+                                sdf.parse(data[6]);
+                            } 
+                            catch (ParseException e) 
+                            {
+                                parsedDate = convertDateFormat(data[6], fallbackSdf, sdf);
+                                System.out.println("Converted date at line " + lineNumber + ": " + data[6] + " to " + parsedDate);
+                            }
+                        }
+                        firs.add(new FIR(data[0], data[1], data[2], data[3], data[4], data[5], parsedDate, data[7], data[8], data[9], data[10]));
+                        System.out.println("Loaded FIR: " + data[0] + " at line " + lineNumber);
+                    } 
+                    catch (Exception e) 
+                    {
+                        System.err.println("Invalid FIR data at line " + lineNumber + ": " + line + " - " + e.getMessage());
+                    }
+                } 
+                else 
+                {
+                    System.err.println("Malformed FIR data at line " + lineNumber + ": " + line);
+                }
             }
         } 
         catch (IOException e) 
         {
-            System.out.println("Failed to load FIRs: " + e.getMessage()); 
+            System.err.println("Failed to load FIRs: " + e.getMessage());
             e.printStackTrace();
         }
+        System.out.println("Total FIRs loaded: " + firs.size());
         return firs;
     }
 
-    public List<FIR> searchFIRs(String firId) throws IOException {
-         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    public static List<FIR> searchFIRs(String firId) throws IOException
+    {
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        SimpleDateFormat fallbackSdf = new SimpleDateFormat("yyyy-MM-dd");
+        sdf.setLenient(false);
         List<FIR> firs = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(FIRS_CSV))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(FIRS_CSV))) 
+        {
             String line;
             reader.readLine(); 
-            while ((line = reader.readLine()) != null) {
-                String[] data = line.split(",");
-                 Date incidentDate = null;
-            try {
-                incidentDate = sdf.parse(data[6]); // assuming 7th index is date string
-            } catch (ParseException e) {
-              e.printStackTrace();
-            }
-                if (data.length >= 11 && data[0].toLowerCase().contains(firId.toLowerCase())) {
-                    firs.add(new FIR(data[0], data[1], data[2], data[3], data[4], data[5], incidentDate, data[7], data[8], data[9], data[10]));
+            int lineNumber = 1;
+            while ((line = reader.readLine()) != null) 
+            {
+                lineNumber++;
+                String[] data = splitCSV(line);
+                if (data.length >= 11 && data[0].toLowerCase().contains(firId.toLowerCase())) 
+                {
+                    try 
+                    {
+                        String parsedDate = data[6];
+                        if (!data[6].isEmpty()) 
+                        {
+                            try
+                            {
+                                sdf.parse(data[6]);
+                            }
+                            catch (ParseException e)
+                            {
+                                parsedDate = convertDateFormat(data[6], fallbackSdf, sdf);
+                                System.out.println("Converted date in search at line " + lineNumber + ": " + data[6] + " to " + parsedDate);
+                            }
+                        }
+                        firs.add(new FIR(data[0], data[1], data[2], data[3], data[4], data[5], parsedDate, data[7], data[8], data[9], data[10]));
+                        System.out.println("Found FIR: " + data[0] + " at line " + lineNumber);
+                    } 
+                    catch (Exception e) 
+                    {
+                        System.err.println("Invalid FIR data in search at line " + lineNumber + ": " + line + " - " + e.getMessage());
+                    }
                 }
             }
         }
+        System.out.println("FIRs found for ID " + firId + ": " + firs.size());
         return firs;
     }
 
@@ -207,28 +278,26 @@ public class CSVHandler
         List<FIR> firs = loadFIRs();
         firs.removeIf(f -> f.getFirId().equals(updatedFIR.getFirId()));
         firs.add(updatedFIR);
-        try (PrintWriter pw = new PrintWriter(new FileWriter("resources/firs.csv"))) 
+        try (PrintWriter pw = new PrintWriter(new FileWriter(FIRS_CSV)))
         {
             pw.println("firId,complainantName,fathersName,contact,address,nicNumber,incidentDate,incidentTime,location,description,crimeType");
             for (FIR f : firs) 
             {
-                pw.println(f.getFirId() + "," + 
-                        (f.getComplainantName() != null ? f.getComplainantName() : "") + "," +
-                        (f.getFathersName() != null ? f.getFathersName() : "") + "," +
-                        (f.getContact() != null ? f.getContact() : "") + "," +
-                        (f.getAddress() != null ? f.getAddress() : "") + "," +
-                        (f.getNicNumber() != null ? f.getNicNumber() : "") + "," +
-                        (f.getIncidentDate() != null ? f.getIncidentDate() : "") + "," +
-                        (f.getIncidentTime() != null ? f.getIncidentTime() : "") + "," +
-                        (f.getLocation() != null ? f.getLocation() : "") + "," +
-                        (f.getDescription() != null ? f.getDescription() : "") + "," +
-                        (f.getCrimeType() != null ? f.getCrimeType() : ""));
+                pw.println(String.join(",",
+                    escapeCSV(f.getFirId()),
+                    escapeCSV(f.getComplainantName()),
+                    escapeCSV(f.getFathersName() != null ? f.getFathersName() : ""),
+                    escapeCSV(f.getContact() != null ? f.getContact() : ""),
+                    escapeCSV(f.getAddress() != null ? f.getAddress() : ""),
+                    escapeCSV(f.getNicNumber() != null ? f.getNicNumber() : ""),
+                    escapeCSV(f.getIncidentDate() != null ? f.getIncidentDate() : ""),
+                    escapeCSV(f.getIncidentTime() != null ? f.getIncidentTime() : ""),
+                    escapeCSV(f.getLocation() != null ? f.getLocation() : ""),
+                    escapeCSV(f.getDescription() != null ? f.getDescription() : ""),
+                    escapeCSV(f.getCrimeType() != null ? f.getCrimeType() : "")
+                ));
             }
-        } 
-        catch (IOException e) 
-        {
-            JOptionPane.showMessageDialog(null, "Failed to update FIR: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            e.printStackTrace();
+            System.out.println("FIR updated: " + updatedFIR.getFirId());
         }
     }
 
@@ -238,96 +307,177 @@ public class CSVHandler
         boolean deleted = firs.removeIf(f -> f.getFirId().equals(firId));
         if (!deleted) 
         {
-            System.out.println("Failed to delete FIR: " + firId);
+            System.err.println("Failed to delete FIR: " + firId);
             return;
         }
-     try (BufferedWriter bw = new BufferedWriter(new FileWriter("resources/firs.csv"))) 
-{
-    bw.write("firId,complainantName,fathersName,contact,address,nicNumber,incidentDate,incidentTime,location,description,crimeType");
-    bw.newLine();
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-    for (FIR f : firs) 
-    {
-        String incidentDateStr = f.getIncidentDate() != null ? sdf.format(f.getIncidentDate()) : "";
-        
-        bw.write(String.join(",", 
-            f.getFirId(), 
-            f.getComplainantName(), 
-            f.getFathersName(),
-            f.getContact(), 
-            f.getAddress(), 
-            f.getNicNumber(), 
-            incidentDateStr,
-            f.getIncidentTime(), 
-            f.getLocation(), 
-            f.getDescription(), 
-            f.getCrimeType()
-        ));
-        bw.newLine();
-    }
-    System.out.println("FIR deleted successfully: " + firId);
-}
-        catch (IOException e) 
+        try (PrintWriter pw = new PrintWriter(new FileWriter(FIRS_CSV)))
         {
-            System.out.println("Failed to delete FIR from CSV: " + e.getMessage());
+            pw.println("firId,complainantName,fathersName,contact,address,nicNumber,incidentDate,incidentTime,location,description,crimeType");
+            for (FIR f : firs)
+            {
+                pw.println(String.join(",",
+                    escapeCSV(f.getFirId()),
+                    escapeCSV(f.getComplainantName()),
+                    escapeCSV(f.getFathersName() != null ? f.getFathersName() : ""),
+                    escapeCSV(f.getContact() != null ? f.getContact() : ""),
+                    escapeCSV(f.getAddress() != null ? f.getAddress() : ""),
+                    escapeCSV(f.getNicNumber() != null ? f.getNicNumber() : ""),
+                    escapeCSV(f.getIncidentDate() != null ? f.getIncidentDate() : ""),
+                    escapeCSV(f.getIncidentTime() != null ? f.getIncidentTime() : ""),
+                    escapeCSV(f.getLocation() != null ? f.getLocation() : ""),
+                    escapeCSV(f.getDescription() != null ? f.getDescription() : ""),
+                    escapeCSV(f.getCrimeType() != null ? f.getCrimeType() : "")
+                ));
+            }
+            System.out.println("FIR deleted successfully: " + firId);
+        } 
+        catch (IOException e)
+        {
+            System.err.println("Failed to delete FIR from CSV: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
-    
+    private static String convertDateFormat(String inputDate, SimpleDateFormat fromFormat, SimpleDateFormat toFormat) throws ParseException
+    {
+        if (inputDate == null || inputDate.isEmpty()) return "";
+        try 
+        {
+            fromFormat.setLenient(false);
+            Date date = fromFormat.parse(inputDate);
+            return toFormat.format(date);
+        } 
+        catch (ParseException e) 
+        {
+            throw new ParseException("Cannot convert date: " + inputDate, 0);
+        }
+    }
+
+    private static String[] splitCSV(String line) 
+    {
+        List<String> result = new ArrayList<>();
+        boolean inQuotes = false;
+        StringBuilder field = new StringBuilder();
+        for (int i = 0; i < line.length(); i++) 
+        {
+            char c = line.charAt(i);
+            if (c == '"') 
+            {
+                inQuotes = !inQuotes;
+            } 
+            else if (c == ',' && !inQuotes) 
+            {
+                result.add(field.toString());
+                field = new StringBuilder();
+            } 
+            else 
+            {
+                field.append(c);
+            }
+        }
+        result.add(field.toString());
+        return result.toArray(new String[0]);
+    }
+
+    private static String escapeCSV(String value) 
+    {
+        if (value == null) return "";
+        if (value.contains(",") || value.contains("\"") || value.contains("\n"))
+        {
+            return "\"" + value.replace("\"", "\"\"") + "\"";
+        }
+        return value;
+    } 
+     
     public static List<Complaint> loadComplaints() 
     {
-         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         List<Complaint> complaints = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("resources/complaints.csv"))) 
+        try (BufferedReader br = new BufferedReader(new FileReader(COMPLAINTS_CSV))) 
         {
-            br.readLine(); // Skip header
+            br.readLine(); 
             String line;
             while ((line = br.readLine()) != null) 
             {
-                String[] data = line.split(",", -1); // Handle empty fields
-                 Date incidentDate = null;
-            try {
-                incidentDate = sdf.parse(data[4]); // assuming 7th index is date string
-            } catch (ParseException e) {
-              e.printStackTrace();
+                String[] data = line.split(",", -1);
+                if (data.length >= 12) 
+                {
+                    complaints.add(new Complaint(
+                        data[0], // complaintId
+                        data[1], // complainantName
+                        data[2], // complainantFatherName
+                        data[3], // contact
+                        data[4], // nicNumber
+                        data[5], // address
+                        data[6], // incidentDate (MM/dd/yyyy)
+                        data[7], // incidentTime
+                        data[8], // location
+                        data[9], // description
+                        data[10], // evidencePath
+                        data[11] // status
+                    ));
+                } 
+                else
+                {
+                    System.err.println("Invalid complaint row: " + line);
+                }
             }
-                complaints.add(new Complaint(
-                    data[0], data[1], data[2], data[3], incidentDate, data[5], data[6], data[7], data[8], data[9]
-                ));
-            }
-        }
-        catch (IOException e)   
+            System.out.println("Loaded " + complaints.size() + " complaints");
+        } 
+        catch (IOException e)       
         {
+            System.err.println("Failed to load complaints: " + e.getMessage());
             e.printStackTrace();
         }
         return complaints;
     }
-    
-    public static void deleteComplaint(String complaintId) 
+
+       
+    public static void updateComplaintStatus(String complaintId, String newStatus) throws IOException
     {
-        List<Complaint> complaints = loadComplaints();
-        complaints.removeIf(c -> c.getComplaintId().equals(complaintId));
-        try (PrintWriter pw = new PrintWriter(new FileWriter("resources/complaints.csv"))) 
+        System.out.println("Updating complaint " + complaintId + " to status: " + newStatus);
+        File file = new File(COMPLAINTS_CSV);
+        List<String> lines = new ArrayList<>();
+        boolean found = false;
+        int statusColumnIndex = 11; 
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) 
         {
-            pw.println("complaintId,complainantName,contact,nicNumber,incidentDate,incidentTime,location,description,evidencePath,status");
-            for (Complaint c : complaints) 
+            String header = reader.readLine();
+            if (header == null) 
             {
-                pw.println(c.getComplaintId() + "," + c.getComplainantName() + "," +
-                    (c.getContact() != null ? c.getContact() : "") + "," +
-                    (c.getNicNumber() != null ? c.getNicNumber() : "") + "," +
-                    (c.getIncidentDate() != null ? c.getIncidentDate() : "") + "," +
-                    (c.getIncidentTime() != null ? c.getIncidentTime() : "") + "," +
-                    (c.getLocation() != null ? c.getLocation() : "") + "," +
-                    (c.getDescription() != null ? c.getDescription() : "") + "," +
-                    (c.getEvidencePath() != null ? c.getEvidencePath() : "") + "," +
-                    c.getStatus());
+                System.err.println("Error: complaints.csv is empty");
+                throw new IOException("Empty complaints.csv");
             }
-        } 
-        catch (IOException e) 
+            lines.add(header);
+            String line;
+            while ((line = reader.readLine()) != null) 
+            {
+                String[] parts = line.split(",", -1);
+                if (parts.length > statusColumnIndex && parts[0].equals(complaintId)) 
+                {
+                    System.out.println("Found complaint: " + line);
+                    parts[statusColumnIndex] = newStatus;
+                    line = String.join(",", parts);
+                    found = true;
+                }
+                lines.add(line);
+            }
+        }
+        if (!found) 
         {
-            e.printStackTrace();
+            System.err.println("Complaint ID " + complaintId + " not found in complaints.csv");
+            throw new IOException("Complaint ID " + complaintId + " not found");
+        }
+        try (FileWriter writer = new FileWriter(COMPLAINTS_CSV)) 
+        {
+            for (String line : lines)
+            {
+                writer.write(line + "\n");
+            }
+            System.out.println("Updated complaints.csv for complaint: " + complaintId);
         }
     }
+    
+    
+    
     
 }

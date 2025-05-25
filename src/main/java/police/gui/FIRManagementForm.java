@@ -22,45 +22,51 @@ public class FIRManagementForm extends javax.swing.JFrame {
      */
     private static String loggedInUsername;
     private DefaultTableModel tableModel;
-    private List<FIR> firs;
+    private List<FIR> firs = new ArrayList<>();
+
     public FIRManagementForm(String loggedInUsername) 
     {
-        initComponents();
-        firs = new ArrayList<>();
-        loadFIRs();
-        setLocationRelativeTo(null);
-        tableModel = (DefaultTableModel) SearchResultsTable.getModel();
         this.loggedInUsername = loggedInUsername;
+        initComponents();
+        setLocationRelativeTo(null);
+        tableModel = new DefaultTableModel(new Object[]{"FIR ID", "Complainant Name", "Contact", "Date", "Crime Type"}, 0);
+        SearchResultsTable.setModel(tableModel);
+        loadFIRs();
     }
-    public void loadFIRs() 
+
+    public void loadFIRs()
     {
-        List<FIR> loadedFirs = CSVHandler.loadFIRs();
-        firs = (loadedFirs != null) ? loadedFirs : new ArrayList<>();
-        String[] columnNames = {"FIR ID", "Complainant Name", "Contact", "NIC", "Crime Type"};
-        Object[][] data = new Object[firs.size()][5];
-        for (int i = 0; i < firs.size(); i++) 
+        if (tableModel == null) 
         {
-            FIR f = firs.get(i);
-            data[i][0] = f.getFirId();
-            data[i][1] = f.getComplainantName();
-            data[i][2] = f.getContact() != null ? f.getContact() : "";
-            data[i][3] = f.getNicNumber() != null ? f.getNicNumber() : "";
-            data[i][4] = f.getCrimeType() != null ? f.getCrimeType() : "";
+            System.err.println("Error: tableModel is null in loadFIRs");
+            tableModel = new DefaultTableModel(new Object[]{"FIR ID", "Complainant Name", "Contact", "Date", "Crime Type"}, 0);
+            SearchResultsTable.setModel(tableModel);
         }
-        SearchResultsTable.setModel(new DefaultTableModel(data, columnNames) 
+        List<FIR> loadedFIRs = CSVHandler.loadFIRs();
+        firs = (loadedFIRs != null) ? loadedFIRs : new ArrayList<>();
+        System.out.println("Loaded FIRs in FIRManagementForm: " + firs.size());
+        tableModel.setRowCount(0);
+        for (FIR f : firs)
         {
-            @Override
-            public boolean isCellEditable(int row, int column) 
+            tableModel.addRow(new Object[] 
             {
-                return false;
-            }
-        });
+                f.getFirId(),
+                f.getComplainantName(),
+                f.getContact() != null ? f.getContact() : "",
+                f.getIncidentDate() != null ? f.getIncidentDate() : "",
+                f.getCrimeType() != null ? f.getCrimeType() : ""
+            });
+        }
         SearchResultsTable.getColumnModel().getColumn(0).setPreferredWidth(100);
         SearchResultsTable.getColumnModel().getColumn(1).setPreferredWidth(150);
         SearchResultsTable.getColumnModel().getColumn(2).setPreferredWidth(120);
         SearchResultsTable.getColumnModel().getColumn(3).setPreferredWidth(120);
         SearchResultsTable.getColumnModel().getColumn(4).setPreferredWidth(100);
-}
+        if (firs.isEmpty()) 
+        {
+            System.out.println("No FIRs loaded, table is empty");
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -298,92 +304,113 @@ public class FIRManagementForm extends javax.swing.JFrame {
     }//GEN-LAST:event_AddbtnActionPerformed
 
     private void UpdatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdatebtnActionPerformed
-        if (firs == null) 
-        {
-            firs = new ArrayList<>();
-            JOptionPane.showMessageDialog(this, "No FIRs loaded. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
         int selectedRow = SearchResultsTable.getSelectedRow();
-        if (selectedRow >= 0 && selectedRow < firs.size()) 
+        if (selectedRow >= 0 && selectedRow < firs.size())
         {
             FIR fir = firs.get(selectedRow);
-            System.out.println("Selected FIR: " + fir.getFirId()); // Debug
-            new AddUpdateFIRForm(this, fir).setVisible(true);
+            if (fir != null)
+            {
+                new AddUpdateFIRForm(this, fir).setVisible(true);
+                System.out.println("Opening Update for FIR: " + fir.getFirId());
+            }
+            else
+            {
+                System.err.println("Selected FIR is null at row: " + selectedRow);
+                JOptionPane.showMessageDialog(this, "Invalid FIR selected.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         } 
         else 
         {
+            System.err.println("No FIR selected for update, row: " + selectedRow);
             JOptionPane.showMessageDialog(this, "Please select an FIR to update.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_UpdatebtnActionPerformed
 
     private void DeletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletebtnActionPerformed
         int selectedRow = SearchResultsTable.getSelectedRow();
-        if (selectedRow >= 0) 
+        if (selectedRow >= 0 && selectedRow < firs.size()) 
         {
-            String firId = (String) SearchResultsTable.getValueAt(selectedRow, 0);
-            System.out.println("Selected FIR for deletion: " + firId); // Debug
-            int confirm = JOptionPane.showConfirmDialog(this,
-                "Are you sure you want to delete FIR: " + firId + "?",
-                "Confirm Deletion", JOptionPane.OK_CANCEL_OPTION);
-            if (confirm == JOptionPane.OK_OPTION) 
+            FIR fir = firs.get(selectedRow);
+            if (fir != null)
             {
-                CSVHandler.deleteFIR(firId);
-                loadFIRs();
-                JOptionPane.showMessageDialog(this, "FIR deleted successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+                int response = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete FIR: " + fir.getFirId() + "?", "Confirm Deletion", JOptionPane.YES_NO_OPTION);
+                if (response == JOptionPane.YES_OPTION) 
+                {
+                    CSVHandler.deleteFIR(fir.getFirId());
+                    loadFIRs();
+                    JOptionPane.showMessageDialog(this, "FIR deleted successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+                    System.out.println("Deleted FIR: " + fir.getFirId());
+                }
+            } 
+            else 
+            {
+                System.err.println("Selected FIR is null at row: " + selectedRow);
+                JOptionPane.showMessageDialog(this, "Invalid FIR.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
-        else
+        else 
         {
+            System.err.println("No FIR selected for deletion, row: " + selectedRow);
             JOptionPane.showMessageDialog(this, "Please select an FIR to delete.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_DeletebtnActionPerformed
 
     private void SearchbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchbtnActionPerformed
-            String searchText = searchbartxt.getText().trim().toLowerCase();
-            System.out.println("Search button clicked with text: " + searchText); 
-            if (tableModel == null) {
-                System.out.println("Error: tableModel is null in SearchbtnActionPerformed"); 
-                return;
-            }
-            tableModel.setRowCount(0); // Clear table
-                for (FIR fir : firs) 
-                {
-                    if (fir.getFirId().toLowerCase().contains(searchText) ||
-                        fir.getComplainantName().toLowerCase().contains(searchText) ||
-                       (fir.getCrimeType() != null && fir.getCrimeType().toLowerCase().contains(searchText))) 
-                    {
-                        tableModel.addRow(new Object[]{
-                            fir.getFirId(),
-                            fir.getComplainantName(),
-                            fir.getContact() != null ? fir.getContact() : "",
-                            fir.getNicNumber() != null ? fir.getNicNumber() : "",
-                            fir.getCrimeType() != null ? fir.getCrimeType() : ""
-                        });
-                    }
-                }
-            System.out.println("Filtered FIRs: " + tableModel.getRowCount()); 
-    }//GEN-LAST:event_SearchbtnActionPerformed
-
-    private void searchbartxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchbartxtKeyReleased
-        String searchText = searchbartxt.getText().trim().toUpperCase();
-        System.out.println("Searching FIRs with text: " + searchText); 
-        tableModel.setRowCount(0);
-        for (FIR fir : firs) 
+        String searchText = searchbartxt.getText().trim().toLowerCase();
+        System.out.println("Search button clicked with text: " + searchText);
+        if (tableModel == null)
         {
-            if (fir.getFirId().toLowerCase().contains(searchText) )
+            System.err.println("Error: tableModel is null in SearchbtnActionPerformed");
+            tableModel = new DefaultTableModel(new Object[]{"FIR ID", "Complainant Name", "Contact", "Date", "Crime Type"}, 0);
+            SearchResultsTable.setModel(tableModel);
+        }
+        tableModel.setRowCount(0);
+        for (FIR f : firs)
+        {
+            if (f.getFirId().toLowerCase().contains(searchText) ||
+                f.getComplainantName().toLowerCase().contains(searchText) ||
+                (f.getCrimeType() != null && f.getCrimeType().toLowerCase().contains(searchText))) 
             {
-                tableModel.addRow(new Object[]
+                tableModel.addRow(new Object[] 
                 {
-                    fir.getFirId(),
-                    fir.getComplainantName(),
-                    fir.getContact() != null ? fir.getContact() : "",
-                    fir.getNicNumber() != null ? fir.getNicNumber() : "",
-                    fir.getCrimeType() != null ? fir.getCrimeType() : ""
+                    f.getFirId(),
+                    f.getComplainantName(),
+                    f.getContact() != null ? f.getContact() : "",
+                    f.getIncidentDate() != null ? f.getIncidentDate() : "",
+                    f.getCrimeType() != null ? f.getCrimeType() : ""
                 });
             }
         }
         System.out.println("Filtered FIRs: " + tableModel.getRowCount()); 
+    }//GEN-LAST:event_SearchbtnActionPerformed
+
+    private void searchbartxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchbartxtKeyReleased
+        String searchText = searchbartxt.getText().trim().toLowerCase();
+        System.out.println("Searching FIRs in FIRManagementForm: " + searchText);
+        if (tableModel == null) 
+        {
+            System.err.println("Error: tableModel is null in searchbartxtKeyReleased");
+            tableModel = new DefaultTableModel(new Object[]{"FIR ID", "Complainant Name", "Contact", "Date", "Crime Type"}, 0);
+            SearchResultsTable.setModel(tableModel);
+        }
+        tableModel.setRowCount(0);
+        for (FIR f : firs) 
+        {
+            if  (f.getFirId().toLowerCase().contains(searchText) ||
+                 f.getComplainantName().toLowerCase().contains(searchText) ||
+                (f.getCrimeType() != null && f.getCrimeType().toLowerCase().contains(searchText)))
+            {
+                tableModel.addRow(new Object[] 
+                {
+                    f.getFirId(),
+                    f.getComplainantName(),
+                    f.getContact() != null ? f.getContact() : "",
+                    f.getIncidentDate() != null ? f.getIncidentDate() : "",
+                    f.getCrimeType() != null ? f.getCrimeType() : ""
+                });
+            }
+        }
+        System.out.println("Filtered FIRs: " + tableModel.getRowCount());
     }//GEN-LAST:event_searchbartxtKeyReleased
 
     /**

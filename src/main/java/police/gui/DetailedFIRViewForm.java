@@ -21,8 +21,15 @@ public class DetailedFIRViewForm extends javax.swing.JFrame {
     
     public DetailedFIRViewForm(FIR fir, String loggedInUsername) 
     {
-        initComponents();
+        if (fir == null) 
+        {
+            System.err.println("FIR object is null in DetailedFIRViewForm constructor");
+            JOptionPane.showMessageDialog(null, "Invalid FIR data", "Error", JOptionPane.ERROR_MESSAGE);
+            dispose();
+            return;
+        }
         this.loggedInUsername = loggedInUsername;
+        initComponents();
         setLocationRelativeTo(null);
         displayFIRDetails(fir);
     }
@@ -30,17 +37,18 @@ public class DetailedFIRViewForm extends javax.swing.JFrame {
     
     private void displayFIRDetails(FIR fir) 
     {
-        firIdLabel.setText("FIR ID: " + (fir.getFirId() != null ? fir.getFirId() : ""));
-        complainantLabel.setText("Complainant: " + (fir.getComplainantName() != null ? fir.getComplainantName() : ""));
-        fathersNameLabel.setText("Father's Name: " + (fir.getFathersName() != null ? fir.getFathersName() : ""));
-        contactLabel.setText("Contact: " + (fir.getContact() != null ? fir.getContact() : ""));
-        addressLabel.setText("Address: " + (fir.getAddress() != null ? fir.getAddress() : ""));
-        nicLabel.setText("NIC Number: " + (fir.getNicNumber() != null ? fir.getNicNumber() : ""));
-        dateLabel.setText("Incident Date: " + (fir.getIncidentDate() != null ? fir.getIncidentDate() : ""));
-        timeLabel.setText("Incident Time: " + (fir.getIncidentTime() != null ? fir.getIncidentTime() : ""));
-        locationLabel.setText("Location: " + (fir.getLocation() != null ? fir.getLocation() : ""));
-        descriptionLabel.setText("Description: " + (fir.getDescription() != null ? fir.getDescription() : "") );
-        crimeTypeLabel.setText("Crime Type: " + (fir.getCrimeType() != null ? fir.getCrimeType() : ""));
+        firIdLabel.setText("<html>FIR ID: " + (fir.getFirId() != null ? fir.getFirId() : "") + "</html>");
+        complainantLabel.setText("<html>Complainant: " + (fir.getComplainantName() != null ? fir.getComplainantName() : "") + "</html>");
+        fathersNameLabel.setText("<html>Father's Name: " + (fir.getFathersName() != null ? fir.getFathersName() : "") + "</html>");
+        contactLabel.setText("<html>Contact: " + (fir.getContact() != null ? fir.getContact() : "") + "</html>");
+        addressLabel.setText("<html>Address: " + (fir.getAddress() != null ? fir.getAddress() : "") + "</html>");
+        nicLabel.setText("<html>NIC Number: " + (fir.getNicNumber() != null ? fir.getNicNumber() : "") + "</html>");
+        dateLabel.setText("<html>Incident Date: " + (fir.getIncidentDate() != null ? fir.getIncidentDate() : "") + "</html>");
+        timeLabel.setText("<html>Incident Time: " + (fir.getIncidentTime() != null ? fir.getIncidentTime() : "") + "</html>");
+        locationLabel.setText("<html>Location: " + (fir.getLocation() != null ? fir.getLocation() : "") + "</html>");
+        descriptionLabel.setText("<html>Description: " + (fir.getDescription() != null ? fir.getDescription() : "") + "</html>");
+        crimeTypeLabel.setText("<html>Crime Type: " + (fir.getCrimeType() != null ? fir.getCrimeType() : "") + "</html>");
+        System.out.println("Displayed FIR: " + fir);
     }   
 
     /**

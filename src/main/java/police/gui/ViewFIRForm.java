@@ -32,24 +32,30 @@ public class ViewFIRForm extends javax.swing.JFrame
         firs = new ArrayList<>();
         setLocationRelativeTo(null);
         configureTable();
+        tableModel = new DefaultTableModel();
+        SearchResultsTable.setModel(tableModel);
         loadFIRs();
     }
     private void configureTable() 
     {
-        SearchResultsTable.getColumnModel().getColumn(0).setPreferredWidth(80); 
-        SearchResultsTable.getColumnModel().getColumn(4).setPreferredWidth(150); 
-        SearchResultsTable.getColumnModel().getColumn(9).setPreferredWidth(200); 
-        SearchResultsTable.getColumnModel().getColumn(11).setPreferredWidth(100); 
-        SearchResultsTable.getColumnModel().getColumn(11).setCellRenderer(new ButtonRenderer());
-        SearchResultsTable.getColumnModel().getColumn(11).setCellEditor(new ButtonEditor(new JCheckBox()));
+        SearchResultsTable.getColumnModel().getColumn(0).setPreferredWidth(100);
+        SearchResultsTable.getColumnModel().getColumn(1).setPreferredWidth(150);
+        SearchResultsTable.getColumnModel().getColumn(2).setPreferredWidth(120);
+        SearchResultsTable.getColumnModel().getColumn(3).setPreferredWidth(120);
+        SearchResultsTable.getColumnModel().getColumn(4).setPreferredWidth(100);
+        SearchResultsTable.getColumnModel().getColumn(5).setPreferredWidth(100);
+        SearchResultsTable.getColumnModel().getColumn(5).setCellRenderer(new ButtonRenderer());
+        SearchResultsTable.getColumnModel().getColumn(5).setCellEditor(new ButtonEditor(new JCheckBox()));
     }   
-    public void loadFIRs() {
+    public void loadFIRs()
+    {
         List<FIR> loadedFIRs = CSVHandler.loadFIRs();
         firs = (loadedFIRs != null) ? loadedFIRs : new ArrayList<>();
-        System.out.println("Loaded FIRs in ViewSearchFIRForm: " + firs.size()); 
+        System.out.println("Loaded FIRs in ViewFIRForm: " + firs.size());
         String[] columnNames = {"FIR ID", "Complainant Name", "Contact", "NIC", "Crime Type", "View Details"};
         Object[][] data = new Object[firs.size()][6];
-        for (int i = 0; i < firs.size(); i++) {
+        for (int i = 0; i < firs.size(); i++) 
+        {
             FIR f = firs.get(i);
             data[i][0] = f.getFirId();
             data[i][1] = f.getComplainantName();
@@ -57,11 +63,6 @@ public class ViewFIRForm extends javax.swing.JFrame
             data[i][3] = f.getNicNumber() != null ? f.getNicNumber() : "";
             data[i][4] = f.getCrimeType() != null ? f.getCrimeType() : "";
             data[i][5] = "View Details";
-        }
-        if (tableModel == null) {
-            System.out.println("Error: tableModel is null in loadFIRs ViewSearchFIRForm"); 
-            tableModel = new DefaultTableModel();
-            SearchResultsTable.setModel(tableModel);
         }
         tableModel.setDataVector(data, columnNames);
         SearchResultsTable.getColumnModel().getColumn(0).setPreferredWidth(100);
@@ -72,7 +73,7 @@ public class ViewFIRForm extends javax.swing.JFrame
         SearchResultsTable.getColumnModel().getColumn(5).setPreferredWidth(100);
         SearchResultsTable.getColumnModel().getColumn(5).setCellRenderer(new ButtonRenderer());
         SearchResultsTable.getColumnModel().getColumn(5).setCellEditor(new ButtonEditor(new JCheckBox()));
-    }          
+    }
             
     class ButtonRenderer extends JButton implements TableCellRenderer 
     {
@@ -316,26 +317,32 @@ public class ViewFIRForm extends javax.swing.JFrame
 
     private void SearchbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchbtnActionPerformed
         String searchText = searchbartxt.getText().trim().toLowerCase();
-            System.out.println("Search button clicked with text: " + searchText); 
-            if (tableModel == null) {
-                System.out.println("Error: tableModel is null in SearchbtnActionPerformed"); 
-                return;
-            }
-            tableModel.setRowCount(0); 
-                for (FIR fir : firs) 
+        System.out.println("Search button clicked with text: " + searchText);
+        if (tableModel == null) {
+            System.err.println("Error: tableModel is null in SearchbtnActionPerformed");
+            tableModel = new DefaultTableModel();
+            SearchResultsTable.setModel(tableModel);
+            return;
+        }
+        tableModel.setRowCount(0);
+        for (FIR f : firs) 
+        {
+            if (f.getFirId().toLowerCase().contains(searchText) ||
+                f.getComplainantName().toLowerCase().contains(searchText) ||
+                (f.getCrimeType() != null && f.getCrimeType().toLowerCase().contains(searchText))) 
+            {
+                tableModel.addRow(new Object[] 
                 {
-                    if (fir.getFirId().toLowerCase().contains(searchText)) 
-                    {
-                        tableModel.addRow(new Object[]{
-                            fir.getFirId(),
-                            fir.getComplainantName(),
-                            fir.getContact() != null ? fir.getContact() : "",
-                            fir.getNicNumber() != null ? fir.getNicNumber() : "",
-                            fir.getCrimeType() != null ? fir.getCrimeType() : ""
-                        });
-                    }
-                }
-            System.out.println("Filtered FIRs: " + tableModel.getRowCount());  
+                    f.getFirId(),
+                    f.getComplainantName(),
+                    f.getContact() != null ? f.getContact() : "",
+                    f.getNicNumber() != null ? f.getNicNumber() : "",
+                    f.getCrimeType() != null ? f.getCrimeType() : "",
+                    "View Details"
+                });
+            }
+        }
+        System.out.println("Filtered FIRs: " + tableModel.getRowCount());  
     }//GEN-LAST:event_SearchbtnActionPerformed
 
     private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
@@ -349,27 +356,30 @@ public class ViewFIRForm extends javax.swing.JFrame
 
     private void searchbartxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchbartxtKeyReleased
         String searchText = searchbartxt.getText().trim().toLowerCase();
-        System.out.println("Searching FIRs in ViewSearchFIRForm with text: " + searchText); // Debug
+        System.out.println("Searching FIRs in ViewFIRForm: " + searchText);
         if (tableModel == null) {
-            System.out.println("Error: tableModel is null in searchbartxtKeyReleased ViewSearchFIRForm"); // Debug
+            System.err.println("Error: tableModel is null in searchbartxtKeyReleased");
             tableModel = new DefaultTableModel();
             SearchResultsTable.setModel(tableModel);
+            return;
         }
         tableModel.setRowCount(0);
-        for (FIR fir : firs) {
-            if (fir.getFirId().toLowerCase().contains(searchText) ||
-                fir.getComplainantName().toLowerCase().contains(searchText) ||
-                (fir.getCrimeType() != null && fir.getCrimeType().toLowerCase().contains(searchText))) {
-                tableModel.addRow(new Object[]{
-                    fir.getFirId(),
-                    fir.getComplainantName(),
-                    fir.getContact() != null ? fir.getContact() : "",
-                    fir.getNicNumber() != null ? fir.getNicNumber() : "",
-                    fir.getCrimeType() != null ? fir.getCrimeType() : ""
+        for (FIR f : firs) 
+        {
+            if (f.getFirId().toLowerCase().contains(searchText) ||
+                f.getComplainantName().toLowerCase().contains(searchText) ||
+                (f.getCrimeType() != null && f.getCrimeType().toLowerCase().contains(searchText))) {
+                tableModel.addRow(new Object[] {
+                    f.getFirId(),
+                    f.getComplainantName(),
+                    f.getContact() != null ? f.getContact() : "",
+                    f.getNicNumber() != null ? f.getNicNumber() : "",
+                    f.getCrimeType() != null ? f.getCrimeType() : "",
+                    "View Details"
                 });
             }
         }
-        System.out.println("Filtered FIRs in ViewSearchFIRForm: " + tableModel.getRowCount());
+        System.out.println("Filtered FIRs: " + tableModel.getRowCount());
     }//GEN-LAST:event_searchbartxtKeyReleased
 
     /**
