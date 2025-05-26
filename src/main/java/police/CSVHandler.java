@@ -171,6 +171,27 @@ public class CSVHandler
             e.printStackTrace();
         }
     }
+     public void addCriminal(Criminal criminal) throws IOException {
+        try (FileWriter writer = new FileWriter(FIRS_CSV, true)) {
+            writer.write(String.join(",", criminal.getCriminalId(), criminal.getComplainantName(), criminal.getStatus(),
+                    criminal.getContact(), criminal.getAddress(), criminal.getNicNumber(), criminal.getdateofBirth(), criminal.getTime(),
+                    criminal.getDescription())+ "\n");
+        }
+    }
+      public List<Criminal> getAllCriminals() throws IOException {
+        List<Criminal> criminal = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(FIRS_CSV))) {
+            String line;
+            reader.readLine(); // Skip header
+            while ((line = reader.readLine()) != null) {
+                String[] data = line.split(",");
+                if (data.length >= 9) {
+                    criminal.add(new  Criminal(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8]));
+                }
+            }
+        }
+        return criminal;
+    }
 
     public static List<FIR> loadFIRs() 
     {
@@ -272,6 +293,20 @@ public class CSVHandler
         System.out.println("FIRs found for ID " + firId + ": " + firs.size());
         return firs;
     }
+     public List<Criminal> searchCriminals(String txtID) throws IOException {
+        List<Criminal> criminal = new ArrayList<>();
+         try (BufferedReader reader = new BufferedReader(new FileReader(FIRS_CSV))) {
+            String line;
+            reader.readLine(); 
+            while ((line = reader.readLine()) != null) {
+                String[] data = line.split(",");
+                if (data.length >= 9 && data[0].toLowerCase().contains(txtID.toLowerCase())) {
+                    criminal.add(new Criminal(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8]));
+                }
+            }
+         }
+         return criminal;
+    }
 
     public static void updateFIR(FIR updatedFIR) throws IOException 
     {
@@ -300,7 +335,41 @@ public class CSVHandler
             System.out.println("FIR updated: " + updatedFIR.getFirId());
         }
     }
-
+public void updateCriminal(Criminal updatedCriminal) throws IOException {
+       List<Criminal> criminals = getAllCriminals(); 
+    
+    try (FileWriter writer = new FileWriter(FIRS_CSV)) {
+        writer.write("CriminalID,criminalName,noOfCrimes,address,nicNumber,DateofBirth,TimeofCrime,description\n");
+        
+        for (Criminal criminal : criminals) {
+            if (criminal.getCriminalId().equals(updatedCriminal.getCriminalId())) {
+                writer.write(String.join(",",
+                    updatedCriminal.getCriminalId(),
+                    updatedCriminal.getComplainantName(),
+                    updatedCriminal.getStatus(),
+                    updatedCriminal.getContact(),
+                    updatedCriminal.getAddress(),
+                    updatedCriminal.getNicNumber(),
+                    updatedCriminal.getdateofBirth(),
+                    updatedCriminal.getTime(),
+                    updatedCriminal.getDescription()
+                ) + "\n");
+            } else {
+                writer.write(String.join(",",
+                    criminal.getCriminalId(),
+                    criminal.getComplainantName(),
+                    criminal.getStatus(),
+                    criminal.getContact(),
+                    criminal.getAddress(),
+                    criminal.getNicNumber(),
+                    criminal.getdateofBirth(),
+                    criminal.getTime(),
+                    criminal.getDescription()
+                ) + "\n");
+            }
+        }
+        }
+    }
     public static void deleteFIR(String firId) 
     {
         List<FIR> firs = loadFIRs();
@@ -335,6 +404,19 @@ public class CSVHandler
         {
             System.err.println("Failed to delete FIR from CSV: " + e.getMessage());
             e.printStackTrace();
+        }
+    }
+    public void deleteCriminal(String criminalID) throws IOException {
+        List<Criminal> criminal = getAllCriminals();
+        try (FileWriter writer = new FileWriter(FIRS_CSV)) {
+            writer.write("CriminalID, criminalName,Status,contact,address,nicNumber,DateOfBirth,Time,description\n");
+            for (Criminal  cri : criminal) {
+                if (!cri.getCriminalId().equals(criminalID)) {
+                    writer.write(String.join(",", cri.getCriminalId(), cri.getComplainantName(), cri.getStatus(),
+                        cri.getContact(), cri.getAddress(), cri.getNicNumber(), cri.getdateofBirth(),
+                        cri.getTime(), cri.getDescription()) + "\n");
+                }
+            }
         }
     }
 

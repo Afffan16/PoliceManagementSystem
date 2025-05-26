@@ -222,4 +222,8 @@ public class FormValidator {
             txtcnic.setText(formatted);
         }
     }
+
+    public static boolean searerr(JTextField searchbartxt, JLabel lblsearcherr) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

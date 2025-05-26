@@ -3,7 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package police.gui;
-
+import police.CSVHandler;
+import police.model.*;
+import javax.swing.*;
+import java.awt.*;
+import java.io.*;
 /**
  *
  * @author HP
@@ -13,8 +17,12 @@ public class CriminalForm extends javax.swing.JFrame {
     /**
      * Creates new form CriminalForm
      */
-    public CriminalForm() {
+    private static String loggedInUsername;
+    public CriminalForm(String loggedInUsername) 
+    {
+        this.loggedInUsername = loggedInUsername;
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -26,21 +34,120 @@ public class CriminalForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        mainPanel = new javax.swing.JPanel();
+        headinglbl = new javax.swing.JLabel();
+        ViewCriminalbtn = new javax.swing.JButton();
+        manageCriminalbtn = new javax.swing.JButton();
+        Backbtn = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        mainPanel.setBackground(new java.awt.Color(0, 0, 0));
+        mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
+
+        headinglbl.setText("CRIMINAL  MODULE");
+        headinglbl.setBackground(new java.awt.Color(51, 102, 255));
+        headinglbl.setFont(new java.awt.Font("Wide Latin", 3, 26)); // NOI18N
+        headinglbl.setForeground(new java.awt.Color(0, 255, 204));
+
+        ViewCriminalbtn.setText("VIEW / SEARCH CRIMINAL");
+        ViewCriminalbtn.setBackground(new java.awt.Color(153, 153, 153));
+        ViewCriminalbtn.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        ViewCriminalbtn.setForeground(new java.awt.Color(255, 0, 0));
+        ViewCriminalbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewCriminalbtnActionPerformed(evt);
+            }
+        });
+
+        manageCriminalbtn.setText("MANAGE CRIMINAL");
+        manageCriminalbtn.setBackground(new java.awt.Color(153, 153, 153));
+        manageCriminalbtn.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        manageCriminalbtn.setForeground(new java.awt.Color(255, 0, 0));
+        manageCriminalbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manageCriminalbtnActionPerformed(evt);
+            }
+        });
+
+        Backbtn.setText("Back");
+        Backbtn.setBackground(new java.awt.Color(153, 153, 153));
+        Backbtn.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        Backbtn.setForeground(new java.awt.Color(255, 0, 0));
+        Backbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackbtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
+        mainPanel.setLayout(mainPanelLayout);
+        mainPanelLayout.setHorizontalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(264, 264, 264))
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(ViewCriminalbtn)
+                        .addGap(52, 52, 52)
+                        .addComponent(manageCriminalbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(headinglbl)))
+                .addContainerGap(60, Short.MAX_VALUE))
+        );
+        mainPanelLayout.setVerticalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(61, 61, 61)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ViewCriminalbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manageCriminalbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(95, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ViewCriminalbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewCriminalbtnActionPerformed
+        new ViewCriminalForm(loggedInUsername).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_ViewCriminalbtnActionPerformed
+
+    private void manageCriminalbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageCriminalbtnActionPerformed
+        new CriminalManagementForm(loggedInUsername).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_manageCriminalbtnActionPerformed
+
+    private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
+        new PoliceDashboardForm(loggedInUsername).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BackbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -72,11 +179,16 @@ public class CriminalForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CriminalForm().setVisible(true);
+                new CriminalForm(loggedInUsername).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Backbtn;
+    private javax.swing.JButton ViewCriminalbtn;
+    private javax.swing.JLabel headinglbl;
+    private javax.swing.JPanel mainPanel;
+    private javax.swing.JButton manageCriminalbtn;
     // End of variables declaration//GEN-END:variables
 }
