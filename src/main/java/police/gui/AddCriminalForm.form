@@ -99,10 +99,6 @@
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                                      <Component id="ComplainerContacttxt2" min="-2" pref="304" max="-2" attributes="0"/>
-                                  </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="Cnictxt" min="-2" pref="304" max="-2" attributes="0"/>
@@ -111,19 +107,33 @@
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="txtID" max="32767" attributes="0"/>
-                                          <Component id="ComplainerNametxt" min="-2" pref="305" max="-2" attributes="0"/>
+                                          <Component id="ComplainerNametxt" pref="305" max="32767" attributes="0"/>
+                                          <Component id="lblerrname" alignment="0" min="-2" pref="297" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="lblerrcrime" max="32767" attributes="0"/>
+                                          <Component id="lblerraddress" max="32767" attributes="0"/>
+                                          <Component id="ComplainerContacttxt2" pref="304" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="19" pref="19" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="CriminalAddresstxt" alignment="1" min="-2" pref="304" max="-2" attributes="0"/>
-                                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="jScrollPane1" max="32767" attributes="0"/>
-                                              <Component id="dateChoosertxt" min="-2" pref="304" max="-2" attributes="0"/>
-                                              <Component id="txtStatus" alignment="0" min="-2" pref="304" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="lblerrdiscription" max="32767" attributes="0"/>
+                                          <Component id="lblerrdate" max="32767" attributes="0"/>
+                                          <Component id="lblerrstatus" max="32767" attributes="0"/>
+                                          <Component id="lblerrcnic" max="32767" attributes="0"/>
+                                          <Component id="CriminalAddresstxt" alignment="0" pref="304" max="32767" attributes="0"/>
+                                          <Component id="jScrollPane1" max="32767" attributes="0"/>
+                                          <Component id="dateChoosertxt" pref="304" max="32767" attributes="0"/>
+                                          <Component id="txtStatus" alignment="0" pref="304" max="32767" attributes="0"/>
+                                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                              <Component id="lblerrimg" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
+                                              <Component id="addImagebtn" alignment="0" min="-2" pref="107" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="addImagebtn" alignment="0" min="-2" pref="107" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -153,27 +163,37 @@
                           <Component id="ComplainerNamelbl" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="ComplainerNametxt" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                      <Component id="lblerrname" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="CNIClbl" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="Cnictxt" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                      <Component id="lblerrcnic" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="CriminalAddresstxt" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="ComplainerAddresslbl1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                      <Component id="lblerraddress" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="ComplainerContacttxt2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="ComplainerContactlbl" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblerrcrime" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="Statuslbl" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtStatus" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                      <Component id="lblerrstatus" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="IncidentDatelbl" min="-2" max="-2" attributes="0"/>
@@ -188,16 +208,22 @@
                               <Component id="Descriptionlbl" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                              <Component id="lblerrdate" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jScrollPane1" min="-2" pref="110" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblerrdiscription" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="imagelbl" min="-2" max="-2" attributes="0"/>
                           <Component id="addImagebtn" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblerrimg" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="Backbtn" alignment="3" max="32767" attributes="0"/>
                           <Component id="Submitbtn" alignment="3" max="32767" attributes="0"/>
@@ -379,6 +405,22 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addImagebtnActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblerrname">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblerrcnic">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblerraddress">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblerrcrime">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblerrstatus">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblerrdate">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblerrdiscription">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblerrimg">
             </Component>
           </SubComponents>
         </Container>

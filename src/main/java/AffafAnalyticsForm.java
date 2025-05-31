@@ -2,19 +2,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package police.gui;
-import police.model.AnalyticsHelper;
+//package police.gui;
+
+import javax.swing.SwingUtilities;
+import police.model.ArrestChartGenerator;
 
 /**
  *
- * @author HP
+ * @author CC
  */
-public class AnalyticsForm extends javax.swing.JFrame {
+public class AffafAnalyticsForm extends javax.swing.JFrame {
 
     /**
-     * Creates new form AnalyticsForm
+     * Creates new form AffafAnalyticsForm
      */
-    public AnalyticsForm() {
+    public AffafAnalyticsForm() {
         initComponents();
     }
 
@@ -29,29 +31,28 @@ public class AnalyticsForm extends javax.swing.JFrame {
 
         jMonthChooser1 = new com.toedter.calendar.JMonthChooser();
         jYearChooser1 = new com.toedter.calendar.JYearChooser();
-        btnveiw = new javax.swing.JButton();
-        chartPanelContainer = new javax.swing.JPanel();
+        chartPanelContaineraff = new javax.swing.JPanel();
+        btnchart = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnveiw.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnveiw.setText("View Graph");
-        btnveiw.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnveiwActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout chartPanelContainerLayout = new javax.swing.GroupLayout(chartPanelContainer);
-        chartPanelContainer.setLayout(chartPanelContainerLayout);
-        chartPanelContainerLayout.setHorizontalGroup(
-            chartPanelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout chartPanelContaineraffLayout = new javax.swing.GroupLayout(chartPanelContaineraff);
+        chartPanelContaineraff.setLayout(chartPanelContaineraffLayout);
+        chartPanelContaineraffLayout.setHorizontalGroup(
+            chartPanelContaineraffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 449, Short.MAX_VALUE)
         );
-        chartPanelContainerLayout.setVerticalGroup(
-            chartPanelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        chartPanelContaineraffLayout.setVerticalGroup(
+            chartPanelContaineraffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 345, Short.MAX_VALUE)
         );
+
+        btnchart.setText("Chart");
+        btnchart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnchartActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -60,43 +61,43 @@ public class AnalyticsForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(149, 149, 149)
+                        .addGap(106, 106, 106)
                         .addComponent(jMonthChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(66, 66, 66)
-                        .addComponent(jYearChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(109, 109, 109)
+                        .addComponent(jYearChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(262, 262, 262)
-                        .addComponent(btnveiw, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(85, 85, 85)
+                        .addComponent(chartPanelContaineraff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(chartPanelContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(209, Short.MAX_VALUE))
+                        .addGap(302, 302, 302)
+                        .addComponent(btnchart)))
+                .addContainerGap(215, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(47, 47, 47)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jYearChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jMonthChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(chartPanelContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
-                .addComponent(btnveiw)
-                .addGap(45, 45, 45))
+                .addGap(45, 45, 45)
+                .addComponent(chartPanelContaineraff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addComponent(btnchart)
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnveiwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnveiwActionPerformed
-           int selectedMonth = jMonthChooser1.getMonth() + 1;
-    int selectedYear = jYearChooser1.getYear();
-    String filePath = "E:\\project\\PoliceManagementSystem\\Resources\\complaints.csv";
-
-    AnalyticsHelper.showChart(chartPanelContainer, selectedMonth, selectedYear, filePath);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnveiwActionPerformed
+    private void btnchartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnchartActionPerformed
+//     String filePath = "E:\\project\\mywork of project\\PoliceManagementSystem\\Resources\\criminals.csv"; // Change to your file path
+//        SwingUtilities.invokeLater(() -> {
+//            ArrestChartGenerator chart = new ArrestChartGenerator(filePath);
+//            chart.setVisible(true);
+//        });
+//    }        // TODO add your handling code here:
+    }//GEN-LAST:event_btnchartActionPerformed
 
     /**
      * @param args the command line arguments
@@ -115,27 +116,28 @@ public class AnalyticsForm extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AnalyticsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AffafAnalyticsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AnalyticsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AffafAnalyticsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AnalyticsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AffafAnalyticsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AnalyticsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AffafAnalyticsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
-                new AnalyticsForm().setVisible(true);
+                new AffafAnalyticsForm().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnveiw;
-    private javax.swing.JPanel chartPanelContainer;
+    private javax.swing.JButton btnchart;
+    private javax.swing.JPanel chartPanelContaineraff;
     private com.toedter.calendar.JMonthChooser jMonthChooser1;
     private com.toedter.calendar.JYearChooser jYearChooser1;
     // End of variables declaration//GEN-END:variables

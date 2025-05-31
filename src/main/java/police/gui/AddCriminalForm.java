@@ -10,6 +10,7 @@ import police.CSVHandler;
 import police.model.FormValidator;
 import com.toedter.calendar.JDateChooser;
 import java.util.Date;
+import police.model.FormvalidatorADD;
 /**
  *
  * @author waqar
@@ -81,6 +82,14 @@ public class AddCriminalForm extends javax.swing.JFrame
         Backbtn = new javax.swing.JButton();
         imagelbl = new javax.swing.JLabel();
         addImagebtn = new javax.swing.JButton();
+        lblerrname = new javax.swing.JLabel();
+        lblerrcnic = new javax.swing.JLabel();
+        lblerraddress = new javax.swing.JLabel();
+        lblerrcrime = new javax.swing.JLabel();
+        lblerrstatus = new javax.swing.JLabel();
+        lblerrdate = new javax.swing.JLabel();
+        lblerrdiscription = new javax.swing.JLabel();
+        lblerrimg = new javax.swing.JLabel();
 
         ComplainerContacttxt1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,11 +104,11 @@ public class AddCriminalForm extends javax.swing.JFrame
         mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
         mainPanel.setPreferredSize(new java.awt.Dimension(600, 1000));
 
-        headinglbl.setText("ADD CRIMINAL :");
         headinglbl.setFont(new java.awt.Font("Bahnschrift", 1, 28)); // NOI18N
+        headinglbl.setText("ADD CRIMINAL :");
 
-        ComplainerIDlbl.setText("Criminal ID :");
         ComplainerIDlbl.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        ComplainerIDlbl.setText("Criminal ID :");
 
         txtID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,8 +116,8 @@ public class AddCriminalForm extends javax.swing.JFrame
             }
         });
 
-        ComplainerNamelbl.setText("Criminal Name :");
         ComplainerNamelbl.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        ComplainerNamelbl.setText("Criminal Name :");
 
         ComplainerNametxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,11 +125,11 @@ public class AddCriminalForm extends javax.swing.JFrame
             }
         });
 
-        CNIClbl.setText("CNIC No :");
         CNIClbl.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        CNIClbl.setText("CNIC No :");
 
-        ComplainerAddresslbl1.setText("Address :");
         ComplainerAddresslbl1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        ComplainerAddresslbl1.setText("Address :");
 
         CriminalAddresstxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,8 +137,8 @@ public class AddCriminalForm extends javax.swing.JFrame
             }
         });
 
-        ComplainerContactlbl.setText("No. of Crimes:");
         ComplainerContactlbl.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        ComplainerContactlbl.setText("No. of Crimes:");
 
         ComplainerContacttxt2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,8 +146,8 @@ public class AddCriminalForm extends javax.swing.JFrame
             }
         });
 
-        Statuslbl.setText("Arrest Status:");
         Statuslbl.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Statuslbl.setText("Arrest Status:");
 
         txtStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,32 +155,32 @@ public class AddCriminalForm extends javax.swing.JFrame
             }
         });
 
-        IncidentDatelbl.setText("Arrest Date:");
         IncidentDatelbl.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        IncidentDatelbl.setText("Arrest Date:");
 
-        jLabel2.setText("( YYYY-MM-DD )");
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        jLabel2.setText("( YYYY-MM-DD )");
 
-        Descriptionlbl.setText("Description of Arrest :");
         Descriptionlbl.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Descriptionlbl.setText("Description of Arrest :");
 
         Descriptiontxt.setColumns(20);
         Descriptiontxt.setLineWrap(true);
         Descriptiontxt.setRows(5);
         jScrollPane1.setViewportView(Descriptiontxt);
 
-        Submitbtn.setText("Submit");
         Submitbtn.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
         Submitbtn.setForeground(new java.awt.Color(255, 0, 0));
+        Submitbtn.setText("Submit");
         Submitbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SubmitbtnActionPerformed(evt);
             }
         });
 
-        Backbtn.setText("Back");
         Backbtn.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
         Backbtn.setForeground(new java.awt.Color(255, 0, 0));
+        Backbtn.setText("Back");
         Backbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackbtnActionPerformed(evt);
@@ -216,9 +225,6 @@ public class AddCriminalForm extends javax.swing.JFrame
                                 .addComponent(Statuslbl)
                                 .addComponent(ComplainerContactlbl)))
                         .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(mainPanelLayout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addComponent(ComplainerContacttxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(Cnictxt, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -226,16 +232,28 @@ public class AddCriminalForm extends javax.swing.JFrame
                                 .addGap(18, 18, 18)
                                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtID)
-                                    .addComponent(ComplainerNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(ComplainerNametxt, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
+                                    .addComponent(lblerrname, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(mainPanelLayout.createSequentialGroup()
                                 .addGap(19, 19, 19)
-                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(CriminalAddresstxt, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jScrollPane1)
-                                        .addComponent(dateChoosertxt, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(addImagebtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblerrcrime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblerraddress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ComplainerContacttxt2, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)))
+                            .addGroup(mainPanelLayout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblerrdiscription, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblerrdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblerrstatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblerrcnic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(CriminalAddresstxt, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane1)
+                                    .addComponent(dateChoosertxt, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
+                                    .addComponent(txtStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
+                                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(lblerrimg, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(addImagebtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addGap(0, 48, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -255,23 +273,33 @@ public class AddCriminalForm extends javax.swing.JFrame
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ComplainerNamelbl)
                     .addComponent(ComplainerNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(8, 8, 8)
+                .addComponent(lblerrname)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CNIClbl)
                     .addComponent(Cnictxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(8, 8, 8)
+                .addComponent(lblerrcnic)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CriminalAddresstxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ComplainerAddresslbl1))
-                .addGap(30, 30, 30)
+                .addGap(8, 8, 8)
+                .addComponent(lblerraddress)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ComplainerContacttxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ComplainerContactlbl))
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblerrcrime)
+                .addGap(8, 8, 8)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Statuslbl)
                     .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(8, 8, 8)
+                .addComponent(lblerrstatus)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addComponent(IncidentDatelbl)
@@ -283,13 +311,19 @@ public class AddCriminalForm extends javax.swing.JFrame
                         .addGap(57, 57, 57)
                         .addComponent(Descriptionlbl))
                     .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
+                        .addGap(7, 7, 7)
+                        .addComponent(lblerrdate)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblerrdiscription)
+                .addGap(7, 7, 7)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(imagelbl)
                     .addComponent(addImagebtn))
-                .addGap(60, 60, 60)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblerrimg)
+                .addGap(38, 38, 38)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Backbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Submitbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -327,6 +361,14 @@ public class AddCriminalForm extends javax.swing.JFrame
     }//GEN-LAST:event_CriminalAddresstxtActionPerformed
 
     private void SubmitbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitbtnActionPerformed
+       
+        FormvalidatorADD.ValidateAddCriminalForm(ComplainerNametxt,lblerrname,
+                                 Cnictxt,lblerrcnic,
+                                 CriminalAddresstxt,lblerraddress,
+                                 ComplainerContacttxt2,lblerrcrime,
+                                 txtStatus,lblerrstatus,
+                                 dateChoosertxt,lblerrdate,
+                                 Descriptiontxt,lblerrdiscription);
         try 
         {
             Date chooser = dateChoosertxt.getDate();       
@@ -352,10 +394,12 @@ public class AddCriminalForm extends javax.swing.JFrame
         }
         catch (Exception ex) 
         {
-            JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(), 
-                                        "Error", JOptionPane.ERROR_MESSAGE);
+//            JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(), 
+//                                        "Error", JOptionPane.ERROR_MESSAGE);
             ex.printStackTrace();
         }
+        
+        
     }//GEN-LAST:event_SubmitbtnActionPerformed
 
     private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
@@ -448,6 +492,14 @@ public class AddCriminalForm extends javax.swing.JFrame
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblerraddress;
+    private javax.swing.JLabel lblerrcnic;
+    private javax.swing.JLabel lblerrcrime;
+    private javax.swing.JLabel lblerrdate;
+    private javax.swing.JLabel lblerrdiscription;
+    private javax.swing.JLabel lblerrimg;
+    private javax.swing.JLabel lblerrname;
+    private javax.swing.JLabel lblerrstatus;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtStatus;

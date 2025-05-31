@@ -89,49 +89,48 @@ public class AddUpdateOfficersForm extends javax.swing.JFrame {
         addImagebtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(720, 720));
 
         mainPanel.setPreferredSize(new java.awt.Dimension(700, 1000));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("OFFICER ID :");
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Username :");
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Password :");
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Role :");
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Badge No :");
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Email : ");
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Phone No :");
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
-        jLabel8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Service Years :");
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
-        jLabel9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Cases Solved :");
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
-        jLabel10.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Success Percentage :");
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
         officerIDtxt.setEditable(false);
 
@@ -178,9 +177,9 @@ public class AddUpdateOfficersForm extends javax.swing.JFrame {
             }
         });
 
-        jLabel31.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel31.setText("Name :");
+        jLabel31.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
         okbtn.setText("OK");
         okbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -214,9 +213,9 @@ public class AddUpdateOfficersForm extends javax.swing.JFrame {
             }
         });
 
-        jLabel11.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Officer Image : ");
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
         addImagebtn.setText("Add Image ");
         addImagebtn.addActionListener(new java.awt.event.ActionListener() {
