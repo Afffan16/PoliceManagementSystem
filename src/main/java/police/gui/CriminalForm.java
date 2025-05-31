@@ -145,7 +145,6 @@ public class CriminalForm extends javax.swing.JFrame {
     }//GEN-LAST:event_manageCriminalbtnActionPerformed
 
     private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
-        new PoliceDashboardForm(loggedInUsername).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BackbtnActionPerformed
 

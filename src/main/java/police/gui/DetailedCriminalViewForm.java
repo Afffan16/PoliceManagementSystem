@@ -6,6 +6,8 @@ package police.gui;
 import police.model.Criminal;
 import javax.swing.*;
 import java.awt.*;
+import javax.swing.ImageIcon;
+import java.awt.Image;
 
 /**
  *
@@ -14,30 +16,35 @@ import java.awt.*;
 public class DetailedCriminalViewForm extends javax.swing.JFrame {
 
     private static Criminal criminal;
-    private static String loggedInUsername;   
+    private static String loggedInUsername;
+
     public DetailedCriminalViewForm(Criminal criminal, String loggedInUsername) 
-    {                
-        this.criminal = criminal;
-        initComponents();
-        this.loggedInUsername = loggedInUsername;
-        setLocationRelativeTo(null);
-        displayCriminalDetails(criminal);
-    }
-    private void displayCriminalDetails(Criminal criminal) 
     {
-        firIdLabel.setText("Criminal ID: " + (criminal.getCriminalId() != null ? criminal.getCriminalId() : ""));
-        complainantLabel.setText("Criminal Name: " + (criminal.getComplainantName() != null ? criminal.getComplainantName() : ""));
-        fathersNameLabel.setText("Arrest Status: " + (criminal.getStatus() != null ? criminal.getStatus() : ""));
-        contactLabel.setText("Number of  Crimes: " + (criminal.getContact() != null ? criminal.getContact() : ""));
-        addressLabel.setText("Address: " + (criminal.getAddress() != null ? criminal.getAddress() : ""));
-        nicLabel.setText("NIC Number: " + (criminal.getNicNumber() != null ? criminal.getNicNumber() : ""));
-        dateLabel.setText("Arrest Date: " + (criminal.getdateofBirth() != null ? criminal.getdateofBirth() : ""));
-        timeLabel.setText("Time Of Crime: " + (criminal.getTime() != null ? criminal.getTime() : ""));
-        descriptionLabel.setText("Description: " + (criminal.getDescription() != null ? criminal.getDescription() : "") );
-        
-         locationLabel.setVisible(false);
-        crimeTypeLabel.setVisible(false);
-    }   
+        this.loggedInUsername = loggedInUsername;
+        initComponents();
+        setLocationRelativeTo(null);
+
+        criminalId.setText("Criminal ID : " + criminal.getCriminalId());
+        criminalName.setText("Criminal Name : " + criminal.getCriminalName());
+        CNIC.setText("CNIC : " + criminal.getCnic());
+        Address.setText("Address : " + criminal.getAddress());
+        NoOfCrimes.setText("No of Crimes : " + criminal.getNoOfCrimes());
+        ArrestStatus.setText("Arrest Status : " + criminal.getArrestStatus());
+        dateofArrest.setText("Date of Arrest : " + criminal.getDateOfArrest());
+        descriptionLabel.setText("Description For Arrest : " + criminal.getDescriptionForArrest());
+
+ 
+        try
+        {
+            ImageIcon imageIcon = new ImageIcon(criminal.getImagePath());
+            Image image = imageIcon.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
+            Imagelbl.setIcon(new ImageIcon(image));
+        } 
+        catch (Exception e) 
+        {
+            Imagelbl.setText("Image not available");
+        }
+    }
     
 
   
@@ -49,17 +56,16 @@ public class DetailedCriminalViewForm extends javax.swing.JFrame {
         headinglbl = new javax.swing.JLabel();
         Backbtn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        firIdLabel = new javax.swing.JLabel();
-        complainantLabel = new javax.swing.JLabel();
-        addressLabel = new javax.swing.JLabel();
-        contactLabel = new javax.swing.JLabel();
-        fathersNameLabel = new javax.swing.JLabel();
-        nicLabel = new javax.swing.JLabel();
-        dateLabel = new javax.swing.JLabel();
-        timeLabel = new javax.swing.JLabel();
-        locationLabel = new javax.swing.JLabel();
-        crimeTypeLabel = new javax.swing.JLabel();
+        criminalId = new javax.swing.JLabel();
+        criminalName = new javax.swing.JLabel();
+        CNIC = new javax.swing.JLabel();
+        Address = new javax.swing.JLabel();
+        NoOfCrimes = new javax.swing.JLabel();
+        ArrestStatus = new javax.swing.JLabel();
+        dateofArrest = new javax.swing.JLabel();
         descriptionLabel = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        Imagelbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,38 +73,32 @@ public class DetailedCriminalViewForm extends javax.swing.JFrame {
         mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         mainPanel.setPreferredSize(new java.awt.Dimension(750, 500));
 
-        headinglbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        headinglbl.setText("CRIMINAL DETAILS");
         headinglbl.setBackground(new java.awt.Color(255, 255, 204));
         headinglbl.setFont(new java.awt.Font("Arial Black", 2, 24)); // NOI18N
         headinglbl.setForeground(new java.awt.Color(204, 204, 255));
+        headinglbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        headinglbl.setText("CRIMINAL DETAILS");
 
-        Backbtn.setText("Back");
         Backbtn.setFont(new java.awt.Font("Britannic Bold", 3, 18)); // NOI18N
         Backbtn.setForeground(new java.awt.Color(51, 51, 51));
+        Backbtn.setText("Back");
         Backbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackbtnActionPerformed(evt);
             }
         });
 
-        complainantLabel.setFont(new java.awt.Font("Bodoni MT", 1, 14)); // NOI18N
+        criminalName.setFont(new java.awt.Font("Bodoni MT", 1, 14)); // NOI18N
 
-        addressLabel.setFont(new java.awt.Font("Bodoni MT", 1, 14)); // NOI18N
+        CNIC.setFont(new java.awt.Font("Bodoni MT", 1, 14)); // NOI18N
 
-        contactLabel.setFont(new java.awt.Font("Bodoni MT", 1, 14)); // NOI18N
+        Address.setFont(new java.awt.Font("Bodoni MT", 1, 14)); // NOI18N
 
-        fathersNameLabel.setFont(new java.awt.Font("Bodoni MT", 1, 14)); // NOI18N
+        NoOfCrimes.setFont(new java.awt.Font("Bodoni MT", 1, 14)); // NOI18N
 
-        nicLabel.setFont(new java.awt.Font("Bodoni MT", 1, 14)); // NOI18N
+        ArrestStatus.setFont(new java.awt.Font("Bodoni MT", 1, 14)); // NOI18N
 
-        dateLabel.setFont(new java.awt.Font("Bodoni MT", 1, 14)); // NOI18N
-
-        timeLabel.setFont(new java.awt.Font("Bodoni MT", 1, 14)); // NOI18N
-
-        locationLabel.setFont(new java.awt.Font("Bodoni MT", 1, 14)); // NOI18N
-
-        crimeTypeLabel.setFont(new java.awt.Font("Bodoni MT", 1, 14)); // NOI18N
+        dateofArrest.setFont(new java.awt.Font("Bodoni MT", 1, 14)); // NOI18N
 
         descriptionLabel.setFont(new java.awt.Font("Bodoni MT", 1, 14)); // NOI18N
 
@@ -106,75 +106,93 @@ public class DetailedCriminalViewForm extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(descriptionLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 663, Short.MAX_VALUE)
-                    .addComponent(firIdLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(complainantLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(fathersNameLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(contactLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(crimeTypeLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(locationLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(addressLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(nicLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(dateLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(timeLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(criminalId, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
+                    .addComponent(criminalName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(CNIC, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(descriptionLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Address, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(dateofArrest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ArrestStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NoOfCrimes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(11, 11, 11))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(8, Short.MAX_VALUE)
-                .addComponent(firIdLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(complainantLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fathersNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(contactLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(addressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nicLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(timeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(locationLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(crimeTypeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(30, 30, 30)
+                .addComponent(criminalId, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(criminalName, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(CNIC, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Address, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(NoOfCrimes, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(ArrestStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(dateofArrest, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(descriptionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Imagelbl, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Imagelbl, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(241, 241, 241))
+                .addGap(35, 35, 35)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(15, 15, 15))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(93, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -183,14 +201,14 @@ public class DetailedCriminalViewForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 760, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -212,20 +230,19 @@ public class DetailedCriminalViewForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Address;
+    private javax.swing.JLabel ArrestStatus;
     private javax.swing.JButton Backbtn;
-    private javax.swing.JLabel addressLabel;
-    private javax.swing.JLabel complainantLabel;
-    private javax.swing.JLabel contactLabel;
-    private javax.swing.JLabel crimeTypeLabel;
-    private javax.swing.JLabel dateLabel;
+    private javax.swing.JLabel CNIC;
+    private javax.swing.JLabel Imagelbl;
+    private javax.swing.JLabel NoOfCrimes;
+    private javax.swing.JLabel criminalId;
+    private javax.swing.JLabel criminalName;
+    private javax.swing.JLabel dateofArrest;
     private javax.swing.JLabel descriptionLabel;
-    private javax.swing.JLabel fathersNameLabel;
-    private javax.swing.JLabel firIdLabel;
     private javax.swing.JLabel headinglbl;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel locationLabel;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel mainPanel;
-    private javax.swing.JLabel nicLabel;
-    private javax.swing.JLabel timeLabel;
     // End of variables declaration//GEN-END:variables
 }

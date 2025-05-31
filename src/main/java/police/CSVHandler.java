@@ -13,6 +13,7 @@ import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.stream.Collectors;
 import javax.swing.JOptionPane;
 
 public class CSVHandler 
@@ -21,67 +22,79 @@ public class CSVHandler
     private static final String FIRS_CSV = "resources/firs.csv";
     private static final String INVESTIGATIONS_CSV = "resources/investigations.csv";
     private static final String CRIMINALS_CSV = "resources/criminals.csv";
-    private static final String COURT_CSV = "resources/court.csv";
     private static final String OFFICERS_CSV = "resources/officers.csv";
 
-    public void initializeCSVFiles() throws IOException {
+    public void initializeCSVFiles() throws IOException 
+    {
         // Complaints CSV
         File complaintsFile = new File(COMPLAINTS_CSV);
-        if (!complaintsFile.exists()) {
-            try (FileWriter writer = new FileWriter(complaintsFile)) {
+        if (!complaintsFile.exists())
+        {
+            try (FileWriter writer = new FileWriter(complaintsFile)) 
+            {
                 writer.write("complaintId,complainantName,complainantFatherName,contact,nicNumber,address,incidentDate,incidentTime,location,description,evidencePath,status\n");
             }
         }
 
         // FIRs CSV
         File firsFile = new File(FIRS_CSV);
-        if (!firsFile.exists()) {
-            try (FileWriter writer = new FileWriter(firsFile)) {
+        if (!firsFile.exists())
+        {
+            try (FileWriter writer = new FileWriter(firsFile)) 
+            {
                 writer.write("firId,complainantName,fathersName,contact,address,nicNumber,incidentDate,incidentTime,location,description,crimeType\n");
             }
         }
 
         // Investigations CSV
-        File investigationsFile = new File(INVESTIGATIONS_CSV);
-        if (!investigationsFile.exists()) {
-            try (FileWriter writer = new FileWriter(investigationsFile)) {
-                writer.write("caseId,assignedOfficer,status,startDate,lastUpdated,notes\n");
+        File file = new File(INVESTIGATIONS_CSV);
+        if (!file.exists())
+        {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) 
+            {
+                writer.write("investigationId,firId,creationDate,officerId1,officerId2,evidencePaths,witnessStatements,otherDetails,suspects,caseResult,finalCriminal,status,lastUpdated\n");
+            }
+            catch (IOException e) 
+            {
+                e.printStackTrace();
             }
         }
 
         // Criminals CSV
         File criminalsFile = new File(CRIMINALS_CSV);
-        if (!criminalsFile.exists()) {
-            try (FileWriter writer = new FileWriter(criminalsFile)) {
-                writer.write("criminalId,name,nicNumber,photoPath,fingerprints,criminalHistory\n");
+        if (!criminalsFile.exists())
+        {
+            try (FileWriter writer = new FileWriter(criminalsFile)) 
+            {
+                writer.write("criminalId,criminalName,cnic,address,imagePath,noOfCrimes,arrestStatus,dateOfArrest,descriptionForArrest\n");
             }
         }
 
-        // Court CSV
-        File courtFile = new File(COURT_CSV);
-        if (!courtFile.exists()) {
-            try (FileWriter writer = new FileWriter(courtFile)) {
-                writer.write("caseId,courtDate,documentPath,reminderStatus\n");
-            }
-        }
 
         // Officers CSV
         File officersFile = new File(OFFICERS_CSV);
-        if (!officersFile.exists()) {
-            try (FileWriter writer = new FileWriter(officersFile)) {
+        if (!officersFile.exists())
+        {
+            try (FileWriter writer = new FileWriter(officersFile)) 
+            {
                 writer.write("officerId,username,password,role,name,badgeNumber,email,phone,serviceYears,casesSolved,successPercentage,imagePath\n");
             }
         }
     }
 
+                            // Report a Complain //
+    
     public void addComplaint(String complaintId, String complainantName, String complainantFatherName,
                              String contact, String nicNumber, String address, String incidentDate,
                              String incidentTime, String location, String description,
-                             String evidencePath, String status) throws IOException {
+                             String evidencePath, String status) throws IOException 
+    {
         File file = new File(COMPLAINTS_CSV);
         boolean fileExists = file.exists();
-        try (FileWriter writer = new FileWriter(file, true)) {
-            if (!fileExists) {
+        try (FileWriter writer = new FileWriter(file, true))
+        {
+            if (!fileExists) 
+            {
                 writer.write("complaintId,complainantName,complainantFatherName,contact,nicNumber,address,incidentDate,incidentTime,location,description,evidencePath,status\n");
             }
             writer.write(String.join(",", 
@@ -100,14 +113,31 @@ public class CSVHandler
             System.out.println("Added complaint to CSV: " + complaintId);
         }
     }
+    
+    public int getComplaintCount() 
+    {
+        try {
+            List<String[]> complaints = readCSV(COMPLAINTS_CSV);
+            return complaints.size();
+        } catch (Exception e) {
+            System.err.println("Error reading complaints.csv: " + e.getMessage());
+            return 0;
+        }
+    }
 
-    public boolean authenticateOfficer(String username, String password) throws IOException {
-        try (BufferedReader reader = new BufferedReader(new FileReader(OFFICERS_CSV))) {
+                        // Officer Login + Details + Manage Officers //
+    
+    public boolean authenticateOfficer(String username, String password) throws IOException 
+    {
+        try (BufferedReader reader = new BufferedReader(new FileReader(OFFICERS_CSV))) 
+        {
             String line;
             reader.readLine(); 
-            while ((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null) 
+            {
                 String[] data = line.split(",");
-                if (data.length >= 3 && data[1].equals(username) && data[2].equals(password)) {
+                if (data.length >= 3 && data[1].equals(username) && data[2].equals(password))
+                {
                     Session.setLoggedInUsername(username);
                     return true;
                 }
@@ -115,14 +145,75 @@ public class CSVHandler
         }
         return false;
     }
+    
+    public boolean isAdmin(String username, String password) 
+    {
+        return "Admin".equals(username) && "Admin123".equals(password);
+    }
+    public boolean isAdmin(String username)
+    {
+        return "Admin".equals(username);
+    }
+    
+    
+    public List<Officer> loadOfficers() throws IOException 
+    {
+        System.out.println("Attempting to read file: " + OFFICERS_CSV);
+        List<Officer> officers = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(OFFICERS_CSV))) 
+        {
+            String header = reader.readLine();
+            System.out.println("Header: " + header);
+            String line;
+            int lineNumber = 1;
+            while ((line = reader.readLine()) != null) 
+            {
+                System.out.println("Reading line " + lineNumber + ": " + line);
+                String[] data = splitCSV(line);
+                System.out.println("Number of fields: " + data.length);
+                if (data.length == 12) 
+                {
+                    try
+                    {
+                        int serviceYears = Integer.parseInt(data[8]);
+                        int casesSolved = Integer.parseInt(data[9]);
+                        double successPercentage = Double.parseDouble(data[10]);
+                        String grade = calculateGrade(successPercentage);
+                        Officer o = new Officer(
+                            data[0], data[1], data[2], data[3], data[4], data[5],
+                            data[6], data[7], serviceYears, casesSolved,
+                            successPercentage, grade, data[11]
+                        );
+                        officers.add(o);
+                        System.out.println("Successfully parsed officer: " + o.getOfficerId());
+                    } 
+                    catch (NumberFormatException e) 
+                    {
+                        System.out.println("Error parsing numbers at line " + lineNumber + ": " + e.getMessage());
+                    }
+                } 
+                else 
+                {
+                    System.out.println("Skipping line " + lineNumber + ": Expected 12 fields, found " + data.length);
+                }
+                lineNumber++;
+            }
+        }
+        System.out.println("Total officers loaded: " + officers.size());
+        return officers;
+    }
 
-    public Officer getOfficerDetails(String username) throws IOException {
-        try (BufferedReader reader = new BufferedReader(new FileReader(OFFICERS_CSV))) {
+    public Officer getOfficerDetails(String username) throws IOException 
+    {
+        try (BufferedReader reader = new BufferedReader(new FileReader(OFFICERS_CSV))) 
+        {
             String line;
             reader.readLine(); 
-            while ((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null)
+            {
                 String[] data = line.split(",");
-                if (data.length >= 12 && data[1].equals(username)) {
+                if (data.length >= 12 && data[1].equals(username)) 
+                {
                     int serviceYears = Integer.parseInt(data[8]);
                     int casesSolved = Integer.parseInt(data[9]);
                     double successPercentage = Double.parseDouble(data[10]);
@@ -134,8 +225,93 @@ public class CSVHandler
         }
         return null;
     }
+    
+    public void writeCSV(Officer officer) throws IOException
+    {
+        System.out.println("Current working directory (writeCSV): " + System.getProperty("user.dir"));
+        List<Officer> officers = loadOfficers();
+        officers.add(officer);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(OFFICERS_CSV)))
+        {
+            writer.write("OfficerID,Username,Password,Role,Name,BadgeNo,Email,Phone,ServiceYears,CasesSolved,SuccessPercentage,ImagePath");
+            writer.newLine();
+            for (Officer o : officers) 
+            {
+                writer.write(String.format("%s,%s,%s,%s,%s,%s,%s,%s,%d,%d,%.2f,%s",
+                    o.getOfficerId(), o.getUsername(), o.getPassword(), o.getRole(), o.getName(),
+                    o.getBadgeNumber(), o.getEmail(), o.getPhone(), o.getServiceYears(),
+                    o.getCasesSolved(), o.getSuccessPercentage(), o.getImagePath()));
+                writer.newLine();
+            }
+        }
+    }
 
-    private String calculateGrade(double successPercentage) 
+    public void updateOfficer(Officer officer) throws IOException 
+    {
+        System.out.println("Current working directory (updateOfficer): " + System.getProperty("user.dir"));
+        List<Officer> officers = loadOfficers();
+        for (int i = 0; i < officers.size(); i++)
+        {
+            if (officers.get(i).getOfficerId().equals(officer.getOfficerId()))
+            {
+                officers.set(i, officer);
+                break;
+            }
+        }
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(OFFICERS_CSV))) 
+        {
+            writer.write("OfficerID,Username,Password,Role,Name,BadgeNo,Email,Phone,ServiceYears,CasesSolved,SuccessPercentage,ImagePath");
+            writer.newLine();
+            for (Officer o : officers)
+            {
+                writer.write(String.format("%s,%s,%s,%s,%s,%s,%s,%s,%d,%d,%.2f,%s",
+                    o.getOfficerId(), o.getUsername(), o.getPassword(), o.getRole(), o.getName(),
+                    o.getBadgeNumber(), o.getEmail(), o.getPhone(), o.getServiceYears(),
+                    o.getCasesSolved(), o.getSuccessPercentage(), o.getImagePath()));
+                writer.newLine();
+            }
+        }
+    }
+    
+    public void deleteOfficer(String officerId) throws IOException 
+    {
+        System.out.println("Current working directory (deleteOfficer): " + System.getProperty("user.dir"));
+        List<Officer> officers = loadOfficers();
+        boolean removed = officers.removeIf(o -> o.getOfficerId().equals(officerId));
+        if (!removed) 
+        {
+            throw new IOException("Officer with ID " + officerId + " not found.");
+        }
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(OFFICERS_CSV))) 
+        {
+            writer.write("OfficerID,Username,Password,Role,Name,BadgeNo,Email,Phone,ServiceYears,CasesSolved,SuccessPercentage,ImagePath");
+            writer.newLine();
+            for (Officer o : officers)
+            {
+                writer.write(String.format("%s,%s,%s,%s,%s,%s,%s,%s,%d,%d,%.2f,%s",
+                    o.getOfficerId(), o.getUsername(), o.getPassword(), o.getRole(), o.getName(),
+                    o.getBadgeNumber(), o.getEmail(), o.getPhone(), o.getServiceYears(),
+                    o.getCasesSolved(), o.getSuccessPercentage(), o.getImagePath()));
+                writer.newLine();
+            }
+        }
+    }
+
+    public int getOfficerCount() 
+    {
+        try 
+        {
+            List<Officer> officers = loadOfficers();
+            return officers.size();
+        } 
+        catch (IOException e)
+        {
+            System.err.println("Error reading officers.csv: " + e.getMessage());
+            return 0;
+        }
+    }
+
+    public String calculateGrade(double successPercentage) 
     {
         if (successPercentage >= 90) return "A+";
         if (successPercentage >= 80) return "A";
@@ -144,6 +320,10 @@ public class CSVHandler
         if (successPercentage >= 50) return "B-";
         return "C";
     }
+    
+    
+    
+                                // FIR Module //
 
     public static void addFIR(FIR fir)
     {
@@ -170,27 +350,6 @@ public class CSVHandler
             JOptionPane.showMessageDialog(null, "Failed to register FIR: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
         }
-    }
-     public void addCriminal(Criminal criminal) throws IOException {
-        try (FileWriter writer = new FileWriter(FIRS_CSV, true)) {
-            writer.write(String.join(",", criminal.getCriminalId(), criminal.getComplainantName(), criminal.getStatus(),
-                    criminal.getContact(), criminal.getAddress(), criminal.getNicNumber(), criminal.getdateofBirth(), criminal.getTime(),
-                    criminal.getDescription())+ "\n");
-        }
-    }
-      public List<Criminal> getAllCriminals() throws IOException {
-        List<Criminal> criminal = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(FIRS_CSV))) {
-            String line;
-            reader.readLine(); // Skip header
-            while ((line = reader.readLine()) != null) {
-                String[] data = line.split(",");
-                if (data.length >= 9) {
-                    criminal.add(new  Criminal(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8]));
-                }
-            }
-        }
-        return criminal;
     }
 
     public static List<FIR> loadFIRs() 
@@ -293,20 +452,6 @@ public class CSVHandler
         System.out.println("FIRs found for ID " + firId + ": " + firs.size());
         return firs;
     }
-     public List<Criminal> searchCriminals(String txtID) throws IOException {
-        List<Criminal> criminal = new ArrayList<>();
-         try (BufferedReader reader = new BufferedReader(new FileReader(FIRS_CSV))) {
-            String line;
-            reader.readLine(); 
-            while ((line = reader.readLine()) != null) {
-                String[] data = line.split(",");
-                if (data.length >= 9 && data[0].toLowerCase().contains(txtID.toLowerCase())) {
-                    criminal.add(new Criminal(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8]));
-                }
-            }
-         }
-         return criminal;
-    }
 
     public static void updateFIR(FIR updatedFIR) throws IOException 
     {
@@ -335,41 +480,7 @@ public class CSVHandler
             System.out.println("FIR updated: " + updatedFIR.getFirId());
         }
     }
-public void updateCriminal(Criminal updatedCriminal) throws IOException {
-       List<Criminal> criminals = getAllCriminals(); 
-    
-    try (FileWriter writer = new FileWriter(FIRS_CSV)) {
-        writer.write("CriminalID,criminalName,noOfCrimes,address,nicNumber,DateofBirth,TimeofCrime,description\n");
-        
-        for (Criminal criminal : criminals) {
-            if (criminal.getCriminalId().equals(updatedCriminal.getCriminalId())) {
-                writer.write(String.join(",",
-                    updatedCriminal.getCriminalId(),
-                    updatedCriminal.getComplainantName(),
-                    updatedCriminal.getStatus(),
-                    updatedCriminal.getContact(),
-                    updatedCriminal.getAddress(),
-                    updatedCriminal.getNicNumber(),
-                    updatedCriminal.getdateofBirth(),
-                    updatedCriminal.getTime(),
-                    updatedCriminal.getDescription()
-                ) + "\n");
-            } else {
-                writer.write(String.join(",",
-                    criminal.getCriminalId(),
-                    criminal.getComplainantName(),
-                    criminal.getStatus(),
-                    criminal.getContact(),
-                    criminal.getAddress(),
-                    criminal.getNicNumber(),
-                    criminal.getdateofBirth(),
-                    criminal.getTime(),
-                    criminal.getDescription()
-                ) + "\n");
-            }
-        }
-        }
-    }
+
     public static void deleteFIR(String firId) 
     {
         List<FIR> firs = loadFIRs();
@@ -406,20 +517,149 @@ public void updateCriminal(Criminal updatedCriminal) throws IOException {
             e.printStackTrace();
         }
     }
-    public void deleteCriminal(String criminalID) throws IOException {
-        List<Criminal> criminal = getAllCriminals();
-        try (FileWriter writer = new FileWriter(FIRS_CSV)) {
-            writer.write("CriminalID, criminalName,Status,contact,address,nicNumber,DateOfBirth,Time,description\n");
-            for (Criminal  cri : criminal) {
-                if (!cri.getCriminalId().equals(criminalID)) {
-                    writer.write(String.join(",", cri.getCriminalId(), cri.getComplainantName(), cri.getStatus(),
-                        cri.getContact(), cri.getAddress(), cri.getNicNumber(), cri.getdateofBirth(),
-                        cri.getTime(), cri.getDescription()) + "\n");
+    
+    
+                        // Criminal Module  //
+    
+    public List<Criminal> getAllCriminals() throws IOException 
+    {
+        List<Criminal> criminals = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(CRIMINALS_CSV)))
+        {
+            String line;
+            reader.readLine(); 
+            while ((line = reader.readLine()) != null) 
+            {
+                String[] data = line.split(",");
+                if (data.length >= 9) 
+                {
+                    criminals.add(new Criminal(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8]));
+                }
+            }
+        }
+        return criminals;
+    }
+
+    public List<Criminal> searchCriminals(String txtID) throws IOException 
+    {
+        List<Criminal> criminals = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(CRIMINALS_CSV)))
+        {
+            String line;
+            reader.readLine(); 
+            while ((line = reader.readLine()) != null) 
+            {
+                String[] data = line.split(",");
+                if (data.length >= 9 && data[0].toLowerCase().contains(txtID.toLowerCase()))
+                {
+                    criminals.add(new Criminal(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8]));
+                }
+            }
+        }
+        return criminals;
+    }
+
+    public void addCriminal(Criminal criminal) throws IOException 
+    {
+        try (FileWriter writer = new FileWriter(CRIMINALS_CSV, true)) 
+        {
+            writer.write(String.join(",", 
+                criminal.getCriminalId(),
+                criminal.getCriminalName(),
+                criminal.getCnic(),
+                criminal.getAddress(),
+                criminal.getImagePath(),
+                criminal.getNoOfCrimes(),
+                criminal.getArrestStatus(),
+                criminal.getDateOfArrest(),
+                criminal.getDescriptionForArrest()
+            ) + "\n");
+        }
+    }
+
+    public void updateCriminal(Criminal updatedCriminal) throws IOException 
+    {
+        List<Criminal> criminals = getAllCriminals(); 
+        try (FileWriter writer = new FileWriter(CRIMINALS_CSV)) 
+        {
+            writer.write("CriminalID,CriminalName,CNIC,Address,ImagePath,NoOfCrimes,ArrestStatus,DateOfArrest,DescriptionForArrest\n");
+            for (Criminal criminal : criminals)
+            {
+                if (criminal.getCriminalId().equals(updatedCriminal.getCriminalId())) 
+                {
+                    writer.write(String.join(",",
+                        updatedCriminal.getCriminalId(),
+                        updatedCriminal.getCriminalName(),
+                        updatedCriminal.getCnic(),
+                        updatedCriminal.getAddress(),
+                        updatedCriminal.getImagePath(),
+                        updatedCriminal.getNoOfCrimes(),
+                        updatedCriminal.getArrestStatus(),
+                        updatedCriminal.getDateOfArrest(),
+                        updatedCriminal.getDescriptionForArrest()
+                    ) + "\n");
+                }
+                else 
+                {
+                    writer.write(String.join(",",
+                        criminal.getCriminalId(),
+                        criminal.getCriminalName(),
+                        criminal.getCnic(),
+                        criminal.getAddress(),
+                        criminal.getImagePath(),
+                        criminal.getNoOfCrimes(),
+                        criminal.getArrestStatus(),
+                        criminal.getDateOfArrest(),
+                        criminal.getDescriptionForArrest()
+                    ) + "\n");
                 }
             }
         }
     }
 
+    public void deleteCriminal(String criminalID) throws IOException 
+    {
+        List<Criminal> criminals = getAllCriminals();
+        try (FileWriter writer = new FileWriter(CRIMINALS_CSV))
+        {
+            writer.write("CriminalID,CriminalName,CNIC,Address,ImagePath,NoOfCrimes,ArrestStatus,DateOfArrest,DescriptionForArrest\n");
+            for (Criminal cri : criminals) 
+            { 
+                if (!cri.getCriminalId().equals(criminalID))
+                {
+                    writer.write(String.join(",", 
+                        cri.getCriminalId(),
+                        cri.getCriminalName(),
+                        cri.getCnic(),
+                        cri.getAddress(),
+                        cri.getImagePath(),
+                        cri.getNoOfCrimes(),
+                        cri.getArrestStatus(),
+                        cri.getDateOfArrest(),
+                        cri.getDescriptionForArrest()
+                    ) + "\n");
+                }
+            }
+        }
+    }    
+    
+    public int getCriminalCount() throws IOException 
+    {
+        int count = 0;
+        try (BufferedReader reader = new BufferedReader(new FileReader(CRIMINALS_CSV))) {
+            reader.readLine(); // Skip header
+            while (reader.readLine() != null) {
+                count++;
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading criminals.csv: " + e.getMessage());
+        }
+        return count;
+    }
+    
+                        // Registering FIR through complains //
+    
+    
     private static String convertDateFormat(String inputDate, SimpleDateFormat fromFormat, SimpleDateFormat toFormat) throws ParseException
     {
         if (inputDate == null || inputDate.isEmpty()) return "";
@@ -559,7 +799,339 @@ public void updateCriminal(Criminal updatedCriminal) throws IOException {
         }
     }
     
+                    //  Case Investigation Module //
+    
+    public void createInvestigationFromFIR(String firId) 
+    {
+        if (!firExists(firId)) 
+        {
+            throw new IllegalArgumentException("FIR ID " + firId + " does not exist.");
+        }
+        FIRData firData = getFIRData(firId);
+        Investigation investigation = new Investigation(firId);
+        investigation.setFirId(firId);
+        investigation.setCreationDate(firData.getIncidentDate() != null ? firData.getIncidentDate() : new Date());
+        investigation.setStatus("Initiated");
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(INVESTIGATIONS_CSV, true))) 
+        {
+            writer.write(investigation.toString() + "\n");
+        } 
+        catch (IOException e)
+        {
+            System.err.println("Failed to write investigation: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    public void addInvestigationDetails(Investigation investigation) 
+    {
+        List<Investigation> investigations = loadInvestigations();
+        boolean updated = false;
+        for (int i = 0; i < investigations.size(); i++) {
+            
+            if (investigations.get(i).getInvestigationId().equals(investigation.getInvestigationId())) 
+            {
+                investigations.set(i, investigation);
+                updated = true;
+                break;
+            }
+        }
+        if (!updated) 
+        {
+            investigations.add(investigation);
+        }
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(INVESTIGATIONS_CSV))) 
+        {
+            writer.write("investigationId,firId,creationDate,officerId1,officerId2,evidencePaths,witnessStatements,otherDetails,suspects,caseResult,finalCriminal,status,lastUpdated\n");
+            for (Investigation inv : investigations)
+            {
+                writer.write(inv.toString() + "\n");
+            }
+        }
+        catch (IOException e) 
+        {
+            System.err.println("Failed to update investigations.csv: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    public List<Investigation> loadInvestigations()
+    {
+        List<Investigation> investigations = new ArrayList<>();
+        File file = new File(INVESTIGATIONS_CSV);
+        System.out.println("Loading investigations from: " + file.getAbsolutePath());
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) 
+        {
+            String line = reader.readLine();
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+            int lineNumber = 1;
+            while ((line = reader.readLine()) != null) 
+            {
+                lineNumber++;
+                System.out.println("Parsing line " + lineNumber + ": " + line);
+                String[] data = line.split(",", -1);
+                if (data.length >= 13) 
+                {
+                    List<String> evidencePaths = data[5].isEmpty() ? new ArrayList<>() :
+                        Arrays.asList(data[5].split(";", -1)).stream()
+                            .map(path -> path.replace(";", ","))
+                            .collect(Collectors.toList());
+                    try 
+                    {
+                        Investigation inv = new Investigation(
+                            data[0],
+                            data[1],
+                            data[2].isEmpty() ? new Date() : sdf.parse(data[2]),
+                            data[3].isEmpty() ? null : data[3],
+                            data[4].isEmpty() ? null : data[4],
+                            evidencePaths,
+                            data[6].isEmpty() ? null : data[6].replace(";", ","),
+                            data[7].isEmpty() ? null : data[7].replace(";", ","),
+                            data[8].isEmpty() ? null : data[8].replace(";", ","),
+                            data[9].isEmpty() ? null : data[9].replace(";", ","),
+                            data[10].isEmpty() ? null : data[10].replace(";", ","),
+                            data[11],
+                            data[12].isEmpty() ? new Date() : sdf.parse(data[12])
+                        );
+                        investigations.add(inv);
+                    }
+                    catch (Exception e)
+                    {
+                        System.err.println("Error parsing line " + lineNumber + ": " + e.getMessage());
+                        e.printStackTrace();
+                    }
+                } 
+                else
+                {
+                    System.err.println("Invalid line format at line " + lineNumber + ": " + line);
+                }
+            }
+        }
+        catch (IOException e) 
+        {
+            System.err.println("Failed to read investigations.csv: " + e.getMessage());
+            e.printStackTrace();
+        }
+        System.out.println("Loaded " + investigations.size() + " investigations.");
+        return investigations;
+    }
+
+    public List<Investigation> loadOngoingInvestigations() 
+    {
+        List<Investigation> ongoing = new ArrayList<>();
+        for (Investigation inv : loadInvestigations())
+        {
+            if (inv.getStatus() != null && (inv.getStatus().equals("Initiated") || inv.getStatus().equals("Active")))
+            {
+                ongoing.add(inv);
+            }
+        }
+        return ongoing;
+    }
+
+    public Investigation findInvestigationById(String investigationId)
+    {
+        for (Investigation inv : loadInvestigations()) 
+        {
+            if (inv.getInvestigationId() != null && inv.getInvestigationId().equals(investigationId))
+            {
+                return inv;
+            }
+        }
+        return null;
+    }
     
     
+    public String getOfficerIdFromUsername(String username) 
+    {
+        try (BufferedReader reader = new BufferedReader(new FileReader(OFFICERS_CSV))) {
+            String line = reader.readLine();
+            while ((line = reader.readLine()) != null) 
+            {
+                String[] data = line.split(",", -1);
+                if (data.length >= 12 && data[1].equals(username)) 
+                {
+                    return data[0]; 
+                }
+            }
+        }
+        catch (IOException e)
+        {
+            System.err.println("Failed to read officers.csv: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    
+    public FIRData getFIRData(String firId) 
+    {
+        try (BufferedReader reader = new BufferedReader(new FileReader(FIRS_CSV))) 
+        {
+            String line = reader.readLine(); 
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+            int lineNumber = 1;
+            while ((line = reader.readLine()) != null)
+            {
+                lineNumber++;
+                String[] data = line.split(",", -1);
+                if (data.length >= 11 && data[0].equals(firId)) 
+                {
+                    Date incidentDate = null;
+                    try 
+                    {
+                        if (!data[6].isEmpty())
+                        { 
+                            incidentDate = sdf.parse(data[6]);
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        System.err.println("Error parsing incidentDate at line " + lineNumber + ": '" + data[6] + "'. Expected format: MM/dd/yyyy");
+                        e.printStackTrace();
+                    }
+                    return new FIRData
+                    (
+                        data[0], 
+                        data[1].isEmpty() ? null : data[1].replace(";", ","),
+                        data[2].isEmpty() ? null : data[2].replace(";", ","), 
+                        data[3].isEmpty() ? null : data[3].replace(";", ","),
+                        data[4].isEmpty() ? null : data[4].replace(";", ","), 
+                        data[5].isEmpty() ? null : data[5].replace(";", ","), 
+                        incidentDate, 
+                        data[7].isEmpty() ? null : data[7], 
+                        data[8].isEmpty() ? null : data[8].replace(";", ","),
+                        data[9].isEmpty() ? null : data[9].replace(";", ","), 
+                        data[10].isEmpty() ? null : data[10].replace(";", ",")
+                    );
+                }
+            }
+        }
+        catch (Exception e) 
+        {
+            System.err.println("Failed to read firs.csv: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private boolean firExists(String firId)
+    {
+        try (BufferedReader reader = new BufferedReader(new FileReader(FIRS_CSV))) 
+        {
+            String line = reader.readLine();
+            while ((line = reader.readLine()) != null)
+            {
+                String[] data = line.split(",", -1);
+                if (data.length > 0 && data[0].equals(firId))
+                {
+                    return true;
+                }
+            }
+        }
+        catch (IOException e)
+        {
+            System.err.println("Failed to check firs.csv: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
+    
+    public List<String[]> readCSV(String fileName) {
+        List<String[]> data = new ArrayList<>();
+        File file = new File(fileName);
+        if (!file.exists()) {
+            System.err.println("File not found: " + fileName);
+            return data;
+        }
+
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            boolean firstLine = true;
+            while ((line = br.readLine()) != null) {
+                if (firstLine) {
+                    firstLine = false;
+                    continue;
+                }
+                if (line.trim().isEmpty()) {
+                    continue;
+                }
+                String[] row = line.split(",");
+                data.add(row);
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading " + fileName + ": " + e.getMessage());
+        }
+        return data;
+    }
+
+    public int getFirCount() {
+        try {
+            List<String[]> firs = readCSV(FIRS_CSV);
+            return firs.size();
+        } catch (Exception e) {
+            System.err.println("Error reading firs.csv: " + e.getMessage());
+            return 0;
+        }
+    }
+
+    public int getInvestigationCount() {
+        try {
+            List<String[]> investigations = readCSV(INVESTIGATIONS_CSV);
+            return investigations.size();
+        } catch (Exception e) {
+            System.err.println("Error reading investigations.csv: " + e.getMessage());
+            return 0;
+        }
+    }
+
+
+
+    
+    
+    public static class FIRData 
+    {
+        private String firId;
+        private String complainantName;
+        private String fathersName;
+        private String contact;
+        private String address;
+        private String nicNumber;
+        private Date incidentDate;
+        private String incidentTime;
+        private String location;
+        private String description;
+        private String crimeType;
+
+        public FIRData(String firId, String complainantName, String fathersName, String contact,
+                       String address, String nicNumber, Date incidentDate, String incidentTime,
+                       String location, String description, String crimeType) 
+        {
+            this.firId = firId;
+            this.complainantName = complainantName;
+            this.fathersName = fathersName;
+            this.contact = contact;
+            this.address = address;
+            this.nicNumber = nicNumber;
+            this.incidentDate = incidentDate;
+            this.incidentTime = incidentTime;
+            this.location = location;
+            this.description = description;
+            this.crimeType = crimeType;
+        }
+
+        public String getFirId() { return firId; }
+        public String getComplainantName() { return complainantName; }
+        public String getFathersName() { return fathersName; }
+        public String getContact() { return contact; }
+        public String getAddress() { return address; }
+        public String getNicNumber() { return nicNumber; }
+        public Date getIncidentDate() { return incidentDate; }
+        public String getIncidentTime() { return incidentTime; }
+        public String getLocation() { return location; }
+        public String getDescription() { return description; }
+        public String getCrimeType() { return crimeType; }
+    }
     
 }

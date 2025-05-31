@@ -1,1 +1,2 @@
-criminalId,name,nicNumber,photoPath,fingerprints,criminalHistory
+criminalId,criminalName,cnic,address,imagePath,noOfCrimes,arrestStatus,dateOfArrest,descriptionForArrest
+CR001,Muhammad Umar,17693-2371548-6,Shah Faisal,D:\@ff@n\AFFAN\AFFAN UNI\sadboy.jpeg,2,Arrested - In Jail since 3 months,41/48/2025,He is sentenced to 10yrs in Jail for fruad

@@ -3,78 +3,99 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package police.gui;
-import police.CSVHandler;
+
+import police.*;
 import police.model.*;
 import javax.swing.*;
-import java.awt.*;
-import java.io.*;
-import javax.swing.table.*;
+import java.awt.Component;
+import java.awt.Font;
+import java.awt.Color;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import javax.swing.DefaultCellEditor;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+
 /**
  *
- * @author waqar
+ * @author HP
  */
-public class ViewCriminalForm extends javax.swing.JFrame {
+public class ViewOfficersForm extends javax.swing.JFrame {
 
     /**
-     * Creates new form ViewCriminalForm
+     * Creates new form ViewOfficersForm
      */
-    private static String loggedInUsername;
     private DefaultTableModel tableModel;
-    public ViewCriminalForm(String loggedInUsername) 
+    private List<Officer> officers = new ArrayList<>();
+    private CSVHandler csvHandler;
+
+    public ViewOfficersForm() 
     {
-        this.loggedInUsername = loggedInUsername;
+        csvHandler = new CSVHandler();
+        System.out.println("CSVHandler initialized successfully.");
         initComponents();
         setLocationRelativeTo(null);
-        tableModel = new DefaultTableModel(
-            new Object[][] {},
-            new String[] {"Criminal ID", "Criminal Name", "CNIC", "Address", "ImagePath", 
-                         "No of Crimes", "ArrestStatus", "Date of Arrest", "View Details"}
-        );
+        tableModel = new DefaultTableModel();
         SearchResultsTable.setModel(tableModel);
-        configureTable();
-        loadCriminals();
+        loadOfficers();
     }
+
     private void configureTable() 
     {
-        SearchResultsTable.getColumnModel().getColumn(0).setPreferredWidth(80);  
+        SearchResultsTable.getColumnModel().getColumn(0).setPreferredWidth(100);
+        SearchResultsTable.getColumnModel().getColumn(1).setPreferredWidth(150);
         SearchResultsTable.getColumnModel().getColumn(2).setPreferredWidth(150);
-        SearchResultsTable.getColumnModel().getColumn(3).setPreferredWidth(200); 
-        SearchResultsTable.getColumnModel().getColumn(8).setPreferredWidth(100); 
-        SearchResultsTable.getColumnModel().getColumn(8).setCellRenderer(new ButtonRenderer());
-        SearchResultsTable.getColumnModel().getColumn(8).setCellEditor(new ButtonEditor(new JCheckBox()));
-    } 
-    private void loadCriminals() 
+        SearchResultsTable.getColumnModel().getColumn(3).setPreferredWidth(120);
+        SearchResultsTable.getColumnModel().getColumn(4).setPreferredWidth(100);
+        SearchResultsTable.getColumnModel().getColumn(4).setCellRenderer(new ButtonRenderer());
+        SearchResultsTable.getColumnModel().getColumn(4).setCellEditor(new ButtonEditor(new JCheckBox()));
+    }
+
+    public void loadOfficers() 
     {
-        tableModel.setRowCount(0);
         try 
         {
-            CSVHandler csvHandler = new CSVHandler();
-            List<Criminal> criminals = csvHandler.getAllCriminals();
-            for (Criminal cri : criminals) 
+            System.out.println("Attempting to load officers...");
+            officers = csvHandler.loadOfficers();
+            System.out.println("Number of officers loaded: " + officers.size());
+            if (officers.isEmpty()) 
             {
-                tableModel.addRow(new Object[]
+                System.out.println("Warning: No officers found.");
+            } 
+            else 
+            {
+                for (Officer o : officers) 
                 {
-                    cri.getCriminalId(), 
-                    cri.getCriminalName(), 
-                    cri.getCnic(),
-                    cri.getAddress(), 
-                    cri.getImagePath(), 
-                    cri.getNoOfCrimes(), 
-                    cri.getArrestStatus(),
-                    cri.getDateOfArrest(), 
-                    "View Details"
-                });
+                    System.out.println("Loaded Officer: " + o.getOfficerId() + ", " + o.getName());
+                }
             }
+            String[] columnNames = {"OfficerID", "Name", "Email", "PhoneNo", "View Details"};
+            Object[][] data = new Object[officers.size()][5];
+            for (int i = 0; i < officers.size(); i++)
+            {
+                Officer o = officers.get(i);
+                data[i][0] = o.getOfficerId();
+                data[i][1] = o.getName();
+                data[i][2] = o.getEmail();
+                data[i][3] = o.getPhone();
+                data[i][4] = "View Details";
+                System.out.println("Adding to table: " + o.getOfficerId() + ", " + o.getName());
+            }
+            tableModel.setDataVector(data, columnNames);
+            System.out.println("Table model updated with " + officers.size() + " rows.");
+            configureTable();
         } 
-        catch (IOException e)   
+        catch (IOException e) 
         {
-            JOptionPane.showMessageDialog(this, "Error loading Criminals: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            System.out.println("Error loading officers: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error loading officers: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+
     class ButtonRenderer extends JButton implements TableCellRenderer 
     {
-        public ButtonRenderer() 
+        public ButtonRenderer()
         {
             setOpaque(true);
             setText("View Details");
@@ -82,13 +103,14 @@ public class ViewCriminalForm extends javax.swing.JFrame {
         }
 
         @Override
-        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) 
+        {
             if (isSelected) 
             {
                 setBackground(table.getSelectionBackground());
                 setForeground(table.getSelectionForeground());
             } 
-            else 
+            else
             {
                 setBackground(Color.WHITE);
                 setForeground(Color.BLACK);
@@ -100,10 +122,11 @@ public class ViewCriminalForm extends javax.swing.JFrame {
     class ButtonEditor extends DefaultCellEditor 
     {
         private JButton button;
-        private String CriminalId;
+        private int selectedRow;
         private boolean isPushed;
 
-        public ButtonEditor(JCheckBox checkBox) {
+        public ButtonEditor(JCheckBox checkBox)
+        {
             super(checkBox);
             button = new JButton("View Details");
             button.setOpaque(true);
@@ -114,28 +137,37 @@ public class ViewCriminalForm extends javax.swing.JFrame {
         @Override
         public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column) 
         {
-            CriminalId = (String) table.getValueAt(row, 0);
+            selectedRow = table.convertRowIndexToModel(row); 
+            System.out.println("Selected row index: " + selectedRow);
             isPushed = true;
             return button;
         }
-        
+
         @Override
-        public Object getCellEditorValue() 
+        public Object getCellEditorValue()
         {
-            if (isPushed) 
+            if (isPushed && selectedRow >= 0 && selectedRow < officers.size())
             {
                 try 
                 {
-                    CSVHandler csvHandler = new CSVHandler();
-                    List<Criminal> criminal = csvHandler.searchCriminals(CriminalId);
-                    if (!criminal.isEmpty()) 
+                    String username = officers.get(selectedRow).getUsername();
+                    System.out.println("Selected username for View Details: " + username);
+                    Officer officer = csvHandler.getOfficerDetails(username);
+                    if (officer != null) 
                     {
-                        new DetailedCriminalViewForm(criminal.get(0),loggedInUsername).setVisible(true);
+                        System.out.println("Opening OfficerProfileForm for username: " + username);
+                        new OfficerProfileForm(username).setVisible(true);
+                    }
+                    else
+                    {
+                        System.out.println("Officer not found for username: " + username);
+                        JOptionPane.showMessageDialog(null, "Officer not found for username: " + username, "Error", JOptionPane.ERROR_MESSAGE);
                     }
                 } 
                 catch (IOException e) 
                 {
-                    JOptionPane.showMessageDialog(null, "Error loading Criminal details: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                    System.out.println("Error loading officer details: " + e.getMessage());
+                    JOptionPane.showMessageDialog(null, "Error loading officer details: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
             isPushed = false;
@@ -149,6 +181,7 @@ public class ViewCriminalForm extends javax.swing.JFrame {
             return super.stopCellEditing();
         }
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -170,18 +203,16 @@ public class ViewCriminalForm extends javax.swing.JFrame {
         SearchResultsTable = new javax.swing.JTable();
         Backbtn = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        mainPanel.setBackground(new java.awt.Color(51, 51, 0));
+        mainPanel.setBackground(new java.awt.Color(153, 153, 255));
         mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        mainPanel.setForeground(new java.awt.Color(51, 51, 0));
 
-        searchPanel.setBackground(new java.awt.Color(102, 102, 0));
-        searchPanel.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 12)); // NOI18N
+        searchPanel.setBackground(new java.awt.Color(204, 204, 255));
 
         searchlbl.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        searchlbl.setForeground(new java.awt.Color(204, 204, 204));
-        searchlbl.setText("Search by Criminal ID : ");
+        searchlbl.setForeground(new java.awt.Color(0, 0, 204));
+        searchlbl.setText("Search by Officer ID : ");
 
         searchbartxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -189,9 +220,8 @@ public class ViewCriminalForm extends javax.swing.JFrame {
             }
         });
 
-        Searchbtn.setBackground(new java.awt.Color(102, 102, 0));
         Searchbtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        Searchbtn.setForeground(new java.awt.Color(204, 204, 204));
+        Searchbtn.setForeground(new java.awt.Color(51, 0, 255));
         Searchbtn.setText("Search");
         Searchbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -204,13 +234,13 @@ public class ViewCriminalForm extends javax.swing.JFrame {
         searchPanelLayout.setHorizontalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(searchPanelLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(21, 21, 21)
                 .addComponent(searchlbl)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(searchbartxt, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(searchbartxt, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(Searchbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         searchPanelLayout.setVerticalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,10 +253,8 @@ public class ViewCriminalForm extends javax.swing.JFrame {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        headinglbl.setBackground(new java.awt.Color(204, 204, 204));
         headinglbl.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        headinglbl.setForeground(new java.awt.Color(204, 204, 204));
-        headinglbl.setText("VIEW / SEARCH CRIMINAL");
+        headinglbl.setText("View / Search Officers");
 
         SearchResultsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object[][] {},
@@ -256,8 +284,8 @@ public class ViewCriminalForm extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        Backbtn.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
-        Backbtn.setForeground(new java.awt.Color(51, 51, 51));
+        Backbtn.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
+        Backbtn.setForeground(new java.awt.Color(255, 0, 0));
         Backbtn.setText("Back");
         Backbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -269,29 +297,26 @@ public class ViewCriminalForm extends javax.swing.JFrame {
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(searchPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(10, Short.MAX_VALUE)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(244, 244, 244))
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(searchPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(searchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(tablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -319,71 +344,29 @@ public class ViewCriminalForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void searchbartxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchbartxtKeyReleased
-        if (searchbartxt.getText().isEmpty())
+        String searchText = searchbartxt.getText().trim().toLowerCase();
+        tableModel.setRowCount(0);
+        for (Officer o : officers) 
         {
-            loadCriminals();
-        }
-        else
-        {
-            tableModel.setRowCount(0);
-            try
-            {
-                CSVHandler csvHandler = new CSVHandler();
-                List<Criminal> criminals = csvHandler.searchCriminals(searchbartxt.getText());
-                for (Criminal cri : criminals)
+            if (o.getOfficerId().toLowerCase().contains(searchText) || o.getName().toLowerCase().contains(searchText)) {
+                tableModel.addRow(new Object[] 
                 {
-                    tableModel.addRow(new Object[]
-                    {
-                        cri.getCriminalId(), 
-                        cri.getCriminalName(), 
-                        cri.getCnic(),
-                        cri.getAddress(), 
-                        cri.getImagePath(), 
-                        cri.getNoOfCrimes(), 
-                        cri.getArrestStatus(),
-                        cri.getDateOfArrest(), 
-                        "View Details"
-                    });
-                }
-            }
-            catch (IOException e)
-            {
-                JOptionPane.showMessageDialog(this, "Error searching Criminals: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                    o.getOfficerId(), o.getName(), o.getEmail(), o.getPhone(), "View Details"
+                });
             }
         }
     }//GEN-LAST:event_searchbartxtKeyReleased
 
     private void SearchbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchbtnActionPerformed
-        if (searchbartxt.getText().isEmpty())
+        String searchText = searchbartxt.getText().trim().toLowerCase();
+        tableModel.setRowCount(0);
+        for (Officer o : officers) 
         {
-            loadCriminals();
-        }
-        else
-        {
-            tableModel.setRowCount(0);
-            try
-            {
-                CSVHandler csvHandler = new CSVHandler();
-                List<Criminal> criminals = csvHandler.searchCriminals(searchbartxt.getText());
-                for (Criminal cri : criminals)
+            if (o.getOfficerId().toLowerCase().contains(searchText) || o.getName().toLowerCase().contains(searchText)) {
+                tableModel.addRow(new Object[] 
                 {
-                    tableModel.addRow(new Object[]
-                    {
-                        cri.getCriminalId(), 
-                        cri.getCriminalName(), 
-                        cri.getCnic(),
-                        cri.getAddress(), 
-                        cri.getImagePath(), 
-                        cri.getNoOfCrimes(), 
-                        cri.getArrestStatus(),
-                        cri.getDateOfArrest(), 
-                        "View Details"
-                    });
-                }
-            }
-            catch (IOException e)
-            {
-                JOptionPane.showMessageDialog(this, "Error searching Criminals: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                    o.getOfficerId(), o.getName(), o.getEmail(), o.getPhone(), "View Details"
+                });
             }
         }
     }//GEN-LAST:event_SearchbtnActionPerformed
@@ -393,15 +376,14 @@ public class ViewCriminalForm extends javax.swing.JFrame {
     }//GEN-LAST:event_SearchResultsTableMouseClicked
 
     private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
-        new CriminalForm(loggedInUsername).setVisible(true);
+         new ManageOfficersForm().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BackbtnActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) 
-    {
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -415,22 +397,20 @@ public class ViewCriminalForm extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewCriminalForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewOfficersForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewCriminalForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewOfficersForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewCriminalForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewOfficersForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewCriminalForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewOfficersForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() 
-        {
-            public void run()
-            {
-                new ViewCriminalForm(loggedInUsername).setVisible(true);
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new ViewOfficersForm().setVisible(true);
             }
         });
     }

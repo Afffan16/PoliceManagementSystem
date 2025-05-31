@@ -1,3 +1,4 @@
-officerId,username,password,role,name,badgeNumber,email,phone,serviceYears,casesSolved,successPercentage,imagePath
-BDG-001,Affan,Afffan16,Head Constable,Muhammad Affan bin Aamir,BDG001,affan.aamir@police.gov,123-456-789,15,70,82.5,resources/images/affan.jpeg
-BDG-002,Umar,UmarAzhar24,Inspector,Muhammad Umar Azhar,BDG002,umar.azhar@police.gov,987-654-321,6,48,95,resources/images/umar.jpeg
+OfficerID,Username,Password,Role,Name,BadgeNo,Email,Phone,ServiceYears,CasesSolved,SuccessPercentage,ImagePath
+BDG-001,Affan,Afffan16,Head Constable,Muhammad Affan bin Aamir,BDG001,affan.aamir@police.gov,123-456-789,15,70,82.50,resources/images/affan.jpeg
+BDG-002,Umar,UmarAzhar24,Inspector,Muhammad Umar Azhar,BDG002,umar.azhar@police.gov,987-654-321,6,48,95.00,resources/images/umar.jpeg
+BDG-003,Dawood,dawood123,Junior Constable,Dawood Khurram,BDG-003,dawood@police.gov,02132453321,2,4,70.00,D:\Iftaar Drive BSE 2-C\IMG-20250323-WA0019.jpg

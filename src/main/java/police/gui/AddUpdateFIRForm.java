@@ -3,8 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package police.gui;
-import police.model.FIR;
-import police.CSVHandler;
+import police.model.*;
+import police.*;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
@@ -14,11 +14,10 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import police.model.FormValidator;
-
 /**
  *
  * @author HP
@@ -32,12 +31,22 @@ public class AddUpdateFIRForm extends javax.swing.JFrame {
     private static FIR fir;
     private boolean isAddMode;
     private static final SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+    private CSVHandler csvHandler; 
 
     public AddUpdateFIRForm(FIRManagementForm parent, FIR fir)
     {
         this.parent = parent;
         this.fir = fir;
         this.isAddMode = (fir == null);
+        try 
+        {
+            this.csvHandler = new CSVHandler(); 
+        } 
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(this, "Failed to initialize CSVHandler: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         initComponents();
         setLocationRelativeTo(parent);
         populateFields();
@@ -390,7 +399,7 @@ public class AddUpdateFIRForm extends javax.swing.JFrame {
         if (incidentDatetxt.getDate() != null)
         {
             dateString = sdf.format(incidentDatetxt.getDate());
-        }
+        } 
         else 
         {
             JOptionPane.showMessageDialog(this, "Please select a date.");
@@ -424,22 +433,39 @@ public class AddUpdateFIRForm extends javax.swing.JFrame {
             return;
         }
 
-        try 
+        try
         {
             FIR newFir = new FIR(firId, complainantName, fathersName, contact, address, nicNumber,
                                  incidentDate, incidentTime, location, description, crimeType);
-            if (isAddMode) 
+            if (isAddMode)
             {
                 CSVHandler.addFIR(newFir);
-                JOptionPane.showMessageDialog(this, "FIR Added Successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
-            }
+                String investigationId = generateInvestigationId();
+                Investigation investigation = new Investigation(
+                    investigationId, 
+                    firId,          
+                    incidentDatetxt.getDate(),
+                    null,          
+                    null,            
+                    new ArrayList<>(), 
+                    "",              
+                    "",              
+                    "",             
+                    "",             
+                    "",             
+                    "Active",        
+                    new Date()       
+                );
+                csvHandler.addInvestigationDetails(investigation);
+                JOptionPane.showMessageDialog(this, "FIR and Investigation Added Successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+            } 
             else 
             {
-                try
+                try 
                 {
                     CSVHandler.updateFIR(newFir);
                     JOptionPane.showMessageDialog(this, "FIR Updated Successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
-                } 
+                }
                 catch (IOException ex) 
                 {
                     JOptionPane.showMessageDialog(this, "Error updating FIR", "Try Again", JOptionPane.ERROR_MESSAGE);
@@ -448,8 +474,8 @@ public class AddUpdateFIRForm extends javax.swing.JFrame {
             }
             parent.loadFIRs();
             dispose();
-        }
-        catch (IllegalArgumentException e)
+        } 
+        catch (IllegalArgumentException e) 
         {
             JOptionPane.showMessageDialog(this, e.getMessage(), "Validation Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -502,9 +528,9 @@ public class AddUpdateFIRForm extends javax.swing.JFrame {
         });
     }
     
-    private void populateFields() 
+    private void populateFields()
     {
-        if (!isAddMode && fir != null) 
+        if (!isAddMode && fir != null)
         {
             firIDtxt.setText(fir.getFirId());
             firIDtxt.setEditable(false);
@@ -524,15 +550,33 @@ public class AddUpdateFIRForm extends javax.swing.JFrame {
                     Date date = sdf.parse(fir.getIncidentDate());
                     incidentDatetxt.setDate(date);
                 }
-            } 
-            catch (ParseException e)
+            }
+            catch (ParseException e) 
             {
                 System.err.println("Failed to parse incidentDate: " + fir.getIncidentDate());
                 JOptionPane.showMessageDialog(this, "Invalid date format in FIR data.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
+        else
+        {
+            String newFirId = generateFirId();
+            firIDtxt.setText(newFirId);
+            firIDtxt.setEditable(false);
+        }
     }
 
+    private String generateFirId() 
+    {
+        int count = csvHandler.getFirCount() + 1;
+        return String.format("FIR%03d", count);
+    }
+
+    private String generateInvestigationId() 
+    {
+        int count = csvHandler.getInvestigationCount() + 1;
+        return String.format("INV%03d", count);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.TimePicker IncidentTimetxt;
     private javax.swing.JTextField addresstxt;

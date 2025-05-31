@@ -226,4 +226,100 @@ public class FormValidator {
     public static boolean searerr(JTextField searchbartxt, JLabel lblsearcherr) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+    
+    public static boolean validateOfficerForm(
+    JTextField nametxt, JLabel lblerrname,
+    JTextField emailtxt, JLabel lblerrAddress,
+    JTextField phoneNotxt, JLabel lblerrcontact,
+    JTextField serviceYearstxt, JLabel lblerrdate,
+    JTextField casesSolvedtxt, JLabel lblerrtime,
+    JTextField successPercentagetxt, JLabel lblerrCrimeType
+    ) 
+    {
+        boolean isValid = true;
+
+        // Clear all error labels
+        lblerrname.setText("");
+        lblerrAddress.setText("");
+        lblerrcontact.setText("");
+        lblerrdate.setText("");
+        lblerrtime.setText("");
+        lblerrCrimeType.setText("");
+
+        // Name validation
+        if (nametxt.getText().trim().isEmpty())
+        {
+            lblerrname.setText("<html><span style='color:red; font-weight:bold;'>Name is required.</span></html>");
+            isValid = false;
+        }
+
+        // Email validation (basic check)
+        if (emailtxt.getText().trim().isEmpty()) {
+            lblerrAddress.setText("<html><span style='color:red; font-weight:bold;'>Email is required.</span></html>");
+            isValid = false;
+        } else if (!emailtxt.getText().trim().matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
+            lblerrAddress.setText("<html><span style='color:red; font-weight:bold;'>Invalid email format.</span></html>");
+            isValid = false;
+        }
+
+        // Phone validation
+        String phone = phoneNotxt.getText().trim();
+        if (phone.isEmpty())
+        {
+            lblerrcontact.setText("<html><span style='color:red; font-weight:bold;'>Phone number is required.</span></html>");
+            isValid = false;
+        } else if (!phone.matches("\\d{11}"))
+        {
+            lblerrcontact.setText("<html><span style='color:red; font-weight:bold;'>Enter 11 digit phone number.</span></html>");
+            isValid = false;
+        }
+
+        // Service Years validation
+        try 
+        {
+            int serviceYears = Integer.parseInt(serviceYearstxt.getText().trim());
+            if (serviceYears < 0) 
+            {
+                lblerrdate.setText("<html><span style='color:red; font-weight:bold;'>Service Years cannot be negative.</span></html>");
+                isValid = false;
+            }
+        } 
+        catch (NumberFormatException e) {
+            lblerrdate.setText("<html><span style='color:red; font-weight:bold;'>Service Years must be a valid number.</span></html>");
+            isValid = false;
+        }
+
+        // Cases Solved validation
+        try {
+            int casesSolved = Integer.parseInt(casesSolvedtxt.getText().trim());
+            if (casesSolved < 0) 
+            {
+                lblerrtime.setText("<html><span style='color:red; font-weight:bold;'>Cases Solved cannot be negative.</span></html>");
+                isValid = false;
+            }
+        } 
+        catch (NumberFormatException e)
+        {
+            lblerrtime.setText("<html><span style='color:red; font-weight:bold;'>Cases Solved must be a valid number.</span></html>");
+            isValid = false;
+        }
+
+        // Success Percentage validation
+        try {
+            double successPercentage = Double.parseDouble(successPercentagetxt.getText().trim());
+            if (successPercentage < 0 || successPercentage > 100) {
+                lblerrCrimeType.setText("<html><span style='color:red; font-weight:bold;'>Success Percentage must be between 0 and 100.</span></html>");
+                isValid = false;
+            }
+        } 
+        catch (NumberFormatException e)
+        {
+            lblerrCrimeType.setText("<html><span style='color:red; font-weight:bold;'>Success Percentage must be a valid number.</span></html>");
+            isValid = false;
+        }
+
+        return isValid;
+    }
+    
+    
 }

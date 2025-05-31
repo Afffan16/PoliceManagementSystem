@@ -84,7 +84,6 @@ public class ReportComplaintForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Report a Complain");
-        setPreferredSize(new java.awt.Dimension(650, 700));
         setResizable(false);
         setSize(new java.awt.Dimension(650, 700));
 
@@ -341,9 +340,9 @@ public class ReportComplaintForm extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addContainerGap()
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -368,7 +367,8 @@ public class ReportComplaintForm extends javax.swing.JFrame {
 
     private void SubmitbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitbtnActionPerformed
         try {
-            String complaintId = String.valueOf(System.currentTimeMillis());
+            CSVHandler csvHandler = new CSVHandler();
+            String complaintId = generateComplaintId(csvHandler);
             boolean isvalid = FormValidator.validateForm(ComplainerNametxt,
                 jLabel4, ComplainerFatherNametxt1, jLabel12, ComplainerContacttxt,
                 jLabel6, ComplainerCNICtxt, jLabel7, txtAddress, lblerrAddress,
@@ -391,8 +391,7 @@ public class ReportComplaintForm extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Please select a date.");
                 return;
             }
-
-            CSVHandler csvHandler = new CSVHandler();
+            
             csvHandler.addComplaint(
                 complaintId,
                 ComplainerNametxt.getText(),
@@ -429,6 +428,14 @@ public class ReportComplaintForm extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
+    private String generateComplaintId(CSVHandler csvHandler)
+    {
+        int count = csvHandler.getComplaintCount() + 1;
+        return String.format("CID%03d", count);
+    }
+    
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

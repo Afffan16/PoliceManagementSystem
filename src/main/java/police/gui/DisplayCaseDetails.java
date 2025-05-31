@@ -9,70 +9,30 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 /**
  *
  * @author HP
  */
-public class InvestigationForm extends javax.swing.JFrame {
+public class DisplayCaseDetails extends javax.swing.JFrame 
+{
 
     /**
-     * Creates new form InvestigationForm
+     * Creates new form DisplayCaseDetails
      */
+    private static String loggedInUsername;
     private Investigation investigation;
     private CSVHandler csvHandler;
-    private String loggedInUsername;
-    private List<String> evidencePaths;
-    private boolean changesMade = false;
-
-    public InvestigationForm(Investigation investigation, String loggedInUsername) {
+    public DisplayCaseDetails(Investigation investigation,String loggedInUsername)
+    {
         this.investigation = investigation;
-        setLocationRelativeTo(null);
-        this.loggedInUsername = loggedInUsername;
-        this.evidencePaths = new ArrayList<>(investigation.getEvidencePaths() != null ? investigation.getEvidencePaths() : new ArrayList<>());
-        try 
-        {
-            csvHandler = new CSVHandler();
-        }
-        catch (Exception e) 
-        {
-            JOptionPane.showMessageDialog(this, "Failed to initialize CSVHandler: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+        this.csvHandler = new CSVHandler();
         initComponents();
-        disablecombo();
+        setLocationRelativeTo(null);
         loadInvestigation();
-        witnessTextArea.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
-            public void changedUpdate(javax.swing.event.DocumentEvent e) { changesMade = true; }
-            public void removeUpdate(javax.swing.event.DocumentEvent e) { changesMade = true; }
-            public void insertUpdate(javax.swing.event.DocumentEvent e) { changesMade = true; }
-        });
-        otherDetailsTextArea.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
-            public void changedUpdate(javax.swing.event.DocumentEvent e) { changesMade = true; }
-            public void removeUpdate(javax.swing.event.DocumentEvent e) { changesMade = true; }
-            public void insertUpdate(javax.swing.event.DocumentEvent e) { changesMade = true; }
-        });
-        suspectsField.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
-            public void changedUpdate(javax.swing.event.DocumentEvent e) { changesMade = true; }
-            public void removeUpdate(javax.swing.event.DocumentEvent e) { changesMade = true; }
-            public void insertUpdate(javax.swing.event.DocumentEvent e) { changesMade = true; }
-        });
-        caseResultField.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
-            public void changedUpdate(javax.swing.event.DocumentEvent e) { changesMade = true; }
-            public void removeUpdate(javax.swing.event.DocumentEvent e) { changesMade = true; }
-            public void insertUpdate(javax.swing.event.DocumentEvent e) { changesMade = true; }
-        });
-        finalCriminalField.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
-            public void changedUpdate(javax.swing.event.DocumentEvent e) { changesMade = true; }
-            public void removeUpdate(javax.swing.event.DocumentEvent e) { changesMade = true; }
-            public void insertUpdate(javax.swing.event.DocumentEvent e) { changesMade = true; }
-        });
-        statusComboBox.addActionListener(e -> changesMade = true);
-    
+        this.loggedInUsername = loggedInUsername;
+        setLocationRelativeTo(null);
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -83,9 +43,6 @@ public class InvestigationForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Savebtn1 = new javax.swing.JButton();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jToolBar1 = new javax.swing.JToolBar();
         jScrollPane4 = new javax.swing.JScrollPane();
         mainPanel = new javax.swing.JPanel();
         headinglbl = new javax.swing.JLabel();
@@ -140,30 +97,20 @@ public class InvestigationForm extends javax.swing.JFrame {
         contactField = new javax.swing.JTextField();
         nicNoField = new javax.swing.JTextField();
         addressField = new javax.swing.JTextField();
-        addEvidenceButton = new javax.swing.JButton();
-        removeEvidenceButton = new javax.swing.JButton();
-        Backbtn = new javax.swing.JButton();
-        Savebtn = new javax.swing.JButton();
-
-        Savebtn1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
-        Savebtn1.setText("Save");
-
-        jMenuItem1.setText("jMenuItem1");
-
-        jToolBar1.setRollover(true);
+        Backbtn01 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(720, 650));
+        setTitle("Case Details");
 
         mainPanel.setBackground(new java.awt.Color(255, 255, 255));
-        mainPanel.setPreferredSize(new java.awt.Dimension(700, 1200));
+        mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        mainPanel.setPreferredSize(new java.awt.Dimension(680, 1000));
+        mainPanel.setVerifyInputWhenFocusTarget(false);
 
         headinglbl.setBackground(new java.awt.Color(51, 102, 255));
         headinglbl.setFont(new java.awt.Font("Britannic Bold", 0, 24)); // NOI18N
         headinglbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        headinglbl.setText("CASE DETAILS / MANAGEMENT");
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        headinglbl.setText("INVESTIGATION  DETAILS");
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel1.setText("Investigation ID :");
@@ -181,7 +128,7 @@ public class InvestigationForm extends javax.swing.JFrame {
         jLabel5.setText("Case Started :");
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel6.setText("Last Updated : ");
+        jLabel6.setText("Case Ended :");
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel7.setText("Incident Date :");
@@ -317,12 +264,10 @@ public class InvestigationForm extends javax.swing.JFrame {
                 .addComponent(jLabel15)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel16)
-                .addGap(20, 20, 20)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel17)
-                .addGap(14, 14, 14))
+                .addGap(23, 23, 23))
         );
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         investigationIdField.setEditable(false);
         investigationIdField.addActionListener(new java.awt.event.ActionListener() {
@@ -392,10 +337,12 @@ public class InvestigationForm extends javax.swing.JFrame {
         descriptionTextArea.setRows(5);
         jScrollPane1.setViewportView(descriptionTextArea);
 
+        otherDetailsTextArea.setEditable(false);
         otherDetailsTextArea.setColumns(20);
         otherDetailsTextArea.setRows(5);
         jScrollPane2.setViewportView(otherDetailsTextArea);
 
+        witnessTextArea.setEditable(false);
         witnessTextArea.setColumns(20);
         witnessTextArea.setRows(5);
         jScrollPane3.setViewportView(witnessTextArea);
@@ -407,6 +354,7 @@ public class InvestigationForm extends javax.swing.JFrame {
             }
         });
 
+        suspectsField.setEditable(false);
         suspectsField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 suspectsFieldActionPerformed(evt);
@@ -420,26 +368,21 @@ public class InvestigationForm extends javax.swing.JFrame {
             }
         });
 
+        caseResultField.setEditable(false);
         caseResultField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 caseResultFieldActionPerformed(evt);
             }
         });
 
+        finalCriminalField.setEditable(false);
         finalCriminalField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 finalCriminalFieldActionPerformed(evt);
             }
         });
 
-        statusComboBox.setEditable(true);
-        statusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Completed" }));
-        statusComboBox.setToolTipText("");
-        statusComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                statusComboBoxActionPerformed(evt);
-            }
-        });
+        statusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         complainantNameField.setEditable(false);
         complainantNameField.addActionListener(new java.awt.event.ActionListener() {
@@ -476,105 +419,60 @@ public class InvestigationForm extends javax.swing.JFrame {
             }
         });
 
-        addEvidenceButton.setText("Add Evidence");
-        addEvidenceButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addEvidenceButtonActionPerformed(evt);
-            }
-        });
-
-        removeEvidenceButton.setText("Remove Evidence");
-        removeEvidenceButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removeEvidenceButtonActionPerformed(evt);
-            }
-        });
-
-        Backbtn.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
-        Backbtn.setText("Back");
-        Backbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackbtnActionPerformed(evt);
-            }
-        });
-
-        Savebtn.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
-        Savebtn.setText("Save");
-        Savebtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SavebtnActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(closingDateField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(caseStartedField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(assisstantOfficerIdField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(leadOfficerIdField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(firIdField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(investigationIdField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(complainantNameField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(contactField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nicNoField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(addressField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(incidentDateField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(incidentTimeField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(locationField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(crimeTypeField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(suspectsField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(complainantFatherNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(caseResultField, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(finalCriminalField, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(statusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(Backbtn)))
-                                .addGap(18, 18, 18)
-                                .addComponent(Savebtn)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(finalCriminalField, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(caseResultField, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(viewEvidenceButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(addEvidenceButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(removeEvidenceButton, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(statusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
+                        .addComponent(suspectsField)
+                        .addComponent(crimeTypeField)
+                        .addComponent(jScrollPane1)
+                        .addComponent(locationField)
+                        .addComponent(incidentDateField)
+                        .addComponent(closingDateField)
+                        .addComponent(caseStartedField)
+                        .addComponent(assisstantOfficerIdField)
+                        .addComponent(leadOfficerIdField)
+                        .addComponent(firIdField)
+                        .addComponent(investigationIdField)
+                        .addComponent(complainantNameField)
+                        .addComponent(complainantFatherNameField)
+                        .addComponent(contactField)
+                        .addComponent(nicNoField)
+                        .addComponent(addressField)
+                        .addComponent(incidentTimeField)))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(12, 12, 12)
                 .addComponent(investigationIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(firIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addComponent(firIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(leadOfficerIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(assisstantOfficerIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(caseStartedField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
-                .addComponent(closingDateField, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(caseStartedField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(closingDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(complainantNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(complainantFatherNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
+                .addGap(18, 18, 18)
                 .addComponent(contactField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(addressField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -584,60 +482,66 @@ public class InvestigationForm extends javax.swing.JFrame {
                 .addComponent(incidentDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(incidentTimeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(locationField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(crimeTypeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(suspectsField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(viewEvidenceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addEvidenceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(removeEvidenceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(viewEvidenceButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
                 .addComponent(caseResultField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
                 .addComponent(finalCriminalField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
                 .addComponent(statusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Backbtn)
-                    .addComponent(Savebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        Backbtn01.setFont(new java.awt.Font("Bodoni MT", 1, 16)); // NOI18N
+        Backbtn01.setText("Back");
+        Backbtn01.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Backbtn01ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 38, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(headinglbl)
-                .addGap(188, 188, 188))
+                .addContainerGap()
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(Backbtn01, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(mainPanelLayout.createSequentialGroup()
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(34, 34, 34)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap()))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                        .addComponent(headinglbl)
+                        .addGap(185, 185, 185))))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(9, 9, 9)
                 .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(75, 75, 75))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
+                .addComponent(Backbtn01, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jScrollPane4.setViewportView(mainPanel);
@@ -648,156 +552,152 @@ public class InvestigationForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 794, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SavebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SavebtnActionPerformed
-        int response = JOptionPane.showConfirmDialog(this, "Are you sure you want to save the changes?", "Confirm Save", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        if (response == JOptionPane.YES_OPTION)
-        {
-            saveChanges();
-        }
-    }//GEN-LAST:event_SavebtnActionPerformed
-
-    private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
-        if (changesMade)
-        {
-            int response = JOptionPane.showConfirmDialog(this, "Are you sure you want to leave? All changes made will be lost.", "Confirm Leave", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
-            if (response == JOptionPane.YES_OPTION)
-            {
-                new OngoingCasesForm(loggedInUsername).setVisible(true);
-                dispose();
-            }
-        }
-        else
-        {
-            new OngoingCasesForm(loggedInUsername).setVisible(true);
-            dispose();
-        }
-    }//GEN-LAST:event_BackbtnActionPerformed
-
-    private void removeEvidenceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeEvidenceButtonActionPerformed
-        deleteEvidence();
-        changesMade = true;
-    }//GEN-LAST:event_removeEvidenceButtonActionPerformed
-
-    private void addEvidenceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEvidenceButtonActionPerformed
-        addEvidence();
-        changesMade = true;
-    }//GEN-LAST:event_addEvidenceButtonActionPerformed
-
-    private void addressFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressFieldActionPerformed
+    private void investigationIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_investigationIdFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_addressFieldActionPerformed
-
-    private void nicNoFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nicNoFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nicNoFieldActionPerformed
-
-    private void contactFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_contactFieldActionPerformed
-
-    private void complainantFatherNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complainantFatherNameFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_complainantFatherNameFieldActionPerformed
-
-    private void complainantNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complainantNameFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_complainantNameFieldActionPerformed
-
-    private void statusComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_statusComboBoxActionPerformed
-
-    private void finalCriminalFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalCriminalFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_finalCriminalFieldActionPerformed
-
-    private void caseResultFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caseResultFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_caseResultFieldActionPerformed
-
-    private void viewEvidenceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewEvidenceButtonActionPerformed
-        if (investigation.getEvidencePaths().isEmpty())
-        {
-            JOptionPane.showMessageDialog(this, "No evidence available.", "Info", JOptionPane.INFORMATION_MESSAGE);
-            return;
-        }
-        JList<String> evidenceList = new JList<>(investigation.getEvidencePaths().toArray(new String[0]));
-        evidenceList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        JOptionPane.showMessageDialog(this, new JScrollPane(evidenceList), "Select Evidence to View", JOptionPane.PLAIN_MESSAGE);
-        String selectedPath = evidenceList.getSelectedValue();
-        if (selectedPath != null)
-        {
-            try
-            {
-                Desktop.getDesktop().open(new File(selectedPath));
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, "Error opening file: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-    }//GEN-LAST:event_viewEvidenceButtonActionPerformed
-
-    private void suspectsFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suspectsFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_suspectsFieldActionPerformed
-
-    private void crimeTypeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crimeTypeFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_crimeTypeFieldActionPerformed
-
-    private void locationFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_locationFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_locationFieldActionPerformed
-
-    private void incidentTimeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_incidentTimeFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_incidentTimeFieldActionPerformed
-
-    private void incidentDateFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_incidentDateFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_incidentDateFieldActionPerformed
-
-    private void closingDateFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closingDateFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_closingDateFieldActionPerformed
-
-    private void caseStartedFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caseStartedFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_caseStartedFieldActionPerformed
-
-    private void assisstantOfficerIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assisstantOfficerIdFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_assisstantOfficerIdFieldActionPerformed
-
-    private void leadOfficerIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leadOfficerIdFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_leadOfficerIdFieldActionPerformed
+    }//GEN-LAST:event_investigationIdFieldActionPerformed
 
     private void firIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firIdFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_firIdFieldActionPerformed
 
-    private void investigationIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_investigationIdFieldActionPerformed
+    private void leadOfficerIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leadOfficerIdFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_investigationIdFieldActionPerformed
+    }//GEN-LAST:event_leadOfficerIdFieldActionPerformed
+
+    private void assisstantOfficerIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assisstantOfficerIdFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_assisstantOfficerIdFieldActionPerformed
+
+    private void caseStartedFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caseStartedFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_caseStartedFieldActionPerformed
+
+    private void closingDateFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closingDateFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_closingDateFieldActionPerformed
+
+    private void incidentDateFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_incidentDateFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_incidentDateFieldActionPerformed
+
+    private void incidentTimeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_incidentTimeFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_incidentTimeFieldActionPerformed
+
+    private void locationFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_locationFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_locationFieldActionPerformed
+
+    private void crimeTypeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crimeTypeFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_crimeTypeFieldActionPerformed
+
+    private void suspectsFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suspectsFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_suspectsFieldActionPerformed
+
+    private void caseResultFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caseResultFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_caseResultFieldActionPerformed
+
+    private void finalCriminalFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalCriminalFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_finalCriminalFieldActionPerformed
+
+    private void viewEvidenceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewEvidenceButtonActionPerformed
+            if (investigation.getEvidencePaths().isEmpty()) 
+            {
+                JOptionPane.showMessageDialog(this, "No evidence available.", "Info", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            JList<String> evidenceList = new JList<>(investigation.getEvidencePaths().toArray(new String[0]));
+            evidenceList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+            JOptionPane.showMessageDialog(this, new JScrollPane(evidenceList), "Select Evidence to View", JOptionPane.PLAIN_MESSAGE);
+            String selectedPath = evidenceList.getSelectedValue();
+            if (selectedPath != null) 
+            {
+                try
+                {
+                    Desktop.getDesktop().open(new File(selectedPath));
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(this, "Error opening file: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+    }//GEN-LAST:event_viewEvidenceButtonActionPerformed
+
+    private void Backbtn01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Backbtn01ActionPerformed
+        new CompletedCasesForm(loggedInUsername).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_Backbtn01ActionPerformed
+
+    private void complainantNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complainantNameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_complainantNameFieldActionPerformed
+
+    private void complainantFatherNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complainantFatherNameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_complainantFatherNameFieldActionPerformed
+
+    private void contactFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_contactFieldActionPerformed
+
+    private void nicNoFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nicNoFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nicNoFieldActionPerformed
+
+    private void addressFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addressFieldActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    
+    public void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(DisplayCaseDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(DisplayCaseDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(DisplayCaseDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(DisplayCaseDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new DisplayCaseDetails(investigation, loggedInUsername).setVisible(true);
+            }
+        });
+    }
     
     private void loadInvestigation() 
     {
@@ -813,7 +713,7 @@ public class InvestigationForm extends javax.swing.JFrame {
         otherDetailsTextArea.setText(investigation.getOtherDetails());
         caseResultField.setText(investigation.getCaseResult());
         finalCriminalField.setText(investigation.getFinalCriminal());
-        statusComboBox.setModel(new DefaultComboBoxModel<>(new String[]{ "Active", "Completed"}));
+        statusComboBox.setModel(new DefaultComboBoxModel<>(new String[]{"Initiated", "Active", "Completed"}));
         statusComboBox.setSelectedItem(investigation.getStatus());
         CSVHandler.FIRData firData = csvHandler.getFIRData(investigation.getFirId());
         if (firData != null) 
@@ -831,113 +731,9 @@ public class InvestigationForm extends javax.swing.JFrame {
         }
     }
     
-    public void disablecombo()
-    {
-        String officerId = csvHandler.getOfficerIdFromUsername(loggedInUsername);
-        if (officerId != null && investigation.getOfficerId2() != null && investigation.getOfficerId2().equals(officerId) && (investigation.getOfficerId1() == null || !investigation.getOfficerId1().equals(officerId))) {
-            statusComboBox.setEnabled(false);
-        }
-    }
-    
-    private void addEvidence() 
-    {
-        JFileChooser fileChooser = new JFileChooser();
-        if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION)
-        {
-            String evidencePath = fileChooser.getSelectedFile().getAbsolutePath();
-            evidencePaths.add(evidencePath);
-            JOptionPane.showMessageDialog(this, "Selected: " + evidencePath);
-        }
-    }
-
-    private void deleteEvidence()
-    {
-        if (evidencePaths.isEmpty()) 
-        {
-            JOptionPane.showMessageDialog(this, "No evidence to delete.", "Info", JOptionPane.INFORMATION_MESSAGE);
-            return;
-        }
-        JList<String> evidenceList = new JList<>(evidencePaths.toArray(new String[0]));
-        evidenceList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        JOptionPane.showMessageDialog(this, new JScrollPane(evidenceList), "Select Evidence to Delete", JOptionPane.PLAIN_MESSAGE);
-        String selectedPath = evidenceList.getSelectedValue();
-        if (selectedPath != null)
-        {
-            evidencePaths.remove(selectedPath);
-        }
-    }
-
-
-    private void saveChanges()
-    {
-        String selectedStatus = (String) statusComboBox.getSelectedItem();
-        String officerId = csvHandler.getOfficerIdFromUsername(loggedInUsername);
-        
-        if ("Completed".equals(selectedStatus) && (officerId == null || !officerId.equals(investigation.getOfficerId1()))) {
-            JOptionPane.showMessageDialog(this, "Only the lead officer can set the status to 'Completed'.", "Permission Denied", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        investigation.setEvidencePaths(evidencePaths);
-        investigation.setWitnessStatements(witnessTextArea.getText());
-        investigation.setOtherDetails(otherDetailsTextArea.getText());
-        investigation.setSuspects(suspectsField.getText());
-        investigation.setCaseResult(caseResultField.getText());
-        investigation.setFinalCriminal(finalCriminalField.getText());
-        if (officerId != null && statusComboBox.isEnabled()) {
-            investigation.setStatus(selectedStatus);
-        }
-        Date currentDate = new Date();
-        investigation.setLastUpdated(currentDate);
-        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-        closingDateField.setText(sdf.format(currentDate));
-        csvHandler.addInvestigationDetails(investigation);
-        JOptionPane.showMessageDialog(this, "Changes saved successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
-        changesMade = false; 
-        new OngoingCasesForm(loggedInUsername).setVisible(true);
-        dispose();
-    }
-    
-    
-    
-    
-    public void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InvestigationForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InvestigationForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InvestigationForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InvestigationForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new InvestigationForm(investigation, loggedInUsername).setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Backbtn;
-    private javax.swing.JButton Savebtn;
-    private javax.swing.JButton Savebtn1;
-    private javax.swing.JButton addEvidenceButton;
+    private javax.swing.JButton Backbtn01;
     private javax.swing.JTextField addressField;
     private javax.swing.JTextField assisstantOfficerIdField;
     private javax.swing.JTextField caseResultField;
@@ -977,20 +773,17 @@ public class InvestigationForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JTextField leadOfficerIdField;
     private javax.swing.JTextField locationField;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JTextField nicNoField;
     private javax.swing.JTextArea otherDetailsTextArea;
-    private javax.swing.JButton removeEvidenceButton;
     private javax.swing.JComboBox<String> statusComboBox;
     private javax.swing.JTextField suspectsField;
     private javax.swing.JButton viewEvidenceButton;

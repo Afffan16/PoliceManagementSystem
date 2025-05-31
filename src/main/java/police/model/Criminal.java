@@ -8,41 +8,39 @@ package police.model;
  *
  * @author HP
  */
-public class Criminal {
-     private String txtID;
-    private String complainantName;
-    private String Status;
-    private String contact;
-    private String address;
+public class Criminal 
+{
+    private String criminalId;
+    private String criminalName;
     private String cnic;
-    private String dateofBirth;
-    private String time;
-    private String description;
-    
+    private String address;
+    private String imagePath;
+    private String noOfCrimes;
+    private String arrestStatus;
+    private String dateOfArrest;
+    private String descriptionForArrest;
 
-    public Criminal(String txtID, String complainantName, String Status, String contact, String address, String cnic,
-               String dateofBirth, String time, String description) {
-        this.txtID = txtID;
-        this.complainantName = complainantName;
-        this.contact = contact;
-        this.Status = Status;
-        this.address = address;
+    public Criminal(String criminalId, String criminalName, String cnic, String address, String imagePath, 
+                    String noOfCrimes, String arrestStatus, String dateOfArrest, String descriptionForArrest) {
+        this.criminalId = criminalId;
+        this.criminalName = criminalName;
         this.cnic = cnic;
-        this.dateofBirth = dateofBirth;
-        this.description = description;
-        this.dateofBirth = dateofBirth;
         this.address = address;
-        this.time = time;
+        this.imagePath = imagePath;
+        this.noOfCrimes = noOfCrimes;
+        this.arrestStatus = arrestStatus;
+        this.dateOfArrest = dateOfArrest;
+        this.descriptionForArrest = descriptionForArrest;
     }
 
     // Getters
-    public String getCriminalId() { return txtID; }
-    public String getComplainantName() { return complainantName; }
-    public String getStatus() { return Status; }
-    public String getContact() { return contact; }
+    public String getCriminalId() { return criminalId; }
+    public String getCriminalName() { return criminalName; }
+    public String getCnic() { return cnic; }
     public String getAddress() { return address; }
-    public String getNicNumber() { return cnic; }
-    public String getdateofBirth() { return dateofBirth; }
-    public String getTime() { return time; }
-    public String getDescription() { return description; }
+    public String getImagePath() { return imagePath; }
+    public String getNoOfCrimes() { return noOfCrimes; }
+    public String getArrestStatus() { return arrestStatus; }
+    public String getDateOfArrest() { return dateOfArrest; }
+    public String getDescriptionForArrest() { return descriptionForArrest; }
 }
