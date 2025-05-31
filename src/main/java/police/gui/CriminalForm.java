@@ -12,7 +12,8 @@ import java.io.*;
  *
  * @author HP
  */
-public class CriminalForm extends javax.swing.JFrame {
+public class CriminalForm extends javax.swing.JFrame 
+{
 
     /**
      * Creates new form CriminalForm

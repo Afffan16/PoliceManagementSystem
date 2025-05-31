@@ -22,7 +22,7 @@ A Java-based desktop application for managing police operations, including compl
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/Afffan16/PoliceManagementSystem.git
+   git clone -b DESIGNING-BRANCH-FOR-DAWOOD "https://github.com/Afffan16/PoliceManagementSystem.git"
    ```
 2. Open in NetBeans.
 3. Ensure `resources/` contains CSVs and `images/` with officer photos.

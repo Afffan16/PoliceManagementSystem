@@ -199,7 +199,6 @@ public class PoliceDashboardForm extends javax.swing.JFrame {
 
     private void CRIMINALBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CRIMINALBtnActionPerformed
         new CriminalForm(loggedInUsername).setVisible(true);
-
     }//GEN-LAST:event_CRIMINALBtnActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
