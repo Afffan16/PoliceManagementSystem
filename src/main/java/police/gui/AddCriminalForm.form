@@ -236,18 +236,18 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="headinglbl">
               <Properties>
+                <Property name="text" type="java.lang.String" value="ADD CRIMINAL :"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Bahnschrift" size="28" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="ADD CRIMINAL :"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="ComplainerIDlbl">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Criminal ID :"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Criminal ID :"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtID">
@@ -257,10 +257,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="ComplainerNamelbl">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Criminal Name :"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Criminal Name :"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="ComplainerNametxt">
@@ -270,20 +270,20 @@
             </Component>
             <Component class="javax.swing.JLabel" name="CNIClbl">
               <Properties>
+                <Property name="text" type="java.lang.String" value="CNIC No :"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="CNIC No :"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="Cnictxt">
             </Component>
             <Component class="javax.swing.JLabel" name="ComplainerAddresslbl1">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Address :"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Address :"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="CriminalAddresstxt">
@@ -293,10 +293,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="ComplainerContactlbl">
               <Properties>
+                <Property name="text" type="java.lang.String" value="No. of Crimes:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="No. of Crimes:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="ComplainerContacttxt2">
@@ -306,10 +306,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="Statuslbl">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Arrest Status:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Arrest Status:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtStatus">
@@ -319,28 +319,28 @@
             </Component>
             <Component class="javax.swing.JLabel" name="IncidentDatelbl">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Arrest Date:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Arrest Date:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
+                <Property name="text" type="java.lang.String" value="( YYYY-MM-DD )"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="8" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="( YYYY-MM-DD )"/>
               </Properties>
             </Component>
             <Component class="com.toedter.calendar.JDateChooser" name="dateChoosertxt">
             </Component>
             <Component class="javax.swing.JLabel" name="Descriptionlbl">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Description of Arrest :"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Description of Arrest :"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -361,13 +361,13 @@
             </Container>
             <Component class="javax.swing.JButton" name="Submitbtn">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Submit"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Britannic Bold" size="14" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Submit"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SubmitbtnActionPerformed"/>
@@ -375,13 +375,13 @@
             </Component>
             <Component class="javax.swing.JButton" name="Backbtn">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Back"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Britannic Bold" size="14" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Back"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BackbtnActionPerformed"/>
@@ -389,18 +389,18 @@
             </Component>
             <Component class="javax.swing.JLabel" name="imagelbl">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Criminal Image :"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Criminal Image :"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="addImagebtn">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Add Image"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Britannic Bold" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Add Image"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addImagebtnActionPerformed"/>
