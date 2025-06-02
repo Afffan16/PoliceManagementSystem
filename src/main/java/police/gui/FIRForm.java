@@ -49,90 +49,60 @@ public class FIRForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("FIR MODULE");
-        setPreferredSize(new java.awt.Dimension(600, 400));
         setResizable(false);
 
-        mainPanel.setBackground(new java.awt.Color(153, 153, 255));
+        mainPanel.setBackground(new java.awt.Color(0, 0, 102));
         mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        headinglbl.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
-        headinglbl.setForeground(new java.awt.Color(255, 0, 0));
+        headinglbl.setFont(new java.awt.Font("Wide Latin", 1, 24)); // NOI18N
+        headinglbl.setForeground(new java.awt.Color(255, 255, 0));
         headinglbl.setText("FIR MODULE");
+        mainPanel.add(headinglbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 39, 390, -1));
 
-        checkComplainsbtn.setBackground(new java.awt.Color(255, 255, 204));
-        checkComplainsbtn.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
-        checkComplainsbtn.setForeground(new java.awt.Color(255, 0, 0));
+        checkComplainsbtn.setBackground(new java.awt.Color(0, 0, 0));
+        checkComplainsbtn.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        checkComplainsbtn.setForeground(new java.awt.Color(255, 255, 255));
         checkComplainsbtn.setText("Check Complains");
         checkComplainsbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkComplainsbtnActionPerformed(evt);
             }
         });
+        mainPanel.add(checkComplainsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 234, 180, 44));
 
-        ViewFIRsbtn.setBackground(new java.awt.Color(255, 255, 204));
-        ViewFIRsbtn.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
-        ViewFIRsbtn.setForeground(new java.awt.Color(255, 0, 0));
+        ViewFIRsbtn.setBackground(new java.awt.Color(0, 0, 0));
+        ViewFIRsbtn.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        ViewFIRsbtn.setForeground(new java.awt.Color(255, 255, 255));
         ViewFIRsbtn.setText("View / Search FIRs");
         ViewFIRsbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ViewFIRsbtnActionPerformed(evt);
             }
         });
+        mainPanel.add(ViewFIRsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 149, 190, 44));
 
-        manageFIRsbtn.setBackground(new java.awt.Color(255, 255, 204));
-        manageFIRsbtn.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
-        manageFIRsbtn.setForeground(new java.awt.Color(255, 0, 0));
+        manageFIRsbtn.setBackground(new java.awt.Color(0, 0, 0));
+        manageFIRsbtn.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        manageFIRsbtn.setForeground(new java.awt.Color(255, 255, 255));
         manageFIRsbtn.setText("Manage FIRs");
         manageFIRsbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageFIRsbtnActionPerformed(evt);
             }
         });
+        mainPanel.add(manageFIRsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 149, 180, 44));
 
-        Backbtn.setBackground(new java.awt.Color(255, 255, 204));
-        Backbtn.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
-        Backbtn.setForeground(new java.awt.Color(255, 0, 0));
+        Backbtn.setBackground(new java.awt.Color(204, 0, 0));
+        Backbtn.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        Backbtn.setForeground(new java.awt.Color(255, 255, 255));
         Backbtn.setText("Back");
         Backbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackbtnActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
-        mainPanel.setLayout(mainPanelLayout);
-        mainPanelLayout.setHorizontalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(headinglbl)
-                .addGap(214, 214, 214))
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGap(81, 81, 81)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ViewFIRsbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(checkComplainsbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(40, 40, 40)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(manageFIRsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 79, Short.MAX_VALUE))
-        );
-        mainPanelLayout.setVerticalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(headinglbl)
-                .addGap(81, 81, 81)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ViewFIRsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(manageFIRsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(checkComplainsbtn, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                    .addComponent(Backbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(90, Short.MAX_VALUE))
-        );
+        mainPanel.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 234, 180, 44));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -140,15 +110,13 @@ public class FIRForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE))
         );
 
         pack();

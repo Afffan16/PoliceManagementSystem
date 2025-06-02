@@ -98,176 +98,156 @@ public class DisplayCaseDetails extends javax.swing.JFrame
         nicNoField = new javax.swing.JTextField();
         addressField = new javax.swing.JTextField();
         Backbtn01 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Case Details");
 
-        mainPanel.setBackground(new java.awt.Color(255, 255, 255));
+        mainPanel.setBackground(new java.awt.Color(0, 0, 102));
         mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
         mainPanel.setPreferredSize(new java.awt.Dimension(680, 1000));
         mainPanel.setVerifyInputWhenFocusTarget(false);
+        mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         headinglbl.setBackground(new java.awt.Color(51, 102, 255));
-        headinglbl.setFont(new java.awt.Font("Britannic Bold", 0, 24)); // NOI18N
+        headinglbl.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
+        headinglbl.setForeground(new java.awt.Color(255, 255, 0));
         headinglbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         headinglbl.setText("INVESTIGATION  DETAILS");
+        mainPanel.add(headinglbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 29, 560, 41));
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(0, 0, 102));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Investigation ID :");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 20, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("FIR ID :");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 55, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Lead Officer ID :");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 90, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Second Officer ID :");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 125, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Case Started :");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 160, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Case Ended :");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 195, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Incident Date :");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 405, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Incident Time :");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 440, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel9.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Incident Location :");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 475, -1, -1));
 
-        jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Description :");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 510, -1, -1));
 
-        jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Crime Type :");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 545, -1, -1));
 
-        jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel12.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Suspects :");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 580, -1, -1));
 
-        jLabel13.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel13.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Witness Statements :");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 615, -1, -1));
 
-        jLabel14.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel14.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Other Details :");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 685, -1, -1));
 
-        jLabel15.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel15.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Case Result :");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 720, -1, -1));
 
-        jLabel16.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel16.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Final Criminal :");
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 755, -1, -1));
 
-        jLabel17.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel17.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Status :");
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 790, -1, -1));
 
-        jLabel18.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel18.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Evidence :");
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 650, -1, -1));
 
-        jLabel19.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Complainant Name :");
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 230, -1, -1));
 
-        jLabel20.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("Complainant Father Name :");
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 265, -1, -1));
 
-        jLabel21.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Contact :");
+        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 300, -1, -1));
 
-        jLabel22.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setText("Address :");
+        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 335, -1, -1));
 
-        jLabel23.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("CNIC No :");
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 370, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel20)
-                    .addComponent(jLabel19)
-                    .addComponent(jLabel18)
-                    .addComponent(jLabel17)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel23, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel6)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel19)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel20)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel21)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel22)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel23)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel7)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel8)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel9)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel10)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel11)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel12)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel13)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel18)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel14)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel15)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel16)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel17)
-                .addGap(23, 23, 23))
-        );
+        mainPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 88, -1, 841));
+
+        jPanel2.setBackground(new java.awt.Color(0, 0, 102));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         investigationIdField.setEditable(false);
         investigationIdField.addActionListener(new java.awt.event.ActionListener() {
@@ -275,6 +255,7 @@ public class DisplayCaseDetails extends javax.swing.JFrame
                 investigationIdFieldActionPerformed(evt);
             }
         });
+        jPanel2.add(investigationIdField, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 12, 321, -1));
 
         firIdField.setEditable(false);
         firIdField.addActionListener(new java.awt.event.ActionListener() {
@@ -282,6 +263,7 @@ public class DisplayCaseDetails extends javax.swing.JFrame
                 firIdFieldActionPerformed(evt);
             }
         });
+        jPanel2.add(firIdField, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 46, 321, -1));
 
         leadOfficerIdField.setEditable(false);
         leadOfficerIdField.addActionListener(new java.awt.event.ActionListener() {
@@ -289,6 +271,7 @@ public class DisplayCaseDetails extends javax.swing.JFrame
                 leadOfficerIdFieldActionPerformed(evt);
             }
         });
+        jPanel2.add(leadOfficerIdField, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 80, 321, -1));
 
         assisstantOfficerIdField.setEditable(false);
         assisstantOfficerIdField.addActionListener(new java.awt.event.ActionListener() {
@@ -296,6 +279,7 @@ public class DisplayCaseDetails extends javax.swing.JFrame
                 assisstantOfficerIdFieldActionPerformed(evt);
             }
         });
+        jPanel2.add(assisstantOfficerIdField, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 114, 321, -1));
 
         caseStartedField.setEditable(false);
         caseStartedField.addActionListener(new java.awt.event.ActionListener() {
@@ -303,6 +287,7 @@ public class DisplayCaseDetails extends javax.swing.JFrame
                 caseStartedFieldActionPerformed(evt);
             }
         });
+        jPanel2.add(caseStartedField, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 148, 321, -1));
 
         closingDateField.setEditable(false);
         closingDateField.addActionListener(new java.awt.event.ActionListener() {
@@ -310,6 +295,7 @@ public class DisplayCaseDetails extends javax.swing.JFrame
                 closingDateFieldActionPerformed(evt);
             }
         });
+        jPanel2.add(closingDateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 188, 321, -1));
 
         incidentDateField.setEditable(false);
         incidentDateField.addActionListener(new java.awt.event.ActionListener() {
@@ -317,6 +303,7 @@ public class DisplayCaseDetails extends javax.swing.JFrame
                 incidentDateFieldActionPerformed(evt);
             }
         });
+        jPanel2.add(incidentDateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 398, 321, -1));
 
         incidentTimeField.setEditable(false);
         incidentTimeField.addActionListener(new java.awt.event.ActionListener() {
@@ -324,6 +311,7 @@ public class DisplayCaseDetails extends javax.swing.JFrame
                 incidentTimeFieldActionPerformed(evt);
             }
         });
+        jPanel2.add(incidentTimeField, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 432, 321, -1));
 
         locationField.setEditable(false);
         locationField.addActionListener(new java.awt.event.ActionListener() {
@@ -331,21 +319,28 @@ public class DisplayCaseDetails extends javax.swing.JFrame
                 locationFieldActionPerformed(evt);
             }
         });
+        jPanel2.add(locationField, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 466, 321, -1));
 
         descriptionTextArea.setEditable(false);
         descriptionTextArea.setColumns(20);
         descriptionTextArea.setRows(5);
         jScrollPane1.setViewportView(descriptionTextArea);
 
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 500, 321, 26));
+
         otherDetailsTextArea.setEditable(false);
         otherDetailsTextArea.setColumns(20);
         otherDetailsTextArea.setRows(5);
         jScrollPane2.setViewportView(otherDetailsTextArea);
 
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 685, 321, 26));
+
         witnessTextArea.setEditable(false);
         witnessTextArea.setColumns(20);
         witnessTextArea.setRows(5);
         jScrollPane3.setViewportView(witnessTextArea);
+
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 606, 321, 26));
 
         crimeTypeField.setEditable(false);
         crimeTypeField.addActionListener(new java.awt.event.ActionListener() {
@@ -353,6 +348,7 @@ public class DisplayCaseDetails extends javax.swing.JFrame
                 crimeTypeFieldActionPerformed(evt);
             }
         });
+        jPanel2.add(crimeTypeField, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 538, 321, -1));
 
         suspectsField.setEditable(false);
         suspectsField.addActionListener(new java.awt.event.ActionListener() {
@@ -360,13 +356,18 @@ public class DisplayCaseDetails extends javax.swing.JFrame
                 suspectsFieldActionPerformed(evt);
             }
         });
+        jPanel2.add(suspectsField, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 572, 321, -1));
 
+        viewEvidenceButton.setBackground(new java.awt.Color(0, 0, 0));
+        viewEvidenceButton.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        viewEvidenceButton.setForeground(new java.awt.Color(255, 255, 255));
         viewEvidenceButton.setText("View Evidence");
         viewEvidenceButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewEvidenceButtonActionPerformed(evt);
             }
         });
+        jPanel2.add(viewEvidenceButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 650, -1, -1));
 
         caseResultField.setEditable(false);
         caseResultField.addActionListener(new java.awt.event.ActionListener() {
@@ -374,6 +375,7 @@ public class DisplayCaseDetails extends javax.swing.JFrame
                 caseResultFieldActionPerformed(evt);
             }
         });
+        jPanel2.add(caseResultField, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 723, 321, -1));
 
         finalCriminalField.setEditable(false);
         finalCriminalField.addActionListener(new java.awt.event.ActionListener() {
@@ -381,8 +383,10 @@ public class DisplayCaseDetails extends javax.swing.JFrame
                 finalCriminalFieldActionPerformed(evt);
             }
         });
+        jPanel2.add(finalCriminalField, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 757, 321, -1));
 
         statusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(statusComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 791, -1, -1));
 
         complainantNameField.setEditable(false);
         complainantNameField.addActionListener(new java.awt.event.ActionListener() {
@@ -390,6 +394,7 @@ public class DisplayCaseDetails extends javax.swing.JFrame
                 complainantNameFieldActionPerformed(evt);
             }
         });
+        jPanel2.add(complainantNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 222, 321, -1));
 
         complainantFatherNameField.setEditable(false);
         complainantFatherNameField.addActionListener(new java.awt.event.ActionListener() {
@@ -397,6 +402,7 @@ public class DisplayCaseDetails extends javax.swing.JFrame
                 complainantFatherNameFieldActionPerformed(evt);
             }
         });
+        jPanel2.add(complainantFatherNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 256, 321, -1));
 
         contactField.setEditable(false);
         contactField.addActionListener(new java.awt.event.ActionListener() {
@@ -404,6 +410,7 @@ public class DisplayCaseDetails extends javax.swing.JFrame
                 contactFieldActionPerformed(evt);
             }
         });
+        jPanel2.add(contactField, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 296, 321, -1));
 
         nicNoField.setEditable(false);
         nicNoField.addActionListener(new java.awt.event.ActionListener() {
@@ -411,6 +418,7 @@ public class DisplayCaseDetails extends javax.swing.JFrame
                 nicNoFieldActionPerformed(evt);
             }
         });
+        jPanel2.add(nicNoField, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 364, 321, -1));
 
         addressField.setEditable(false);
         addressField.addActionListener(new java.awt.event.ActionListener() {
@@ -418,131 +426,36 @@ public class DisplayCaseDetails extends javax.swing.JFrame
                 addressFieldActionPerformed(evt);
             }
         });
+        jPanel2.add(addressField, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 330, 321, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(finalCriminalField, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(caseResultField, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(viewEvidenceButton)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(statusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
-                        .addComponent(suspectsField)
-                        .addComponent(crimeTypeField)
-                        .addComponent(jScrollPane1)
-                        .addComponent(locationField)
-                        .addComponent(incidentDateField)
-                        .addComponent(closingDateField)
-                        .addComponent(caseStartedField)
-                        .addComponent(assisstantOfficerIdField)
-                        .addComponent(leadOfficerIdField)
-                        .addComponent(firIdField)
-                        .addComponent(investigationIdField)
-                        .addComponent(complainantNameField)
-                        .addComponent(complainantFatherNameField)
-                        .addComponent(contactField)
-                        .addComponent(nicNoField)
-                        .addComponent(addressField)
-                        .addComponent(incidentTimeField)))
-                .addContainerGap(45, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(investigationIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(firIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(leadOfficerIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(assisstantOfficerIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(caseStartedField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(closingDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(complainantNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(complainantFatherNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(contactField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(addressField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(nicNoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(incidentDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(incidentTimeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(locationField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(crimeTypeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(suspectsField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(viewEvidenceButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(caseResultField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(finalCriminalField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(statusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        mainPanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 88, -1, 841));
 
-        Backbtn01.setFont(new java.awt.Font("Bodoni MT", 1, 16)); // NOI18N
+        Backbtn01.setBackground(new java.awt.Color(204, 0, 0));
+        Backbtn01.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
+        Backbtn01.setForeground(new java.awt.Color(255, 255, 255));
         Backbtn01.setText("Back");
         Backbtn01.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Backbtn01ActionPerformed(evt);
             }
         });
+        mainPanel.add(Backbtn01, new org.netbeans.lib.awtextra.AbsoluteConstraints(557, 953, 99, -1));
 
-        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
-        mainPanel.setLayout(mainPanelLayout);
-        mainPanelLayout.setHorizontalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(Backbtn01, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(mainPanelLayout.createSequentialGroup()
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(34, 34, 34)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap()))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                        .addComponent(headinglbl)
-                        .addGap(185, 185, 185))))
+        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel3.setForeground(new java.awt.Color(255, 255, 0));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 710, Short.MAX_VALUE)
         );
-        mainPanelLayout.setVerticalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(24, 24, 24)
-                .addComponent(Backbtn01, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 80, Short.MAX_VALUE)
         );
+
+        mainPanel.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 80));
 
         jScrollPane4.setViewportView(mainPanel);
 
@@ -559,8 +472,8 @@ public class DisplayCaseDetails extends javax.swing.JFrame
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 794, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 1024, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -775,6 +688,7 @@ public class DisplayCaseDetails extends javax.swing.JFrame
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

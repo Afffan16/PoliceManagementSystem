@@ -43,77 +43,48 @@ public class CriminalForm extends javax.swing.JFrame
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        mainPanel.setBackground(new java.awt.Color(0, 0, 0));
+        mainPanel.setBackground(new java.awt.Color(0, 0, 102));
         mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        headinglbl.setText("CRIMINAL  MODULE");
         headinglbl.setBackground(new java.awt.Color(51, 102, 255));
         headinglbl.setFont(new java.awt.Font("Wide Latin", 3, 26)); // NOI18N
-        headinglbl.setForeground(new java.awt.Color(0, 255, 204));
+        headinglbl.setForeground(new java.awt.Color(255, 255, 0));
+        headinglbl.setText("CRIMINAL  MODULE");
+        mainPanel.add(headinglbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 26, -1, 67));
 
+        ViewCriminalbtn.setBackground(new java.awt.Color(0, 0, 0));
+        ViewCriminalbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
+        ViewCriminalbtn.setForeground(new java.awt.Color(255, 255, 255));
         ViewCriminalbtn.setText("VIEW / SEARCH CRIMINAL");
-        ViewCriminalbtn.setBackground(new java.awt.Color(153, 153, 153));
-        ViewCriminalbtn.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
-        ViewCriminalbtn.setForeground(new java.awt.Color(255, 0, 0));
         ViewCriminalbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ViewCriminalbtnActionPerformed(evt);
             }
         });
+        mainPanel.add(ViewCriminalbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 154, -1, 44));
 
+        manageCriminalbtn.setBackground(new java.awt.Color(0, 0, 0));
+        manageCriminalbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
+        manageCriminalbtn.setForeground(new java.awt.Color(255, 255, 255));
         manageCriminalbtn.setText("MANAGE CRIMINAL");
-        manageCriminalbtn.setBackground(new java.awt.Color(153, 153, 153));
-        manageCriminalbtn.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
-        manageCriminalbtn.setForeground(new java.awt.Color(255, 0, 0));
         manageCriminalbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageCriminalbtnActionPerformed(evt);
             }
         });
+        mainPanel.add(manageCriminalbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(386, 154, 267, 44));
 
+        Backbtn.setBackground(new java.awt.Color(204, 0, 0));
+        Backbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
+        Backbtn.setForeground(new java.awt.Color(255, 255, 255));
         Backbtn.setText("Back");
-        Backbtn.setBackground(new java.awt.Color(153, 153, 153));
-        Backbtn.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
-        Backbtn.setForeground(new java.awt.Color(255, 0, 0));
         Backbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackbtnActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
-        mainPanel.setLayout(mainPanelLayout);
-        mainPanelLayout.setHorizontalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(264, 264, 264))
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(ViewCriminalbtn)
-                        .addGap(52, 52, 52)
-                        .addComponent(manageCriminalbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(headinglbl)))
-                .addContainerGap(60, Short.MAX_VALUE))
-        );
-        mainPanelLayout.setVerticalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ViewCriminalbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(manageCriminalbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
-        );
+        mainPanel.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 174, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -121,15 +92,15 @@ public class CriminalForm extends javax.swing.JFrame
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 715, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(27, Short.MAX_VALUE)
+                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
 
         pack();

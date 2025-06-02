@@ -70,19 +70,23 @@ public class CompletedCasesForm extends javax.swing.JFrame
         jPanel1 = new javax.swing.JPanel();
         Backbtn = new javax.swing.JButton();
         ViewDetailsbtn = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Completed Cases");
         setLocation(new java.awt.Point(0, 0));
 
-        mainPanel.setBackground(new java.awt.Color(255, 255, 255));
+        mainPanel.setBackground(new java.awt.Color(0, 0, 102));
         mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
         mainPanel.setPreferredSize(new java.awt.Dimension(600, 520));
+        mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         headinglbl.setBackground(new java.awt.Color(51, 102, 255));
-        headinglbl.setFont(new java.awt.Font("Britannic Bold", 0, 24)); // NOI18N
+        headinglbl.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
+        headinglbl.setForeground(new java.awt.Color(255, 255, 0));
         headinglbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         headinglbl.setText("COMPLETED CASES");
+        mainPanel.add(headinglbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 7, 490, 50));
 
         Casestable.setModel(new javax.swing.table.DefaultTableModel(
             new Object[][] {},
@@ -90,69 +94,49 @@ public class CompletedCasesForm extends javax.swing.JFrame
         ));
         tableScrollPane.setViewportView(Casestable);
 
-        Backbtn.setFont(new java.awt.Font("Bodoni MT", 1, 14)); // NOI18N
+        mainPanel.add(tableScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 505, 270));
+
+        jPanel1.setBackground(new java.awt.Color(0, 0, 102));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Backbtn.setBackground(new java.awt.Color(204, 0, 0));
+        Backbtn.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        Backbtn.setForeground(new java.awt.Color(255, 255, 255));
         Backbtn.setText("Back");
         Backbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackbtnActionPerformed(evt);
             }
         });
+        jPanel1.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(378, 17, 100, -1));
 
-        ViewDetailsbtn.setFont(new java.awt.Font("Bodoni MT", 1, 14)); // NOI18N
+        ViewDetailsbtn.setBackground(new java.awt.Color(0, 0, 0));
+        ViewDetailsbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
+        ViewDetailsbtn.setForeground(new java.awt.Color(255, 255, 255));
         ViewDetailsbtn.setText("View Details");
         ViewDetailsbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ViewDetailsbtnActionPerformed(evt);
             }
         });
+        jPanel1.add(ViewDetailsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 17, 133, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(ViewDetailsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
-                .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+        mainPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 393, -1, -1));
+
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 610, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Backbtn)
-                    .addComponent(ViewDetailsbtn))
-                .addContainerGap(17, Short.MAX_VALUE))
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 60, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
-        mainPanel.setLayout(mainPanelLayout);
-        mainPanelLayout.setHorizontalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(43, Short.MAX_VALUE))
-        );
-        mainPanelLayout.setVerticalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
-        );
+        mainPanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -160,7 +144,7 @@ public class CompletedCasesForm extends javax.swing.JFrame
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE)
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -280,6 +264,7 @@ public class CompletedCasesForm extends javax.swing.JFrame
     private javax.swing.JButton ViewDetailsbtn;
     private javax.swing.JLabel headinglbl;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JScrollPane tableScrollPane;
     // End of variables declaration//GEN-END:variables

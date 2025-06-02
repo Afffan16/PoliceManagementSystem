@@ -90,67 +90,93 @@ public class AddUpdateOfficersForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        mainPanel.setBackground(new java.awt.Color(0, 0, 102));
         mainPanel.setPreferredSize(new java.awt.Dimension(700, 1000));
+        mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("OFFICER ID :");
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        mainPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 32, 90, 21));
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Username :");
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        mainPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 83, 90, 27));
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Password :");
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        mainPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 143, 90, 27));
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Role :");
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        mainPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 203, 59, 27));
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Badge No :");
-        jLabel5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        mainPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 90, 27));
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Email : ");
-        jLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        mainPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 72, 27));
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Phone No :");
-        jLabel7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        mainPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 439, 90, 30));
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Service Years :");
-        jLabel8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        mainPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 502, 112, 27));
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Cases Solved :");
-        jLabel9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        mainPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 564, 112, 27));
 
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Success Percentage :");
-        jLabel10.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        mainPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 624, 151, 27));
 
         officerIDtxt.setEditable(false);
+        mainPanel.add(officerIDtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 30, 382, -1));
 
         usernametxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernametxtActionPerformed(evt);
             }
         });
+        mainPanel.add(usernametxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 84, 382, -1));
 
         passwordtxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordtxtActionPerformed(evt);
             }
         });
+        mainPanel.add(passwordtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 144, 380, -1));
 
         roletxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 roletxtActionPerformed(evt);
             }
         });
+        mainPanel.add(roletxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 204, 382, -1));
 
         badgeNotext.setEditable(false);
         badgeNotext.addActionListener(new java.awt.event.ActionListener() {
@@ -158,207 +184,104 @@ public class AddUpdateOfficersForm extends javax.swing.JFrame {
                 badgeNotextActionPerformed(evt);
             }
         });
+        mainPanel.add(badgeNotext, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 321, 384, 26));
 
         serviceYearstxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 serviceYearstxtActionPerformed(evt);
             }
         });
+        mainPanel.add(serviceYearstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 501, 383, 27));
 
         successPercentagetxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 successPercentagetxtActionPerformed(evt);
             }
         });
+        mainPanel.add(successPercentagetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 624, 380, 27));
 
         nametxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nametxtActionPerformed(evt);
             }
         });
+        mainPanel.add(nametxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 265, 383, -1));
 
+        jLabel31.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
         jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel31.setText("Name :");
-        jLabel31.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        mainPanel.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 67, 27));
 
+        okbtn.setBackground(new java.awt.Color(0, 0, 0));
+        okbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
+        okbtn.setForeground(new java.awt.Color(255, 255, 255));
         okbtn.setText("OK");
         okbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 okbtnActionPerformed(evt);
             }
         });
+        mainPanel.add(okbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 820, 90, -1));
 
+        cancelbtn.setBackground(new java.awt.Color(204, 51, 0));
+        cancelbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
+        cancelbtn.setForeground(new java.awt.Color(255, 255, 255));
         cancelbtn.setText("Cancel");
         cancelbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelbtnActionPerformed(evt);
             }
         });
+        mainPanel.add(cancelbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 820, -1, -1));
+        mainPanel.add(lblerrname, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 116, -1, 12));
+        mainPanel.add(lblerrFathername, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 176, -1, 12));
+        mainPanel.add(lblerrcontact, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 236, -1, 9));
+        mainPanel.add(lblerrcinc, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 293, -1, 15));
+        mainPanel.add(lblerrAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 353, -1, 12));
+        mainPanel.add(lblerrdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 412, -1, 12));
+        mainPanel.add(lblerrtime, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 475, -1, 11));
+        mainPanel.add(lblerrdiscription, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 609, -1, 12));
+        mainPanel.add(lblerrCrimeType, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 673, -1, 11));
+        mainPanel.add(lblerrlocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 535, -1, 14));
 
         emailtxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailtxtActionPerformed(evt);
             }
         });
+        mainPanel.add(emailtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 379, 384, 27));
 
         phoneNotxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 phoneNotxtActionPerformed(evt);
             }
         });
+        mainPanel.add(phoneNotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 440, 384, 27));
 
         casesSolvedtxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casesSolvedtxtActionPerformed(evt);
             }
         });
+        mainPanel.add(casesSolvedtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 565, 384, 27));
 
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Officer Image : ");
-        jLabel11.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        mainPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 696, 115, 27));
 
+        addImagebtn.setBackground(new java.awt.Color(0, 204, 0));
+        addImagebtn.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        addImagebtn.setForeground(new java.awt.Color(255, 255, 255));
         addImagebtn.setText("Add Image ");
         addImagebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addImagebtnActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
-        mainPanel.setLayout(mainPanelLayout);
-        mainPanelLayout.setHorizontalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)))
-                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(addImagebtn)
-                    .addComponent(usernametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(roletxt, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(serviceYearstxt, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(successPercentagetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(badgeNotext, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(officerIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passwordtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblerrname)
-                    .addComponent(lblerrFathername)
-                    .addComponent(lblerrcontact)
-                    .addComponent(lblerrcinc)
-                    .addComponent(lblerrAddress)
-                    .addComponent(lblerrdate)
-                    .addComponent(lblerrtime)
-                    .addComponent(lblerrlocation)
-                    .addComponent(lblerrdiscription)
-                    .addComponent(lblerrCrimeType)
-                    .addComponent(emailtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(phoneNotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(casesSolvedtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addComponent(okbtn)
-                        .addGap(70, 70, 70)
-                        .addComponent(cancelbtn)))
-                .addContainerGap(84, Short.MAX_VALUE))
-        );
-        mainPanelLayout.setVerticalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(officerIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(usernametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblerrname, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passwordtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblerrFathername, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(roletxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblerrcontact, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblerrcinc, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(badgeNotext)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblerrAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(emailtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(lblerrdate, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15)
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(phoneNotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblerrtime, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(serviceYearstxt, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblerrlocation, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(casesSolvedtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addComponent(lblerrdiscription, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-                    .addComponent(successPercentagetxt))
-                .addGap(22, 22, 22)
-                .addComponent(lblerrCrimeType, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-                    .addComponent(addImagebtn))
-                .addGap(97, 97, 97)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(okbtn)
-                    .addComponent(cancelbtn))
-                .addContainerGap(159, Short.MAX_VALUE))
-        );
+        mainPanel.add(addImagebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 694, -1, -1));
 
         jScrollPane1.setViewportView(mainPanel);
 

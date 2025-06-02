@@ -117,13 +117,14 @@ public class CriminalManagementForm extends javax.swing.JFrame
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        mainPanel.setBackground(new java.awt.Color(0, 51, 51));
+        mainPanel.setBackground(new java.awt.Color(0, 0, 102));
         mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        searchPanel.setBackground(new java.awt.Color(204, 204, 255));
+        searchPanel.setBackground(new java.awt.Color(0, 0, 0));
 
-        searchlbl.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        searchlbl.setForeground(new java.awt.Color(0, 0, 204));
+        searchlbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        searchlbl.setForeground(new java.awt.Color(255, 255, 255));
         searchlbl.setText("Search by Criminal ID : ");
 
         searchbartxt.addActionListener(new java.awt.event.ActionListener() {
@@ -137,8 +138,9 @@ public class CriminalManagementForm extends javax.swing.JFrame
             }
         });
 
-        Searchbtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        Searchbtn.setForeground(new java.awt.Color(51, 0, 255));
+        Searchbtn.setBackground(new java.awt.Color(51, 204, 0));
+        Searchbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
+        Searchbtn.setForeground(new java.awt.Color(255, 255, 255));
         Searchbtn.setText("Search");
         Searchbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,10 +175,13 @@ public class CriminalManagementForm extends javax.swing.JFrame
                 .addComponent(lblsearcherr))
         );
 
-        headinglbl.setFont(new java.awt.Font("Arial", 1, 28)); // NOI18N
-        headinglbl.setForeground(new java.awt.Color(204, 204, 255));
+        mainPanel.add(searchPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 67, 782, -1));
+
+        headinglbl.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
+        headinglbl.setForeground(new java.awt.Color(255, 255, 0));
         headinglbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         headinglbl.setText("CRIMINAL MANAGEMENT");
+        mainPanel.add(headinglbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 12, 530, 43));
 
         SearchResultsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object[][] {},
@@ -201,8 +206,14 @@ public class CriminalManagementForm extends javax.swing.JFrame
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        Addbtn.setBackground(new java.awt.Color(204, 204, 204));
-        Addbtn.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        mainPanel.add(tablePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 127, -1, -1));
+
+        jPanel1.setBackground(new java.awt.Color(0, 0, 102));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Addbtn.setBackground(new java.awt.Color(0, 0, 0));
+        Addbtn.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        Addbtn.setForeground(new java.awt.Color(255, 255, 255));
         Addbtn.setText("Add");
         Addbtn.setMaximumSize(new java.awt.Dimension(72, 22));
         Addbtn.setMinimumSize(new java.awt.Dimension(72, 22));
@@ -212,9 +223,11 @@ public class CriminalManagementForm extends javax.swing.JFrame
                 AddbtnActionPerformed(evt);
             }
         });
+        jPanel1.add(Addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 23, 90, 33));
 
-        Deletebtn.setBackground(new java.awt.Color(204, 204, 204));
-        Deletebtn.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        Deletebtn.setBackground(new java.awt.Color(0, 0, 0));
+        Deletebtn.setFont(new java.awt.Font("Segoe UI Black", 3, 16)); // NOI18N
+        Deletebtn.setForeground(new java.awt.Color(255, 255, 255));
         Deletebtn.setText("Delete");
         Deletebtn.setMaximumSize(new java.awt.Dimension(72, 22));
         Deletebtn.setMinimumSize(new java.awt.Dimension(72, 22));
@@ -224,9 +237,11 @@ public class CriminalManagementForm extends javax.swing.JFrame
                 DeletebtnActionPerformed(evt);
             }
         });
+        jPanel1.add(Deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(434, 23, 94, 33));
 
-        Updatebtn.setBackground(new java.awt.Color(204, 204, 204));
-        Updatebtn.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        Updatebtn.setBackground(new java.awt.Color(0, 0, 0));
+        Updatebtn.setFont(new java.awt.Font("Segoe UI Black", 3, 16)); // NOI18N
+        Updatebtn.setForeground(new java.awt.Color(255, 255, 255));
         Updatebtn.setText("Update");
         Updatebtn.setMaximumSize(new java.awt.Dimension(72, 22));
         Updatebtn.setMinimumSize(new java.awt.Dimension(72, 22));
@@ -236,76 +251,20 @@ public class CriminalManagementForm extends javax.swing.JFrame
                 UpdatebtnActionPerformed(evt);
             }
         });
+        jPanel1.add(Updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 23, 101, 33));
 
-        Backbtn.setBackground(new java.awt.Color(204, 204, 204));
-        Backbtn.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        Backbtn.setBackground(new java.awt.Color(204, 0, 0));
+        Backbtn.setFont(new java.awt.Font("Segoe UI Black", 3, 16)); // NOI18N
+        Backbtn.setForeground(new java.awt.Color(255, 255, 255));
         Backbtn.setText("Back");
         Backbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackbtnActionPerformed(evt);
             }
         });
+        jPanel1.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(625, 23, 92, 33));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(Addbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(94, 94, 94)
-                .addComponent(Updatebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
-                .addComponent(Deletebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(97, 97, 97)
-                .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Addbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Deletebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Updatebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16))
-        );
-
-        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
-        mainPanel.setLayout(mainPanelLayout);
-        mainPanelLayout.setHorizontalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(searchPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(tablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15))))
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGap(184, 184, 184)
-                .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        mainPanelLayout.setVerticalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(searchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
+        mainPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 470, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

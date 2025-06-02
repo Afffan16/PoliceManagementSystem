@@ -49,70 +49,49 @@ public class CaseInvestigationDashboard extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        mainPanel.setBackground(new java.awt.Color(255, 255, 255));
+        mainPanel.setBackground(new java.awt.Color(0, 0, 102));
         mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         headinglbl.setBackground(new java.awt.Color(51, 102, 255));
-        headinglbl.setFont(new java.awt.Font("Britannic Bold", 0, 24)); // NOI18N
+        headinglbl.setFont(new java.awt.Font("Wide Latin", 1, 14)); // NOI18N
+        headinglbl.setForeground(new java.awt.Color(255, 255, 0));
         headinglbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         headinglbl.setText("CASE  INVESTIGATION  MODULE");
+        mainPanel.add(headinglbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 6, 450, 100));
 
-        completedCasesbtn.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        completedCasesbtn.setBackground(new java.awt.Color(0, 204, 51));
+        completedCasesbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
+        completedCasesbtn.setForeground(new java.awt.Color(255, 255, 255));
         completedCasesbtn.setText("Completed Cases");
         completedCasesbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 completedCasesbtnActionPerformed(evt);
             }
         });
+        mainPanel.add(completedCasesbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 138, 174, 44));
 
-        ongoingCasesbtn.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        ongoingCasesbtn.setBackground(new java.awt.Color(0, 0, 0));
+        ongoingCasesbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
+        ongoingCasesbtn.setForeground(new java.awt.Color(255, 255, 255));
         ongoingCasesbtn.setText("Ongoing Cases");
         ongoingCasesbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ongoingCasesbtnActionPerformed(evt);
             }
         });
+        mainPanel.add(ongoingCasesbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 138, 174, 44));
 
-        backbtn.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        backbtn.setBackground(new java.awt.Color(204, 0, 0));
+        backbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
+        backbtn.setForeground(new java.awt.Color(255, 255, 255));
         backbtn.setText("Back");
         backbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backbtnActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
-        mainPanel.setLayout(mainPanelLayout);
-        mainPanelLayout.setHorizontalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(completedCasesbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ongoingCasesbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                .addContainerGap(72, Short.MAX_VALUE)
-                .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55))
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGap(200, 200, 200)
-                .addComponent(backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        mainPanelLayout.setVerticalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(completedCasesbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ongoingCasesbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(backbtn)
-                .addGap(24, 24, 24))
-        );
+        mainPanel.add(backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 214, 120, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

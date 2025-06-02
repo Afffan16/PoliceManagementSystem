@@ -39,7 +39,6 @@ public class ReportComplaintForm extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jScrollPane4 = new javax.swing.JScrollPane();
         mainPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         ComplainerNamelbl = new javax.swing.JLabel();
         ComplainerNametxt = new javax.swing.JTextField();
         ComplainerContactlbl = new javax.swing.JLabel();
@@ -75,6 +74,8 @@ public class ReportComplaintForm extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         lblerrAddress = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         IncidentDatelbl1.setText("Incident Date  :");
 
@@ -87,45 +88,65 @@ public class ReportComplaintForm extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(650, 700));
 
-        mainPanel.setBackground(new java.awt.Color(255, 255, 204));
+        mainPanel.setBackground(new java.awt.Color(0, 0, 102));
         mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
         mainPanel.setPreferredSize(new java.awt.Dimension(750, 1000));
-
-        jLabel1.setText("Report a Complain");
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ComplainerNamelbl.setText("Complainer's Name :");
         ComplainerNamelbl.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        ComplainerNamelbl.setForeground(new java.awt.Color(255, 255, 255));
+        mainPanel.add(ComplainerNamelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 100, -1, -1));
 
         ComplainerNametxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComplainerNametxtActionPerformed(evt);
             }
         });
+        mainPanel.add(ComplainerNametxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 93, 298, 30));
 
         ComplainerContactlbl.setText("Contact Number :");
         ComplainerContactlbl.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        ComplainerContactlbl.setForeground(new java.awt.Color(255, 255, 255));
+        mainPanel.add(ComplainerContactlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 197, -1, -1));
+        mainPanel.add(ComplainerContacttxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 190, 298, 30));
 
         CNIClbl.setText("CNIC No :");
         CNIClbl.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        CNIClbl.setForeground(new java.awt.Color(255, 255, 255));
+        mainPanel.add(CNIClbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 237, -1, -1));
+        mainPanel.add(ComplainerCNICtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 230, 298, 30));
 
         IncidentDatelbl.setText("Incident Date  :");
         IncidentDatelbl.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        IncidentDatelbl.setForeground(new java.awt.Color(255, 255, 255));
+        mainPanel.add(IncidentDatelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 319, -1, -1));
 
         jLabel2.setText("( YYYY-MM-DD )");
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 8)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        mainPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 341, -1, -1));
 
         IncidentTimelbl.setText("Incident Time  :");
         IncidentTimelbl.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        IncidentTimelbl.setForeground(new java.awt.Color(255, 255, 255));
+        mainPanel.add(IncidentTimelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 364, -1, -1));
 
         jLabel3.setText("( HH : MM )");
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 8)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        mainPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 386, -1, -1));
 
         Locationlbl.setText("Location :");
         Locationlbl.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Locationlbl.setForeground(new java.awt.Color(255, 255, 255));
+        mainPanel.add(Locationlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 408, -1, -1));
+        mainPanel.add(Locationtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 408, 298, 30));
 
         Descriptionlbl.setText("Description :");
         Descriptionlbl.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Descriptionlbl.setForeground(new java.awt.Color(255, 255, 255));
+        mainPanel.add(Descriptionlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 483, -1, -1));
 
         Descriptiontxt.setColumns(20);
         Descriptiontxt.setLineWrap(true);
@@ -134,197 +155,105 @@ public class ReportComplaintForm extends javax.swing.JFrame {
 
         jScrollPane2.setViewportView(jScrollPane1);
 
+        mainPanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 453, 298, 112));
+
         Evidencelbl.setText("Evidence :");
         Evidencelbl.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Evidencelbl.setForeground(new java.awt.Color(255, 255, 255));
+        mainPanel.add(Evidencelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 600, -1, -1));
 
         Evidencebtn.setText("Upload Evidence");
-        Evidencebtn.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
-        Evidencebtn.setForeground(new java.awt.Color(0, 0, 255));
+        Evidencebtn.setBackground(new java.awt.Color(0, 0, 0));
+        Evidencebtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
+        Evidencebtn.setForeground(new java.awt.Color(255, 255, 255));
         Evidencebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EvidencebtnActionPerformed(evt);
             }
         });
+        mainPanel.add(Evidencebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(299, 596, -1, -1));
 
         Backbtn.setText("Back");
-        Backbtn.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
-        Backbtn.setForeground(new java.awt.Color(255, 0, 0));
+        Backbtn.setBackground(new java.awt.Color(204, 0, 0));
+        Backbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
+        Backbtn.setForeground(new java.awt.Color(255, 255, 255));
         Backbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackbtnActionPerformed(evt);
             }
         });
+        mainPanel.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 659, 92, -1));
 
         Submitbtn.setText("Submit");
-        Submitbtn.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
-        Submitbtn.setForeground(new java.awt.Color(255, 0, 0));
+        Submitbtn.setBackground(new java.awt.Color(0, 204, 0));
+        Submitbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
+        Submitbtn.setForeground(new java.awt.Color(255, 255, 255));
         Submitbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SubmitbtnActionPerformed(evt);
             }
         });
+        mainPanel.add(Submitbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(346, 659, 102, -1));
+        mainPanel.add(dateChoosertxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 319, 298, 31));
+        mainPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 129, 298, 14));
+        mainPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 226, 290, -1));
+        mainPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 358, 298, -1));
+        mainPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 402, 298, -1));
+        mainPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 444, 298, -1));
+        mainPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 570, 298, -1));
+        mainPanel.add(IncidentTimetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 364, 298, 26));
 
         ComplainerNamelbl1.setText("Complainer's Father Name :");
         ComplainerNamelbl1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        ComplainerNamelbl1.setForeground(new java.awt.Color(255, 255, 255));
+        mainPanel.add(ComplainerNamelbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 155, -1, -1));
 
         ComplainerFatherNametxt1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComplainerFatherNametxt1ActionPerformed(evt);
             }
         });
+        mainPanel.add(ComplainerFatherNametxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 148, 298, 30));
 
         txtAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAddressActionPerformed(evt);
             }
         });
+        mainPanel.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 272, 298, 35));
 
         CNIClbl1.setText("Address :");
         CNIClbl1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        CNIClbl1.setForeground(new java.awt.Color(255, 255, 255));
+        mainPanel.add(CNIClbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 281, -1, -1));
+        mainPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 266, 298, -1));
+        mainPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 184, 298, -1));
+        mainPanel.add(lblerrAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 313, 298, -1));
 
-        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
-        mainPanel.setLayout(mainPanelLayout);
-        mainPanelLayout.setHorizontalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(mainPanelLayout.createSequentialGroup()
-                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(mainPanelLayout.createSequentialGroup()
-                                        .addGap(94, 94, 94)
-                                        .addComponent(jLabel3)
-                                        .addGap(56, 56, 56))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                                        .addContainerGap()
-                                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(IncidentTimelbl)
-                                            .addComponent(jLabel2))
-                                        .addGap(43, 43, 43)))
-                                .addGroup(mainPanelLayout.createSequentialGroup()
-                                    .addGap(30, 30, 30)
-                                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(Descriptionlbl)
-                                        .addComponent(ComplainerContactlbl)
-                                        .addComponent(ComplainerNamelbl)
-                                        .addComponent(CNIClbl)
-                                        .addComponent(IncidentDatelbl)
-                                        .addComponent(Locationlbl)
-                                        .addComponent(ComplainerNamelbl1)
-                                        .addComponent(CNIClbl1))
-                                    .addGap(42, 42, 42)))
-                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(ComplainerCNICtxt)
-                                .addComponent(ComplainerNametxt)
-                                .addComponent(Locationtxt)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
-                                .addComponent(dateChoosertxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ComplainerContacttxt, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(IncidentTimetxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ComplainerFatherNametxt1)
-                                .addComponent(txtAddress)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblerrAddress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(180, 180, 180)
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(mainPanelLayout.createSequentialGroup()
-                                .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(54, 54, 54)
-                                .addComponent(Submitbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(mainPanelLayout.createSequentialGroup()
-                                .addComponent(Evidencelbl)
-                                .addGap(42, 42, 42)
-                                .addComponent(Evidencebtn))))
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(192, 192, 192)
-                        .addComponent(jLabel1)))
-                .addContainerGap(187, Short.MAX_VALUE))
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+
+        jLabel1.setText("Report a Complain");
+        jLabel1.setFont(new java.awt.Font("Wide Latin", 1, 21)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 0));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(154, 154, 154)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(186, Short.MAX_VALUE))
         );
-        mainPanelLayout.setVerticalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel1)
-                .addGap(30, 30, 30)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ComplainerNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ComplainerNamelbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ComplainerFatherNametxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ComplainerNamelbl1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ComplainerContacttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ComplainerContactlbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addGap(4, 4, 4)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ComplainerCNICtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CNIClbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CNIClbl1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblerrAddress)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addComponent(IncidentDatelbl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2))
-                    .addComponent(dateChoosertxt, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addComponent(IncidentTimelbl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(IncidentTimetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addComponent(Locationtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel10)
-                        .addGap(9, 9, 9)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addComponent(Locationlbl)
-                        .addGap(59, 59, 59)
-                        .addComponent(Descriptionlbl)))
-                .addGap(5, 5, 5)
-                .addComponent(jLabel11)
-                .addGap(26, 26, 26)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Evidencebtn)
-                    .addComponent(Evidencelbl))
-                .addGap(38, 38, 38)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Backbtn)
-                    .addComponent(Submitbtn)))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
+
+        mainPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 80));
 
         jScrollPane4.setViewportView(mainPanel);
 
@@ -503,6 +432,7 @@ public class ReportComplaintForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

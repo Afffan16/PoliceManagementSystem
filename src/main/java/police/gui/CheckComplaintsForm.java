@@ -62,14 +62,18 @@ public class CheckComplaintsForm extends javax.swing.JFrame {
         Backbtn = new javax.swing.JButton();
         ViewComplain = new javax.swing.JButton();
         ChangeStatus = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Check Complains");
-        setPreferredSize(new java.awt.Dimension(900, 600));
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 102));
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        scrollPane.setBackground(new java.awt.Color(0, 0, 0));
+        scrollPane.setForeground(new java.awt.Color(255, 255, 255));
 
         complainsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -95,79 +99,67 @@ public class CheckComplaintsForm extends javax.swing.JFrame {
         );
         tablePanelLayout.setVerticalGroup(
             tablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tablePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tablePanelLayout.createSequentialGroup()
+                .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        headinglbl.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jPanel1.add(tablePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 87, -1, -1));
+
+        headinglbl.setBackground(new java.awt.Color(255, 255, 0));
+        headinglbl.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
+        headinglbl.setForeground(new java.awt.Color(255, 255, 0));
         headinglbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         headinglbl.setText("Pending Complains");
+        jPanel1.add(headinglbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 9, 340, 50));
 
-        Backbtn.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
-        Backbtn.setForeground(new java.awt.Color(255, 0, 0));
+        Backbtn.setBackground(new java.awt.Color(204, 0, 0));
+        Backbtn.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        Backbtn.setForeground(new java.awt.Color(255, 255, 255));
         Backbtn.setText("Back");
         Backbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackbtnActionPerformed(evt);
             }
         });
+        jPanel1.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 490, 89, 33));
 
-        ViewComplain.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
-        ViewComplain.setForeground(new java.awt.Color(255, 0, 0));
+        ViewComplain.setBackground(new java.awt.Color(0, 0, 0));
+        ViewComplain.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        ViewComplain.setForeground(new java.awt.Color(255, 255, 255));
         ViewComplain.setText("View Complain");
         ViewComplain.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ViewComplainActionPerformed(evt);
             }
         });
+        jPanel1.add(ViewComplain, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 490, -1, 33));
 
-        ChangeStatus.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
-        ChangeStatus.setForeground(new java.awt.Color(255, 0, 0));
+        ChangeStatus.setBackground(new java.awt.Color(0, 0, 0));
+        ChangeStatus.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        ChangeStatus.setForeground(new java.awt.Color(255, 255, 255));
         ChangeStatus.setText("Change Status");
         ChangeStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ChangeStatusActionPerformed(evt);
             }
         });
+        jPanel1.add(ChangeStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 490, -1, 33));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(297, 297, 297))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
-                .addComponent(tablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(238, 238, 238)
-                .addComponent(ViewComplain)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ChangeStatus)
-                .addGap(107, 107, 107)
-                .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53))
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 870, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(tablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ViewComplain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(ChangeStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(20, Short.MAX_VALUE))
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 60, Short.MAX_VALUE)
         );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -182,8 +174,8 @@ public class CheckComplaintsForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 553, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -548,6 +540,7 @@ public class CheckComplaintsForm extends javax.swing.JFrame {
     private javax.swing.JTable complainsTable;
     private javax.swing.JLabel headinglbl;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane scrollPane;
     private javax.swing.JPanel tablePanel;
     // End of variables declaration//GEN-END:variables

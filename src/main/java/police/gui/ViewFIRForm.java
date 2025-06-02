@@ -177,14 +177,15 @@ public class ViewFIRForm extends javax.swing.JFrame
         setTitle("Search?View FIRs");
         setResizable(false);
 
-        mainPanel.setBackground(new java.awt.Color(153, 153, 255));
+        mainPanel.setBackground(new java.awt.Color(0, 0, 102));
         mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        searchPanel.setBackground(new java.awt.Color(204, 204, 255));
+        searchPanel.setBackground(new java.awt.Color(0, 0, 0));
 
-        searchlbl.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        searchlbl.setForeground(new java.awt.Color(0, 0, 204));
         searchlbl.setText("Search by FIR ID : ");
+        searchlbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        searchlbl.setForeground(new java.awt.Color(255, 255, 255));
 
         searchbartxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -192,9 +193,10 @@ public class ViewFIRForm extends javax.swing.JFrame
             }
         });
 
-        Searchbtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        Searchbtn.setForeground(new java.awt.Color(51, 0, 255));
         Searchbtn.setText("Search");
+        Searchbtn.setBackground(new java.awt.Color(51, 204, 0));
+        Searchbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
+        Searchbtn.setForeground(new java.awt.Color(255, 255, 255));
         Searchbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SearchbtnActionPerformed(evt);
@@ -225,8 +227,12 @@ public class ViewFIRForm extends javax.swing.JFrame
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        headinglbl.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        mainPanel.add(searchPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 67, 788, -1));
+
         headinglbl.setText("View / Search FIRs");
+        headinglbl.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
+        headinglbl.setForeground(new java.awt.Color(255, 255, 0));
+        mainPanel.add(headinglbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 12, 330, 43));
 
         SearchResultsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object[][] {},
@@ -256,44 +262,18 @@ public class ViewFIRForm extends javax.swing.JFrame
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        Backbtn.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
-        Backbtn.setForeground(new java.awt.Color(255, 0, 0));
+        mainPanel.add(tablePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 143, -1, -1));
+
         Backbtn.setText("Back");
+        Backbtn.setBackground(new java.awt.Color(204, 0, 0));
+        Backbtn.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        Backbtn.setForeground(new java.awt.Color(255, 255, 255));
         Backbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackbtnActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
-        mainPanel.setLayout(mainPanelLayout);
-        mainPanelLayout.setHorizontalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(searchPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(244, 244, 244))
-        );
-        mainPanelLayout.setVerticalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(searchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(tablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
-        );
+        mainPanel.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(676, 509, 92, 33));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

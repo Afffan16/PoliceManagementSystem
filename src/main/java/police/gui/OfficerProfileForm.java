@@ -100,206 +100,137 @@ public class OfficerProfileForm extends javax.swing.JFrame {
         imagePanel = new javax.swing.JPanel();
         imageLabel = new javax.swing.JLabel();
         Backbtn = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
 
-        mainPanel.setBackground(new java.awt.Color(204, 204, 255));
+        mainPanel.setBackground(new java.awt.Color(0, 0, 102));
         mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
         mainPanel.setPreferredSize(new java.awt.Dimension(800, 600));
+        mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel1.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("PROFILE INFORMATION");
+        mainPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 26, 440, 74));
 
-        Namelbl.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        Namelbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Namelbl.setForeground(new java.awt.Color(255, 255, 255));
         Namelbl.setText("Officer Name :");
+        mainPanel.add(Namelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 100, 33));
 
-        BadgeNolbl.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        BadgeNolbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BadgeNolbl.setForeground(java.awt.Color.white);
         BadgeNolbl.setText("Officer Badge No :");
+        mainPanel.add(BadgeNolbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 168, 130, 33));
 
-        Ranklbl.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        Ranklbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Ranklbl.setForeground(java.awt.Color.white);
         Ranklbl.setText("Rank :");
+        mainPanel.add(Ranklbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 201, 60, 37));
 
-        Emaillbl.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        Emaillbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Emaillbl.setForeground(java.awt.Color.white);
         Emaillbl.setText("Email :");
+        mainPanel.add(Emaillbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 60, 31));
 
-        PhoneNolbl.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        PhoneNolbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        PhoneNolbl.setForeground(java.awt.Color.white);
         PhoneNolbl.setText("Phone No : ");
+        mainPanel.add(PhoneNolbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 299, 90, 35));
 
-        ServiceYearslbl.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        ServiceYearslbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ServiceYearslbl.setForeground(java.awt.Color.white);
         ServiceYearslbl.setText("Service Years :");
+        mainPanel.add(ServiceYearslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 346, 110, 33));
 
-        NoOfCasesSolvedlbl.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        NoOfCasesSolvedlbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        NoOfCasesSolvedlbl.setForeground(java.awt.Color.white);
         NoOfCasesSolvedlbl.setText("No of Cases Solved :");
+        mainPanel.add(NoOfCasesSolvedlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 397, 150, 33));
 
-        SuccessPercentagelbl.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        SuccessPercentagelbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        SuccessPercentagelbl.setForeground(java.awt.Color.white);
         SuccessPercentagelbl.setText("Success Percentage :");
+        mainPanel.add(SuccessPercentagelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 442, 140, 34));
 
-        OfficerGradelbl.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        OfficerGradelbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        OfficerGradelbl.setForeground(java.awt.Color.white);
         OfficerGradelbl.setText("Officer Grade :");
+        mainPanel.add(OfficerGradelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 492, 100, 33));
 
-        Namedisplay.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        Namedisplay.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Namedisplay.setForeground(new java.awt.Color(255, 0, 0));
+        mainPanel.add(Namedisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 123, 300, 33));
 
-        BadgeNodisplay.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        BadgeNodisplay.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         BadgeNodisplay.setForeground(new java.awt.Color(255, 0, 0));
+        mainPanel.add(BadgeNodisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 168, 283, 33));
 
-        Roledisplay.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        Roledisplay.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Roledisplay.setForeground(new java.awt.Color(255, 0, 0));
+        mainPanel.add(Roledisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 205, 340, 33));
 
-        Emaildisplay.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        Emaildisplay.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Emaildisplay.setForeground(new java.awt.Color(255, 0, 0));
+        mainPanel.add(Emaildisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 250, 340, 37));
 
-        PhoneNodisplay.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        PhoneNodisplay.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         PhoneNodisplay.setForeground(new java.awt.Color(255, 0, 0));
+        mainPanel.add(PhoneNodisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 299, 310, 33));
 
-        ServiceYearsdisplay.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        ServiceYearsdisplay.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ServiceYearsdisplay.setForeground(new java.awt.Color(255, 0, 0));
+        mainPanel.add(ServiceYearsdisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 346, 280, 33));
 
-        NoOfCasesSolveddisplay.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        NoOfCasesSolveddisplay.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         NoOfCasesSolveddisplay.setForeground(new java.awt.Color(255, 0, 0));
+        mainPanel.add(NoOfCasesSolveddisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 397, 277, 33));
 
-        SuccessPercentagedisplay.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        SuccessPercentagedisplay.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         SuccessPercentagedisplay.setForeground(new java.awt.Color(255, 0, 0));
+        mainPanel.add(SuccessPercentagedisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 443, 268, 33));
 
-        OfficerGradedisplay.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        OfficerGradedisplay.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         OfficerGradedisplay.setForeground(new java.awt.Color(255, 0, 0));
+        mainPanel.add(OfficerGradedisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 492, 319, 33));
+
+        imagePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         imageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imagePanel.add(imageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 0, 210, 177));
 
-        javax.swing.GroupLayout imagePanelLayout = new javax.swing.GroupLayout(imagePanel);
-        imagePanel.setLayout(imagePanelLayout);
-        imagePanelLayout.setHorizontalGroup(
-            imagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(imagePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        imagePanelLayout.setVerticalGroup(
-            imagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, imagePanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        mainPanel.add(imagePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, 210, -1));
 
-        Backbtn.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
-        Backbtn.setForeground(new java.awt.Color(255, 0, 0));
+        Backbtn.setBackground(new java.awt.Color(204, 0, 0));
+        Backbtn.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        Backbtn.setForeground(new java.awt.Color(255, 255, 255));
         Backbtn.setText("Back");
+        Backbtn.setBorder(null);
         Backbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackbtnActionPerformed(evt);
             }
         });
+        mainPanel.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 492, 92, 33));
 
-        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
-        mainPanel.setLayout(mainPanelLayout);
-        mainPanelLayout.setHorizontalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPanelLayout.createSequentialGroup()
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(mainPanelLayout.createSequentialGroup()
-                                .addComponent(SuccessPercentagelbl, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(SuccessPercentagedisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(mainPanelLayout.createSequentialGroup()
-                                .addComponent(NoOfCasesSolvedlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(NoOfCasesSolveddisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(mainPanelLayout.createSequentialGroup()
-                                .addComponent(ServiceYearslbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ServiceYearsdisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(mainPanelLayout.createSequentialGroup()
-                                .addComponent(PhoneNolbl, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(PhoneNodisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(mainPanelLayout.createSequentialGroup()
-                                .addComponent(BadgeNolbl, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BadgeNodisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPanelLayout.createSequentialGroup()
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Ranklbl, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Emaillbl, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Roledisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Emaildisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addComponent(Namelbl, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Namedisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                        .addComponent(imagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50))
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addComponent(OfficerGradelbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(OfficerGradedisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(58, 58, 58))))
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 590, Short.MAX_VALUE)
         );
-        mainPanelLayout.setVerticalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(imagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Namelbl, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Namedisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BadgeNolbl, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BadgeNodisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Ranklbl, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Roledisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(12, 12, 12)
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Emaillbl, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Emaildisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(PhoneNolbl, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PhoneNodisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ServiceYearslbl, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ServiceYearsdisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(NoOfCasesSolvedlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NoOfCasesSolveddisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(SuccessPercentagelbl, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SuccessPercentagedisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(16, 16, 16)
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(OfficerGradelbl, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(OfficerGradedisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 20, Short.MAX_VALUE))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
+
+        mainPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 100));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -308,14 +239,14 @@ public class OfficerProfileForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -383,6 +314,7 @@ public class OfficerProfileForm extends javax.swing.JFrame {
     private javax.swing.JLabel imageLabel;
     private javax.swing.JPanel imagePanel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel mainPanel;
     // End of variables declaration//GEN-END:variables
 }

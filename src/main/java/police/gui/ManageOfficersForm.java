@@ -28,83 +28,63 @@ public class ManageOfficersForm extends javax.swing.JFrame {
     private void initComponents() {
 
         mainPanel1 = new javax.swing.JPanel();
-        headinglbl1 = new javax.swing.JLabel();
         ViewOfficersbtn = new javax.swing.JButton();
         manageOfficersbtn = new javax.swing.JButton();
         Backbtn = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        headinglbl1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        mainPanel1.setBackground(new java.awt.Color(153, 153, 255));
+        mainPanel1.setBackground(new java.awt.Color(0, 0, 102));
         mainPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        mainPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        headinglbl1.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
-        headinglbl1.setForeground(new java.awt.Color(255, 0, 0));
-        headinglbl1.setText("Manage Officers");
-
-        ViewOfficersbtn.setBackground(new java.awt.Color(255, 255, 204));
-        ViewOfficersbtn.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
-        ViewOfficersbtn.setForeground(new java.awt.Color(255, 0, 0));
+        ViewOfficersbtn.setBackground(new java.awt.Color(0, 0, 0));
+        ViewOfficersbtn.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        ViewOfficersbtn.setForeground(new java.awt.Color(255, 255, 255));
         ViewOfficersbtn.setText("View / Search Officers");
+        ViewOfficersbtn.setBorder(null);
         ViewOfficersbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ViewOfficersbtnActionPerformed(evt);
             }
         });
+        mainPanel1.add(ViewOfficersbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 149, -1, 44));
 
-        manageOfficersbtn.setBackground(new java.awt.Color(255, 255, 204));
-        manageOfficersbtn.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
-        manageOfficersbtn.setForeground(new java.awt.Color(255, 0, 0));
+        manageOfficersbtn.setBackground(new java.awt.Color(0, 0, 0));
+        manageOfficersbtn.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        manageOfficersbtn.setForeground(new java.awt.Color(255, 255, 255));
         manageOfficersbtn.setText("Manage Officers");
+        manageOfficersbtn.setBorder(null);
         manageOfficersbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageOfficersbtnActionPerformed(evt);
             }
         });
+        mainPanel1.add(manageOfficersbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(334, 149, 174, 44));
 
-        Backbtn.setBackground(new java.awt.Color(255, 255, 204));
-        Backbtn.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
-        Backbtn.setForeground(new java.awt.Color(255, 0, 0));
+        Backbtn.setBackground(new java.awt.Color(204, 0, 0));
+        Backbtn.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        Backbtn.setForeground(new java.awt.Color(255, 255, 255));
         Backbtn.setText("Back");
+        Backbtn.setBorder(null);
         Backbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackbtnActionPerformed(evt);
             }
         });
+        mainPanel1.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 174, 40));
 
-        javax.swing.GroupLayout mainPanel1Layout = new javax.swing.GroupLayout(mainPanel1);
-        mainPanel1.setLayout(mainPanel1Layout);
-        mainPanel1Layout.setHorizontalGroup(
-            mainPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanel1Layout.createSequentialGroup()
-                .addGap(81, 81, 81)
-                .addComponent(ViewOfficersbtn)
-                .addGap(40, 40, 40)
-                .addComponent(manageOfficersbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 79, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(mainPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanel1Layout.createSequentialGroup()
-                        .addComponent(headinglbl1)
-                        .addGap(182, 182, 182))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanel1Layout.createSequentialGroup()
-                        .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(170, 170, 170))))
-        );
-        mainPanel1Layout.setVerticalGroup(
-            mainPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(headinglbl1)
-                .addGap(74, 74, 74)
-                .addGroup(mainPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ViewOfficersbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(manageOfficersbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
-                .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(89, Short.MAX_VALUE))
-        );
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        headinglbl1.setFont(new java.awt.Font("Wide Latin", 1, 21)); // NOI18N
+        headinglbl1.setForeground(new java.awt.Color(255, 255, 0));
+        headinglbl1.setText("Manage Officers");
+        jPanel1.add(headinglbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 340, 50));
+
+        mainPanel1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 90));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -112,15 +92,13 @@ public class ManageOfficersForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(mainPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(mainPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE))
         );
 
         pack();
@@ -180,6 +158,7 @@ public class ManageOfficersForm extends javax.swing.JFrame {
     private javax.swing.JButton Backbtn;
     private javax.swing.JButton ViewOfficersbtn;
     private javax.swing.JLabel headinglbl1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel mainPanel1;
     private javax.swing.JButton manageOfficersbtn;
     // End of variables declaration//GEN-END:variables
