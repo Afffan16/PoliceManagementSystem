@@ -19,7 +19,8 @@ import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
-public class StatusChartGenerator extends JFrame {
+public class StatusBar extends JFrame 
+{
 
     public static void showStatusChart(JPanel chartPanelContainer, String filePath) {
         int activeCount = 0;
@@ -31,12 +32,12 @@ public class StatusChartGenerator extends JFrame {
 
             while ((line = br.readLine()) != null) {
                 if (firstLine) {
-                    firstLine = false; // skip header
+                    firstLine = false; 
                     continue;
                 }
 
                 String[] parts = line.split(",");
-                if (parts.length < 12) continue; // 12th column = index 11
+                if (parts.length < 12) continue; 
 
                 String status = parts[11].trim().toLowerCase();
 
@@ -44,7 +45,8 @@ public class StatusChartGenerator extends JFrame {
                 else if (status.equals("completed")) completedCount++;
             }
 
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(chartPanelContainer, "Error reading CSV: " + e.getMessage());
             return;

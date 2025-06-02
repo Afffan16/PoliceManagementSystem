@@ -1,0 +1,471 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Police Management System - Success Stories</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #0066cc;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .case-card {
+            background: linear-gradient(135deg, #ffffff 0%, #e6f3ff 100%);
+            border: 2px solid #0066cc;
+            border-radius: 10px;
+            margin: 15px 0;
+            padding: 10px;
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .case-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 102, 204, 0.3);
+        }
+        .case-card h2 {
+            color: #0066cc;
+            cursor: pointer;
+            margin: 0;
+            padding: 12px 15px;
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+        .case-card h2:hover {
+            background-color: #e0eaff;
+            border-radius: 5px;
+        }
+        .toggle-icon {
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+        }
+        .case-details {
+            display: none;
+            padding: 10px 15px;
+        }
+        .case-details.active {
+            display: block;
+        }
+        h3 {
+            color: #0066cc;
+        }
+        .case-image {
+            max-width: 300px;
+            margin: 10px 0;
+            transition: transform 0.3s ease;
+        }
+        .case-image:hover {
+            transform: scale(1.05);
+        }
+        .quick-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .quick-links a {
+            color: #0066cc;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .quick-links a:hover {
+            text-decoration: underline;
+        }
+        .conclusion {
+            margin-top: 50px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f0f8ff 0%, #e0eaff 100%);
+            border-left: 5px solid #0066cc;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .conclusion:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+        }
+        .conclusion h2 {
+            color: #0066cc;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #0066cc;
+            padding-bottom: 10px;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+        .conclusion h2:hover {
+            color: #004d99;
+        }
+        .conclusion p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #333;
+        }
+        .intro-text {
+            text-align: center;
+            margin: 10px 0;
+        }
+        .intro-text strong {
+            font-weight: bold;
+        }
+        .best-cases {
+            text-align: center;
+            margin: 50px 0;
+            font-size: 1.8em;
+            color: #0066cc;
+            font-weight: 900;
+            padding-bottom: 8px;
+            display: block;
+            width: 100%;
+        }
+        /* Ensure smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="top">
+        <h1>Police Management System - Success Stories</h1>
+        <p class="intro-text"><strong>Celebrating Our Achievements in Crime Resolution</strong></p>
+        <p class="intro-text"><strong>Prepared by: Muhammad Affan Bin Aamir | Team Lead & Developer | June 3, 2025</strong></p>
+        <h2 class="best-cases">Our All-Time Best Cases</h2>
+
+        <div class="case-card">
+            <h2 id="case01-header" onclick="toggleSection('case01', this)">Case 01: Murder Case - Ismail Masood<span class="toggle-icon">+</span></h2>
+            <div id="case01" class="case-details">
+                <h3>Overview</h3>
+                <p><strong>Complaint ID:</strong> CMP20250510120000<br>
+                   <strong>Date Filed:</strong> May 10, 2025<br>
+                   <strong>Status:</strong> Resolved</p>
+                <p>On May 10, 2025, a murder case was reported involving the tragic deaths of two sisters, Ayesha and Fatima Khan, in Downtown Karachi. The suspect, Ismail Masood, was identified and apprehended within 72 hours using the Police Management System.</p>
+
+                <h3>Victims</h3>
+                <p>The victims, Ayesha (22) and Fatima Khan (19), were found deceased in their apartment.</p>
+                <img src="resources/images/victims_case01.jpg" alt="Victims - Ayesha and Fatima Khan" class="case-image">
+
+                <h3>Criminal</h3>
+                <p>Ismail Masood, an 18-year-old local resident with a prior record of assault, was identified as the prime suspect.</p>
+                <img src="resources/images/criminal_case01.jpg" alt="Criminal - Ismail Masood" class="case-image">
+
+                <h3>Investigation</h3>
+                <p>Using the Case Investigations Module, officers uploaded critical evidence, including CCTV footage and witness statements, stored in <code>investigations.csv</code>. The FIR Module facilitated quick registration (FIR20250510120000), and the Criminals Module helped cross-reference Ismail Masood’s prior records.</p>
+                <img src="resources/images/investigation_case01.jpg" alt="Investigation Evidence" class="case-image">
+
+                <h3>Result</h3>
+                <p>Ismail Masood was arrested on May 13, 2025, after evidence linked him to the crime scene. He was convicted and sentenced to life imprisonment on May 25, 2025. The case was marked <code>COMPLETED</code> in the system.</p>
+
+                <div class="quick-links">
+                    <a href="#case01-header">Back to Case Top</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card">
+            <h2 id="case02-header" onclick="toggleSection('case02', this)">Case 02: Bribery Case - Officer Hammad<span class="toggle-icon">+</span></h2>
+            <div id="case02" class="case-details">
+                <h3>Overview</h3>
+                <p><strong>Complaint ID:</strong> CMP20250515130000<br>
+                   <strong>Date Filed:</strong> May 15, 2025<br>
+                   <strong>Status:</strong> Resolved</p>
+                <p>A complaint was filed against Officer Hammad for accepting bribes in exchange for overlooking traffic violations. The misconduct was reported by a civilian witness.</p>
+
+                <h3>Officer Involved</h3>
+                <p>Officer Hammad, a 35-year-old traffic officer, was caught on video accepting cash.</p>
+                <img src="resources/images/officer_case02.jpg" alt="Officer - Hammad" class="case-image">
+
+                <h3>Investigation</h3>
+                <p>The Case Investigations Module was used to upload the video evidence and witness statements, registered as FIR20250515130000. The Officer Profile Module flagged Hammad’s record for review.</p>
+                <img src="resources/images/investigation_case02.jpg" alt="Investigation Evidence" class="case-image">
+
+                <h3>Result</h3>
+                <p>Hammad was removed from his position on May 18, 2025, and punished with a fine and a six-month suspension. The case was marked <code>COMPLETED</code>.</p>
+
+                <div class="quick-links">
+                    <a href="#case02-header">Back to Case Top</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card">
+            <h2 id="case03-header" onclick="toggleSection('case03', this)">Case 03: Robbery Case - Noman & Ammad<span class="toggle-icon">+</span></h2>
+            <div id="case03" class="case-details">
+                <h3>Overview</h3>
+                <p><strong>Complaint ID:</strong> CMP20250520140000<br>
+                   <strong>Date Filed:</strong> May 20, 2025<br>
+                   <strong>Status:</strong> Resolved</p>
+                <p>A robbery at a local store involved two suspects, Noman and Ammad, who stole cash and electronics.</p>
+
+                <h3>Criminals</h3>
+                <p>Noman (28) and Ammad (26), known for petty theft, were identified via CCTV.</p>
+                <img src="resources/images/criminals_case03.jpg" alt="Criminals - Noman & Ammad" class="case-image">
+
+                <h3>Investigation</h3>
+                <p>The FIR Module registered FIR20250520140000, and the Case Investigations Module processed evidence including footage and fingerprints.</p>
+                <img src="resources/images/investigation_case03.jpg" alt="Investigation Evidence" class="case-image">
+
+                <h3>Result</h3>
+                <p>Both were arrested on May 23, 2025, and sentenced to 5 years each on June 1, 2025. Case marked <code>COMPLETED</code>.</p>
+
+                <div class="quick-links">
+                    <a href="#case03-header">Back to Case Top</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card">
+            <h2 id="case04-header" onclick="toggleSection('case04', this)">Case 04: Kidnapping Case - Awais & Jawwad<span class="toggle-icon">+</span></h2>
+            <div id="case04" class="case-details">
+                <h3>Overview</h3>
+                <p><strong>Complaint ID:</strong> CMP20250525150000<br>
+                   <strong>Date Filed:</strong> May 25, 2025<br>
+                   <strong>Status:</strong> Resolved</p>
+                <p>A kidnapping of a 17-year-old boy was reported, with Awais and Jawwad as suspects.</p>
+
+                <h3>Criminals</h3>
+                <p>Awais (32) and Jawwad (29) demanded ransom for the victim’s release.</p>
+                <img src="resources/images/criminals_case04.jpg" alt="Criminals - Awais & Jawwad" class="case-image">
+
+                <h3>Investigation</h3>
+                <p>Evidence from the Case Investigations Module, including call records, led to their arrest via FIR20250525150000.</p>
+                <img src="resources/images/investigation_case04.jpg" alt="Investigation Evidence" class="case-image">
+
+                <h3>Result</h3>
+                <p>Arrested on May 28, 2025, they received 10-year sentences on June 2, 2025. Case marked <code>COMPLETED</code>.</p>
+
+                <div class="quick-links">
+                    <a href="#case04-header">Back to Case Top</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card">
+            <h2 id="case05-header" onclick="toggleSection('case05', this)">Case 05: Sexual Abuse Case - Husnain<span class="toggle-icon">+</span></h2>
+            <div id="case05" class="case-details">
+                <h3>Overview</h3>
+                <p><strong>Complaint ID:</strong> CMP20250530160000<br>
+                   <strong>Date Filed:</strong> May 30, 2025<br>
+                   <strong>Status:</strong> Resolved</p>
+                <p>Husnain was reported for sexually abusing children in a residential area.</p>
+
+                <h3>Criminal</h3>
+                <p>Husnain (40), a local resident, was identified by multiple victims.</p>
+                <img src="resources/images/criminal_case05.jpg" alt="Criminal - Husnain" class="case-image">
+
+                <h3>Investigation</h3>
+                <p>The Case Investigations Module processed victim statements and evidence, registered as FIR20250530160000.</p>
+                <img src="resources/images/investigation_case05.jpg" alt="Investigation Evidence" class="case-image">
+
+                <h3>Result</h3>
+                <p>Arrested on June 1, 2025, Husnain was sentenced to 15 years on June 10, 2025. Case marked <code>COMPLETED</code>.</p>
+
+                <div class="quick-links">
+                    <a href="#case05-header">Back to Case Top</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card">
+            <h2 id="case06-header" onclick="toggleSection('case06', this)">Case 06: Snatching Case - Huzaifa<span class="toggle-icon">+</span></h2>
+            <div id="case06" class="case-details">
+                <h3>Overview</h3>
+                <p><strong>Complaint ID:</strong> CMP20250601170000<br>
+                   <strong>Date Filed:</strong> June 1, 2025<br>
+                   <strong>Status:</strong> Resolved</p>
+                <p>Huzaifa was reported for snatching mobile phones in a busy market.</p>
+
+                <h3>Criminal</h3>
+                <p>Huzaifa (24) was caught on CCTV fleeing the scene.</p>
+                <img src="resources/images/criminal_case06.jpg" alt="Criminal - Huzaifa" class="case-image">
+
+                <h3>Investigation</h3>
+                <p>FIR20250601170000 was registered, with evidence uploaded via the Case Investigations Module.</p>
+                <img src="resources/images/investigation_case06.jpg" alt="Investigation Evidence" class="case-image">
+
+                <h3>Result</h3>
+                <p>Arrested on June 2, 2025, Huzaifa received a 3-year sentence. Case marked <code>COMPLETED</code>.</p>
+
+                <div class="quick-links">
+                    <a href="#case06-header">Back to Case Top</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card">
+            <h2 id="case07-header" onclick="toggleSection('case07', this)">Case 07: Wild Protests - Aziz<span class="toggle-icon">+</span></h2>
+            <div id="case07" class="case-details">
+                <h3>Overview</h3>
+                <p><strong>Complaint ID:</strong> CMP20250605180000<br>
+                   <strong>Date Filed:</strong> June 5, 2025<br>
+                   <strong>Status:</strong> Resolved</p>
+                <p>Aziz led wild protests, attacking public property and civilians, reported by multiple witnesses.</p>
+
+                <h3>Criminal</h3>
+                <p>Aziz (33) was the ringleader of the violent group.</p>
+                <img src="resources/images/criminal_case07.jpg" alt="Criminal - Aziz" class="case-image">
+
+                <h3>Investigation</h3>
+                <p>Evidence from the Case Investigations Module, including video footage, led to FIR20250605180000.</p>
+                <img src="resources/images/investigation_case07.jpg" alt="Investigation Evidence" class="case-image">
+
+                <h3>Result</h3>
+                <p>Arrested on June 7, 2025, Aziz was sentenced to 7 years on June 15, 2025. Case marked <code>COMPLETED</code>.</p>
+
+                <div class="quick-links">
+                    <a href="#case07-header">Back to Case Top</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card">
+            <h2 id="case08-header" onclick="toggleSection('case08', this)">Case 08: Illegal Activities - Hamza & Qari Sahab<span class="toggle-icon">+</span></h2>
+            <div id="case08" class="case-details">
+                <h3>Overview</h3>
+                <p><strong>Complaint ID:</strong> CMP20250610190000<br>
+                   <strong>Date Filed:</strong> June 10, 2025<br>
+                   <strong>Status:</strong> Resolved</p>
+                <p>Hamza and Qari Sahab were caught engaging in illegal gay activities in a private club, prohibited in Pakistan.</p>
+
+                <h3>Criminals</h3>
+                <p>Hamza (27) and Qari Sahab (45) were identified by undercover officers.</p>
+                <img src="resources/images/criminals_case08.jpg" alt="Criminals - Hamza & Qari Sahab" class="case-image">
+
+                <h3>Investigation</h3>
+                <p>FIR20250610190000 was registered, with evidence processed via the Case Investigations Module.</p>
+                <img src="resources/images/investigation_case08.jpg" alt="Investigation Evidence" class="case-image">
+
+                <h3>Result</h3>
+                <p>Arrested on June 12, 2025, they were sentenced to 2 years each on June 20, 2025. Case marked <code>COMPLETED</code>.</p>
+
+                <div class="quick-links">
+                    <a href="#case08-header">Back to Case Top</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card">
+            <h2 id="case09-header" onclick="toggleSection('case09', this)">Case 09: Fraud Case - Arsalan Moiz & Arman<span class="toggle-icon">+</span></h2>
+            <div id="case09" class="case-details">
+                <h3>Overview</h3>
+                <p><strong>Complaint ID:</strong> CMP20250615200000<br>
+                   <strong>Date Filed:</strong> June 15, 2025<br>
+                   <strong>Status:</strong> Resolved</p>
+                <p>Arsalan Moiz and Arman conducted a fraud scheme, deceiving victims with fake investment offers.</p>
+
+                <h3>Criminals</h3>
+                <p>Arsalan Moiz (30) and Arman (28) were traced through bank transactions.</p>
+                <img src="resources/images/criminals_case09.jpg" alt="Criminals - Arsalan Moiz & Arman" class="case-image">
+
+                <h3>Investigation</h3>
+                <p>The Case Investigations Module processed financial records, linked to FIR20250615200000.</p>
+                <img src="resources/images/investigation_case09.jpg" alt="Investigation Evidence" class="case-image">
+
+                <h3>Result</h3>
+                <p>Arrested on June 18, 2025, they were sentenced to 4 years each on June 25, 2025. Case marked <code>COMPLETED</code>.</p>
+
+                <div class="quick-links">
+                    <a href="#case09-header">Back to Case Top</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card">
+            <h2 id="case10-header" onclick="toggleSection('case10', this)">Case 10: Negligence Case - Ahad<span class="toggle-icon">+</span></h2>
+            <div id="case10" class="case-details">
+                <h3>Overview</h3>
+                <p><strong>Complaint ID:</strong> CMP20250620210000<br>
+                   <strong>Date Filed:</strong> June 20, 2025<br>
+                   <strong>Status:</strong> Resolved</p>
+                <p>Ahad, a security officer, was reported for sleeping multiple times during duty at Bahria University.</p>
+
+                <h3>Officer Involved</h3>
+                <p>Ahad (26) was caught on surveillance footage.</p>
+                <img src="resources/images/officer_case10.jpg" alt="Officer - Ahad" class="case-image">
+
+                <h3>Investigation</h3>
+                <p>Evidence was uploaded via the Case Investigations Module, registered as FIR20250620210000.</p>
+                <img src="resources/images/investigation_case10.jpg" alt="Investigation Evidence" class="case-image">
+
+                <h3>Result</h3>
+                <p>Fired from his position on June 22, 2025, Ahad was sentenced to 6 months with a restricted sleep schedule of 2 hours per day. Case marked <code>COMPLETED</code>.</p>
+
+                <div class="quick-links">
+                    <a href="#case10-header">Back to Case Top</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="conclusion">
+            <h2>Conclusion</h2>
+            <p>These success stories highlight the power of the Police Management System in resolving crimes efficiently. Stay tuned for more updates as we continue to serve and protect our community.</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleSection(caseId, element) {
+            const section = document.getElementById(caseId);
+            const icon = element.querySelector('.toggle-icon');
+            section.classList.toggle('active');
+            icon.textContent = section.classList.contains('active') ? '−' : '+';
+        }
+    </script>
+</body>
+</html>

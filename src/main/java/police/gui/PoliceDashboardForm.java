@@ -206,7 +206,7 @@ public class PoliceDashboardForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void ANALYTICSBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANALYTICSBtnActionPerformed
-       new AnalyticsForm().setVisible(true);
+       new AnalyticsDashboard().setVisible(true);
 
     }//GEN-LAST:event_ANALYTICSBtnActionPerformed
 

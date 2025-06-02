@@ -116,10 +116,13 @@ public class CSVHandler
     
     public int getComplaintCount() 
     {
-        try {
+        try 
+        {
             List<String[]> complaints = readCSV(COMPLAINTS_CSV);
             return complaints.size();
-        } catch (Exception e) {
+        }
+        catch (Exception e) 
+        {
             System.err.println("Error reading complaints.csv: " + e.getMessage());
             return 0;
         }
@@ -1038,49 +1041,63 @@ public class CSVHandler
     }
     
     
-    public List<String[]> readCSV(String fileName) {
+    public List<String[]> readCSV(String fileName) 
+    {
         List<String[]> data = new ArrayList<>();
         File file = new File(fileName);
-        if (!file.exists()) {
+        if (!file.exists()) 
+        {
             System.err.println("File not found: " + fileName);
             return data;
         }
 
-        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) 
+        {
             String line;
             boolean firstLine = true;
-            while ((line = br.readLine()) != null) {
+            while ((line = br.readLine()) != null)
+            {
                 if (firstLine) {
                     firstLine = false;
                     continue;
                 }
-                if (line.trim().isEmpty()) {
+                if (line.trim().isEmpty())
+                {
                     continue;
                 }
                 String[] row = line.split(",");
                 data.add(row);
             }
-        } catch (IOException e) {
+        }
+        catch (IOException e) 
+        {
             System.err.println("Error reading " + fileName + ": " + e.getMessage());
         }
         return data;
     }
 
-    public int getFirCount() {
-        try {
+    public int getFirCount() 
+    {
+        try 
+        {
             List<String[]> firs = readCSV(FIRS_CSV);
             return firs.size();
-        } catch (Exception e) {
+        }
+        catch (Exception e) 
+        {
             System.err.println("Error reading firs.csv: " + e.getMessage());
             return 0;
         }
     }
 
     public int getInvestigationCount() {
-        try {
+        try 
+        {
             List<String[]> investigations = readCSV(INVESTIGATIONS_CSV);
             return investigations.size();
-        } catch (Exception e) {
+        } 
+        catch (Exception e)
+        {
             System.err.println("Error reading investigations.csv: " + e.getMessage());
             return 0;
         }

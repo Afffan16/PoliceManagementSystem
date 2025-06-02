@@ -1,3 +1,201 @@
-criminalId,criminalName,cnic,address,imagePath,noOfCrimes,arrestStatus,dateOfArrest,descriptionForArrest
-CR001,Muhammad Umar,17693-2371548-6,Shah Faisal,D:\@ff@n\AFFAN\AFFAN UNI\sadboy.jpeg,2,Arrested - In Jail since 3 months,41/48/2025,He is sentenced to 10yrs in Jail for fruad
-CR002,sami,11111111111111,asdsada,,2,Active,152/45/2025,dsdscds
+CriminalID,CriminalName,CNIC,Address,ImagePath,NoOfCrimes,ArrestStatus,DateOfArrest,DescriptionForArrest
+CR185,Ahmed Farooq,94946-7918021-3,"Unit 6176 Box 6728, DPO AE 99876",/images/Ahmed_Farooq.jpg,4,Arrested,2/12/2024,Assault charge
+CR368,Ali Qureshi,52681-4239821-4,"26728 Marks Parks Suite 381, Harrismouth, UT 05799",/images/Ali_Qureshi.jpg,2,Arrested,11/30/2023,Fraud investigation
+CR684,Fatima,75739-5789880-9,"0000 Johnson Isle, Charlottetown, KS 17530",/images/Fatima_Ahmed.jpg,0,Arrested,5/19/2025,Assault charge
+CR900,Usman Qureshi,72092-5105081-7,"037 Carol Land Apt. 122, Christianberg, ME 41295",/images/Usman_Qureshi.jpg,1,Arrested,1/28/2024,Assault charge
+CR493,Ahmed Siddiqui,25408-6175076-4,"693 Destiny Harbors, Estesmouth, VT 19129",/images/Ahmed_Siddiqui.jpg,4,Arrested,1/17/2025,Fraud investigation
+CR523,Maryam Siddiqui,96596-8261217-6,"4213 Sylvia Roads, East Keith, MS 87042",/images/Maryam_Siddiqui.jpg,3,Arrested,11/8/2024,Driving under influence
+CR786,Ayesha Chaudhry,22071-7349269-4,"214 Bell Grove Suite 462, Gallagherview, DE 12856",/images/Ayesha_Chaudhry.jpg,5,Arrested,8/10/2023,Illegal possession of weapon
+CR475,Ali Khan,84005-2689139-4,"43812 Sally Vista, North Christopher, KY 34495",/images/Ali_Khan.jpg,8,Arrested,1/5/2025,Fraud investigation
+CR651,Usman Qureshi,71007-4027741-8,"42777 Dana Divide, Lake Gregorymouth, OR 10298",/images/Usman_Qureshi.jpg,7,Arrested,3/7/2024,Assault charge
+CR379,Fatima Ahmed,42223-1740716-4,"447 Williams Radial, Nicoleview, WA 78765",/images/Fatima_Ahmed.jpg,9,Arrested,11/26/2023,Violation of parole
+CR218,Usman Butt,85147-5870987-6,"26993 Tyler Skyway, New Maryport, CA 37440",/images/Usman_Butt.jpg,7,Arrested,1/2/2025,Assault charge
+CR949,Ayesha Ahmed,22172-2234246-2,"078 Martha Lakes, Port Allentown, MT 34891",/images/Ayesha_Ahmed.jpg,0,Arrested,11/22/2023,Public disturbance
+CR987,Maryam Chaudhry,57590-9178035-9,"39069 Cannon Trail Suite 949, East Tonya, OH 14650",/images/Maryam_Chaudhry.jpg,4,Arrested,6/18/2024,Illegal possession of weapon
+CR484,Zainab Chaudhry,99597-5854551-7,"9772 Raymond Throughway, Gallegosview, MN 77299",/images/Zainab_Chaudhry.jpg,9,Arrested,2/17/2024,Illegal possession of weapon
+CR819,Usman Rana,62693-2567193-6,"02490 Suarez Shoal, New Herbert, AZ 11823",/images/Usman_Rana.jpg,1,Arrested,9/16/2024,Driving under influence
+CR115,Fatima Chaudhry,34184-3976335-2,"4168 Kathy Ridge, Mcgeeport, LA 11540",/images/Fatima_Chaudhry.jpg,1,Arrested,3/21/2024,Suspected theft
+CR178,Hassan Farooq,57433-1591006-3,"1009 Eaton Fords Suite 425, Marciaport, MO 02218",/images/Hassan_Farooq.jpg,1,Arrested,7/10/2024,Assault charge
+CR274,Ahmed Butt,11038-8879827-5,"9145 Dominguez Lodge Suite 355, Jamesmouth, AR 68554",/images/Ahmed_Butt.jpg,2,Arrested,9/7/2024,Fraud investigation
+CR991,Hassan Sheikh,31669-2748078-9,"553 Maurice Stream, Oliviastad, CO 49862",/images/Hassan_Sheikh.jpg,6,Arrested,7/6/2024,Suspected theft
+CR691,Bilal Ahmed,86030-8547721-6,"3521 Terry Shoals, South Michelle, MI 94238",/images/Bilal_Ahmed.jpg,8,Arrested,3/17/2024,Cybercrime activity
+CR330,Maryam Chaudhry,57270-9154196-1,"5162 Smith Isle, Jacobside, NE 48397",/images/Maryam_Chaudhry.jpg,3,Arrested,6/6/2023,Suspected theft
+CR370,Ayesha Ahmed,97714-2580189-2,"51997 David Divide Suite 401, Shannonland, TN 22569",/images/Ayesha_Ahmed.jpg,1,Arrested,2/10/2025,Public disturbance
+CR953,Hassan Rana,93631-5576696-6,"42076 Eric Cliffs, East Brian, NV 53416",/images/Hassan_Rana.jpg,6,Arrested,11/12/2024,Fraud investigation
+CR565,Zainab Chaudhry,56365-8072320-1,"3048 Crystal Lakes, South Dianetown, MI 63754",/images/Zainab_Chaudhry.jpg,1,Arrested,6/21/2023,Public disturbance
+CR245,Usman Qureshi,63255-2139274-9,"PSC 8274, Box 1316, APO AA 59933",/images/Usman_Qureshi.jpg,10,Arrested,5/26/2025,Driving under influence
+CR456,Usman Sheikh,47652-5177115-6,"275 Rodney Coves Apt. 637, Cameronburgh, DE 53787",/images/Usman_Sheikh.jpg,2,Arrested,11/20/2024,Driving under influence
+CR360,Ali Ahmed,72222-2524294-5,"066 Rivas Brooks, Waltersville, GA 83978",/images/Ali_Ahmed.jpg,1,Arrested,9/4/2024,Public disturbance
+CR576,Zara Butt,79227-8049036-6,"202 Nathaniel Land Apt. 293, West Eric, MT 90624",/images/Zara_Butt.jpg,3,Arrested,6/23/2023,Fraud investigation
+CR252,Zara Malik,17190-5209432-1,"932 Thomas Field, South Mariah, WV 14721",/images/Zara_Malik.jpg,3,Arrested,5/25/2024,Public disturbance
+CR206,Ayesha Malik,38566-6044366-7,"8969 Torres Grove Apt. 133, Aliciaside, CT 46834",/images/Ayesha_Malik.jpg,7,Arrested,3/4/2025,Fraud investigation
+CR501,Fatima Rana,24700-4984614-5,"4148 Lee Lock, Lake Benjaminland, FL 60783",/images/Fatima_Rana.jpg,0,Arrested,6/21/2023,Assault charge
+CR851,Zainab Butt,53525-6618854-4,"20729 Kimberly Light, Ricetown, WV 70960",/images/Zainab_Butt.jpg,7,Arrested,8/23/2023,Illegal possession of weapon
+CR374,Ahmed Butt,68858-5017186-3,"74005 Nicole Isle, North Haleyview, SD 77055",/images/Ahmed_Butt.jpg,3,Arrested,1/22/2024,Assault charge
+CR405,Fatima Malik,27208-7760724-7,"2666 Cervantes Walks Suite 693, North Diane, ID 27060",/images/Fatima_Malik.jpg,2,Arrested,8/10/2023,Illegal possession of weapon
+CR851,Hassan Ahmed,65564-4624232-6,"0686 Brian Lane, New Julie, WY 64071",/images/Hassan_Ahmed.jpg,1,Arrested,5/5/2025,Violation of parole
+CR114,Hassan Qureshi,74695-2245541-8,"4002 Vincent Ports Suite 868, West Christopher, HI 33512",/images/Hassan_Qureshi.jpg,10,Arrested,6/17/2023,Violation of parole
+CR716,Zara Rana,21412-5692803-2,"233 Hopkins Pass Apt. 625, East Diane, ID 52343",/images/Zara_Rana.jpg,7,Arrested,3/27/2024,Fraud investigation
+CR152,Ayesha Farooq,96914-3919523-9,"230 Wyatt Locks Apt. 296, Toddmouth, IA 05679",/images/Ayesha_Farooq.jpg,8,Arrested,5/19/2024,Illegal possession of weapon
+CR124,Fatima Farooq,75857-1151647-8,"14052 Malone Isle Suite 215, West Timothyside, OH 57297",/images/Fatima_Farooq.jpg,7,Arrested,3/27/2024,Violation of parole
+CR207,Ali Malik,64495-3961193-5,"0307 Cruz Pines Suite 144, Gilbertberg, KY 87366",/images/Ali_Malik.jpg,5,Arrested,10/28/2023,Cybercrime activity
+CR871,Zara Chaudhry,15485-6113061-8,"84864 Jeff Rue, Howardbury, WY 45231",/images/Zara_Chaudhry.jpg,2,Arrested,4/10/2025,Assault charge
+CR883,Zara Farooq,89154-1644501-7,"531 Kidd Crossroad, Christophertown, LA 07695",/images/Zara_Farooq.jpg,3,Arrested,11/11/2023,Violation of parole
+CR286,Ahmed Ahmed,10144-5268886-2,"3223 Powell Crossing Apt. 747, North Erika, MI 69466",/images/Ahmed_Ahmed.jpg,10,Arrested,7/27/2023,Driving under influence
+CR446,Zainab Butt,94451-7040556-2,"355 Dawn Lakes, South Jessicahaven, MA 32134",/images/Zainab_Butt.jpg,6,Arrested,9/4/2024,Violation of parole
+CR929,Maryam Butt,37335-1223314-6,"8063 Arnold Road, Matthewsshire, VT 45446",/images/Maryam_Butt.jpg,0,Arrested,8/30/2023,Burglary suspect
+CR155,Maryam Farooq,62787-6132076-2,"14645 Steven Manor, Frederickberg, TX 18871",/images/Maryam_Farooq.jpg,4,Arrested,11/5/2024,Suspected theft
+CR543,Fatima Siddiqui,58885-6963612-8,"45878 Graham Stream, West Joseph, NE 83319",/images/Fatima_Siddiqui.jpg,4,Arrested,7/28/2024,Violation of parole
+CR250,Ali Sheikh,92749-3296166-8,"58216 Amanda Shoals Suite 877, New Stephanieside, VA 84182",/images/Ali_Sheikh.jpg,8,Arrested,6/26/2024,Fraud investigation
+CR148,Maryam Khan,97505-9497588-2,"827 Williams Loaf Suite 143, Erikland, LA 53813",/images/Maryam_Khan.jpg,1,Arrested,6/5/2024,Cybercrime activity
+CR324,Ayesha Rana,71478-4019878-6,"4038 Alexander Highway Apt. 950, East Raymond, RI 99117",/images/Ayesha_Rana.jpg,7,Arrested,6/14/2024,Suspected theft
+CR996,Ayesha Butt,48493-6745563-2,"933 Stephanie Court, Petersonville, NH 75273",/images/Ayesha_Butt.jpg,2,Arrested,7/21/2024,Cybercrime activity
+CR864,Zainab Qureshi,16711-1526048-9,"71572 Lauren Spurs Suite 885, Terrellmouth, WY 94772",/images/Zainab_Qureshi.jpg,0,Arrested,9/11/2023,Violation of parole
+CR123,Zara Butt,90202-4388947-1,"4010 Allen Fields, New Deanna, NH 90981",/images/Zara_Butt.jpg,0,Arrested,8/21/2023,Fraud investigation
+CR699,Ali Sheikh,58155-7600853-9,"49982 Joshua Trail, Kathrynchester, IA 92410",/images/Ali_Sheikh.jpg,6,Arrested,9/15/2023,Assault charge
+CR930,Zara Rana,16099-3927160-2,"5828 Cooper Hollow Apt. 311, Wangbury, OK 81296",/images/Zara_Rana.jpg,6,Arrested,12/5/2023,Driving under influence
+CR284,Ali Farooq,40293-5400203-8,"3926 Hood Land Suite 300, Amyfurt, KS 26615",/images/Ali_Farooq.jpg,5,Arrested,4/20/2024,Assault charge
+CR769,Ali Sheikh,41634-4873479-9,"15594 Shawn View, Port Chelsea, IA 30022",/images/Ali_Sheikh.jpg,10,Arrested,6/15/2023,Fraud investigation
+CR975,Bilal Butt,47750-8133206-2,"Unit 5335 Box 9352, DPO AE 06530",/images/Bilal_Butt.jpg,4,Arrested,11/21/2023,Drug possession
+CR715,Ayesha Sheikh,74792-9224588-2,"86229 Hughes Wells, Victorbury, NC 57086",/images/Ayesha_Sheikh.jpg,8,Arrested,6/30/2023,Illegal possession of weapon
+CR776,Fatima Butt,40466-3185183-2,"88568 Lopez Lake, Kellyborough, MO 64280",/images/Fatima_Butt.jpg,1,Arrested,6/17/2024,Violation of parole
+CR390,Ayesha Ahmed,53860-8359133-9,"33946 Kristin Square, Lake Kristinaburgh, WI 63331",/images/Ayesha_Ahmed.jpg,1,Arrested,7/12/2024,Burglary suspect
+CR822,Ali Sheikh,41916-8950477-6,"PSC 9973, Box 2096, APO AE 43827",/images/Ali_Sheikh.jpg,4,Arrested,2/2/2024,Driving under influence
+CR672,Zara Chaudhry,29023-4308507-5,"757 Rodriguez Shoal, East Mary, NE 48433",/images/Zara_Chaudhry.jpg,9,Arrested,11/10/2023,Fraud investigation
+CR346,Maryam Chaudhry,35053-5823066-2,"753 Troy Loop, Herrington, NE 51786",/images/Maryam_Chaudhry.jpg,4,Arrested,5/16/2025,Assault charge
+CR365,Hassan Butt,57552-8206170-8,"327 Christopher View Apt. 250, New Samanthafort, HI 79104",/images/Hassan_Butt.jpg,3,Arrested,4/9/2025,Violation of parole
+CR550,Ahmed Farooq,23590-2913111-5,"9322 Barnett Locks Apt. 461, Wattsbury, DC 87776",/images/Ahmed_Farooq.jpg,3,Arrested,11/25/2024,Fraud investigation
+CR978,Zainab Qureshi,39061-5407043-7,"605 Hughes Turnpike, Fisherburgh, MA 97173",/images/Zainab_Qureshi.jpg,6,Arrested,1/28/2025,Suspected theft
+CR170,Ali Rana,78288-4172062-9,"PSC 9073, Box 9676, APO AE 87561",/images/Ali_Rana.jpg,0,Arrested,8/2/2024,Cybercrime activity
+CR139,Usman Farooq,67277-2894544-5,"6724 Stacy Cliffs Suite 696, South Destiny, AZ 25789",/images/Usman_Farooq.jpg,2,Arrested,6/22/2024,Public disturbance
+CR588,Bilal Malik,87616-3074221-6,"772 Ryan Green, North Kennethport, IN 17601",/images/Bilal_Malik.jpg,10,Arrested,2/13/2025,Cybercrime activity
+CR842,Ayesha Qureshi,94293-5997309-4,"601 Terry Inlet, Clementsview, TN 84847",/images/Ayesha_Qureshi.jpg,9,Arrested,4/18/2024,Fraud investigation
+CR732,Maryam Rana,89800-7418027-3,"243 Thompson Road Apt. 139, Karinaborough, OR 75944",/images/Maryam_Rana.jpg,0,Arrested,6/25/2023,Suspected theft
+CR280,Zara Siddiqui,39784-6566265-8,"99432 Massey Creek Apt. 178, Skinnermouth, VA 83471",/images/Zara_Siddiqui.jpg,5,Arrested,1/26/2025,Drug possession
+CR411,Bilal Siddiqui,30984-9753022-3,"45871 Gibbs Drive Suite 280, West Danielhaven, NC 41974",/images/Bilal_Siddiqui.jpg,0,Arrested,8/25/2023,Public disturbance
+CR556,Hassan Ahmed,53069-3189900-3,"0336 Jones Club, Morganbury, NY 14125",/images/Hassan_Ahmed.jpg,6,Arrested,11/11/2024,Burglary suspect
+CR630,Maryam Farooq,66566-1403611-9,"886 Todd Ranch, Dianaland, PA 79858",/images/Maryam_Farooq.jpg,6,Arrested,8/31/2024,Burglary suspect
+CR801,Zara Sheikh,84490-7875547-1,"0051 Williams Mountains Suite 558, Bellton, IL 92075",/images/Zara_Sheikh.jpg,7,Arrested,12/19/2024,Drug possession
+CR189,Usman Ahmed,75049-9210959-4,"7689 Lindsey Unions Suite 918, West Adam, MS 21281",/images/Usman_Ahmed.jpg,1,Arrested,1/29/2025,Assault charge
+CR298,Bilal Khan,39340-5559979-9,"4465 Mooney Alley Suite 201, Briannaton, CA 43931",/images/Bilal_Khan.jpg,0,Arrested,6/15/2024,Violation of parole
+CR146,Hassan Malik,48558-2961247-5,"USNS Boyd, FPO AE 21092",/images/Hassan_Malik.jpg,3,Arrested,8/19/2024,Violation of parole
+CR340,Bilal Khan,37276-7972823-5,"7790 Richards Brooks Suite 684, South Maryberg, ME 08923",/images/Bilal_Khan.jpg,4,Arrested,4/11/2025,Suspected theft
+CR138,Ali Rana,49137-5557195-7,"022 Kathy Club, Garciabury, NV 32651",/images/Ali_Rana.jpg,3,Arrested,8/24/2023,Assault charge
+CR413,Hassan Sheikh,73501-1674857-8,"USCGC Wallace, FPO AE 36320",/images/Hassan_Sheikh.jpg,9,Arrested,4/14/2025,Fraud investigation
+CR165,Zainab Ahmed,94324-8308785-6,"3286 Hunt Branch, North Justinmouth, SC 93437",/images/Zainab_Ahmed.jpg,7,Arrested,5/31/2024,Fraud investigation
+CR209,Bilal Butt,51604-6823403-9,"67034 Rocha Mill Suite 492, Diazbury, DC 66742",/images/Bilal_Butt.jpg,3,Arrested,4/5/2024,Suspected theft
+CR655,Maryam Butt,55464-7151978-6,"258 Amanda Forest Apt. 259, North Monique, KS 48305",/images/Maryam_Butt.jpg,7,Arrested,9/7/2023,Illegal possession of weapon
+CR814,Zara Farooq,20507-3467109-1,"Unit 3428 Box 9936, DPO AE 24798",/images/Zara_Farooq.jpg,1,Arrested,1/1/2025,Illegal possession of weapon
+CR393,Ayesha Ahmed,60671-7977979-4,"17404 Johnson Fords Apt. 200, South Janetland, VA 35328",/images/Ayesha_Ahmed.jpg,1,Arrested,6/29/2023,Cybercrime activity
+CR228,Usman Khan,89733-1984208-8,"047 Sara Forest Apt. 636, Port Travisstad, NH 20604",/images/Usman_Khan.jpg,4,Arrested,2/4/2024,Burglary suspect
+CR302,Maryam Butt,45170-7885267-3,"530 Whitney Unions Suite 358, South Elizabeth, UT 54192",/images/Maryam_Butt.jpg,3,Arrested,6/13/2023,Fraud investigation
+CR342,Fatima Sheikh,92505-1661777-1,"45625 Brent Lock, Schultzstad, MA 08897",/images/Fatima_Sheikh.jpg,0,Arrested,2/7/2025,Public disturbance
+CR194,Fatima Rana,78053-4585450-6,"51571 Heather Locks Suite 411, Port John, MD 91920",/images/Fatima_Rana.jpg,7,Arrested,5/10/2024,Violation of parole
+CR509,Zainab Sheikh,39857-3587339-7,"0326 Tyler Center, North Ann, SD 29961",/images/Zainab_Sheikh.jpg,2,Arrested,4/18/2024,Drug possession
+CR573,Ahmed Malik,54420-1378659-3,"59208 Ryan Summit Apt. 155, East Timothyton, TX 11028",/images/Ahmed_Malik.jpg,4,Arrested,9/5/2023,Driving under influence
+CR700,Zara Khan,72995-1238113-1,"80579 Todd Square Suite 265, Lake Allison, NV 43621",/images/Zara_Khan.jpg,3,Arrested,5/22/2024,Assault charge
+CR489,Ahmed Malik,86131-3428171-7,"06199 Ramos Place Apt. 108, Meyerburgh, TN 04325",/images/Ahmed_Malik.jpg,10,Arrested,6/4/2024,Assault charge
+CR935,Ali Malik,15789-9589508-8,"PSC 8756, Box 9427, APO AP 42079",/images/Ali_Malik.jpg,2,Arrested,2/28/2025,Suspected theft
+CR163,Zainab Butt,42050-6467924-8,"5950 Armstrong Crest Suite 177, North Christopherview, KS 03782",/images/Zainab_Butt.jpg,10,Arrested,11/28/2023,Drug possession
+CR688,Zara Siddiqui,46975-6151862-1,"4637 Michelle Gateway Apt. 536, Grantland, NM 29947",/images/Zara_Siddiqui.jpg,0,Arrested,6/29/2024,Cybercrime activity
+CR695,Bilal Ahmed,78920-1621633-2,"0638 Tiffany Forge, East Jamesview, WV 96897",/images/Bilal_Ahmed.jpg,6,Arrested,9/23/2023,Public disturbance
+CR628,Hassan Chaudhry,51241-7767095-6,"69945 Ortiz Meadows, New Jessicaburgh, DC 12104",/images/Hassan_Chaudhry.jpg,1,Arrested,4/7/2025,Suspected theft
+CR164,Ali Sheikh,48815-8365009-7,"539 Rebecca Forest Apt. 045, East Melissastad, MA 93412",/images/Ali_Sheikh.jpg,6,Arrested,9/18/2024,Cybercrime activity
+CR423,Ahmed Malik,36179-6876853-3,"8167 Leonard Burgs Suite 041, East Edward, IL 17574",/images/Ahmed_Malik.jpg,0,Arrested,6/1/2024,Driving under influence
+CR972,Zara Khan,43557-6161011-8,"811 Patricia Knoll, Acostachester, RI 43910",/images/Zara_Khan.jpg,4,Arrested,4/28/2025,Fraud investigation
+CR729,Hassan Siddiqui,90732-1784660-8,"3262 Bryan Center, Lake Aarontown, WV 47631",/images/Hassan_Siddiqui.jpg,10,Arrested,3/21/2024,Assault charge
+CR947,Fatima Ahmed,59147-7592754-1,"517 Anderson Inlet, North Rachelmouth, WA 87291",/images/Fatima_Ahmed.jpg,9,Arrested,8/6/2023,Driving under influence
+CR292,Ali Khan,48179-5250691-2,"494 Christina Trafficway Suite 084, Stoneton, OH 03340",/images/Ali_Khan.jpg,5,Arrested,7/21/2023,Cybercrime activity
+CR242,Maryam Chaudhry,70015-9009159-1,"000 Brooke Fields, Tonyaside, CO 55343",/images/Maryam_Chaudhry.jpg,9,Arrested,3/7/2025,Illegal possession of weapon
+CR334,Bilal Sheikh,99685-7713525-5,"6854 Sean Shores Apt. 899, East Colleen, CA 00572",/images/Bilal_Sheikh.jpg,5,Arrested,10/2/2023,Illegal possession of weapon
+CR620,Fatima Siddiqui,45499-8278480-2,"683 Daniel Track Apt. 848, Lake Moniquestad, NM 14281",/images/Fatima_Siddiqui.jpg,4,Arrested,8/25/2024,Suspected theft
+CR893,Ali Khan,96985-2759387-2,"47756 Yvonne Trail, Ericville, CO 65776",/images/Ali_Khan.jpg,10,Arrested,9/12/2024,Public disturbance
+CR158,Bilal Malik,12580-9223335-8,"86127 Fitzgerald Club, West Jesus, MD 98349",/images/Bilal_Malik.jpg,9,Arrested,3/16/2024,Driving under influence
+CR393,Usman Chaudhry,23713-2715076-6,"6785 Vernon Pike, Tinaberg, NY 21539",/images/Usman_Chaudhry.jpg,1,Arrested,3/13/2025,Assault charge
+CR598,Usman Ahmed,81866-7351336-7,"11906 Fleming Crossroad, Whitechester, CT 05500",/images/Usman_Ahmed.jpg,8,Arrested,2/6/2024,Fraud investigation
+CR288,Fatima Farooq,90124-2957001-1,"302 Mcdonald Courts Suite 061, Sanchezton, MT 46788",/images/Fatima_Farooq.jpg,10,Arrested,12/31/2023,Burglary suspect
+CR322,Ayesha Qureshi,89009-9683513-5,"81286 Katherine Avenue Suite 322, Fergusonburgh, NH 13320",/images/Ayesha_Qureshi.jpg,0,Arrested,1/14/2025,Burglary suspect
+CR487,Hassan Ahmed,69695-6619981-8,"39162 Maria Valley Apt. 976, North Alanbury, RI 66373",/images/Hassan_Ahmed.jpg,7,Arrested,11/1/2024,Cybercrime activity
+CR962,Hassan Rana,34681-9685286-9,"1568 William Fort, New Allison, MT 94624",/images/Hassan_Rana.jpg,6,Arrested,2/3/2024,Assault charge
+CR516,Ahmed Siddiqui,43370-3957902-7,"3908 Kevin Meadows, Hillchester, WI 19664",/images/Ahmed_Siddiqui.jpg,1,Arrested,1/9/2024,Assault charge
+CR642,Zara Chaudhry,15537-2459827-2,"201 Harvey Isle Apt. 409, Maryshire, IN 19883",/images/Zara_Chaudhry.jpg,6,Arrested,8/16/2024,Suspected theft
+CR500,Maryam Butt,34156-1883952-2,"2017 Brandy Camp Suite 933, New Sandraberg, KS 81066",/images/Maryam_Butt.jpg,9,Arrested,1/19/2024,Fraud investigation
+CR661,Bilal Farooq,93217-6145913-6,"894 Julie Corners Apt. 732, Lake Kristichester, AK 62690",/images/Bilal_Farooq.jpg,0,Arrested,5/28/2024,Cybercrime activity
+CR986,Ali Rana,71225-4414686-1,"30897 Stewart Ranch, West Pamela, WA 19043",/images/Ali_Rana.jpg,7,Arrested,11/11/2023,Public disturbance
+CR584,Usman Qureshi,27205-6715973-7,"17095 Harris Lakes Apt. 863, New Kelly, NC 66346",/images/Usman_Qureshi.jpg,1,Arrested,11/6/2024,Drug possession
+CR847,Bilal Qureshi,53399-5851137-4,"36946 Grimes Circle Suite 314, Hannahbury, AR 77817",/images/Bilal_Qureshi.jpg,10,Arrested,11/27/2024,Burglary suspect
+CR537,Hassan Butt,17387-6670339-9,"909 Decker Gateway, West Duane, HI 67273",/images/Hassan_Butt.jpg,10,Arrested,4/24/2024,Drug possession
+CR746,Usman Rana,77394-9611365-7,"48959 Anne Rue Suite 580, Boylechester, KS 35117",/images/Usman_Rana.jpg,0,Arrested,8/31/2023,Public disturbance
+CR788,Hassan Malik,18324-3339537-7,"44494 Miller Forks, Port Caleb, CA 94697",/images/Hassan_Malik.jpg,0,Arrested,2/23/2024,Driving under influence
+CR915,Ayesha Rana,71712-1015653-7,"492 Alexander Groves, South Daniel, TX 45962",/images/Ayesha_Rana.jpg,9,Arrested,3/31/2024,Public disturbance
+CR917,Ali Malik,84854-5030081-1,"0396 Patel Estates, Lake Donnafurt, LA 86608",/images/Ali_Malik.jpg,4,Arrested,6/25/2023,Driving under influence
+CR327,Zara Chaudhry,67031-5655842-4,"144 Marquez Passage Suite 557, South Kevin, MA 02018",/images/Zara_Chaudhry.jpg,1,Arrested,1/8/2025,Drug possession
+CR807,Bilal Malik,29365-4905018-3,"PSC 2904, Box 8776, APO AA 76057",/images/Bilal_Malik.jpg,1,Arrested,10/19/2023,Burglary suspect
+CR931,Zainab Malik,80342-9004940-2,"USNV Peters, FPO AP 73001",/images/Zainab_Malik.jpg,7,Arrested,9/21/2023,Drug possession
+CR635,Fatima Malik,22846-8873161-9,"35356 Ronald Ridge, Williamsburgh, RI 08962",/images/Fatima_Malik.jpg,9,Arrested,8/31/2023,Illegal possession of weapon
+CR279,Hassan Chaudhry,87610-5697956-3,"2652 Sean Curve Suite 130, Aliciaborough, CA 05080",/images/Hassan_Chaudhry.jpg,9,Arrested,3/4/2025,Burglary suspect
+CR351,Maryam Farooq,92030-6153410-1,"07662 Angela Oval Apt. 153, New Jerry, WY 82148",/images/Maryam_Farooq.jpg,5,Arrested,10/26/2023,Assault charge
+CR282,Usman Siddiqui,69507-8806258-9,"4157 Terrence Fields Suite 251, Paigeborough, AR 77803",/images/Usman_Siddiqui.jpg,1,Arrested,12/27/2023,Burglary suspect
+CR387,Usman Qureshi,30264-1299831-6,"324 Romero Mountains, Jenningsburgh, AK 25148",/images/Usman_Qureshi.jpg,1,Arrested,4/6/2025,Suspected theft
+CR410,Ahmed Chaudhry,19449-3894752-7,"905 Adams Square Apt. 897, Nicoleport, VA 02430",/images/Ahmed_Chaudhry.jpg,6,Arrested,2/29/2024,Burglary suspect
+CR851,Fatima Sheikh,57973-4691064-7,"577 Beck Drive, Scottview, SD 64721",/images/Fatima_Sheikh.jpg,6,Arrested,9/1/2024,Public disturbance
+CR861,Zara Qureshi,17441-4420011-2,"56063 Tammy Parkways, New Beth, NC 07770",/images/Zara_Qureshi.jpg,6,Arrested,6/2/2025,Violation of parole
+CR128,Ahmed Farooq,26855-3356729-5,"94944 Justin Gateway Suite 189, Oconnellport, GA 84277",/images/Ahmed_Farooq.jpg,3,Arrested,10/1/2024,Burglary suspect
+CR930,Zainab Rana,87519-3642777-6,"2574 Albert Turnpike, West Brent, AL 30430",/images/Zainab_Rana.jpg,2,Arrested,3/7/2024,Cybercrime activity
+CR550,Ayesha Ahmed,48816-4161172-2,"0742 Lutz Flat, West Michelleburgh, KS 24796",/images/Ayesha_Ahmed.jpg,4,Arrested,12/12/2023,Suspected theft
+CR920,Ahmed Malik,46533-9633714-1,"031 Mcgee Crossing Suite 395, New Bryantown, WI 82664",/images/Ahmed_Malik.jpg,2,Arrested,3/12/2025,Drug possession
+CR141,Usman Ahmed,41201-5157206-8,"474 Evan Mill Apt. 398, Susanchester, VA 64853",/images/Usman_Ahmed.jpg,2,Arrested,10/22/2023,Violation of parole
+CR872,Hassan Qureshi,97090-1199501-6,"4042 Francisco Mews Suite 259, Melissaview, AR 87735",/images/Hassan_Qureshi.jpg,3,Arrested,1/5/2025,Driving under influence
+CR926,Ahmed Chaudhry,35731-7290407-2,"743 Sutton Unions Apt. 310, Ryanberg, HI 30283",/images/Ahmed_Chaudhry.jpg,6,Arrested,10/21/2024,Drug possession
+CR608,Zara Khan,35705-8498164-5,"USCGC Johnson, FPO AA 98583",/images/Zara_Khan.jpg,8,Arrested,4/27/2024,Fraud investigation
+CR765,Zainab Siddiqui,12076-1192375-9,"97502 Kemp Mountain, Nguyenshire, VT 14319",/images/Zainab_Siddiqui.jpg,6,Arrested,7/30/2024,Suspected theft
+CR313,Zara Sheikh,25112-7722115-4,"USS Tucker, FPO AA 32566",/images/Zara_Sheikh.jpg,2,Arrested,6/10/2023,Suspected theft
+CR245,Hassan Chaudhry,28187-3613780-3,"225 Robert View, East Robertport, KY 23802",/images/Hassan_Chaudhry.jpg,8,Arrested,7/25/2023,Suspected theft
+CR406,Zara Malik,43520-2887724-8,"3179 Wood Wall, Davidchester, MO 16596",/images/Zara_Malik.jpg,10,Arrested,1/28/2024,Cybercrime activity
+CR444,Hassan Malik,42034-2702906-5,"6570 Jeffrey Run, South Davidfort, SD 75230",/images/Hassan_Malik.jpg,9,Arrested,10/16/2024,Public disturbance
+CR851,Maryam Siddiqui,92696-8777638-5,"81592 Greene Place Suite 650, Port Alexander, IL 83454",/images/Maryam_Siddiqui.jpg,7,Arrested,8/24/2023,Burglary suspect
+CR632,Hassan Chaudhry,61474-1566075-6,"740 Rebecca Mount Apt. 562, Tracyborough, NV 37200",/images/Hassan_Chaudhry.jpg,7,Arrested,1/7/2024,Illegal possession of weapon
+CR601,Hassan Ahmed,89650-4806469-3,"PSC 3099, Box 2696, APO AP 57392",/images/Hassan_Ahmed.jpg,2,Arrested,5/1/2024,Fraud investigation
+CR898,Bilal Qureshi,81034-7554074-8,"35679 Holly Port, Byrdport, NE 79278",/images/Bilal_Qureshi.jpg,6,Arrested,12/13/2023,Illegal possession of weapon
+CR960,Ali Qureshi,34998-8663265-5,"118 Mitchell Isle, Kimberlyton, NC 58890",/images/Ali_Qureshi.jpg,0,Arrested,6/1/2025,Violation of parole
+CR951,Zara Sheikh,87600-9969286-8,"6827 Baldwin Stream, West Jesuschester, NJ 01350",/images/Zara_Sheikh.jpg,3,Arrested,10/4/2024,Burglary suspect
+CR378,Zara Sheikh,79954-7527679-3,"66225 Jennifer Prairie, Lake Joshuafort, MO 66570",/images/Zara_Sheikh.jpg,1,Arrested,6/28/2023,Burglary suspect
+CR120,Usman Malik,57643-4364260-5,"4589 Jenny Locks, Mindyberg, VA 06490",/images/Usman_Malik.jpg,3,Arrested,10/1/2024,Assault charge
+CR267,Zainab Malik,86833-7567419-3,"0471 Hunter Harbors Apt. 741, Wilkinsberg, AL 57157",/images/Zainab_Malik.jpg,2,Arrested,6/12/2024,Burglary suspect
+CR549,Ahmed Siddiqui,44540-8705350-2,"55406 Lopez Drive, Thompsonport, HI 56280",/images/Ahmed_Siddiqui.jpg,8,Arrested,1/26/2024,Assault charge
+CR498,Ahmed Chaudhry,71170-3914019-8,"90023 Yvonne Route Apt. 719, Kennethstad, IL 11567",/images/Ahmed_Chaudhry.jpg,2,Arrested,4/28/2025,Fraud investigation
+CR576,Maryam Malik,29857-1401027-9,"28725 Roberta Course, Port Loritown, MN 15104",/images/Maryam_Malik.jpg,4,Arrested,8/29/2023,Fraud investigation
+CR869,Usman Farooq,88701-9910244-3,"737 Martinez Forks Apt. 628, Shirleyborough, TX 01636",/images/Usman_Farooq.jpg,6,Arrested,4/17/2024,Assault charge
+CR686,Zara Rana,65459-7177099-6,"221 Christina Center Suite 615, Jeffreyberg, MD 12678",/images/Zara_Rana.jpg,0,Arrested,5/27/2025,Burglary suspect
+CR176,Fatima Chaudhry,47982-7844724-4,"3559 Rodriguez Crossing, Justinbury, WA 67406",/images/Fatima_Chaudhry.jpg,4,Arrested,1/13/2025,Drug possession
+CR690,Bilal Butt,57231-9121795-6,"60071 Andrew Skyway, West Davidhaven, WY 97124",/images/Bilal_Butt.jpg,2,Arrested,5/23/2024,Fraud investigation
+CR289,Bilal Malik,26367-6708245-7,"93982 Butler Brooks, North Melissa, OH 25180",/images/Bilal_Malik.jpg,0,Arrested,12/8/2024,Assault charge
+CR273,Hassan Chaudhry,30389-8247853-6,"31643 Gaines Orchard, Hallmouth, IA 40508",/images/Hassan_Chaudhry.jpg,3,Arrested,8/17/2024,Cybercrime activity
+CR545,Ayesha Khan,91917-6223924-2,"46743 Alicia Squares Suite 410, North Brianmouth, MT 32363",/images/Ayesha_Khan.jpg,10,Arrested,5/7/2024,Suspected theft
+CR274,Ayesha Butt,22776-8097491-1,"12693 Webster Groves Apt. 664, Jonesborough, WV 86742",/images/Ayesha_Butt.jpg,2,Arrested,3/27/2024,Cybercrime activity
+CR901,Usman Rana,21292-3335294-5,"406 David Trail, Montoyaport, MO 63193",/images/Usman_Rana.jpg,3,Arrested,1/17/2025,Cybercrime activity
+CR954,Zara Farooq,90020-7724666-8,"6173 Young Estates, South Elizabethville, KY 18369",/images/Zara_Farooq.jpg,9,Arrested,7/8/2023,Driving under influence
+CR124,Ahmed Malik,81168-5258643-8,"5709 Williams Mountains Apt. 164, East Amanda, LA 86398",/images/Ahmed_Malik.jpg,6,Arrested,1/14/2025,Drug possession
+CR576,Zainab Butt,91325-5175982-3,"04025 Ryan Fort Apt. 181, Port Ruthtown, WA 34064",/images/Zainab_Butt.jpg,3,Arrested,11/15/2023,Assault charge
+CR174,Usman Ahmed,90833-5639132-6,"079 Shelby Lights Suite 023, North Thomaston, CA 76915",/images/Usman_Ahmed.jpg,7,Arrested,7/31/2023,Cybercrime activity
+CR962,Ahmed Ahmed,52803-8341715-8,"37945 Michael Turnpike, North Chad, FL 75522",/images/Ahmed_Ahmed.jpg,0,Arrested,12/4/2023,Assault charge
+CR575,Zara Siddiqui,28045-6902976-1,"95505 Savannah Camp Suite 238, Lake Katherinefort, MT 50106",/images/Zara_Siddiqui.jpg,4,Arrested,5/24/2024,Public disturbance
+CR848,Fatima Farooq,50498-9748546-6,"9688 Roberts Orchard, Lake Cynthiachester, KS 99539",/images/Fatima_Farooq.jpg,8,Arrested,6/21/2024,Driving under influence
+CR590,Usman Butt,15316-5484214-5,"13738 Combs Cape Suite 277, West Dawnburgh, WV 26002",/images/Usman_Butt.jpg,4,Arrested,1/18/2024,Illegal possession of weapon
+CR476,Usman Khan,49335-8151761-3,"1365 Valdez Neck Suite 265, Angelicachester, IL 62128",/images/Usman_Khan.jpg,9,Arrested,2/16/2024,Driving under influence
+CR389,Zainab Qureshi,83945-5252759-8,"6481 Cobb Mountain Apt. 814, Jeremyville, IA 55892",/images/Zainab_Qureshi.jpg,4,Arrested,5/24/2025,Burglary suspect
+CR980,Usman Khan,20661-6738062-5,"2914 Golden Path, West Angelicahaven, OH 80638",/images/Usman_Khan.jpg,4,Arrested,7/26/2024,Drug possession
+CR268,Bilal Sheikh,30724-4680820-1,"8451 Fuller Crossroad Suite 915, Port Johnnyton, CA 62935",/images/Bilal_Sheikh.jpg,9,Arrested,10/6/2024,Cybercrime activity
+CR379,Zara Siddiqui,15874-9178402-2,"525 Kline Groves Suite 245, Mullenton, SD 48458",/images/Zara_Siddiqui.jpg,10,Arrested,5/23/2024,Suspected theft
+CR245,Bilal Khan,58289-2127108-4,"75740 Jackson Mountain, Davisbury, DC 55628",/images/Bilal_Khan.jpg,6,Arrested,10/4/2023,Public disturbance
+CR457,Maryam Malik,95117-4593123-1,"49651 Toni Ferry Apt. 104, Thompsonbury, MO 03112",/images/Maryam_Malik.jpg,4,Arrested,6/7/2023,Fraud investigation
+CR281,Bilal Ahmed,83253-9642750-2,"96408 Monique Lodge Suite 657, New Ryantown, KS 82780",/images/Bilal_Ahmed.jpg,7,Arrested,2/28/2025,Driving under influence
+CR999,Bilal Sheikh,22260-6928096-2,"556 Scott Trafficway, East Josephborough, WA 49603",/images/Bilal_Sheikh.jpg,8,Arrested,2/22/2025,Suspected theft
+CR486,Bilal Farooq,11858-6563491-6,"2710 Henson Parks Suite 344, Sharonland, PA 29073",/images/Bilal_Farooq.jpg,5,Arrested,3/17/2024,Drug possession
+CR731,Ali Siddiqui,17532-8075693-7,"783 Gordon Grove Suite 721, Chelseaview, MS 38357",/images/Ali_Siddiqui.jpg,8,Arrested,10/5/2023,Cybercrime activity
+CR930,Ahmed Farooq,62248-9181861-7,"732 James Neck Apt. 484, Lake Seanfurt, NY 61562",/images/Ahmed_Farooq.jpg,7,Arrested,3/14/2025,Suspected theft
+CR471,Hassan Khan,63322-6519078-1,"765 Jones Junction Suite 331, North Shannonview, IA 81630",/images/Hassan_Khan.jpg,3,Arrested,12/27/2024,Assault charge
+CR498,Ali Khan,95099-4263584-3,"38277 Carolyn Pass, Lake Jeffreymouth, DC 33192",/images/Ali_Khan.jpg,10,Arrested,7/19/2023,Public disturbance
+CR229,Ahmed Qureshi,21666-3430286-6,"53634 Parks Turnpike Apt. 653, Kevintown, FL 27457",/images/Ahmed_Qureshi.jpg,9,Arrested,9/7/2024,Driving under influence
+CR313,Usman Farooq,98648-9607972-1,"88811 Ward Common, Jacksonbury, VA 77055",/images/Usman_Farooq.jpg,5,Arrested,4/12/2025,Cybercrime activity
+CR273,Usman Farooq,25438-2343348-5,"96038 Shane Prairie, Schneiderton, MO 21922",/images/Usman_Farooq.jpg,3,Arrested,11/18/2024,Fraud investigation

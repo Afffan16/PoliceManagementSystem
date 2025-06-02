@@ -1,4 +1,5 @@
 investigationId,firId,creationDate,officerId1,officerId2,evidencePaths,witnessStatements,otherDetails,suspects,caseResult,finalCriminal,status,lastUpdated
-,,05/31/2025,,,,,,,,,,05/31/2025
-INV002,FIR001,02/02/2025,BDG-001,BDG-002,,,,,,,Active,05/31/2025
-INV003,FIR002,02/05/2024,BDG-001,BDG-003,,,,,,,Active,05/31/2025
+,,5/31/2025,,,,,,,,,,5/31/2025
+INV002,FIR001,2/2/2025,BDG-001,BDG-002,,,,,,,Active,5/31/2025
+INV003,FIR002,2/5/2024,BDG-001,BDG-003,,,,,,,Active,5/31/2025
+INV003,FIR002,2/6/2024,BDG-001,BDG-002,D:\Final\PoliceManagementSystem\Resources\Other Stuff\OfficerGuideBookPMS-1.pdf,"Ahmed reported ""He killed infront of me"".",Suspect was found with blood on clothes,Faraz;Saad,Faraz was sentenced to 3 yrs in Prison,Faraz,Completed,2/6/2024

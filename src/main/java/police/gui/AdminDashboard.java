@@ -198,7 +198,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_CRIMINALBtnActionPerformed
 
     private void ANALYTICSBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANALYTICSBtnActionPerformed
-        new AnalyticsForm().setVisible(true);
+            new AnalyticsDashboard().setVisible(true);
     }//GEN-LAST:event_ANALYTICSBtnActionPerformed
 
     private void LOGOUTBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LOGOUTBtnActionPerformed
