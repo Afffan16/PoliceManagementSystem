@@ -70,9 +70,12 @@ public class AddUpdateFIRForm extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -80,15 +83,16 @@ public class AddUpdateFIRForm extends javax.swing.JFrame {
         complainantNametxt = new javax.swing.JTextField();
         fatherNametxt = new javax.swing.JTextField();
         contacttxt = new javax.swing.JTextField();
-        addresstxt = new javax.swing.JTextField();
-        locationtxt = new javax.swing.JTextField();
-        crimeTypetxt = new javax.swing.JTextField();
         nicNotxt = new javax.swing.JTextField();
-        jLabel31 = new javax.swing.JLabel();
-        okbtn = new javax.swing.JButton();
-        cancelbtn = new javax.swing.JButton();
+        addresstxt = new javax.swing.JTextField();
         incidentDatetxt = new com.toedter.calendar.JDateChooser();
         IncidentTimetxt = new com.github.lgooddatepicker.components.TimePicker();
+        locationtxt = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        descriptiontxt = new javax.swing.JTextArea();
+        crimeTypetxt = new javax.swing.JTextField();
+        okbtn = new javax.swing.JButton();
+        cancelbtn = new javax.swing.JButton();
         lblerrname = new javax.swing.JLabel();
         lblerrFathername = new javax.swing.JLabel();
         lblerrcontact = new javax.swing.JLabel();
@@ -98,11 +102,9 @@ public class AddUpdateFIRForm extends javax.swing.JFrame {
         lblerrtime = new javax.swing.JLabel();
         lblerrdiscription = new javax.swing.JLabel();
         lblerrCrimeType = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        descriptiontxt = new javax.swing.JTextArea();
         lblerrlocation = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        headinglbl = new javax.swing.JLabel();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -121,124 +123,142 @@ public class AddUpdateFIRForm extends javax.swing.JFrame {
         jLabel1.setText("FIR ID :");
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        mainPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 60, 22));
+        mainPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 60, 22));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Complainant Name :");
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        mainPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 83, 131, 20));
+        mainPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 150, 20));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Father's Name :");
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        mainPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 133, 112, 22));
+        mainPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 112, 22));
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Contact : ");
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        mainPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 79, 22));
+        mainPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 79, 22));
+
+        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel31.setText("NIC No :");
+        jLabel31.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
+        mainPanel.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 68, 27));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Address :");
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        mainPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 79, 27));
+        mainPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 79, 27));
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Incident Date  : ");
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        mainPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 370, 199, 27));
+        mainPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, 199, 27));
+
+        jLabel12.setText("( YYYY-MM-DD )");
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        mainPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 480, 90, 20));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Incident Time : ");
-        mainPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 428, 110, 30));
+        mainPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 520, 110, 30));
         jLabel7.getAccessibleContext().setAccessibleName("Incident Time  : ");
+
+        jLabel11.setText("( HH : MM )");
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        mainPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 540, -1, -1));
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Location : ");
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        mainPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 488, 74, 27));
+        mainPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 580, 74, 30));
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Description : ");
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        mainPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 550, 94, 27));
+        mainPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 640, 94, 30));
 
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Crime Type : ");
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        mainPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 635, 94, 27));
+        mainPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 737, 94, 30));
 
         firIDtxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 firIDtxtActionPerformed(evt);
             }
         });
-        mainPanel.add(firIDtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 392, -1));
+        mainPanel.add(firIDtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 392, -1));
 
         complainantNametxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 complainantNametxtActionPerformed(evt);
             }
         });
-        mainPanel.add(complainantNametxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 83, 390, 20));
+        mainPanel.add(complainantNametxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 390, 20));
 
         fatherNametxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fatherNametxtActionPerformed(evt);
             }
         });
-        mainPanel.add(fatherNametxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 133, 390, -1));
+        mainPanel.add(fatherNametxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 390, -1));
 
         contacttxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 contacttxtActionPerformed(evt);
             }
         });
-        mainPanel.add(contacttxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 188, 390, -1));
-
-        addresstxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addresstxtActionPerformed(evt);
-            }
-        });
-        mainPanel.add(addresstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, 390, -1));
-
-        locationtxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                locationtxtActionPerformed(evt);
-            }
-        });
-        mainPanel.add(locationtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 488, 390, 27));
-
-        crimeTypetxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                crimeTypetxtActionPerformed(evt);
-            }
-        });
-        mainPanel.add(crimeTypetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 637, 390, -1));
+        mainPanel.add(contacttxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 390, -1));
 
         nicNotxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nicNotxtActionPerformed(evt);
             }
         });
-        mainPanel.add(nicNotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 390, 20));
+        mainPanel.add(nicNotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, 390, 20));
 
-        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel31.setText("NIC No :");
-        jLabel31.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
-        mainPanel.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 68, 27));
+        addresstxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addresstxtActionPerformed(evt);
+            }
+        });
+        mainPanel.add(addresstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 390, 390, -1));
+        mainPanel.add(incidentDatetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 460, 390, 27));
+        mainPanel.add(IncidentTimetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 520, 390, 30));
+
+        locationtxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                locationtxtActionPerformed(evt);
+            }
+        });
+        mainPanel.add(locationtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 580, 390, 27));
+
+        descriptiontxt.setColumns(20);
+        descriptiontxt.setRows(5);
+        jScrollPane1.setViewportView(descriptiontxt);
+
+        mainPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 640, 390, 60));
+
+        crimeTypetxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crimeTypetxtActionPerformed(evt);
+            }
+        });
+        mainPanel.add(crimeTypetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 740, 390, -1));
 
         okbtn.setText("OK");
         okbtn.setBackground(new java.awt.Color(0, 0, 0));
@@ -249,7 +269,7 @@ public class AddUpdateFIRForm extends javax.swing.JFrame {
                 okbtnActionPerformed(evt);
             }
         });
-        mainPanel.add(okbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 703, 100, 30));
+        mainPanel.add(okbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 800, 100, 30));
 
         cancelbtn.setText("Cancel");
         cancelbtn.setBackground(new java.awt.Color(204, 0, 0));
@@ -260,35 +280,43 @@ public class AddUpdateFIRForm extends javax.swing.JFrame {
                 cancelbtnActionPerformed(evt);
             }
         });
-        mainPanel.add(cancelbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 703, 90, 30));
-        mainPanel.add(incidentDatetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 368, 390, 27));
-        mainPanel.add(IncidentTimetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 431, 390, 30));
-        mainPanel.add(lblerrname, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 109, -1, 12));
-        mainPanel.add(lblerrFathername, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 164, -1, 12));
-        mainPanel.add(lblerrcontact, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 224, -1, 9));
-        mainPanel.add(lblerrcinc, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 281, -1, 15));
-        mainPanel.add(lblerrAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 341, -1, 12));
-        mainPanel.add(lblerrdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 401, -1, 12));
-        mainPanel.add(lblerrtime, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-        mainPanel.add(lblerrdiscription, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 594, -1, 12));
-        mainPanel.add(lblerrCrimeType, new org.netbeans.lib.awtextra.AbsoluteConstraints(646, 654, -1, 11));
+        mainPanel.add(cancelbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 800, 90, 30));
+        mainPanel.add(lblerrname, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, -1, 0));
+        mainPanel.add(lblerrFathername, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, -1, -1));
+        mainPanel.add(lblerrcontact, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, 0, -1));
+        mainPanel.add(lblerrcinc, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, -1, -1));
+        mainPanel.add(lblerrAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, -1, -1));
+        mainPanel.add(lblerrdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 500, 0, -1));
+        mainPanel.add(lblerrtime, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 560, -1, -1));
+        mainPanel.add(lblerrdiscription, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 710, -1, -1));
+        mainPanel.add(lblerrCrimeType, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 770, 0, 0));
+        mainPanel.add(lblerrlocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 620, -1, -1));
 
-        descriptiontxt.setColumns(20);
-        descriptiontxt.setRows(5);
-        jScrollPane1.setViewportView(descriptiontxt);
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
-        mainPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 545, 390, 60));
-        mainPanel.add(lblerrlocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 521, -1, 14));
+        headinglbl.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        headinglbl.setForeground(new java.awt.Color(255, 255, 0));
+        headinglbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        headinglbl.setText("ADD / UPDATE FIRs");
 
-        jLabel11.setText("( HH : MM )");
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        mainPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, -1, -1));
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(96, Short.MAX_VALUE)
+                .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(88, 88, 88))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
 
-        jLabel12.setText("( YYYY-MM-DD )");
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        mainPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 90, 20));
+        mainPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 90));
 
         jScrollPane2.setViewportView(mainPanel);
 
@@ -298,14 +326,14 @@ public class AddUpdateFIRForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 672, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 12, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 779, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 878, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -529,6 +557,7 @@ public class AddUpdateFIRForm extends javax.swing.JFrame {
     private javax.swing.JTextArea descriptiontxt;
     private javax.swing.JTextField fatherNametxt;
     private javax.swing.JTextField firIDtxt;
+    private javax.swing.JLabel headinglbl;
     private com.toedter.calendar.JDateChooser incidentDatetxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -543,6 +572,7 @@ public class AddUpdateFIRForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

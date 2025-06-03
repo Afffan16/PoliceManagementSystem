@@ -212,7 +212,7 @@ public class ViewCriminalForm extends javax.swing.JFrame {
                 .addComponent(searchbartxt, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Searchbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58))
+                .addGap(52, 52, 52))
         );
         searchPanelLayout.setVerticalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,13 +225,13 @@ public class ViewCriminalForm extends javax.swing.JFrame {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        mainPanel.add(searchPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 79, -1, -1));
+        mainPanel.add(searchPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, 79, 810, -1));
 
         headinglbl.setText("VIEW / SEARCH CRIMINAL");
         headinglbl.setBackground(new java.awt.Color(255, 255, 0));
         headinglbl.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
         headinglbl.setForeground(new java.awt.Color(255, 255, 0));
-        mainPanel.add(headinglbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 12, 470, 43));
+        mainPanel.add(headinglbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 530, 43));
 
         SearchResultsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object[][] {},
@@ -261,18 +261,18 @@ public class ViewCriminalForm extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        mainPanel.add(tablePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 143, -1, -1));
+        mainPanel.add(tablePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
 
-        Backbtn.setText("Back");
         Backbtn.setBackground(new java.awt.Color(204, 0, 0));
         Backbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
         Backbtn.setForeground(new java.awt.Color(255, 255, 255));
+        Backbtn.setText("Back");
         Backbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackbtnActionPerformed(evt);
             }
         });
-        mainPanel.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(681, 509, 92, 33));
+        mainPanel.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 530, 92, 33));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -280,14 +280,14 @@ public class ViewCriminalForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 808, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
                 .addContainerGap())
         );
 

@@ -30,11 +30,13 @@ public class CaseInvestigationDashboard extends javax.swing.JFrame {
     private void initComponents() {
 
         jLayeredPane1 = new javax.swing.JLayeredPane();
+        jPanel1 = new javax.swing.JPanel();
         mainPanel = new javax.swing.JPanel();
-        headinglbl = new javax.swing.JLabel();
         completedCasesbtn = new javax.swing.JButton();
         ongoingCasesbtn = new javax.swing.JButton();
         backbtn = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        headinglbl = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -47,18 +49,22 @@ public class CaseInvestigationDashboard extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         mainPanel.setBackground(new java.awt.Color(0, 0, 102));
         mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
         mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        headinglbl.setBackground(new java.awt.Color(51, 102, 255));
-        headinglbl.setFont(new java.awt.Font("Wide Latin", 1, 14)); // NOI18N
-        headinglbl.setForeground(new java.awt.Color(255, 255, 0));
-        headinglbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        headinglbl.setText("CASE  INVESTIGATION  MODULE");
-        mainPanel.add(headinglbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 6, 450, 100));
 
         completedCasesbtn.setBackground(new java.awt.Color(0, 204, 51));
         completedCasesbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
@@ -69,7 +75,7 @@ public class CaseInvestigationDashboard extends javax.swing.JFrame {
                 completedCasesbtnActionPerformed(evt);
             }
         });
-        mainPanel.add(completedCasesbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 138, 174, 44));
+        mainPanel.add(completedCasesbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 174, 44));
 
         ongoingCasesbtn.setBackground(new java.awt.Color(0, 0, 0));
         ongoingCasesbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
@@ -80,7 +86,7 @@ public class CaseInvestigationDashboard extends javax.swing.JFrame {
                 ongoingCasesbtnActionPerformed(evt);
             }
         });
-        mainPanel.add(ongoingCasesbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 138, 174, 44));
+        mainPanel.add(ongoingCasesbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 174, 44));
 
         backbtn.setBackground(new java.awt.Color(204, 0, 0));
         backbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
@@ -91,7 +97,34 @@ public class CaseInvestigationDashboard extends javax.swing.JFrame {
                 backbtnActionPerformed(evt);
             }
         });
-        mainPanel.add(backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 214, 120, 40));
+        mainPanel.add(backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 120, 40));
+
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+
+        headinglbl.setBackground(new java.awt.Color(51, 102, 255));
+        headinglbl.setFont(new java.awt.Font("Wide Latin", 1, 14)); // NOI18N
+        headinglbl.setForeground(new java.awt.Color(255, 255, 0));
+        headinglbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        headinglbl.setText("CASE  INVESTIGATION  MODULE");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(39, Short.MAX_VALUE)
+                .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        mainPanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 90));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -106,7 +139,7 @@ public class CaseInvestigationDashboard extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -167,6 +200,8 @@ public class CaseInvestigationDashboard extends javax.swing.JFrame {
     private javax.swing.JButton completedCasesbtn;
     private javax.swing.JLabel headinglbl;
     private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JButton ongoingCasesbtn;
     // End of variables declaration//GEN-END:variables

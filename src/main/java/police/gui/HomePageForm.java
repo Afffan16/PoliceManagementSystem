@@ -6,6 +6,8 @@
 package police.gui;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 /**
  *
  * @author HP
@@ -34,10 +36,21 @@ public class HomePageForm extends javax.swing.JFrame {
         PoliceLoginBtn = new javax.swing.JButton();
         HomeBtn = new javax.swing.JButton();
         ReportComplainBtn = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jLabel3 = new javax.swing.JLabel();
+        FAQsbtn = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        TopCasesbtn = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea4 = new javax.swing.JTextArea();
 
         jButton1.setText("jButton1");
 
@@ -113,43 +126,117 @@ public class HomePageForm extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        mainPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 160, 490));
-
-        jTextArea1.setBackground(new java.awt.Color(204, 204, 204));
-        jTextArea1.setColumns(20);
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
-        jTextArea1.setBorder(null);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        mainPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 535, 274));
+        mainPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 160, 500));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel1.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Thana Korangi 3 No");
+        jLabel1.setText("Bahria Software Police Department");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(326, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(124, 124, 124))
+                .addContainerGap(107, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 622, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(61, 61, 61))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(22, 22, 22)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         mainPanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, -1));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Welcome to Bahria Software Police Department");
+        mainPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 480, 50));
+
+        jScrollPane2.setBorder(null);
+
+        jTextArea2.setBackground(new java.awt.Color(204, 204, 204));
+        jTextArea2.setColumns(20);
+        jTextArea2.setLineWrap(true);
+        jTextArea2.setRows(5);
+        jTextArea2.setText("Welcome to Bahria Software Police Department, where our mission is to serve, protect, and uphold justice with dedication and integrity. We are committed to providing prompt and professional services to our citizens, ensuring a safe and secure environment for all.\n\nAt Bahria Software Police Department, you will find a wide range of services under one roof, from FIR registration and verification to case investigation tracking and public assistance. Whether you're here to report an incident, follow up on a case, or seek help, our officers are always ready to assist you with respect and responsibility.");
+        jTextArea2.setWrapStyleWord(true);
+        jTextArea2.setBorder(null);
+        jScrollPane2.setViewportView(jTextArea2);
+
+        mainPanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 570, 140));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel3.setText("Customer Support :");
+        mainPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 410, 160, 40));
+
+        FAQsbtn.setBackground(new java.awt.Color(255, 255, 0));
+        FAQsbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
+        FAQsbtn.setText("FAQs");
+        FAQsbtn.setBorderPainted(false);
+        FAQsbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FAQsbtnActionPerformed(evt);
+            }
+        });
+        mainPanel.add(FAQsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 520, 80, 30));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel5.setText("Our Legacy :");
+        mainPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 130, 40));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel6.setText("Check-Out Our Top Cases Below!");
+        mainPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 390, 190, 40));
+
+        TopCasesbtn.setBackground(new java.awt.Color(204, 0, 0));
+        TopCasesbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
+        TopCasesbtn.setForeground(new java.awt.Color(255, 255, 255));
+        TopCasesbtn.setText("Top Cases");
+        TopCasesbtn.setBorderPainted(false);
+        TopCasesbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TopCasesbtnActionPerformed(evt);
+            }
+        });
+        mainPanel.add(TopCasesbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 430, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel7.setText("Frequently Asked Questions ");
+        mainPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 480, 170, 40));
+
+        jScrollPane3.setBorder(null);
+
+        jTextArea3.setBackground(new java.awt.Color(204, 204, 204));
+        jTextArea3.setColumns(20);
+        jTextArea3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jTextArea3.setLineWrap(true);
+        jTextArea3.setRows(5);
+        jTextArea3.setText("Helpline: +92-300-1234567 (24/7)\n\nEmail: support@bahriasoftwarepolice.pk\n\nAddress: 123 Main Street, Downtown, Karachi 74200, Pakistan");
+        jTextArea3.setWrapStyleWord(true);
+        jTextArea3.setBorder(null);
+        jScrollPane3.setViewportView(jTextArea3);
+
+        mainPanel.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 460, 370, 90));
+
+        jScrollPane4.setBorder(null);
+
+        jTextArea4.setBackground(new java.awt.Color(204, 204, 204));
+        jTextArea4.setColumns(20);
+        jTextArea4.setLineWrap(true);
+        jTextArea4.setRows(5);
+        jTextArea4.setText("Operating since 1967, Bahria Software Police Department has a proud history of serving the community with honor and courage. Over the years, we have evolved with the times, adopting modern tools and technologies to enhance the quality of policing. Our station has been at the forefront of law enforcement efforts, resolving complex cases and maintaining public peace. ");
+        jTextArea4.setWrapStyleWord(true);
+        jTextArea4.setBorder(null);
+        jScrollPane4.setViewportView(jTextArea4);
+
+        mainPanel.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 570, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -164,7 +251,7 @@ public class HomePageForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -185,6 +272,52 @@ public class HomePageForm extends javax.swing.JFrame {
         new HomePageForm().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_HomeBtnActionPerformed
+
+    private void TopCasesbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TopCasesbtnActionPerformed
+        String filePath = "./Resources/Other Stuff/SuccessStories.html";
+            try {
+                File file = new File(filePath);
+                if (file.exists())
+                {
+                    Desktop.getDesktop().open(file);
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(this, "File not found: " + filePath, "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+            catch (IOException e)
+            {
+                JOptionPane.showMessageDialog(this, "Failed to open file: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            catch (UnsupportedOperationException e)
+            {
+                JOptionPane.showMessageDialog(this, "Opening files is not supported on this system.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+    }//GEN-LAST:event_TopCasesbtnActionPerformed
+
+    private void FAQsbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FAQsbtnActionPerformed
+        String filePath = "./Resources/Other Stuff/FAQsCivilians.pdf";
+            try {
+                File file = new File(filePath);
+                if (file.exists())
+                {
+                    Desktop.getDesktop().open(file);
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(this, "File not found: " + filePath, "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+            catch (IOException e)
+            {
+                JOptionPane.showMessageDialog(this, "Failed to open file: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            catch (UnsupportedOperationException e)
+            {
+                JOptionPane.showMessageDialog(this, "Opening files is not supported on this system.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+    }//GEN-LAST:event_FAQsbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,15 +355,26 @@ public class HomePageForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton FAQsbtn;
     private javax.swing.JButton HomeBtn;
     private javax.swing.JButton PoliceLoginBtn;
     private javax.swing.JButton ReportComplainBtn;
+    private javax.swing.JButton TopCasesbtn;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JTextArea jTextArea4;
     private javax.swing.JPanel mainPanel;
     // End of variables declaration//GEN-END:variables
 }

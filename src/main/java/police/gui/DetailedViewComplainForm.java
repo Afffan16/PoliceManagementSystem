@@ -58,8 +58,8 @@ public class DetailedViewComplainForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
         mainPanel = new javax.swing.JPanel();
-        headinglbl = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -87,6 +87,7 @@ public class DetailedViewComplainForm extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         FatherNamelbl = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        headinglbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Complain Details");
@@ -94,78 +95,89 @@ public class DetailedViewComplainForm extends javax.swing.JFrame {
 
         mainPanel.setBackground(new java.awt.Color(0, 0, 102));
         mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        mainPanel.setPreferredSize(new java.awt.Dimension(630, 1000));
         mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        headinglbl.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
-        headinglbl.setForeground(new java.awt.Color(255, 255, 0));
-        headinglbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        headinglbl.setText("View Complaints");
-        mainPanel.add(headinglbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 16, 360, 43));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Complain ID :");
-        mainPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 100, -1));
+        mainPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 100, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Complainant Name :");
-        mainPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+        mainPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Contact :");
-        mainPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
+        mainPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 70, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("NIC :");
-        mainPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
+        mainPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Incident Date :");
-        mainPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
+        mainPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Incident Time :");
-        mainPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, -1, -1));
+        mainPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Location :");
-        mainPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, -1, -1));
+        mainPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Description :");
-        mainPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, -1, -1));
+        mainPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 490, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Evidence :");
-        mainPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, -1, -1));
+        mainPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 610, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Status :");
-        mainPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 580, 80, -1));
-        mainPanel.add(IDlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 447, 17));
-        mainPanel.add(Namelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 447, 17));
-        mainPanel.add(Contactlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 447, 17));
-        mainPanel.add(NIClbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 447, 17));
-        mainPanel.add(Datelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, 447, 17));
-        mainPanel.add(Timelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 447, 17));
-        mainPanel.add(Locationlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 390, 447, 16));
+        mainPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 670, 80, -1));
+
+        IDlbl.setForeground(new java.awt.Color(255, 255, 255));
+        mainPanel.add(IDlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 440, 17));
+
+        Namelbl.setForeground(new java.awt.Color(255, 255, 255));
+        mainPanel.add(Namelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 430, 17));
+
+        Contactlbl.setForeground(new java.awt.Color(255, 255, 255));
+        mainPanel.add(Contactlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 430, 17));
+
+        NIClbl.setForeground(new java.awt.Color(255, 255, 255));
+        mainPanel.add(NIClbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 430, 17));
+
+        Datelbl.setForeground(new java.awt.Color(255, 255, 255));
+        mainPanel.add(Datelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 430, 17));
+
+        Timelbl.setForeground(new java.awt.Color(255, 255, 255));
+        mainPanel.add(Timelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 390, 420, 17));
+
+        Locationlbl.setForeground(new java.awt.Color(255, 255, 255));
+        mainPanel.add(Locationlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 430, 430, 16));
 
         Descriptiontxt.setEditable(false);
         Descriptiontxt.setColumns(20);
         Descriptiontxt.setRows(5);
         jScrollPane1.setViewportView(Descriptiontxt);
 
-        mainPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, 447, 98));
-        mainPanel.add(Statuslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 580, 234, 16));
+        mainPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 480, 447, 98));
+
+        Statuslbl.setForeground(new java.awt.Color(255, 255, 255));
+        mainPanel.add(Statuslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 670, 234, 16));
 
         Backbtn.setBackground(new java.awt.Color(204, 0, 0));
         Backbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
@@ -176,7 +188,7 @@ public class DetailedViewComplainForm extends javax.swing.JFrame {
                 BackbtnActionPerformed(evt);
             }
         });
-        mainPanel.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 600, 92, 33));
+        mainPanel.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 720, 92, 33));
 
         CheckEvidencebtn.setBackground(new java.awt.Color(0, 0, 0));
         CheckEvidencebtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
@@ -187,48 +199,67 @@ public class DetailedViewComplainForm extends javax.swing.JFrame {
                 CheckEvidencebtnActionPerformed(evt);
             }
         });
-        mainPanel.add(CheckEvidencebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 540, 160, 23));
+        mainPanel.add(CheckEvidencebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 610, 160, 23));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Address :");
-        mainPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, -1, -1));
-        mainPanel.add(Addresslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 447, 17));
+        mainPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, -1, -1));
+
+        Addresslbl.setForeground(new java.awt.Color(255, 255, 255));
+        mainPanel.add(Addresslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 430, 20));
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Father's Name :");
-        mainPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
-        mainPanel.add(FatherNamelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 455, 17));
+        mainPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 110, -1));
+
+        FatherNamelbl.setForeground(new java.awt.Color(255, 255, 255));
+        mainPanel.add(FatherNamelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 430, 17));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+
+        headinglbl.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
+        headinglbl.setForeground(new java.awt.Color(255, 255, 0));
+        headinglbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        headinglbl.setText("View Complaints");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 610, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(151, Short.MAX_VALUE)
+                .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(119, 119, 119))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 70, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
-        mainPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 70));
+        mainPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 70));
+
+        jScrollPane2.setViewportView(mainPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 14, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 625, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 675, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 810, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -382,6 +413,7 @@ public class DetailedViewComplainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel mainPanel;
     // End of variables declaration//GEN-END:variables
 }

@@ -78,7 +78,6 @@ public class OfficerProfileForm extends javax.swing.JFrame {
     private void initComponents() {
 
         mainPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         Namelbl = new javax.swing.JLabel();
         BadgeNolbl = new javax.swing.JLabel();
         Ranklbl = new javax.swing.JLabel();
@@ -101,21 +100,15 @@ public class OfficerProfileForm extends javax.swing.JFrame {
         imageLabel = new javax.swing.JLabel();
         Backbtn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
 
         mainPanel.setBackground(new java.awt.Color(0, 0, 102));
         mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
         mainPanel.setPreferredSize(new java.awt.Dimension(800, 600));
         mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("PROFILE INFORMATION");
-        mainPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 26, 440, 74));
 
         Namelbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Namelbl.setForeground(new java.awt.Color(255, 255, 255));
@@ -130,7 +123,7 @@ public class OfficerProfileForm extends javax.swing.JFrame {
         Ranklbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Ranklbl.setForeground(java.awt.Color.white);
         Ranklbl.setText("Rank :");
-        mainPanel.add(Ranklbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 201, 60, 37));
+        mainPanel.add(Ranklbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 60, 37));
 
         Emaillbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Emaillbl.setForeground(java.awt.Color.white);
@@ -150,17 +143,17 @@ public class OfficerProfileForm extends javax.swing.JFrame {
         NoOfCasesSolvedlbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         NoOfCasesSolvedlbl.setForeground(java.awt.Color.white);
         NoOfCasesSolvedlbl.setText("No of Cases Solved :");
-        mainPanel.add(NoOfCasesSolvedlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 397, 150, 33));
+        mainPanel.add(NoOfCasesSolvedlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 150, 33));
 
         SuccessPercentagelbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         SuccessPercentagelbl.setForeground(java.awt.Color.white);
         SuccessPercentagelbl.setText("Success Percentage :");
-        mainPanel.add(SuccessPercentagelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 442, 140, 34));
+        mainPanel.add(SuccessPercentagelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 140, 34));
 
         OfficerGradelbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         OfficerGradelbl.setForeground(java.awt.Color.white);
         OfficerGradelbl.setText("Officer Grade :");
-        mainPanel.add(OfficerGradelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 492, 100, 33));
+        mainPanel.add(OfficerGradelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, 100, 33));
 
         Namedisplay.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Namedisplay.setForeground(new java.awt.Color(255, 0, 0));
@@ -168,40 +161,40 @@ public class OfficerProfileForm extends javax.swing.JFrame {
 
         BadgeNodisplay.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         BadgeNodisplay.setForeground(new java.awt.Color(255, 0, 0));
-        mainPanel.add(BadgeNodisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 168, 283, 33));
+        mainPanel.add(BadgeNodisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 283, 33));
 
         Roledisplay.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Roledisplay.setForeground(new java.awt.Color(255, 0, 0));
-        mainPanel.add(Roledisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 205, 340, 33));
+        mainPanel.add(Roledisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 340, 33));
 
         Emaildisplay.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Emaildisplay.setForeground(new java.awt.Color(255, 0, 0));
-        mainPanel.add(Emaildisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 250, 340, 37));
+        mainPanel.add(Emaildisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 340, 37));
 
         PhoneNodisplay.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         PhoneNodisplay.setForeground(new java.awt.Color(255, 0, 0));
-        mainPanel.add(PhoneNodisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 299, 310, 33));
+        mainPanel.add(PhoneNodisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 299, 320, 33));
 
         ServiceYearsdisplay.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ServiceYearsdisplay.setForeground(new java.awt.Color(255, 0, 0));
-        mainPanel.add(ServiceYearsdisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 346, 280, 33));
+        mainPanel.add(ServiceYearsdisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 280, 33));
 
         NoOfCasesSolveddisplay.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         NoOfCasesSolveddisplay.setForeground(new java.awt.Color(255, 0, 0));
-        mainPanel.add(NoOfCasesSolveddisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 397, 277, 33));
+        mainPanel.add(NoOfCasesSolveddisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 277, 33));
 
         SuccessPercentagedisplay.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         SuccessPercentagedisplay.setForeground(new java.awt.Color(255, 0, 0));
-        mainPanel.add(SuccessPercentagedisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 443, 268, 33));
+        mainPanel.add(SuccessPercentagedisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 268, 33));
 
         OfficerGradedisplay.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         OfficerGradedisplay.setForeground(new java.awt.Color(255, 0, 0));
-        mainPanel.add(OfficerGradedisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 492, 319, 33));
+        mainPanel.add(OfficerGradedisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 480, 319, 33));
 
         imagePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         imageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imagePanel.add(imageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 0, 210, 177));
+        imagePanel.add(imageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 177));
 
         mainPanel.add(imagePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, 210, -1));
 
@@ -219,15 +212,26 @@ public class OfficerProfileForm extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
+        jLabel1.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("PROFILE INFORMATION");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 590, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(82, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         mainPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 100));
@@ -238,8 +242,8 @@ public class OfficerProfileForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

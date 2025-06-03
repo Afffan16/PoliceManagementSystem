@@ -45,7 +45,6 @@ public class DisplayCaseDetails extends javax.swing.JFrame
 
         jScrollPane4 = new javax.swing.JScrollPane();
         mainPanel = new javax.swing.JPanel();
-        headinglbl = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -99,22 +98,17 @@ public class DisplayCaseDetails extends javax.swing.JFrame
         addressField = new javax.swing.JTextField();
         Backbtn01 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        headinglbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Case Details");
+        setPreferredSize(new java.awt.Dimension(730, 730));
 
         mainPanel.setBackground(new java.awt.Color(0, 0, 102));
         mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
-        mainPanel.setPreferredSize(new java.awt.Dimension(680, 1000));
+        mainPanel.setPreferredSize(new java.awt.Dimension(710, 1000));
         mainPanel.setVerifyInputWhenFocusTarget(false);
         mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        headinglbl.setBackground(new java.awt.Color(51, 102, 255));
-        headinglbl.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
-        headinglbl.setForeground(new java.awt.Color(255, 255, 0));
-        headinglbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        headinglbl.setText("INVESTIGATION  DETAILS");
-        mainPanel.add(headinglbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 29, 560, 41));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -385,7 +379,12 @@ public class DisplayCaseDetails extends javax.swing.JFrame
         });
         jPanel2.add(finalCriminalField, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 757, 321, -1));
 
-        statusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        statusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Completed" }));
+        statusComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                statusComboBoxActionPerformed(evt);
+            }
+        });
         jPanel2.add(statusComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 791, -1, -1));
 
         complainantNameField.setEditable(false);
@@ -444,15 +443,27 @@ public class DisplayCaseDetails extends javax.swing.JFrame
         jPanel3.setBackground(new java.awt.Color(0, 0, 0));
         jPanel3.setForeground(new java.awt.Color(255, 255, 0));
 
+        headinglbl.setBackground(new java.awt.Color(51, 102, 255));
+        headinglbl.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
+        headinglbl.setForeground(new java.awt.Color(255, 255, 0));
+        headinglbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        headinglbl.setText("INVESTIGATION  DETAILS");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 710, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(92, Short.MAX_VALUE)
+                .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 80, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
 
         mainPanel.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 80));
@@ -465,15 +476,15 @@ public class DisplayCaseDetails extends javax.swing.JFrame
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 1024, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1024, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -577,6 +588,10 @@ public class DisplayCaseDetails extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_addressFieldActionPerformed
 
+    private void statusComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_statusComboBoxActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -626,7 +641,7 @@ public class DisplayCaseDetails extends javax.swing.JFrame
         otherDetailsTextArea.setText(investigation.getOtherDetails());
         caseResultField.setText(investigation.getCaseResult());
         finalCriminalField.setText(investigation.getFinalCriminal());
-        statusComboBox.setModel(new DefaultComboBoxModel<>(new String[]{"Initiated", "Active", "Completed"}));
+        statusComboBox.setModel(new DefaultComboBoxModel<>(new String[]{"Active", "Completed"}));
         statusComboBox.setSelectedItem(investigation.getStatus());
         CSVHandler.FIRData firData = csvHandler.getFIRData(investigation.getFirId());
         if (firData != null) 

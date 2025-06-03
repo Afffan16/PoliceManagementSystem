@@ -8,7 +8,7 @@ package police.model;
  *
  * @author HP
  */
-public class Criminal 
+public class Criminal extends Person
 {
     private String criminalId;
     private String criminalName;
@@ -43,4 +43,16 @@ public class Criminal
     public String getArrestStatus() { return arrestStatus; }
     public String getDateOfArrest() { return dateOfArrest; }
     public String getDescriptionForArrest() { return descriptionForArrest; }
+        @Override 
+    public String getname(){
+        return criminalName;
+    }
+
+    @Override
+    String getID() {
+        return criminalId;
+    }
+    
+   
+
 }

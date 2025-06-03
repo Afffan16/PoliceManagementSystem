@@ -94,64 +94,64 @@ public class AddUpdateOfficersForm extends javax.swing.JFrame {
         mainPanel.setPreferredSize(new java.awt.Dimension(700, 1000));
         mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("OFFICER ID :");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         mainPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 32, 90, 21));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Username :");
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         mainPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 83, 90, 27));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Password :");
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         mainPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 143, 90, 27));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Role :");
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         mainPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 203, 59, 27));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Badge No :");
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         mainPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 90, 27));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Email : ");
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         mainPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 72, 27));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Phone No :");
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         mainPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 439, 90, 30));
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Service Years :");
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         mainPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 502, 112, 27));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Cases Solved :");
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         mainPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 564, 112, 27));
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Success Percentage :");
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         mainPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 624, 151, 27));
 
         officerIDtxt.setEditable(false);
@@ -241,7 +241,7 @@ public class AddUpdateOfficersForm extends javax.swing.JFrame {
         mainPanel.add(lblerrAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 353, -1, 12));
         mainPanel.add(lblerrdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 412, -1, 12));
         mainPanel.add(lblerrtime, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 475, -1, 11));
-        mainPanel.add(lblerrdiscription, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 609, -1, 12));
+        mainPanel.add(lblerrdiscription, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 600, -1, 12));
         mainPanel.add(lblerrCrimeType, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 673, -1, 11));
         mainPanel.add(lblerrlocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 535, -1, 14));
 

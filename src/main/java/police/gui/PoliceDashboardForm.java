@@ -3,6 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package police.gui;
+import java.io.File;
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 import police.*;
 /**
  *
@@ -40,8 +45,23 @@ public class PoliceDashboardForm extends javax.swing.JFrame {
         CRIMINALBtn = new javax.swing.JButton();
         ANALYTICSBtn = new javax.swing.JButton();
         LOGOUTBtn = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea4 = new javax.swing.JTextArea();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTextArea5 = new javax.swing.JTextArea();
+        jLabel6 = new javax.swing.JLabel();
+        VideoBtn = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        FAQsOfficerBtn = new javax.swing.JButton();
+        GuideBookbtn = new javax.swing.JButton();
 
         jButton5.setText("CRIMINAL DATABASE");
         jButton5.setMaximumSize(new java.awt.Dimension(74, 23));
@@ -55,7 +75,7 @@ public class PoliceDashboardForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Police Dashboard");
-        setPreferredSize(new java.awt.Dimension(800, 600));
+        setPreferredSize(new java.awt.Dimension(870, 650));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
@@ -148,16 +168,123 @@ public class PoliceDashboardForm extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 118, 180, 480));
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel5.setText("Officer Support");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 320, 130, 40));
+
         jPanel3.setBackground(new java.awt.Color(0, 0, 0));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("POLICE DASHBOARD");
         jLabel1.setFont(new java.awt.Font("Wide Latin", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(282, 19, 510, 60));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("POLICE DASHBOARD");
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 510, 60));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 860, 120));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Welcome, Officer! ");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, 480, 50));
+
+        jScrollPane2.setBorder(null);
+
+        jTextArea2.setBackground(new java.awt.Color(204, 204, 204));
+        jTextArea2.setColumns(20);
+        jTextArea2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jTextArea2.setLineWrap(true);
+        jTextArea2.setRows(5);
+        jTextArea2.setText("\"The first duty of a government is to maintain law and order, so that the life, property and religious beliefs of its subjects are fully protected by the state.\"\n\n-Quaid-e-Azam Muhammad Ali Jinnah");
+        jTextArea2.setWrapStyleWord(true);
+        jTextArea2.setBorder(null);
+        jScrollPane2.setViewportView(jTextArea2);
+
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 500, 80));
+
+        jScrollPane3.setBorder(null);
+        jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        jTextArea3.setBackground(new java.awt.Color(204, 204, 204));
+        jTextArea3.setColumns(20);
+        jTextArea3.setLineWrap(true);
+        jTextArea3.setRows(5);
+        jTextArea3.setText("This principle guides us, not just as a duty, but as a sacred trust.");
+        jTextArea3.setWrapStyleWord(true);
+        jTextArea3.setBorder(null);
+        jScrollPane3.setViewportView(jTextArea3);
+
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, 370, 30));
+
+        jScrollPane4.setBorder(null);
+
+        jTextArea4.setBackground(new java.awt.Color(204, 204, 204));
+        jTextArea4.setColumns(20);
+        jTextArea4.setLineWrap(true);
+        jTextArea4.setRows(5);
+        jTextArea4.setText("Our mission is simple yet profound:\n\n- To uphold justice without bias\n- To ensure equality before the law\n- To serve the community with honor, integrity, and compassion\n\nStay proud. Stay just. Serve with heart.\nPakistan Zindabad");
+        jTextArea4.setWrapStyleWord(true);
+        jTextArea4.setBorder(null);
+        jScrollPane4.setViewportView(jTextArea4);
+
+        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, 360, 140));
+
+        jScrollPane5.setBorder(null);
+
+        jTextArea5.setBackground(new java.awt.Color(204, 204, 204));
+        jTextArea5.setColumns(20);
+        jTextArea5.setLineWrap(true);
+        jTextArea5.setRows(5);
+        jTextArea5.setText("Welcome to duty, Officer.\n\nYou are more than just a guardian of the law - you are the strength behind justice, the shield for the innocent, and the voice for those who cannot speak. Every uniformed day is an opportunity to protect, to serve, and to lead by example. Your discipline, courage, and commitment echo the values our nation was built upon.");
+        jTextArea5.setWrapStyleWord(true);
+        jTextArea5.setBorder(null);
+        jScrollPane5.setViewportView(jTextArea5);
+
+        jPanel1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 600, 100));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel6.setText("Our Mission :");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 130, 50));
+
+        VideoBtn.setBackground(new java.awt.Color(102, 204, 0));
+        VideoBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        VideoBtn.setForeground(new java.awt.Color(255, 255, 255));
+        VideoBtn.setText("Video Tutorial");
+        VideoBtn.setBorderPainted(false);
+        VideoBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VideoBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(VideoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 420, 160, 40));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel8.setText("Frequently Asked Questions");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 520, 160, 40));
+
+        FAQsOfficerBtn.setBackground(new java.awt.Color(255, 255, 0));
+        FAQsOfficerBtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
+        FAQsOfficerBtn.setText("FAQs");
+        FAQsOfficerBtn.setBorderPainted(false);
+        FAQsOfficerBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FAQsOfficerBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(FAQsOfficerBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 480, 80, 30));
+
+        GuideBookbtn.setBackground(new java.awt.Color(153, 0, 0));
+        GuideBookbtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        GuideBookbtn.setForeground(new java.awt.Color(255, 255, 255));
+        GuideBookbtn.setText("Officer GuideBook");
+        GuideBookbtn.setBorderPainted(false);
+        GuideBookbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GuideBookbtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(GuideBookbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, 190, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -165,15 +292,15 @@ public class PoliceDashboardForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 849, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -211,6 +338,75 @@ public class PoliceDashboardForm extends javax.swing.JFrame {
        new CaseInvestigationDashboard(loggedInUsername).setVisible(true);
 
     }//GEN-LAST:event_CASEBtnActionPerformed
+
+    private void VideoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VideoBtnActionPerformed
+        String filePath = "./Resources/Other Stuff/FAQsCivilians.pdf";
+        try {
+            File file = new File(filePath);
+            if (file.exists())
+            {
+                Desktop.getDesktop().open(file);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "File not found: " + filePath, "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        catch (IOException e)
+        {
+            JOptionPane.showMessageDialog(this, "Failed to open file: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        catch (UnsupportedOperationException e)
+        {
+            JOptionPane.showMessageDialog(this, "Opening files is not supported on this system.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_VideoBtnActionPerformed
+
+    private void FAQsOfficerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FAQsOfficerBtnActionPerformed
+       String filePath = "./Resources/Other Stuff/FAQsOfficers.pdf";
+        try {
+            File file = new File(filePath);
+            if (file.exists())
+            {
+                Desktop.getDesktop().open(file);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "File not found: " + filePath, "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        catch (IOException e)
+        {
+            JOptionPane.showMessageDialog(this, "Failed to open file: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        catch (UnsupportedOperationException e)
+        {
+            JOptionPane.showMessageDialog(this, "Opening files is not supported on this system.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_FAQsOfficerBtnActionPerformed
+
+    private void GuideBookbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuideBookbtnActionPerformed
+        String filePath = "./Resources/Other Stuff/OfficerGuideBookPMS.pdf";
+        try {
+            File file = new File(filePath);
+            if (file.exists())
+            {
+                Desktop.getDesktop().open(file);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "File not found: " + filePath, "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        catch (IOException e)
+        {
+            JOptionPane.showMessageDialog(this, "Failed to open file: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        catch (UnsupportedOperationException e)
+        {
+            JOptionPane.showMessageDialog(this, "Opening files is not supported on this system.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_GuideBookbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -251,13 +447,28 @@ public class PoliceDashboardForm extends javax.swing.JFrame {
     private javax.swing.JButton ANALYTICSBtn;
     private javax.swing.JButton CASEBtn;
     private javax.swing.JButton CRIMINALBtn;
+    private javax.swing.JButton FAQsOfficerBtn;
     private javax.swing.JButton FIRBtn;
+    private javax.swing.JButton GuideBookbtn;
     private javax.swing.JButton LOGOUTBtn;
     private javax.swing.JButton ProfileBtn;
+    private javax.swing.JButton VideoBtn;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JTextArea jTextArea4;
+    private javax.swing.JTextArea jTextArea5;
     // End of variables declaration//GEN-END:variables
 }

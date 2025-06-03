@@ -94,7 +94,7 @@ public class CompletedCasesForm extends javax.swing.JFrame
         ));
         tableScrollPane.setViewportView(Casestable);
 
-        mainPanel.add(tableScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 505, 270));
+        mainPanel.add(tableScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 540, 270));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -108,7 +108,7 @@ public class CompletedCasesForm extends javax.swing.JFrame
                 BackbtnActionPerformed(evt);
             }
         });
-        jPanel1.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(378, 17, 100, -1));
+        jPanel1.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 100, -1));
 
         ViewDetailsbtn.setBackground(new java.awt.Color(0, 0, 0));
         ViewDetailsbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
@@ -119,7 +119,7 @@ public class CompletedCasesForm extends javax.swing.JFrame
                 ViewDetailsbtnActionPerformed(evt);
             }
         });
-        jPanel1.add(ViewDetailsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 17, 133, -1));
+        jPanel1.add(ViewDetailsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 133, -1));
 
         mainPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 393, -1, -1));
 

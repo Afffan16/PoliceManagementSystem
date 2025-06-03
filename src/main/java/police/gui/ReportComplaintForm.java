@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package police.gui;
+import java.awt.Desktop;
 import javax.swing.*;
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -69,6 +70,7 @@ public class ReportComplaintForm extends javax.swing.JFrame {
         IncidentTimetxt = new com.github.lgooddatepicker.components.TimePicker();
         ComplainerNamelbl1 = new javax.swing.JLabel();
         ComplainerFatherNametxt1 = new javax.swing.JTextField();
+        jTextArea2 = new javax.swing.JTextArea();
         txtAddress = new javax.swing.JTextField();
         CNIClbl1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -76,6 +78,7 @@ public class ReportComplaintForm extends javax.swing.JFrame {
         lblerrAddress = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
 
         IncidentDatelbl1.setText("Incident Date  :");
 
@@ -215,6 +218,19 @@ public class ReportComplaintForm extends javax.swing.JFrame {
         });
         mainPanel.add(ComplainerFatherNametxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 148, 298, 30));
 
+        jTextArea2.setBackground(new java.awt.Color(0, 0, 102));
+        jTextArea2.setColumns(20);
+        jTextArea2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jTextArea2.setForeground(new java.awt.Color(255, 255, 255));
+        jTextArea2.setLineWrap(true);
+        jTextArea2.setRows(5);
+        jTextArea2.setText("Facing Issues reporting online?\nClick here to download the report document, \nfill it and submit to nearest station   ->");
+        jTextArea2.setWrapStyleWord(true);
+        jTextArea2.setBorder(null);
+        jTextArea2.setHighlighter(null);
+        jTextArea2.setPreferredSize(new java.awt.Dimension(300, 200));
+        mainPanel.add(jTextArea2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 760, 270, 60));
+
         txtAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAddressActionPerformed(evt);
@@ -255,13 +271,25 @@ public class ReportComplaintForm extends javax.swing.JFrame {
 
         mainPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 80));
 
+        jButton3.setText("Open Form PDF");
+        jButton3.setBackground(new java.awt.Color(204, 0, 0));
+        jButton3.setBorderPainted(false);
+        jButton3.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        mainPanel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 770, 150, 40));
+
         jScrollPane4.setViewportView(mainPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 617, Short.MAX_VALUE)
                 .addContainerGap())
@@ -270,8 +298,8 @@ public class ReportComplaintForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
-                .addGap(25, 25, 25))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 878, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -354,6 +382,29 @@ public class ReportComplaintForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAddressActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        String filePath = "./Resources/Other Stuff/ReportComplainForm.pdf";
+            try {
+                File file = new File(filePath);
+                if (file.exists())
+                {
+                    Desktop.getDesktop().open(file);
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(this, "File not found: " + filePath, "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+            catch (IOException e)
+            {
+                JOptionPane.showMessageDialog(this, "Failed to open file: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            catch (UnsupportedOperationException e)
+            {
+                JOptionPane.showMessageDialog(this, "Opening files is not supported on this system.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -421,6 +472,7 @@ public class ReportComplaintForm extends javax.swing.JFrame {
     private javax.swing.JTextField Locationtxt;
     private javax.swing.JButton Submitbtn;
     private com.toedter.calendar.JDateChooser dateChoosertxt;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -438,6 +490,7 @@ public class ReportComplaintForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JLabel lblerrAddress;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JTextField txtAddress;

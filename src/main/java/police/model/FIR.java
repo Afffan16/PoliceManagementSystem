@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
  */
 
 
-public class FIR
+public class FIR extends Person
 {
     private String firId;
     private String complainantName;
@@ -93,5 +93,15 @@ public class FIR
     public String toString()
     {
         return "FIR{firId=" + firId + ", complainantName=" + complainantName + ", incidentDate=" + incidentDate + "}";
+    }
+
+    @Override
+    String getname() {
+        return complainantName;
+    }
+
+    @Override
+    String getID() {
+      return firId;
     }
 }

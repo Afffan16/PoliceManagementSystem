@@ -37,10 +37,8 @@ public class AnalyticsForm extends javax.swing.JFrame {
         jYearChooser1 = new com.toedter.calendar.JYearChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
+        setBackground(new java.awt.Color(0, 0, 102));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jMonthChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 44, -1, -1));
-        getContentPane().add(jYearChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(341, 44, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 0));
@@ -90,8 +88,6 @@ public class AnalyticsForm extends javax.swing.JFrame {
         });
         jPanel1.add(btnveiw, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 480, 150, 30));
 
-        getContentPane().add(btnveiw, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 506, 142, -1));
-
         Backbtn.setBackground(new java.awt.Color(204, 0, 0));
         Backbtn.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
         Backbtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -105,8 +101,7 @@ public class AnalyticsForm extends javax.swing.JFrame {
         jPanel1.add(jMonthChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 430, -1, -1));
         jPanel1.add(jYearChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 430, 100, 20));
 
-
-        getContentPane().add(chartPanelContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 84, -1, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 570));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

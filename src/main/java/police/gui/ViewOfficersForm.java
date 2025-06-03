@@ -260,7 +260,7 @@ public class ViewOfficersForm extends javax.swing.JFrame {
         headinglbl.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
         headinglbl.setForeground(new java.awt.Color(255, 255, 0));
         headinglbl.setText("View / Search Officers");
-        mainPanel.add(headinglbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 12, 373, 43));
+        mainPanel.add(headinglbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 373, 43));
 
         SearchResultsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object[][] {},
@@ -316,7 +316,7 @@ public class ViewOfficersForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 558, Short.MAX_VALUE)
                 .addContainerGap())
         );
 

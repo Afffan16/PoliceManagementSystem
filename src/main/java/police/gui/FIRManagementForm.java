@@ -194,7 +194,7 @@ public class FIRManagementForm extends javax.swing.JFrame {
                 AddbtnActionPerformed(evt);
             }
         });
-        jPanel1.add(Addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 23, 110, 33));
+        jPanel1.add(Addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 110, 33));
 
         Deletebtn.setBackground(new java.awt.Color(0, 0, 0));
         Deletebtn.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -208,7 +208,7 @@ public class FIRManagementForm extends javax.swing.JFrame {
                 DeletebtnActionPerformed(evt);
             }
         });
-        jPanel1.add(Deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 23, 110, 33));
+        jPanel1.add(Deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, 110, 33));
 
         Updatebtn.setBackground(new java.awt.Color(0, 0, 0));
         Updatebtn.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -222,7 +222,7 @@ public class FIRManagementForm extends javax.swing.JFrame {
                 UpdatebtnActionPerformed(evt);
             }
         });
-        jPanel1.add(Updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 23, 100, 33));
+        jPanel1.add(Updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 100, 33));
 
         Backbtn.setBackground(new java.awt.Color(204, 0, 0));
         Backbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
@@ -233,7 +233,7 @@ public class FIRManagementForm extends javax.swing.JFrame {
                 BackbtnActionPerformed(evt);
             }
         });
-        jPanel1.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(625, 23, 92, 33));
+        jPanel1.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, 92, 33));
 
         mainPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, -1, -1));
 
@@ -244,14 +244,14 @@ public class FIRManagementForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(34, 34, 34))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap()
+                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

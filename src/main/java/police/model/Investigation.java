@@ -13,7 +13,8 @@ import java.util.stream.Collectors;
  * @author HP
  */
 
-public class Investigation {
+public class Investigation implements Investigatable
+{
     private String investigationId;
     private String firId;
     private Date creationDate;
@@ -78,7 +79,6 @@ public class Investigation {
     public String getOfficerId2() { return officerId2; }
     public void setOfficerId2(String officerId2) { this.officerId2 = officerId2; }
 
-    public List<String> getEvidencePaths() { return evidencePaths; }
     public void setEvidencePaths(List<String> evidencePaths) { this.evidencePaths = evidencePaths; }
     public void addEvidencePath(String path) { this.evidencePaths.add(path); }
 
@@ -125,4 +125,37 @@ public class Investigation {
                 status,
                 sdf.format(lastUpdated));
     }
+    @Override
+    public void addEvidence(String path) {
+        if (evidencePaths == null) 
+        {
+            evidencePaths = new ArrayList<>();
+        }
+        evidencePaths.add(path);
+    }
+
+    @Override
+    public void updateStatus(String status) {
+        this.status = status;
+        this.lastUpdated = new Date();
+    }
+
+    @Override
+    public String getCaseSummary() {
+        return String.format("Investigation %s (FIR: %s)\nStatus: %s\nOfficers: %s, %s\nEvidence Items: %d",
+                investigationId, firId, status, officerId1, officerId2, 
+                evidencePaths != null ? evidencePaths.size() : 0);
+    }
+
+    @Override
+    public List<String> getEvidencePaths() {
+        return evidencePaths;
+    }
+
+    @Override
+    public String getCurrentStatus() {
+        return status;
+    }
+
+    
 }

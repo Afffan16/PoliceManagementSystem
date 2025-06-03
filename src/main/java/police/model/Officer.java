@@ -10,7 +10,7 @@ package police.model;
  */
 
 
-public class Officer 
+public class Officer extends Person
 {
     private String officerId;
     private String username;
@@ -59,4 +59,12 @@ public class Officer
     public double getSuccessPercentage() { return successPercentage; }
     public String getGrade() { return grade; }
     public String getImagePath() { return imagePath; }
+    @Override 
+    public String getname(){
+        return name;
+    }
+     @Override 
+     public String getID(){
+         return officerId;
+     }
 }

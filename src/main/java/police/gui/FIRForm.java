@@ -36,11 +36,12 @@ public class FIRForm extends javax.swing.JFrame {
 
         jButton3 = new javax.swing.JButton();
         mainPanel = new javax.swing.JPanel();
-        headinglbl = new javax.swing.JLabel();
         checkComplainsbtn = new javax.swing.JButton();
         ViewFIRsbtn = new javax.swing.JButton();
         manageFIRsbtn = new javax.swing.JButton();
         Backbtn = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        headinglbl = new javax.swing.JLabel();
 
         jButton3.setBackground(new java.awt.Color(255, 255, 204));
         jButton3.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
@@ -54,11 +55,6 @@ public class FIRForm extends javax.swing.JFrame {
         mainPanel.setBackground(new java.awt.Color(0, 0, 102));
         mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
         mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        headinglbl.setFont(new java.awt.Font("Wide Latin", 1, 24)); // NOI18N
-        headinglbl.setForeground(new java.awt.Color(255, 255, 0));
-        headinglbl.setText("FIR MODULE");
-        mainPanel.add(headinglbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 39, 390, -1));
 
         checkComplainsbtn.setBackground(new java.awt.Color(0, 0, 0));
         checkComplainsbtn.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
@@ -104,13 +100,23 @@ public class FIRForm extends javax.swing.JFrame {
         });
         mainPanel.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 234, 180, 44));
 
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        headinglbl.setFont(new java.awt.Font("Wide Latin", 1, 24)); // NOI18N
+        headinglbl.setForeground(new java.awt.Color(255, 255, 0));
+        headinglbl.setText("FIR MODULE");
+        jPanel1.add(headinglbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 390, 40));
+
+        mainPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 90));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE))
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,6 +188,7 @@ public class FIRForm extends javax.swing.JFrame {
     private javax.swing.JButton checkComplainsbtn;
     private javax.swing.JLabel headinglbl;
     private javax.swing.JButton jButton3;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JButton manageFIRsbtn;
     // End of variables declaration//GEN-END:variables

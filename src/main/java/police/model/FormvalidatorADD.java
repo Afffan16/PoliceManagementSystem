@@ -11,7 +11,8 @@ import static police.model.FormValidator.applyCnicaDash;
  *
  * @author CC
  */
-public class FormvalidatorADD {
+public class FormvalidatorADD 
+{
     public static boolean ValidateAddCriminalForm(JTextField name, JLabel lblerrname,
                                               JTextField cnic, JLabel lblerrcnic,
                                               JTextField address, JLabel lblerraddress,
@@ -88,25 +89,26 @@ public class FormvalidatorADD {
 }
 
     
-    public static boolean validateCNIC(JTextField txtcnic, JLabel lblerrcnic) {
-    String raw = txtcnic.getText();
+    public static boolean validateCNIC(JTextField txtcnic, JLabel lblerrcnic)
+    {
+        String raw = txtcnic.getText();
 
-    lblerrcnic.setText("");
+        lblerrcnic.setText("");
 
-    if (raw == null || raw.trim().isEmpty()) {
-        lblerrcnic.setText("<html><span style='color:red; font-weight:bold;'>CNIC is required.</span></html>");
-        return false;
+        if (raw == null || raw.trim().isEmpty()) {
+            lblerrcnic.setText("<html><span style='color:red; font-weight:bold;'>CNIC is required.</span></html>");
+            return false;
+        }
+
+        String digits = raw.replaceAll("[-\\s]", "").trim();
+
+        if (!digits.matches("\\d{13}")) {
+            lblerrcnic.setText("<html><span style='color:red; font-weight:bold;'>CNIC must be exactly 13 digits.</span></html>");
+            return false;
+        }
+
+        applyCnicaDash(txtcnic, digits);
+        return true;
     }
-
-    String digits = raw.replaceAll("[-\\s]", "").trim();
-
-    if (!digits.matches("\\d{13}")) {
-        lblerrcnic.setText("<html><span style='color:red; font-weight:bold;'>CNIC must be exactly 13 digits.</span></html>");
-        return false;
-    }
-
-    applyCnicaDash(txtcnic, digits);
-    return true;
-}
 
 }

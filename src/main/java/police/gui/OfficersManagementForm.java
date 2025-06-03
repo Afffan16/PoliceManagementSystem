@@ -167,7 +167,7 @@ public class OfficersManagementForm extends javax.swing.JFrame {
         headinglbl.setForeground(new java.awt.Color(255, 255, 0));
         headinglbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         headinglbl.setText("MANAGE OFFICERS");
-        mainPanel.add(headinglbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 12, 370, 43));
+        mainPanel.add(headinglbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 370, 43));
 
         SearchResultsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object[][] {},

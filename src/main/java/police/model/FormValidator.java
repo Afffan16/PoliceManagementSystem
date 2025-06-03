@@ -12,7 +12,8 @@ import javax.swing.*;
  *
  * @author CC
  */
-public class FormValidator {
+public class FormValidator
+{
      public static boolean validateForm(
         JTextField ComplainerNametxt, JLabel jLabel4,
         JTextField ComplainerFatherNametxt, JLabel jLabel12,
@@ -23,7 +24,8 @@ public class FormValidator {
         TimePicker IncidentTimetxt, JLabel jLabel9, 
         JTextField Locationtxt, JLabel jLabel10,
         JTextArea Descriptiontxt, JLabel jLabel11
-    ) {
+    ) 
+    {
         boolean isValid = true;
 
         // clear all error labels
@@ -193,7 +195,7 @@ public class FormValidator {
 
      
      
-     
+    
     private static boolean validateCNIC(JTextField txtcnic, JLabel jLabel4) {
         String raw = txtcnic.getText();
         if (raw == null || raw.trim().isEmpty()) {

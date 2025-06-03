@@ -10,7 +10,6 @@ import police.CSVHandler;
 import police.model.FormValidator;
 import com.toedter.calendar.JDateChooser;
 import java.util.Date;
-import police.model.FormvalidatorADD;
 /**
  *
  * @author waqar
@@ -113,7 +112,7 @@ public class AddCriminalForm extends javax.swing.JFrame
                 txtIDActionPerformed(evt);
             }
         });
-        mainPanel.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 106, 305, 30));
+        mainPanel.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 305, 30));
 
         ComplainerNamelbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ComplainerNamelbl.setForeground(new java.awt.Color(255, 255, 255));
@@ -125,13 +124,13 @@ public class AddCriminalForm extends javax.swing.JFrame
                 ComplainerNametxtActionPerformed(evt);
             }
         });
-        mainPanel.add(ComplainerNametxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 166, 305, 30));
+        mainPanel.add(ComplainerNametxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 305, 30));
 
         CNIClbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         CNIClbl.setForeground(new java.awt.Color(255, 255, 255));
         CNIClbl.setText("CNIC No :");
         mainPanel.add(CNIClbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 233, -1, -1));
-        mainPanel.add(Cnictxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 226, 304, 30));
+        mainPanel.add(Cnictxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 304, 30));
 
         ComplainerAddresslbl1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ComplainerAddresslbl1.setForeground(new java.awt.Color(255, 255, 255));
@@ -143,7 +142,7 @@ public class AddCriminalForm extends javax.swing.JFrame
                 CriminalAddresstxtActionPerformed(evt);
             }
         });
-        mainPanel.add(CriminalAddresstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 286, 304, 30));
+        mainPanel.add(CriminalAddresstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 304, 30));
 
         ComplainerContactlbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ComplainerContactlbl.setForeground(new java.awt.Color(255, 255, 255));
@@ -155,7 +154,7 @@ public class AddCriminalForm extends javax.swing.JFrame
                 ComplainerContacttxt2ActionPerformed(evt);
             }
         });
-        mainPanel.add(ComplainerContacttxt2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 346, 304, 30));
+        mainPanel.add(ComplainerContacttxt2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, 304, 30));
 
         Statuslbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Statuslbl.setForeground(new java.awt.Color(255, 255, 255));
@@ -167,7 +166,7 @@ public class AddCriminalForm extends javax.swing.JFrame
                 txtStatusActionPerformed(evt);
             }
         });
-        mainPanel.add(txtStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 406, 304, 30));
+        mainPanel.add(txtStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, 304, 30));
 
         IncidentDatelbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         IncidentDatelbl.setForeground(new java.awt.Color(255, 255, 255));
@@ -178,7 +177,7 @@ public class AddCriminalForm extends javax.swing.JFrame
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("( YYYY-MM-DD )");
         mainPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 488, -1, -1));
-        mainPanel.add(dateChoosertxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 466, 304, 31));
+        mainPanel.add(dateChoosertxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 470, 304, 31));
 
         Descriptionlbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Descriptionlbl.setForeground(new java.awt.Color(255, 255, 255));
@@ -190,7 +189,7 @@ public class AddCriminalForm extends javax.swing.JFrame
         Descriptiontxt.setRows(5);
         jScrollPane1.setViewportView(Descriptiontxt);
 
-        mainPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 528, 304, 110));
+        mainPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 530, 304, 110));
 
         Submitbtn.setBackground(new java.awt.Color(0, 0, 0));
         Submitbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
@@ -275,14 +274,6 @@ public class AddCriminalForm extends javax.swing.JFrame
     }//GEN-LAST:event_CriminalAddresstxtActionPerformed
 
     private void SubmitbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitbtnActionPerformed
-       
-        FormvalidatorADD.ValidateAddCriminalForm(ComplainerNametxt,lblerrname,
-                                 Cnictxt,lblerrcnic,
-                                 CriminalAddresstxt,lblerraddress,
-                                 ComplainerContacttxt2,lblerrcrime,
-                                 txtStatus,lblerrstatus,
-                                 dateChoosertxt,lblerrdate,
-                                 Descriptiontxt,lblerrdiscription);
         try 
         {
             Date chooser = dateChoosertxt.getDate();       
@@ -308,12 +299,10 @@ public class AddCriminalForm extends javax.swing.JFrame
         }
         catch (Exception ex) 
         {
-//            JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(), 
-//                                        "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(), 
+                                        "Error", JOptionPane.ERROR_MESSAGE);
             ex.printStackTrace();
         }
-        
-        
     }//GEN-LAST:event_SubmitbtnActionPerformed
 
     private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
@@ -408,14 +397,6 @@ public class AddCriminalForm extends javax.swing.JFrame
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lblerraddress;
-    private javax.swing.JLabel lblerrcnic;
-    private javax.swing.JLabel lblerrcrime;
-    private javax.swing.JLabel lblerrdate;
-    private javax.swing.JLabel lblerrdiscription;
-    private javax.swing.JLabel lblerrimg;
-    private javax.swing.JLabel lblerrname;
-    private javax.swing.JLabel lblerrstatus;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtStatus;

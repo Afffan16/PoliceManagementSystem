@@ -88,7 +88,6 @@ public class InvestigationForm extends javax.swing.JFrame {
         jToolBar1 = new javax.swing.JToolBar();
         jScrollPane4 = new javax.swing.JScrollPane();
         mainPanel = new javax.swing.JPanel();
-        headinglbl = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -146,6 +145,7 @@ public class InvestigationForm extends javax.swing.JFrame {
         Savebtn = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+        headinglbl = new javax.swing.JLabel();
 
         Savebtn1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         Savebtn1.setText("Save");
@@ -157,17 +157,12 @@ public class InvestigationForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(720, 650));
 
+        jScrollPane4.setPreferredSize(new java.awt.Dimension(702, 1300));
+
         mainPanel.setBackground(new java.awt.Color(0, 0, 102));
         mainPanel.setForeground(new java.awt.Color(0, 0, 102));
-        mainPanel.setPreferredSize(new java.awt.Dimension(700, 1200));
+        mainPanel.setPreferredSize(new java.awt.Dimension(700, 1500));
         mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        headinglbl.setBackground(new java.awt.Color(51, 102, 255));
-        headinglbl.setFont(new java.awt.Font("Wide Latin", 0, 18)); // NOI18N
-        headinglbl.setForeground(new java.awt.Color(255, 255, 0));
-        headinglbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        headinglbl.setText("CASE DETAILS / MANAGEMENT");
-        mainPanel.add(headinglbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 18, 730, 41));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 102));
         jPanel1.setForeground(new java.awt.Color(0, 0, 102));
@@ -506,7 +501,7 @@ public class InvestigationForm extends javax.swing.JFrame {
                 BackbtnActionPerformed(evt);
             }
         });
-        jPanel2.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 850, 100, -1));
+        jPanel2.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 850, 100, -1));
 
         Savebtn.setBackground(new java.awt.Color(51, 204, 0));
         Savebtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
@@ -517,27 +512,39 @@ public class InvestigationForm extends javax.swing.JFrame {
                 SavebtnActionPerformed(evt);
             }
         });
-        jPanel2.add(Savebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 850, 80, -1));
+        jPanel2.add(Savebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 850, 80, -1));
 
-        mainPanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, 77, -1, -1));
+        mainPanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, 77, -1, 900));
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         mainPanel.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, -1));
 
         jPanel4.setBackground(new java.awt.Color(0, 0, 0));
 
+        headinglbl.setBackground(new java.awt.Color(51, 102, 255));
+        headinglbl.setFont(new java.awt.Font("Wide Latin", 0, 18)); // NOI18N
+        headinglbl.setForeground(new java.awt.Color(255, 255, 0));
+        headinglbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        headinglbl.setText("CASE DETAILS / MANAGEMENT");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 780, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 70, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        mainPanel.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 70));
+        mainPanel.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 70));
 
         jScrollPane4.setViewportView(mainPanel);
 
@@ -545,13 +552,17 @@ public class InvestigationForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 724, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 980, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 996, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

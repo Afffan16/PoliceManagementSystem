@@ -50,7 +50,7 @@ public class ManageOfficersForm extends javax.swing.JFrame {
                 ViewOfficersbtnActionPerformed(evt);
             }
         });
-        mainPanel1.add(ViewOfficersbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 149, -1, 44));
+        mainPanel1.add(ViewOfficersbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 149, 210, 44));
 
         manageOfficersbtn.setBackground(new java.awt.Color(0, 0, 0));
         manageOfficersbtn.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
@@ -62,7 +62,7 @@ public class ManageOfficersForm extends javax.swing.JFrame {
                 manageOfficersbtnActionPerformed(evt);
             }
         });
-        mainPanel1.add(manageOfficersbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(334, 149, 174, 44));
+        mainPanel1.add(manageOfficersbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(334, 149, 180, 44));
 
         Backbtn.setBackground(new java.awt.Color(204, 0, 0));
         Backbtn.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
@@ -84,7 +84,7 @@ public class ManageOfficersForm extends javax.swing.JFrame {
         headinglbl1.setText("Manage Officers");
         jPanel1.add(headinglbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 340, 50));
 
-        mainPanel1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 90));
+        mainPanel1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 90));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,13 +92,15 @@ public class ManageOfficersForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(mainPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE))
+                .addComponent(mainPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();

@@ -59,7 +59,6 @@ public class OngoingCasesForm extends javax.swing.JFrame {
     private void initComponents() {
 
         mainPanel2 = new javax.swing.JPanel();
-        headinglbl2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         Backbtn2 = new javax.swing.JButton();
         ManageViewCasebtn = new javax.swing.JButton();
@@ -67,6 +66,7 @@ public class OngoingCasesForm extends javax.swing.JFrame {
         tablePane = new javax.swing.JScrollPane();
         ongoingCasesTable = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
+        headinglbl2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -74,13 +74,6 @@ public class OngoingCasesForm extends javax.swing.JFrame {
         mainPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
         mainPanel2.setPreferredSize(new java.awt.Dimension(600, 520));
         mainPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        headinglbl2.setBackground(new java.awt.Color(51, 102, 255));
-        headinglbl2.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
-        headinglbl2.setForeground(new java.awt.Color(255, 255, 0));
-        headinglbl2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        headinglbl2.setText("ONGOING CASES");
-        mainPanel2.add(headinglbl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 20, 310, 37));
 
         jPanel3.setBackground(new java.awt.Color(0, 0, 102));
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -96,7 +89,7 @@ public class OngoingCasesForm extends javax.swing.JFrame {
                 Backbtn2ActionPerformed(evt);
             }
         });
-        jPanel3.add(Backbtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 17, 93, 30));
+        jPanel3.add(Backbtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 93, 30));
 
         ManageViewCasebtn.setBackground(new java.awt.Color(0, 0, 0));
         ManageViewCasebtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
@@ -108,7 +101,7 @@ public class OngoingCasesForm extends javax.swing.JFrame {
                 ManageViewCasebtnActionPerformed(evt);
             }
         });
-        jPanel3.add(ManageViewCasebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 17, 120, 30));
+        jPanel3.add(ManageViewCasebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 120, 30));
 
         AssignOfficersBtn.setBackground(new java.awt.Color(0, 0, 0));
         AssignOfficersBtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
@@ -120,7 +113,7 @@ public class OngoingCasesForm extends javax.swing.JFrame {
                 AssignOfficersBtnActionPerformed(evt);
             }
         });
-        jPanel3.add(AssignOfficersBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 17, 151, 30));
+        jPanel3.add(AssignOfficersBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 151, 30));
 
         mainPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 347, 505, -1));
 
@@ -152,19 +145,31 @@ public class OngoingCasesForm extends javax.swing.JFrame {
             ongoingCasesTable.getColumnModel().getColumn(3).setPreferredWidth(100);
         }
 
-        mainPanel2.add(tablePane, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 95, 505, 240));
+        mainPanel2.add(tablePane, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 505, 240));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+
+        headinglbl2.setBackground(new java.awt.Color(51, 102, 255));
+        headinglbl2.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
+        headinglbl2.setForeground(new java.awt.Color(255, 255, 0));
+        headinglbl2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        headinglbl2.setText("ONGOING CASES");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 590, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(157, Short.MAX_VALUE)
+                .addComponent(headinglbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(123, 123, 123))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 70, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(headinglbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         mainPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 70));
