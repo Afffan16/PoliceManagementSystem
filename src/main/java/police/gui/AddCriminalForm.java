@@ -7,9 +7,12 @@ import javax.swing.*;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import police.CSVHandler;
+import police.model.Criminal;
 import police.model.FormValidator;
 import com.toedter.calendar.JDateChooser;
+import java.text.ParseException;
 import java.util.Date;
+import java.util.List;
 /**
  *
  * @author waqar
@@ -17,21 +20,32 @@ import java.util.Date;
 public class AddCriminalForm extends javax.swing.JFrame 
 {
     private String imagePath = "";
-    
-    private CriminalManagementForm CriminalManagementForm = null;
+    private CriminalManagementForm parent;
+    private Criminal criminal;
+    private boolean isAddMode;
+    private static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    private CSVHandler csvHandler;
+    private String loggedInUsername;
+
     public AddCriminalForm() 
     {
         initComponents();
         setLocationRelativeTo(null);
+        this.csvHandler = new CSVHandler();
         autoGenerateCriminalId();
     }
-    public AddCriminalForm(CriminalManagementForm CriminalManagementForm) 
-    {
+
+    public AddCriminalForm(CriminalManagementForm parent, Criminal criminal, String loggedInUsername) {
+        this.parent = parent;
+        this.criminal = criminal;
+        this.isAddMode = (criminal == null);
+        this.csvHandler = new CSVHandler();
+        this.loggedInUsername = loggedInUsername;
         initComponents();
-        setLocationRelativeTo(null);
-        this.CriminalManagementForm = CriminalManagementForm;
-        autoGenerateCriminalId();
+        setLocationRelativeTo(parent);
+        populateFields();
     }
+
     
     private void autoGenerateCriminalId()
     {
@@ -97,9 +111,10 @@ public class AddCriminalForm extends javax.swing.JFrame
         mainPanel.setPreferredSize(new java.awt.Dimension(600, 1000));
         mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        headinglbl.setFont(new java.awt.Font("Wide Latin", 3, 30)); // NOI18N
+        headinglbl.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         headinglbl.setForeground(new java.awt.Color(255, 255, 0));
-        headinglbl.setText("ADD   CRIMINAL ");
+        headinglbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        headinglbl.setText("ADD / UPDATE CRIMINALS ");
         mainPanel.add(headinglbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 15, 490, 60));
 
         ComplainerIDlbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -276,33 +291,83 @@ public class AddCriminalForm extends javax.swing.JFrame
     private void SubmitbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitbtnActionPerformed
         try 
         {
-            Date chooser = dateChoosertxt.getDate();       
-            SimpleDateFormat sdf = new SimpleDateFormat("DD/mm/yyyy");
-            String formattedDate = sdf.format(chooser);
-            
-            CriminalManagementForm.addCriminalToCSV(
-                txtID.getText().trim(),
-                ComplainerNametxt.getText().trim(),
-                Cnictxt.getText().trim(),
-                CriminalAddresstxt.getText().trim(),
-                imagePath,
-                ComplainerContacttxt2.getText().trim(),
-                txtStatus.getText().trim(),
-                formattedDate,
-                Descriptiontxt.getText().trim()
-            );
-
-            JOptionPane.showMessageDialog(this, "Criminal record added successfully!");
-            String loggedInUsername = null;
+            Date arrestDate = dateChoosertxt.getDate();
+            String formattedDate = null;
+            if (arrestDate != null) 
+            {
+                formattedDate = sdf.format(arrestDate);
+            }            
+            String criminalId = txtID.getText().trim();
+            String criminalName = ComplainerNametxt.getText().trim();
+            String cnic = Cnictxt.getText().trim();
+            String address = CriminalAddresstxt.getText().trim();
+            String noOfCrimes = ComplainerContacttxt2.getText().trim();
+            String arrestStatus = txtStatus.getText().trim();
+            String description = Descriptiontxt.getText().trim();
+            if(criminalName == null)
+            {
+                JOptionPane.showMessageDialog(this, "Criminal Name Cannot be Empty", "Please Enter correct details", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if(cnic == null)
+            {
+                JOptionPane.showMessageDialog(this, "CNIC Cannot be Empty", "Please Enter correct details", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if(address == null)
+            {
+                JOptionPane.showMessageDialog(this, "Address Cannot be Empty", "Please Enter correct details", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }            
+            if(noOfCrimes == null)
+            {
+                JOptionPane.showMessageDialog(this, "No of Crimes Cannot be Empty", "Please Enter correct details", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if(arrestStatus == null)
+            {
+                JOptionPane.showMessageDialog(this, "Arrest Status Cannot be Empty", "Please Enter correct details", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if(description == null)
+            {
+                JOptionPane.showMessageDialog(this, "Description Cannot be Empty", "Please Enter correct details", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if(formattedDate == null)
+            {
+                JOptionPane.showMessageDialog(this,"Date Cannot be empty", "Please Choose A Correct Date", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            if( imagePath == "")
+            {
+                JOptionPane.showMessageDialog(this,"Image cannot be empty", "Please Choose an image", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            Criminal newCriminal = new Criminal(criminalId, criminalName, cnic, address, imagePath, noOfCrimes, arrestStatus, formattedDate, description);
+            if (isAddMode) 
+            {
+                csvHandler.addCriminal(newCriminal);
+                JOptionPane.showMessageDialog(this, "Criminal record added successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+            } 
+            else 
+            {
+                csvHandler.updateCriminal(newCriminal);
+                JOptionPane.showMessageDialog(this, "Criminal record updated successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+            }
+            if (parent != null) 
+            {
+                parent.loadCriminals(); 
+            }
+            dispose();
             new CriminalManagementForm(loggedInUsername).setVisible(true);
-            this.dispose();
-        }
-        catch (Exception ex) 
+        } 
+        catch (IOException ex) 
         {
-            JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(), 
-                                        "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             ex.printStackTrace();
         }
+
     }//GEN-LAST:event_SubmitbtnActionPerformed
 
     private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
@@ -335,6 +400,37 @@ public class AddCriminalForm extends javax.swing.JFrame
             JOptionPane.showMessageDialog(this, "Selected: " + imagePath);
         } 
     }//GEN-LAST:event_addImagebtnActionPerformed
+    
+    private void populateFields() 
+    {
+        if (!isAddMode && criminal != null) 
+        {
+            txtID.setText(criminal.getCriminalId());
+            txtID.setEditable(false);
+            ComplainerNametxt.setText(criminal.getCriminalName());
+            Cnictxt.setText(criminal.getCnic());
+            CriminalAddresstxt.setText(criminal.getAddress());
+            ComplainerContacttxt2.setText(criminal.getNoOfCrimes());
+            txtStatus.setText(criminal.getArrestStatus());
+            Descriptiontxt.setText(criminal.getDescriptionForArrest());
+            imagePath = criminal.getImagePath();
+            try 
+            {
+                if (criminal.getDateOfArrest() != null && !criminal.getDateOfArrest().isEmpty()) 
+                {
+                    Date date = sdf.parse(criminal.getDateOfArrest());
+                    dateChoosertxt.setDate(date);
+                }
+            }
+            catch (ParseException e) 
+            {
+                System.err.println("Failed to parse arrest date: " + criminal.getDateOfArrest());
+                JOptionPane.showMessageDialog(this, "Invalid date format in criminal data.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            autoGenerateCriminalId();
+        }
+    }
 
     /**
      * @param args the command line arguments

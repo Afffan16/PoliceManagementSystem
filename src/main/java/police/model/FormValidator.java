@@ -230,64 +230,106 @@ public class FormValidator
     }
     
     public static boolean validateOfficerForm(
-    JTextField nametxt, JLabel lblerrname,
-    JTextField emailtxt, JLabel lblerrAddress,
-    JTextField phoneNotxt, JLabel lblerrcontact,
-    JTextField serviceYearstxt, JLabel lblerrdate,
-    JTextField casesSolvedtxt, JLabel lblerrtime,
-    JTextField successPercentagetxt, JLabel lblerrCrimeType
-    ) 
+        JTextField usernametxt, JLabel lblerrusername,
+        JTextField passwordtxt, JLabel lblerrpassword,
+        JTextField roletxt, JLabel lblerrrole,
+        JTextField nametxt, JLabel lblerrname,
+        JTextField badgeNotext, JLabel lblerrBadgeNo,
+        JTextField emailtxt, JLabel lblerremail,
+        JTextField phoneNotxt, JLabel lblerrphoneNo,
+        JTextField serviceYearstxt, JLabel lblerrServiceYears,
+        JTextField casesSolvedtxt, JLabel lblerrCasesSolved,
+        JTextField successPercentagetxt, JLabel SuccessPercentage
+        ) 
     {
         boolean isValid = true;
 
         // Clear all error labels
+        lblerrusername.setText("");
+        lblerrpassword.setText("");
+        lblerrrole.setText("");
         lblerrname.setText("");
-        lblerrAddress.setText("");
-        lblerrcontact.setText("");
-        lblerrdate.setText("");
-        lblerrtime.setText("");
-        lblerrCrimeType.setText("");
+        lblerrBadgeNo.setText("");
+        lblerremail.setText("");
+        lblerrphoneNo.setText("");
+        lblerrServiceYears.setText("");
+        lblerrCasesSolved.setText("");
+        SuccessPercentage.setText("");
+        
 
+        // UserName validation
+        if (usernametxt.getText().trim().isEmpty())
+        {
+            lblerrusername.setText("<html><span style='color:red; font-weight:bold;'>Username is required.</span></html>");
+            isValid = false;
+        }
+        
+        // Password validation
+        if (passwordtxt.getText().trim().isEmpty())
+        {
+            lblerrpassword.setText("<html><span style='color:red; font-weight:bold;'>Password is required.</span></html>");
+            isValid = false;
+        }
+        
+        // Role validation
+        if (roletxt.getText().trim().isEmpty())
+        {
+            lblerrrole.setText("<html><span style='color:red; font-weight:bold;'>Role is required.</span></html>");
+            isValid = false;
+        }
+        
         // Name validation
         if (nametxt.getText().trim().isEmpty())
         {
             lblerrname.setText("<html><span style='color:red; font-weight:bold;'>Name is required.</span></html>");
             isValid = false;
         }
-
-        // Email validation (basic check)
-        if (emailtxt.getText().trim().isEmpty()) {
-            lblerrAddress.setText("<html><span style='color:red; font-weight:bold;'>Email is required.</span></html>");
-            isValid = false;
-        } else if (!emailtxt.getText().trim().matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
-            lblerrAddress.setText("<html><span style='color:red; font-weight:bold;'>Invalid email format.</span></html>");
+        
+        // BadgeNo validation
+        if (badgeNotext.getText().trim().isEmpty())
+        {
+            lblerrBadgeNo.setText("<html><span style='color:red; font-weight:bold;'>Badge No is required.</span></html>");
             isValid = false;
         }
-
+        
+        // Email validation (basic check)
+        if (emailtxt.getText().trim().isEmpty()) 
+        {
+            lblerremail.setText("<html><span style='color:red; font-weight:bold;'>Email is required.</span></html>");
+            isValid = false;
+        } 
+        else if (!emailtxt.getText().trim().matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
+            lblerremail.setText("<html><span style='color:red; font-weight:bold;'>Invalid email format.</span></html>");
+            isValid = false;
+        }
+        
+        
         // Phone validation
         String phone = phoneNotxt.getText().trim();
         if (phone.isEmpty())
         {
-            lblerrcontact.setText("<html><span style='color:red; font-weight:bold;'>Phone number is required.</span></html>");
+            lblerrphoneNo.setText("<html><span style='color:red; font-weight:bold;'>Phone number is required.</span></html>");
             isValid = false;
-        } else if (!phone.matches("\\d{11}"))
+        }
+        else if (!phone.matches("\\d{11}"))
         {
-            lblerrcontact.setText("<html><span style='color:red; font-weight:bold;'>Enter 11 digit phone number.</span></html>");
+            lblerrphoneNo.setText("<html><span style='color:red; font-weight:bold;'>Enter 11 digit phone number.</span></html>");
             isValid = false;
         }
 
+        
         // Service Years validation
         try 
         {
             int serviceYears = Integer.parseInt(serviceYearstxt.getText().trim());
             if (serviceYears < 0) 
             {
-                lblerrdate.setText("<html><span style='color:red; font-weight:bold;'>Service Years cannot be negative.</span></html>");
+                lblerrServiceYears.setText("<html><span style='color:red; font-weight:bold;'>Service Years cannot be negative.</span></html>");
                 isValid = false;
             }
         } 
         catch (NumberFormatException e) {
-            lblerrdate.setText("<html><span style='color:red; font-weight:bold;'>Service Years must be a valid number.</span></html>");
+            lblerrServiceYears.setText("<html><span style='color:red; font-weight:bold;'>Service Years must be a valid number.</span></html>");
             isValid = false;
         }
 
@@ -296,13 +338,13 @@ public class FormValidator
             int casesSolved = Integer.parseInt(casesSolvedtxt.getText().trim());
             if (casesSolved < 0) 
             {
-                lblerrtime.setText("<html><span style='color:red; font-weight:bold;'>Cases Solved cannot be negative.</span></html>");
+                lblerrCasesSolved.setText("<html><span style='color:red; font-weight:bold;'>Cases Solved cannot be negative.</span></html>");
                 isValid = false;
             }
         } 
         catch (NumberFormatException e)
         {
-            lblerrtime.setText("<html><span style='color:red; font-weight:bold;'>Cases Solved must be a valid number.</span></html>");
+            lblerrCasesSolved.setText("<html><span style='color:red; font-weight:bold;'>Cases Solved must be a valid number.</span></html>");
             isValid = false;
         }
 
@@ -310,19 +352,19 @@ public class FormValidator
         try {
             double successPercentage = Double.parseDouble(successPercentagetxt.getText().trim());
             if (successPercentage < 0 || successPercentage > 100) {
-                lblerrCrimeType.setText("<html><span style='color:red; font-weight:bold;'>Success Percentage must be between 0 and 100.</span></html>");
+                SuccessPercentage.setText("<html><span style='color:red; font-weight:bold;'>Success Percentage must be between 0 and 100.</span></html>");
                 isValid = false;
             }
         } 
         catch (NumberFormatException e)
         {
-            lblerrCrimeType.setText("<html><span style='color:red; font-weight:bold;'>Success Percentage must be a valid number.</span></html>");
+            SuccessPercentage.setText("<html><span style='color:red; font-weight:bold;'>Success Percentage must be a valid number.</span></html>");
             isValid = false;
         }
 
         return isValid;
     }  
-    
+
 
 
     }

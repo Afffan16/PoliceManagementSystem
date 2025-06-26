@@ -41,11 +41,10 @@ public class AnalyticsDashboard extends javax.swing.JFrame {
         mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
         mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        criminals.setBackground(new java.awt.Color(204, 0, 0));
+        criminals.setBackground(new java.awt.Color(0, 0, 0));
         criminals.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
         criminals.setForeground(new java.awt.Color(255, 255, 255));
-        criminals.setText("Check Criminals Records");
-        criminals.setBorderPainted(false);
+        criminals.setText("Check Complain Statistics");
         criminals.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 criminalsActionPerformed(evt);
@@ -53,11 +52,10 @@ public class AnalyticsDashboard extends javax.swing.JFrame {
         });
         mainPanel.add(criminals, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 230, 40));
 
-        complains.setBackground(new java.awt.Color(204, 0, 0));
+        complains.setBackground(new java.awt.Color(0, 0, 0));
         complains.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
         complains.setForeground(new java.awt.Color(255, 255, 255));
-        complains.setText("Check Complains Record");
-        complains.setBorderPainted(false);
+        complains.setText("Check Cases Statistics");
         complains.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 complainsActionPerformed(evt);
@@ -69,7 +67,6 @@ public class AnalyticsDashboard extends javax.swing.JFrame {
         Backbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
         Backbtn.setForeground(new java.awt.Color(255, 255, 255));
         Backbtn.setText("Back");
-        Backbtn.setBorderPainted(false);
         Backbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackbtnActionPerformed(evt);
@@ -82,7 +79,7 @@ public class AnalyticsDashboard extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
-        headinglbl.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        headinglbl.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
         headinglbl.setForeground(new java.awt.Color(255, 255, 0));
         headinglbl.setText("ANALYTICS & REPORTING");
 
@@ -91,16 +88,16 @@ public class AnalyticsDashboard extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(188, Short.MAX_VALUE)
+                .addContainerGap(90, Short.MAX_VALUE)
                 .addComponent(headinglbl)
-                .addGap(169, 169, 169))
+                .addGap(84, 84, 84))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
-                .addComponent(headinglbl)
-                .addGap(28, 28, 28))
+                .addContainerGap(29, Short.MAX_VALUE)
+                .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
         );
 
         mainPanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 90));

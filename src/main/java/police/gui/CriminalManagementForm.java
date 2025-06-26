@@ -12,39 +12,41 @@ import java.io.*;
 import javax.swing.table.*;
 import java.util.List;
 import com.github.lgooddatepicker.components.TimePicker;
+import java.util.ArrayList;
 
 
 public class CriminalManagementForm extends javax.swing.JFrame 
 {
     private static String loggedInUsername;
     private DefaultTableModel tableModel;
-    
+    private List<Criminal> criminals = new ArrayList<>();
+
     public CriminalManagementForm(String loggedInUsername) 
     {
         this.loggedInUsername = loggedInUsername;
         initComponents();
         setLocationRelativeTo(null);
-        
+
         tableModel = new DefaultTableModel(
             new Object[][] {},
             new String[] {"Criminal ID", "Criminal Name", "CNIC", "Address", "ImagePath", 
                          "No of Crimes", "ArrestStatus", "Date of Arrest", "DescriptionForArrest"}
         );
         SearchResultsTable.setModel(tableModel);
-        
         loadCriminals();
     }
 
-    private void loadCriminals() 
+    public void loadCriminals()
     {
         tableModel.setRowCount(0);
+        criminals.clear(); // Clear the list before repopulating
         try 
         {
             CSVHandler csvHandler = new CSVHandler();
-            List<Criminal> criminals = csvHandler.getAllCriminals();
-            for (Criminal cri : criminals)
+            List<Criminal> criminalss = csvHandler.getAllCriminals();
+            for (Criminal cri : criminalss) 
             {
-                tableModel.addRow(new Object[]
+                tableModel.addRow(new Object[] 
                 {
                     cri.getCriminalId(), 
                     cri.getCriminalName(), 
@@ -56,6 +58,7 @@ public class CriminalManagementForm extends javax.swing.JFrame
                     cri.getDateOfArrest(),
                     cri.getDescriptionForArrest()
                 });
+                criminals.add(cri); // Populate the criminals list
             }
         }
         catch (IOException e)
@@ -65,16 +68,17 @@ public class CriminalManagementForm extends javax.swing.JFrame
         }
     }
 
-    private void loadCriminals(String searchTxt) 
+    private void loadCriminals(String searchTxt)
     {
         tableModel.setRowCount(0);
+        criminals.clear(); // Clear the list before repopulating
         try 
         {
             CSVHandler csvHandler = new CSVHandler();
-            List<Criminal> criminals = csvHandler.searchCriminals(searchTxt);
-            for (Criminal cri : criminals) 
+            List<Criminal> criminalss = csvHandler.searchCriminals(searchTxt);
+            for (Criminal cri : criminalss) 
             {
-                tableModel.addRow(new Object[]
+                tableModel.addRow(new Object[] 
                 {
                     cri.getCriminalId(), 
                     cri.getCriminalName(), 
@@ -86,14 +90,16 @@ public class CriminalManagementForm extends javax.swing.JFrame
                     cri.getDateOfArrest(),
                     cri.getDescriptionForArrest()
                 });
+                criminals.add(cri); // Populate the criminals list
             }
-        } 
+        }
         catch (IOException e) 
         {
             JOptionPane.showMessageDialog(this, "Error searching Criminals: " + e.getMessage(), 
                                          "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -306,8 +312,7 @@ public class CriminalManagementForm extends javax.swing.JFrame
     }//GEN-LAST:event_SearchbtnActionPerformed
 
     private void AddbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddbtnActionPerformed
-        AddCriminalForm criminalForm = new AddCriminalForm(this);
-        criminalForm.setVisible(true);
+        new AddCriminalForm(this, null, loggedInUsername).setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_AddbtnActionPerformed
 
@@ -341,69 +346,25 @@ public class CriminalManagementForm extends javax.swing.JFrame
 
     private void UpdatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdatebtnActionPerformed
         int selectedRow = SearchResultsTable.getSelectedRow();
-        if (selectedRow < 0) 
+        if (selectedRow == -1) 
         {
-            JOptionPane.showMessageDialog(this, "Please select a criminal first");
+            JOptionPane.showMessageDialog(this, "Please select a Criminal to update.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        String criminalId = (String) tableModel.getValueAt(selectedRow, 0);
+        String criminalName = (String) tableModel.getValueAt(selectedRow, 1);
+        String cnic = (String) tableModel.getValueAt(selectedRow, 2);
+        String address = (String) tableModel.getValueAt(selectedRow, 3);
+        String imagePath = (String) tableModel.getValueAt(selectedRow, 4);
+        String noOfCrimes = (String) tableModel.getValueAt(selectedRow, 5);
+        String arrestStatus = (String) tableModel.getValueAt(selectedRow, 6);
+        String dateOfArrest = (String) tableModel.getValueAt(selectedRow, 7);
+        String descriptionForArrest = (String) tableModel.getValueAt(selectedRow, 8);
 
-        String[] fields = 
-        {
-            "Criminal ID", "Criminal Name", "CNIC", "Address", "ImagePath", 
-            "No of Crimes", "ArrestStatus", "Date of Arrest", "DescriptionForArrest"
-        };
-
-        JTextField[] inputs = new JTextField[fields.length - 1]; 
-        Object[] rowData = new Object[fields.length];
-
-        for (int i = 0; i < fields.length; i++) 
-        {
-            rowData[i] = tableModel.getValueAt(selectedRow, i);
-        }
-
-        JPanel panel = new JPanel(new GridLayout(0, 2, 5, 5));
-
-        panel.add(new JLabel("Criminal ID:"));
-        panel.add(new JLabel(rowData[0].toString()));
-
-        for (int i = 1; i < fields.length; i++) 
-        {
-            panel.add(new JLabel(fields[i] + ":"));
-            inputs[i-1] = new JTextField(rowData[i] != null ? rowData[i].toString() : "", 20);
-            panel.add(inputs[i-1]);
-        }
-
-        int option = JOptionPane.showConfirmDialog(
-            this, panel, "Update Criminal", 
-            JOptionPane.OK_CANCEL_OPTION
-        );
-
-        if (option == JOptionPane.OK_OPTION) 
-        {
-            try 
-            {
-                Criminal updated = new Criminal(
-                    rowData[0].toString(),    // ID
-                    inputs[0].getText(),      // Name
-                    inputs[1].getText(),      // CNIC
-                    inputs[2].getText(),      // Address
-                    inputs[3].getText(),      // ImagePath
-                    inputs[4].getText(),      // No of Crimes
-                    inputs[5].getText(),      // ArrestStatus
-                    inputs[6].getText(),      // Date of Arrest
-                    inputs[7].getText()       // DescriptionForArrest
-                );
-
-                new CSVHandler().updateCriminal(updated);
-                loadCriminals(); 
-                JOptionPane.showMessageDialog(this, "Update successful!");
-                
-            } 
-            catch (Exception e) 
-            {
-                JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
-            }
-        }
+        Criminal criminal = new Criminal(criminalId, criminalName, cnic, address, imagePath, 
+                                         noOfCrimes, arrestStatus, dateOfArrest, descriptionForArrest);
+        new AddCriminalForm(this, criminal, loggedInUsername).setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_UpdatebtnActionPerformed
 
     private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed

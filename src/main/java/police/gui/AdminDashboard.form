@@ -288,7 +288,7 @@
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="16" style="1"/>
+              <Font name="Segoe UI Black" size="18" style="3"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Welcome, Admin! "/>
@@ -322,6 +322,9 @@
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
                 </Property>
                 <Property name="columns" type="int" value="20"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="12" style="1"/>
+                </Property>
                 <Property name="lineWrap" type="boolean" value="true"/>
                 <Property name="rows" type="int" value="5"/>
                 <Property name="text" type="java.lang.String" value="Your leadership keeps our station organized and efficient. As the central force behind operational management, your role ensures everything runs like clockwork.&#xa;&#xa;\ud83d\udd0d Today&apos;s Reminders:&#xa;&#xa;&#x2705; Review Officer Profiles:&#xa;Take a moment to check in on all officers &#x2014; review their details, update records if needed, and manage assignments effectively.&#xa;&#xa;\ud83d\udc6e Assign Officers to Cases:&#xa;Ensure each ongoing case has a responsible officer assigned. Swift assignment leads to quicker investigation and justice.&#xa;&#xa;\ud83d\uddc2&#xfe0f; Explore All Core Modules:&#xa;Don&#x2019;t forget to monitor activity in:&#xa;&#xa;- FIR Module &#x2013; Track all new and ongoing FIRs&#xa;- Case Investigation Module &#x2013; Follow the trail of justice&#xa;- Criminal Records &#x2013; Keep tabs on all profiles and statuses&#xa;- Complaint Management &#x2013; Respond swiftly to citizens&apos; concerns&#xa;&#xa;\ud83d\udcca Reports &amp; Analytics:&#xa;Dive into the Reports and Analytics module to visualize trends, observe patterns in criminal activity, and make data-driven decisions for better resource allocation and community safety.&#xa;&#xa;Every click you make brings clarity. Every update you apply strengthens law and order.&#xa;Keep leading with precision and purpose.&#xa;&#xa;\ud83d\udd12 Your station. Your system. Your command." containsInvalidXMLChars="true"/>

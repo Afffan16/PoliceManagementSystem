@@ -66,7 +66,7 @@ public class CSVHandler
         {
             try (FileWriter writer = new FileWriter(criminalsFile)) 
             {
-                writer.write("criminalId,criminalName,cnic,address,imagePath,noOfCrimes,arrestStatus,dateOfArrest,descriptionForArrest\n");
+                writer.write("CriminalID,CriminalName,CNIC,Address,ImagePath,NoOfCrimes,ArrestStatus,DateOfArrest,DescriptionForArrest\n");
             }
         }
 
@@ -77,7 +77,7 @@ public class CSVHandler
         {
             try (FileWriter writer = new FileWriter(officersFile)) 
             {
-                writer.write("officerId,username,password,role,name,badgeNumber,email,phone,serviceYears,casesSolved,successPercentage,imagePath\n");
+                writer.write("OfficerId,Username,Password,Role,Name,BadgeNo,Email,Phone,ServiceYears,CasesSolved,SuccessPercentage,ImagePath\n");
             }
         }
     }
@@ -463,7 +463,7 @@ public class CSVHandler
         firs.add(updatedFIR);
         try (PrintWriter pw = new PrintWriter(new FileWriter(FIRS_CSV)))
         {
-            pw.println("firId,complainantName,fathersName,contact,address,nicNumber,incidentDate,incidentTime,location,description,crimeType");
+            pw.println("firId,complainantName,fathersName,contact,address,nicNumber,incidentDate,incidentTime,location,description,crimeType\n");
             for (FIR f : firs) 
             {
                 pw.println(String.join(",",
@@ -495,7 +495,7 @@ public class CSVHandler
         }
         try (PrintWriter pw = new PrintWriter(new FileWriter(FIRS_CSV)))
         {
-            pw.println("firId,complainantName,fathersName,contact,address,nicNumber,incidentDate,incidentTime,location,description,crimeType");
+            pw.println("firId,complainantName,fathersName,contact,address,nicNumber,incidentDate,incidentTime,location,description,crimeType\n");
             for (FIR f : firs)
             {
                 pw.println(String.join(",",
@@ -814,7 +814,7 @@ public class CSVHandler
         Investigation investigation = new Investigation(firId);
         investigation.setFirId(firId);
         investigation.setCreationDate(firData.getIncidentDate() != null ? firData.getIncidentDate() : new Date());
-        investigation.setStatus("Initiated");
+        investigation.setStatus("Active");
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(INVESTIGATIONS_CSV, true))) 
         {
             writer.write(investigation.toString() + "\n");

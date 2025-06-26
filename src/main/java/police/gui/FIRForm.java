@@ -105,8 +105,9 @@ public class FIRForm extends javax.swing.JFrame {
 
         headinglbl.setFont(new java.awt.Font("Wide Latin", 1, 24)); // NOI18N
         headinglbl.setForeground(new java.awt.Color(255, 255, 0));
+        headinglbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         headinglbl.setText("FIR MODULE");
-        jPanel1.add(headinglbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 390, 40));
+        jPanel1.add(headinglbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 390, 40));
 
         mainPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 90));
 
@@ -116,13 +117,15 @@ public class FIRForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 594, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE))
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();

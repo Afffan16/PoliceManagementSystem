@@ -16,6 +16,7 @@ public class AnalyticsForm extends javax.swing.JFrame {
      */
     public AnalyticsForm() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -43,7 +44,7 @@ public class AnalyticsForm extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Criminals Statistics");
+        jLabel1.setText("Complain Statistics");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 18, 360, 41));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 102));
@@ -116,6 +117,7 @@ public class AnalyticsForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnveiwActionPerformed
 
     private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
+        new AnalyticsDashboard().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BackbtnActionPerformed
 

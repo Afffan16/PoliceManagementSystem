@@ -49,7 +49,7 @@ public class CriminalForm extends javax.swing.JFrame
         mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         headinglbl.setBackground(new java.awt.Color(51, 102, 255));
-        headinglbl.setFont(new java.awt.Font("Wide Latin", 3, 26)); // NOI18N
+        headinglbl.setFont(new java.awt.Font("Wide Latin", 1, 26)); // NOI18N
         headinglbl.setForeground(new java.awt.Color(255, 255, 0));
         headinglbl.setText("CRIMINAL  MODULE");
         mainPanel.add(headinglbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 26, -1, 67));
@@ -63,7 +63,7 @@ public class CriminalForm extends javax.swing.JFrame
                 ViewCriminalbtnActionPerformed(evt);
             }
         });
-        mainPanel.add(ViewCriminalbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, 44));
+        mainPanel.add(ViewCriminalbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, -1, 44));
 
         manageCriminalbtn.setBackground(new java.awt.Color(0, 0, 0));
         manageCriminalbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
@@ -74,7 +74,7 @@ public class CriminalForm extends javax.swing.JFrame
                 manageCriminalbtnActionPerformed(evt);
             }
         });
-        mainPanel.add(manageCriminalbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, 267, 44));
+        mainPanel.add(manageCriminalbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, 267, 44));
 
         Backbtn.setBackground(new java.awt.Color(204, 0, 0));
         Backbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
@@ -85,7 +85,7 @@ public class CriminalForm extends javax.swing.JFrame
                 BackbtnActionPerformed(evt);
             }
         });
-        mainPanel.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 174, 40));
+        mainPanel.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 174, 40));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 

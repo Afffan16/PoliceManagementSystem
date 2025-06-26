@@ -34,10 +34,6 @@ public class ReportComplaintForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        IncidentDatelbl1 = new javax.swing.JLabel();
-        IncidentDatetxt1 = new javax.swing.JTextField();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         jScrollPane4 = new javax.swing.JScrollPane();
         mainPanel = new javax.swing.JPanel();
         ComplainerNamelbl = new javax.swing.JLabel();
@@ -53,16 +49,16 @@ public class ReportComplaintForm extends javax.swing.JFrame {
         Locationlbl = new javax.swing.JLabel();
         Locationtxt = new javax.swing.JTextField();
         Descriptionlbl = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        Descriptiontxt = new javax.swing.JTextArea();
         Evidencelbl = new javax.swing.JLabel();
         Evidencebtn = new javax.swing.JButton();
         Backbtn = new javax.swing.JButton();
         Submitbtn = new javax.swing.JButton();
         dateChoosertxt = new com.toedter.calendar.JDateChooser();
         jLabel4 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        lblerrAddress = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -73,27 +69,23 @@ public class ReportComplaintForm extends javax.swing.JFrame {
         jTextArea2 = new javax.swing.JTextArea();
         txtAddress = new javax.swing.JTextField();
         CNIClbl1 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        lblerrAddress = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-
-        IncidentDatelbl1.setText("Incident Date  :");
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane3.setViewportView(jTextArea1);
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Descriptiontxt = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Report a Complain");
+        setPreferredSize(new java.awt.Dimension(650, 700));
         setResizable(false);
         setSize(new java.awt.Dimension(650, 700));
 
+        jScrollPane4.setPreferredSize(new java.awt.Dimension(600, 625));
+
         mainPanel.setBackground(new java.awt.Color(0, 0, 102));
         mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
-        mainPanel.setPreferredSize(new java.awt.Dimension(750, 1000));
+        mainPanel.setPreferredSize(new java.awt.Dimension(600, 1050));
         mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ComplainerNamelbl.setText("Complainer's Name :");
@@ -111,59 +103,50 @@ public class ReportComplaintForm extends javax.swing.JFrame {
         ComplainerContactlbl.setText("Contact Number :");
         ComplainerContactlbl.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         ComplainerContactlbl.setForeground(new java.awt.Color(255, 255, 255));
-        mainPanel.add(ComplainerContactlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 197, -1, -1));
-        mainPanel.add(ComplainerContacttxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 190, 298, 30));
+        mainPanel.add(ComplainerContactlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
+        mainPanel.add(ComplainerContacttxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 298, 30));
 
         CNIClbl.setText("CNIC No :");
         CNIClbl.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         CNIClbl.setForeground(new java.awt.Color(255, 255, 255));
-        mainPanel.add(CNIClbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 237, -1, -1));
-        mainPanel.add(ComplainerCNICtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 230, 298, 30));
+        mainPanel.add(CNIClbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, -1, -1));
+        mainPanel.add(ComplainerCNICtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 298, 30));
 
         IncidentDatelbl.setText("Incident Date  :");
         IncidentDatelbl.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         IncidentDatelbl.setForeground(new java.awt.Color(255, 255, 255));
-        mainPanel.add(IncidentDatelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 319, -1, -1));
+        mainPanel.add(IncidentDatelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, -1, -1));
 
         jLabel2.setText("( YYYY-MM-DD )");
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 8)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        mainPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 341, -1, -1));
+        mainPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 430, -1, -1));
 
         IncidentTimelbl.setText("Incident Time  :");
         IncidentTimelbl.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         IncidentTimelbl.setForeground(new java.awt.Color(255, 255, 255));
-        mainPanel.add(IncidentTimelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 364, -1, -1));
+        mainPanel.add(IncidentTimelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 470, -1, -1));
 
         jLabel3.setText("( HH : MM )");
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 8)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        mainPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 386, -1, -1));
+        mainPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 490, -1, -1));
 
         Locationlbl.setText("Location :");
         Locationlbl.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Locationlbl.setForeground(new java.awt.Color(255, 255, 255));
-        mainPanel.add(Locationlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 408, -1, -1));
-        mainPanel.add(Locationtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 408, 298, 30));
+        mainPanel.add(Locationlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 530, -1, -1));
+        mainPanel.add(Locationtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 530, 298, 30));
 
         Descriptionlbl.setText("Description :");
         Descriptionlbl.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Descriptionlbl.setForeground(new java.awt.Color(255, 255, 255));
-        mainPanel.add(Descriptionlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 483, -1, -1));
-
-        Descriptiontxt.setColumns(20);
-        Descriptiontxt.setLineWrap(true);
-        Descriptiontxt.setRows(5);
-        jScrollPane1.setViewportView(Descriptiontxt);
-
-        jScrollPane2.setViewportView(jScrollPane1);
-
-        mainPanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 453, 298, 112));
+        mainPanel.add(Descriptionlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 630, -1, -1));
 
         Evidencelbl.setText("Evidence :");
         Evidencelbl.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Evidencelbl.setForeground(new java.awt.Color(255, 255, 255));
-        mainPanel.add(Evidencelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 600, -1, -1));
+        mainPanel.add(Evidencelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 760, -1, -1));
 
         Evidencebtn.setText("Upload Evidence");
         Evidencebtn.setBackground(new java.awt.Color(0, 0, 0));
@@ -174,7 +157,7 @@ public class ReportComplaintForm extends javax.swing.JFrame {
                 EvidencebtnActionPerformed(evt);
             }
         });
-        mainPanel.add(Evidencebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(299, 596, -1, -1));
+        mainPanel.add(Evidencebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 750, -1, -1));
 
         Backbtn.setText("Back");
         Backbtn.setBackground(new java.awt.Color(204, 0, 0));
@@ -185,7 +168,7 @@ public class ReportComplaintForm extends javax.swing.JFrame {
                 BackbtnActionPerformed(evt);
             }
         });
-        mainPanel.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 659, 92, -1));
+        mainPanel.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 830, 92, -1));
 
         Submitbtn.setText("Submit");
         Submitbtn.setBackground(new java.awt.Color(0, 204, 0));
@@ -196,15 +179,18 @@ public class ReportComplaintForm extends javax.swing.JFrame {
                 SubmitbtnActionPerformed(evt);
             }
         });
-        mainPanel.add(Submitbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(346, 659, 102, -1));
-        mainPanel.add(dateChoosertxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 319, 298, 31));
-        mainPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 129, 298, 14));
-        mainPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 226, 290, -1));
-        mainPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 358, 298, -1));
-        mainPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 402, 298, -1));
-        mainPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 444, 298, -1));
-        mainPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 570, 298, -1));
-        mainPanel.add(IncidentTimetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 364, 298, 26));
+        mainPanel.add(Submitbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 830, 102, -1));
+        mainPanel.add(dateChoosertxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, 298, 31));
+        mainPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 129, 298, -1));
+        mainPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 184, 298, -1));
+        mainPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 300, -1));
+        mainPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 298, -1));
+        mainPanel.add(lblerrAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 298, -1));
+        mainPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, 300, -1));
+        mainPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 510, 300, -1));
+        mainPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 570, 300, -1));
+        mainPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 720, 300, -1));
+        mainPanel.add(IncidentTimetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 470, 298, 26));
 
         ComplainerNamelbl1.setText("Complainer's Father Name :");
         ComplainerNamelbl1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -218,33 +204,30 @@ public class ReportComplaintForm extends javax.swing.JFrame {
         });
         mainPanel.add(ComplainerFatherNametxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 148, 298, 30));
 
-        jTextArea2.setBackground(new java.awt.Color(0, 0, 102));
         jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jTextArea2.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea2.setLineWrap(true);
         jTextArea2.setRows(5);
         jTextArea2.setText("Facing Issues reporting online?\nClick here to download the report document, \nfill it and submit to nearest station   ->");
         jTextArea2.setWrapStyleWord(true);
+        jTextArea2.setBackground(new java.awt.Color(0, 0, 102));
         jTextArea2.setBorder(null);
+        jTextArea2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jTextArea2.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea2.setHighlighter(null);
         jTextArea2.setPreferredSize(new java.awt.Dimension(300, 200));
-        mainPanel.add(jTextArea2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 760, 270, 60));
+        mainPanel.add(jTextArea2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 910, 270, 60));
 
         txtAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAddressActionPerformed(evt);
             }
         });
-        mainPanel.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 272, 298, 35));
+        mainPanel.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 298, 35));
 
         CNIClbl1.setText("Address :");
         CNIClbl1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         CNIClbl1.setForeground(new java.awt.Color(255, 255, 255));
-        mainPanel.add(CNIClbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 281, -1, -1));
-        mainPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 266, 298, -1));
-        mainPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 184, 298, -1));
-        mainPanel.add(lblerrAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 313, 298, -1));
+        mainPanel.add(CNIClbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -256,20 +239,20 @@ public class ReportComplaintForm extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(154, 154, 154)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(136, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addGap(124, 124, 124))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
+                .addContainerGap(16, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                .addGap(14, 14, 14))
         );
 
-        mainPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 80));
+        mainPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 70));
 
         jButton3.setText("Open Form PDF");
         jButton3.setBackground(new java.awt.Color(204, 0, 0));
@@ -281,7 +264,14 @@ public class ReportComplaintForm extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        mainPanel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 770, 150, 40));
+        mainPanel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 910, 150, 40));
+
+        Descriptiontxt.setColumns(20);
+        Descriptiontxt.setLineWrap(true);
+        Descriptiontxt.setRows(5);
+        jScrollPane1.setViewportView(Descriptiontxt);
+
+        mainPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 600, 300, 110));
 
         jScrollPane4.setViewportView(mainPanel);
 
@@ -289,17 +279,17 @@ public class ReportComplaintForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 617, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 878, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -348,7 +338,11 @@ public class ReportComplaintForm extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Please select a date.");
                 return;
             }
-            
+            if(evidencePath == "")
+            {
+                JOptionPane.showMessageDialog(this,"Evidence cannot be empty", "Please add the evidence files", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
             csvHandler.addComplaint(
                 complaintId,
                 ComplainerNametxt.getText(),
@@ -464,8 +458,6 @@ public class ReportComplaintForm extends javax.swing.JFrame {
     private javax.swing.JButton Evidencebtn;
     private javax.swing.JLabel Evidencelbl;
     private javax.swing.JLabel IncidentDatelbl;
-    private javax.swing.JLabel IncidentDatelbl1;
-    private javax.swing.JTextField IncidentDatetxt1;
     private javax.swing.JLabel IncidentTimelbl;
     private com.github.lgooddatepicker.components.TimePicker IncidentTimetxt;
     private javax.swing.JLabel Locationlbl;
@@ -486,10 +478,7 @@ public class ReportComplaintForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JLabel lblerrAddress;
     private javax.swing.JPanel mainPanel;

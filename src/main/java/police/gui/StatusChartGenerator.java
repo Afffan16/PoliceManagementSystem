@@ -15,6 +15,7 @@ public class StatusChartGenerator extends javax.swing.JFrame {
      */
     public StatusChartGenerator() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -69,7 +70,7 @@ public class StatusChartGenerator extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Complain Statistics");
+        jLabel1.setText("Cases Statistics");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -113,6 +114,7 @@ public class StatusChartGenerator extends javax.swing.JFrame {
     }//GEN-LAST:event_ShowChartActionPerformed
 
     private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
+        new AnalyticsDashboard().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BackbtnActionPerformed
 

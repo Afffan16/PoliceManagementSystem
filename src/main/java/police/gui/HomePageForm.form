@@ -97,11 +97,11 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="ReportComplainBtn" max="32767" attributes="0"/>
+                          <Component id="PoliceLoginBtn" pref="114" max="32767" attributes="0"/>
+                          <Component id="ReportComplainBtn" alignment="0" max="32767" attributes="0"/>
                           <Component id="HomeBtn" alignment="0" max="32767" attributes="0"/>
-                          <Component id="PoliceLoginBtn" alignment="0" pref="100" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="41" max="32767" attributes="0"/>
+                      <EmptySpace pref="27" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

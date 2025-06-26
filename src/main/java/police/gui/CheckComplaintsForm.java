@@ -119,7 +119,7 @@ public class CheckComplaintsForm extends javax.swing.JFrame {
                 BackbtnActionPerformed(evt);
             }
         });
-        jPanel1.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 490, 89, 33));
+        jPanel1.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 530, 110, 30));
 
         ViewComplain.setBackground(new java.awt.Color(0, 0, 0));
         ViewComplain.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
@@ -130,7 +130,7 @@ public class CheckComplaintsForm extends javax.swing.JFrame {
                 ViewComplainActionPerformed(evt);
             }
         });
-        jPanel1.add(ViewComplain, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 490, -1, 33));
+        jPanel1.add(ViewComplain, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 490, 170, 40));
 
         ChangeStatus.setBackground(new java.awt.Color(0, 0, 0));
         ChangeStatus.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
@@ -141,7 +141,7 @@ public class CheckComplaintsForm extends javax.swing.JFrame {
                 ChangeStatusActionPerformed(evt);
             }
         });
-        jPanel1.add(ChangeStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 490, -1, 33));
+        jPanel1.add(ChangeStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 490, 150, 40));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -171,8 +171,8 @@ public class CheckComplaintsForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 553, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();

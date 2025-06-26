@@ -146,7 +146,7 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 100));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 3, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Welcome, Admin! ");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 480, 50));
@@ -155,6 +155,7 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         jTextArea5.setBackground(new java.awt.Color(204, 204, 204));
         jTextArea5.setColumns(20);
+        jTextArea5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jTextArea5.setLineWrap(true);
         jTextArea5.setRows(5);
         jTextArea5.setText("Your leadership keeps our station organized and efficient. As the central force behind operational management, your role ensures everything runs like clockwork.\n\n🔍 Today's Reminders:\n\n✅ Review Officer Profiles:\nTake a moment to check in on all officers — review their details, update records if needed, and manage assignments effectively.\n\n👮 Assign Officers to Cases:\nEnsure each ongoing case has a responsible officer assigned. Swift assignment leads to quicker investigation and justice.\n\n🗂️ Explore All Core Modules:\nDon’t forget to monitor activity in:\n\n- FIR Module – Track all new and ongoing FIRs\n- Case Investigation Module – Follow the trail of justice\n- Criminal Records – Keep tabs on all profiles and statuses\n- Complaint Management – Respond swiftly to citizens' concerns\n\n📊 Reports & Analytics:\nDive into the Reports and Analytics module to visualize trends, observe patterns in criminal activity, and make data-driven decisions for better resource allocation and community safety.\n\nEvery click you make brings clarity. Every update you apply strengthens law and order.\nKeep leading with precision and purpose.\n\n🔒 Your station. Your system. Your command.");

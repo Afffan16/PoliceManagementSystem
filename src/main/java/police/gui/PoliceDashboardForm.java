@@ -75,7 +75,7 @@ public class PoliceDashboardForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Police Dashboard");
-        setPreferredSize(new java.awt.Dimension(870, 650));
+        setPreferredSize(new java.awt.Dimension(890, 670));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
@@ -85,21 +85,21 @@ public class PoliceDashboardForm extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        ProfileBtn.setText("PROFILE");
         ProfileBtn.setBackground(new java.awt.Color(0, 0, 0));
         ProfileBtn.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         ProfileBtn.setForeground(new java.awt.Color(255, 255, 255));
+        ProfileBtn.setText("PROFILE");
         ProfileBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ProfileBtnActionPerformed(evt);
             }
         });
-        jPanel2.add(ProfileBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 25, 161, 41));
+        jPanel2.add(ProfileBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 25, 170, 41));
 
-        FIRBtn.setText("FIR MANAGEMENT");
         FIRBtn.setBackground(new java.awt.Color(0, 0, 0));
         FIRBtn.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         FIRBtn.setForeground(new java.awt.Color(255, 255, 255));
+        FIRBtn.setText("FIR MANAGEMENT");
         FIRBtn.setMaximumSize(new java.awt.Dimension(74, 23));
         FIRBtn.setMinimumSize(new java.awt.Dimension(74, 23));
         FIRBtn.setPreferredSize(new java.awt.Dimension(74, 23));
@@ -108,12 +108,12 @@ public class PoliceDashboardForm extends javax.swing.JFrame {
                 FIRBtnActionPerformed(evt);
             }
         });
-        jPanel2.add(FIRBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 96, 161, 46));
+        jPanel2.add(FIRBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 96, 170, 46));
 
-        CASEBtn.setText("CASE MANAGEMENT");
         CASEBtn.setBackground(new java.awt.Color(0, 0, 0));
         CASEBtn.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         CASEBtn.setForeground(new java.awt.Color(255, 255, 255));
+        CASEBtn.setText("CASE MANAGEMENT");
         CASEBtn.setMaximumSize(new java.awt.Dimension(74, 23));
         CASEBtn.setMinimumSize(new java.awt.Dimension(74, 23));
         CASEBtn.setPreferredSize(new java.awt.Dimension(74, 23));
@@ -122,12 +122,12 @@ public class PoliceDashboardForm extends javax.swing.JFrame {
                 CASEBtnActionPerformed(evt);
             }
         });
-        jPanel2.add(CASEBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 173, 161, 46));
+        jPanel2.add(CASEBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 173, 170, 46));
 
-        CRIMINALBtn.setText("CRIMINAL DATABASE");
         CRIMINALBtn.setBackground(new java.awt.Color(0, 0, 0));
         CRIMINALBtn.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         CRIMINALBtn.setForeground(new java.awt.Color(255, 255, 255));
+        CRIMINALBtn.setText("CRIMINAL DATABASE");
         CRIMINALBtn.setMaximumSize(new java.awt.Dimension(74, 23));
         CRIMINALBtn.setMinimumSize(new java.awt.Dimension(74, 23));
         CRIMINALBtn.setPreferredSize(new java.awt.Dimension(74, 23));
@@ -136,7 +136,7 @@ public class PoliceDashboardForm extends javax.swing.JFrame {
                 CRIMINALBtnActionPerformed(evt);
             }
         });
-        jPanel2.add(CRIMINALBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 254, 161, 46));
+        jPanel2.add(CRIMINALBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 254, 170, 46));
 
         ANALYTICSBtn.setText("ANALYTICS & REPORTS");
         ANALYTICSBtn.setBackground(new java.awt.Color(0, 0, 0));
@@ -152,10 +152,10 @@ public class PoliceDashboardForm extends javax.swing.JFrame {
         });
         jPanel2.add(ANALYTICSBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 338, 170, 46));
 
-        LOGOUTBtn.setText("LOGOUT");
         LOGOUTBtn.setBackground(new java.awt.Color(204, 0, 0));
         LOGOUTBtn.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         LOGOUTBtn.setForeground(new java.awt.Color(255, 255, 255));
+        LOGOUTBtn.setText("LOGOUT");
         LOGOUTBtn.setMaximumSize(new java.awt.Dimension(74, 23));
         LOGOUTBtn.setMinimumSize(new java.awt.Dimension(74, 23));
         LOGOUTBtn.setPreferredSize(new java.awt.Dimension(74, 23));
@@ -164,7 +164,7 @@ public class PoliceDashboardForm extends javax.swing.JFrame {
                 LOGOUTBtnActionPerformed(evt);
             }
         });
-        jPanel2.add(LOGOUTBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 415, 161, 46));
+        jPanel2.add(LOGOUTBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 415, 170, 46));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 118, 180, 480));
 
@@ -179,7 +179,7 @@ public class PoliceDashboardForm extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("POLICE DASHBOARD");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 510, 60));
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 510, 60));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 860, 120));
 
@@ -293,14 +293,14 @@ public class PoliceDashboardForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 849, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -340,7 +340,7 @@ public class PoliceDashboardForm extends javax.swing.JFrame {
     }//GEN-LAST:event_CASEBtnActionPerformed
 
     private void VideoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VideoBtnActionPerformed
-        String filePath = "./Resources/Other Stuff/FAQsCivilians.pdf";
+        String filePath = "./Resources/Other Stuff/Video Tutorial for Officers.mkv";
         try {
             File file = new File(filePath);
             if (file.exists())

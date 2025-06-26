@@ -269,7 +269,7 @@ public class AddUpdateFIRForm extends javax.swing.JFrame {
                 okbtnActionPerformed(evt);
             }
         });
-        mainPanel.add(okbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 800, 100, 30));
+        mainPanel.add(okbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 820, 100, 30));
 
         cancelbtn.setText("Cancel");
         cancelbtn.setBackground(new java.awt.Color(204, 0, 0));
@@ -280,24 +280,24 @@ public class AddUpdateFIRForm extends javax.swing.JFrame {
                 cancelbtnActionPerformed(evt);
             }
         });
-        mainPanel.add(cancelbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 800, 90, 30));
-        mainPanel.add(lblerrname, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, -1, 0));
-        mainPanel.add(lblerrFathername, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, -1, -1));
-        mainPanel.add(lblerrcontact, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, 0, -1));
+        mainPanel.add(cancelbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 820, 90, 30));
+        mainPanel.add(lblerrname, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, -1, -1));
+        mainPanel.add(lblerrFathername, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, -1, -1));
+        mainPanel.add(lblerrcontact, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, -1, -1));
         mainPanel.add(lblerrcinc, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, -1, -1));
         mainPanel.add(lblerrAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, -1, -1));
-        mainPanel.add(lblerrdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 500, 0, -1));
+        mainPanel.add(lblerrdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 500, -1, -1));
         mainPanel.add(lblerrtime, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 560, -1, -1));
         mainPanel.add(lblerrdiscription, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 710, -1, -1));
-        mainPanel.add(lblerrCrimeType, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 770, 0, 0));
+        mainPanel.add(lblerrCrimeType, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 790, -1, -1));
         mainPanel.add(lblerrlocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 620, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
-        headinglbl.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        headinglbl.setForeground(new java.awt.Color(255, 255, 0));
         headinglbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         headinglbl.setText("ADD / UPDATE FIRs");
+        headinglbl.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        headinglbl.setForeground(new java.awt.Color(255, 255, 0));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -326,14 +326,15 @@ public class AddUpdateFIRForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE))
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 878, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 909, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -366,12 +367,6 @@ public class AddUpdateFIRForm extends javax.swing.JFrame {
         {
             dateString = sdf.format(incidentDatetxt.getDate());
         } 
-        else 
-        {
-            JOptionPane.showMessageDialog(this, "Please select a date.");
-            return; 
-        }
-
         String firId = firIDtxt.getText();
         String complainantName = complainantNametxt.getText();
         String fathersName = fatherNametxt.getText();

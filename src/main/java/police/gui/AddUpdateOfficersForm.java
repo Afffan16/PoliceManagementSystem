@@ -55,38 +55,38 @@ public class AddUpdateOfficersForm extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         officerIDtxt = new javax.swing.JTextField();
         usernametxt = new javax.swing.JTextField();
         passwordtxt = new javax.swing.JTextField();
         roletxt = new javax.swing.JTextField();
-        badgeNotext = new javax.swing.JTextField();
-        serviceYearstxt = new javax.swing.JTextField();
-        successPercentagetxt = new javax.swing.JTextField();
         nametxt = new javax.swing.JTextField();
-        jLabel31 = new javax.swing.JLabel();
-        okbtn = new javax.swing.JButton();
-        cancelbtn = new javax.swing.JButton();
-        lblerrname = new javax.swing.JLabel();
-        lblerrFathername = new javax.swing.JLabel();
-        lblerrcontact = new javax.swing.JLabel();
-        lblerrcinc = new javax.swing.JLabel();
-        lblerrAddress = new javax.swing.JLabel();
-        lblerrdate = new javax.swing.JLabel();
-        lblerrtime = new javax.swing.JLabel();
-        lblerrdiscription = new javax.swing.JLabel();
-        lblerrCrimeType = new javax.swing.JLabel();
-        lblerrlocation = new javax.swing.JLabel();
+        badgeNotext = new javax.swing.JTextField();
         emailtxt = new javax.swing.JTextField();
         phoneNotxt = new javax.swing.JTextField();
+        serviceYearstxt = new javax.swing.JTextField();
         casesSolvedtxt = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
+        successPercentagetxt = new javax.swing.JTextField();
         addImagebtn = new javax.swing.JButton();
+        cancelbtn = new javax.swing.JButton();
+        okbtn = new javax.swing.JButton();
+        lblerrusername = new javax.swing.JLabel();
+        lblerrpassword = new javax.swing.JLabel();
+        lblerrrole = new javax.swing.JLabel();
+        lblerrname = new javax.swing.JLabel();
+        lblerrBadgeNo = new javax.swing.JLabel();
+        lblerremail = new javax.swing.JLabel();
+        lblerrphoneNo = new javax.swing.JLabel();
+        lblerrServiceYears = new javax.swing.JLabel();
+        lblerrCasesSolved = new javax.swing.JLabel();
+        SuccessPercentage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -106,53 +106,65 @@ public class AddUpdateOfficersForm extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         mainPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 83, 90, 27));
 
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Password :");
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Password :");
         mainPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 143, 90, 27));
 
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Role :");
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Role :");
         mainPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 203, 59, 27));
 
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Badge No :");
+        jLabel31.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel31.setText("Name :");
+        mainPanel.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 67, 27));
+
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Badge No :");
         mainPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 90, 27));
 
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Email : ");
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Email : ");
         mainPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 72, 27));
 
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Phone No :");
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Phone No :");
         mainPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 439, 90, 30));
 
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Service Years :");
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Service Years :");
         mainPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 502, 112, 27));
 
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Cases Solved :");
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Cases Solved :");
         mainPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 564, 112, 27));
 
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Success Percentage :");
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        mainPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 624, 151, 27));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Success Percentage :");
+        mainPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 640, 151, 27));
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Officer Image : ");
+        mainPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 710, 115, 27));
 
         officerIDtxt.setEditable(false);
         mainPanel.add(officerIDtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 30, 382, -1));
@@ -178,28 +190,6 @@ public class AddUpdateOfficersForm extends javax.swing.JFrame {
         });
         mainPanel.add(roletxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 204, 382, -1));
 
-        badgeNotext.setEditable(false);
-        badgeNotext.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                badgeNotextActionPerformed(evt);
-            }
-        });
-        mainPanel.add(badgeNotext, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 321, 384, 26));
-
-        serviceYearstxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                serviceYearstxtActionPerformed(evt);
-            }
-        });
-        mainPanel.add(serviceYearstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 501, 383, 27));
-
-        successPercentagetxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                successPercentagetxtActionPerformed(evt);
-            }
-        });
-        mainPanel.add(successPercentagetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 624, 380, 27));
-
         nametxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nametxtActionPerformed(evt);
@@ -207,43 +197,13 @@ public class AddUpdateOfficersForm extends javax.swing.JFrame {
         });
         mainPanel.add(nametxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 265, 383, -1));
 
-        jLabel31.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel31.setText("Name :");
-        mainPanel.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 67, 27));
-
-        okbtn.setBackground(new java.awt.Color(0, 0, 0));
-        okbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
-        okbtn.setForeground(new java.awt.Color(255, 255, 255));
-        okbtn.setText("OK");
-        okbtn.addActionListener(new java.awt.event.ActionListener() {
+        badgeNotext.setEditable(false);
+        badgeNotext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                okbtnActionPerformed(evt);
+                badgeNotextActionPerformed(evt);
             }
         });
-        mainPanel.add(okbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 820, 90, -1));
-
-        cancelbtn.setBackground(new java.awt.Color(204, 51, 0));
-        cancelbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
-        cancelbtn.setForeground(new java.awt.Color(255, 255, 255));
-        cancelbtn.setText("Cancel");
-        cancelbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelbtnActionPerformed(evt);
-            }
-        });
-        mainPanel.add(cancelbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 820, -1, -1));
-        mainPanel.add(lblerrname, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 116, -1, 12));
-        mainPanel.add(lblerrFathername, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 176, -1, 12));
-        mainPanel.add(lblerrcontact, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 236, -1, 9));
-        mainPanel.add(lblerrcinc, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 293, -1, 15));
-        mainPanel.add(lblerrAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 353, -1, 12));
-        mainPanel.add(lblerrdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 412, -1, 12));
-        mainPanel.add(lblerrtime, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 475, -1, 11));
-        mainPanel.add(lblerrdiscription, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 600, -1, 12));
-        mainPanel.add(lblerrCrimeType, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 673, -1, 11));
-        mainPanel.add(lblerrlocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 535, -1, 14));
+        mainPanel.add(badgeNotext, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 321, 384, 26));
 
         emailtxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -259,6 +219,13 @@ public class AddUpdateOfficersForm extends javax.swing.JFrame {
         });
         mainPanel.add(phoneNotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 440, 384, 27));
 
+        serviceYearstxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                serviceYearstxtActionPerformed(evt);
+            }
+        });
+        mainPanel.add(serviceYearstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 501, 383, 27));
+
         casesSolvedtxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casesSolvedtxtActionPerformed(evt);
@@ -266,11 +233,12 @@ public class AddUpdateOfficersForm extends javax.swing.JFrame {
         });
         mainPanel.add(casesSolvedtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 565, 384, 27));
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Officer Image : ");
-        mainPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 696, 115, 27));
+        successPercentagetxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                successPercentagetxtActionPerformed(evt);
+            }
+        });
+        mainPanel.add(successPercentagetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 640, 380, 27));
 
         addImagebtn.setBackground(new java.awt.Color(0, 204, 0));
         addImagebtn.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
@@ -281,7 +249,39 @@ public class AddUpdateOfficersForm extends javax.swing.JFrame {
                 addImagebtnActionPerformed(evt);
             }
         });
-        mainPanel.add(addImagebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 694, -1, -1));
+        mainPanel.add(addImagebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 710, -1, -1));
+
+        cancelbtn.setBackground(new java.awt.Color(204, 51, 0));
+        cancelbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
+        cancelbtn.setForeground(new java.awt.Color(255, 255, 255));
+        cancelbtn.setText("Cancel");
+        cancelbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelbtnActionPerformed(evt);
+            }
+        });
+        mainPanel.add(cancelbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 820, -1, -1));
+
+        okbtn.setBackground(new java.awt.Color(0, 0, 0));
+        okbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
+        okbtn.setForeground(new java.awt.Color(255, 255, 255));
+        okbtn.setText("OK");
+        okbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okbtnActionPerformed(evt);
+            }
+        });
+        mainPanel.add(okbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 820, 90, -1));
+        mainPanel.add(lblerrusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 370, -1));
+        mainPanel.add(lblerrpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 380, -1));
+        mainPanel.add(lblerrrole, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, 380, -1));
+        mainPanel.add(lblerrname, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, 380, -1));
+        mainPanel.add(lblerrBadgeNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, 380, -1));
+        mainPanel.add(lblerremail, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 420, 380, -1));
+        mainPanel.add(lblerrphoneNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 480, 380, -1));
+        mainPanel.add(lblerrServiceYears, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 540, 380, -1));
+        mainPanel.add(lblerrCasesSolved, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 610, 380, -1));
+        mainPanel.add(SuccessPercentage, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 680, 380, -1));
 
         jScrollPane1.setViewportView(mainPanel);
 
@@ -347,30 +347,17 @@ public class AddUpdateOfficersForm extends javax.swing.JFrame {
         String successPercentageStr = successPercentagetxt.getText();
 
 
-        if (username.isEmpty())
-        {
-            JOptionPane.showMessageDialog(this, "Username is required.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        if (password.isEmpty())
-        {
-            JOptionPane.showMessageDialog(this, "Password is required.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        if (role.isEmpty()) 
-        {
-            JOptionPane.showMessageDialog(this, "Role is required.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-
         boolean isValid = FormValidator.validateOfficerForm(
+            usernametxt, lblerrusername,
+            passwordtxt, lblerrpassword,
+            roletxt,lblerrrole,
             nametxt, lblerrname,
-            emailtxt, lblerrAddress, 
-            phoneNotxt, lblerrcontact,
-            serviceYearstxt, lblerrdate, 
-            casesSolvedtxt, lblerrtime,
-            successPercentagetxt, lblerrCrimeType 
+            badgeNotext, lblerrBadgeNo,
+            emailtxt, lblerremail , 
+            phoneNotxt, lblerrphoneNo,
+            serviceYearstxt, lblerrServiceYears, 
+            casesSolvedtxt, lblerrCasesSolved,
+            successPercentagetxt,  SuccessPercentage
         );
         if (!isValid)
         {
@@ -397,6 +384,11 @@ public class AddUpdateOfficersForm extends javax.swing.JFrame {
             return;
         }
 
+        if(imagePath == "")
+        {
+            JOptionPane.showMessageDialog(this,"Image cannot be empty", "Please Choose an image", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
         try 
         {
             String grade = csvHandler.calculateGrade(successPercentage);
@@ -522,6 +514,7 @@ private String generateOfficerId()
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel SuccessPercentage;
     private javax.swing.JButton addImagebtn;
     private javax.swing.JTextField badgeNotext;
     private javax.swing.JButton cancelbtn;
@@ -540,16 +533,15 @@ private String generateOfficerId()
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblerrAddress;
-    private javax.swing.JLabel lblerrCrimeType;
-    private javax.swing.JLabel lblerrFathername;
-    private javax.swing.JLabel lblerrcinc;
-    private javax.swing.JLabel lblerrcontact;
-    private javax.swing.JLabel lblerrdate;
-    private javax.swing.JLabel lblerrdiscription;
-    private javax.swing.JLabel lblerrlocation;
+    private javax.swing.JLabel lblerrBadgeNo;
+    private javax.swing.JLabel lblerrCasesSolved;
+    private javax.swing.JLabel lblerrServiceYears;
+    private javax.swing.JLabel lblerremail;
     private javax.swing.JLabel lblerrname;
-    private javax.swing.JLabel lblerrtime;
+    private javax.swing.JLabel lblerrpassword;
+    private javax.swing.JLabel lblerrphoneNo;
+    private javax.swing.JLabel lblerrrole;
+    private javax.swing.JLabel lblerrusername;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JTextField nametxt;
     private javax.swing.JTextField officerIDtxt;

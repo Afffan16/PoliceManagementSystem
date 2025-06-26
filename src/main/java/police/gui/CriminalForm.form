@@ -63,7 +63,7 @@
               <Color blue="ff" green="66" red="33" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Wide Latin" size="26" style="3"/>
+              <Font name="Wide Latin" size="26" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="ff" red="ff" type="rgb"/>
@@ -94,7 +94,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="110" y="150" width="-1" height="44"/>
+              <AbsoluteConstraints x="80" y="150" width="-1" height="44"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -116,7 +116,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="410" y="150" width="267" height="44"/>
+              <AbsoluteConstraints x="380" y="150" width="267" height="44"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -138,7 +138,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="310" y="240" width="174" height="40"/>
+              <AbsoluteConstraints x="280" y="240" width="174" height="40"/>
             </Constraint>
           </Constraints>
         </Component>
