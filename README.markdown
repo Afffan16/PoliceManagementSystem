@@ -164,7 +164,7 @@ The **Police Management System** is a Java-based desktop application built using
 | --- | --- | --- |
 | Muhammad Affan Bin Aamir | Team Lead, Developer | Project Setup, FIR Module, Case Investigation Module, Admin Features, Sprint Planning, Coordination |
 | Dawood Khurram | Developer, Designer | Home Page, Report Complaint Page, Police/Admin Login Modules, Dashboards, Designing, Documentation |
-| Muhammad Umar | Developer | Officer Profile Module (view-only), Manage Officers Module (CRUD operations) |
+| Muhammad Umar | Developer | Officer Profile Module (view-only), Manage Officers Module (CRUD operations), Criminals Module |
 | Samiullah Baig | Developer, Tester | FIR Module, Analytics & Reporting Module, Detailed Testing |
 
 ## License
