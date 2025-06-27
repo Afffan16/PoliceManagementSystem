@@ -704,15 +704,19 @@ public class CSVHandler
         return result.toArray(new String[0]);
     }
 
-    private static String escapeCSV(String value) 
+    public static String escapeCSV(String value) 
     {
-        if (value == null) return "";
-        if (value.contains(",") || value.contains("\"") || value.contains("\n"))
+        if (value == null || value.isEmpty()) 
         {
-            return "\"" + value.replace("\"", "\"\"") + "\"";
+            return "";
+        }
+        value = value.replace("\n", " ").replace("\r", " ");
+        if (value.contains(",") || value.contains("\"")) 
+        {
+            value = "\"" + value.replace("\"", "\"\"") + "\"";
         }
         return value;
-    } 
+    }
      
     public static List<Complaint> loadComplaints() 
     {
