@@ -5,7 +5,7 @@ Welcome to the project! This guide will walk you through setting up and using th
 Initial Setup
 
 Clone the Repository:
-Clone the project to your local machine using: git clone <repository-url></repository-url>
+Clone the project to your local machine using: git clone "https://github.com/Afffan16/PoliceManagementSystem.git"
 
 Open the Project:
 Open the project in your preferred IDE or editor.
