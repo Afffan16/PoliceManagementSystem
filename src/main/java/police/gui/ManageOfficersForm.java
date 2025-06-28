@@ -108,16 +108,13 @@ public class ManageOfficersForm extends javax.swing.JFrame {
 
     private void ViewOfficersbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewOfficersbtnActionPerformed
         new ViewOfficersForm().setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_ViewOfficersbtnActionPerformed
 
     private void manageOfficersbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOfficersbtnActionPerformed
         new OfficersManagementForm().setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_manageOfficersbtnActionPerformed
 
     private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
-        new AdminDashboard().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BackbtnActionPerformed
 

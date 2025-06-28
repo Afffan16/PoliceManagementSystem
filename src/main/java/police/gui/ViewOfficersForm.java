@@ -356,8 +356,7 @@ public class ViewOfficersForm extends javax.swing.JFrame {
     }//GEN-LAST:event_SearchResultsTableMouseClicked
 
     private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
-         new ManageOfficersForm().setVisible(true);
-        this.dispose();
+          this.dispose();
     }//GEN-LAST:event_BackbtnActionPerformed
 
     /**

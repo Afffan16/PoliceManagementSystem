@@ -64,7 +64,7 @@ public class CheckComplaintsForm extends javax.swing.JFrame {
         ChangeStatus = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Check Complains");
         setResizable(false);
 
@@ -179,7 +179,6 @@ public class CheckComplaintsForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
-        new FIRForm(loggedInUsername).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BackbtnActionPerformed
 
@@ -200,7 +199,6 @@ public class CheckComplaintsForm extends javax.swing.JFrame {
         {
             complaint = complaints.get(selectedRow);
             new DetailedViewComplainForm(complaint, loggedInUsername).setVisible(true);
-            this.dispose();
         } 
         else 
         {

@@ -75,11 +75,16 @@ public class ReportComplaintForm extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Descriptiontxt = new javax.swing.JTextArea();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Report a Complain");
         setPreferredSize(new java.awt.Dimension(650, 700));
         setResizable(false);
         setSize(new java.awt.Dimension(650, 700));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jScrollPane4.setPreferredSize(new java.awt.Dimension(600, 625));
 
@@ -398,6 +403,10 @@ public class ReportComplaintForm extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Opening files is not supported on this system.", "Error", JOptionPane.ERROR_MESSAGE);
             }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        new HomePageForm().setVisible(true);
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

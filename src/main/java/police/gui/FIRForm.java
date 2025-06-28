@@ -48,7 +48,7 @@ public class FIRForm extends javax.swing.JFrame {
         jButton3.setForeground(new java.awt.Color(255, 0, 0));
         jButton3.setText("View / Search FIRs");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("FIR MODULE");
         setResizable(false);
 
@@ -137,17 +137,14 @@ public class FIRForm extends javax.swing.JFrame {
 
     private void checkComplainsbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkComplainsbtnActionPerformed
         new CheckComplaintsForm(loggedInUsername).setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_checkComplainsbtnActionPerformed
 
     private void manageFIRsbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageFIRsbtnActionPerformed
         new FIRManagementForm(loggedInUsername).setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_manageFIRsbtnActionPerformed
 
     private void ViewFIRsbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewFIRsbtnActionPerformed
         new ViewFIRForm(loggedInUsername).setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_ViewFIRsbtnActionPerformed
 
     /**

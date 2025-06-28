@@ -43,7 +43,12 @@ public class AdminDashboard extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         jTextArea5 = new javax.swing.JTextArea();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
@@ -187,7 +192,6 @@ public class AdminDashboard extends javax.swing.JFrame {
 
     private void ProfileBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProfileBtnActionPerformed
         new ManageOfficersForm().setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_ProfileBtnActionPerformed
 
     private void FIRBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FIRBtnActionPerformed
@@ -211,6 +215,11 @@ public class AdminDashboard extends javax.swing.JFrame {
         new HomePageForm().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_LOGOUTBtnActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        Session.clearSession();
+        new PoliceLoginForm().setVisible(true);
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

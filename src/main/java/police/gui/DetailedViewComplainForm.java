@@ -89,7 +89,7 @@ public class DetailedViewComplainForm extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         headinglbl = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Complain Details");
         setResizable(false);
 
@@ -266,7 +266,6 @@ public class DetailedViewComplainForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
-        new CheckComplaintsForm(loggedInUsername).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BackbtnActionPerformed
 

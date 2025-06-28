@@ -42,7 +42,7 @@ public class CriminalForm extends javax.swing.JFrame
         Backbtn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         mainPanel.setBackground(new java.awt.Color(0, 0, 102));
         mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
@@ -124,12 +124,10 @@ public class CriminalForm extends javax.swing.JFrame
 
     private void ViewCriminalbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewCriminalbtnActionPerformed
         new ViewCriminalForm(loggedInUsername).setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_ViewCriminalbtnActionPerformed
 
     private void manageCriminalbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageCriminalbtnActionPerformed
         new CriminalManagementForm(loggedInUsername).setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_manageCriminalbtnActionPerformed
 
     private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed

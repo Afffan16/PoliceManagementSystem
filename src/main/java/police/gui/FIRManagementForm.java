@@ -92,7 +92,7 @@ public class FIRManagementForm extends javax.swing.JFrame {
         Updatebtn = new javax.swing.JButton();
         Backbtn = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Manage FIRs");
         setResizable(false);
 
@@ -258,7 +258,6 @@ public class FIRManagementForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
-        new FIRForm(loggedInUsername).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BackbtnActionPerformed
 

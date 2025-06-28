@@ -148,12 +148,10 @@ public class CaseInvestigationDashboard extends javax.swing.JFrame {
 
     private void completedCasesbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completedCasesbtnActionPerformed
         new CompletedCasesForm(loggedInUsername).setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_completedCasesbtnActionPerformed
 
     private void ongoingCasesbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ongoingCasesbtnActionPerformed
         new OngoingCasesForm(loggedInUsername).setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_ongoingCasesbtnActionPerformed
 
     private void backbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backbtnActionPerformed

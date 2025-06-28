@@ -201,7 +201,6 @@ public class OngoingCasesForm extends javax.swing.JFrame {
 
     private void ManageViewCasebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageViewCasebtnActionPerformed
         openInvestigationForm();
-        this.dispose();
     }//GEN-LAST:event_ManageViewCasebtnActionPerformed
 
     private void AssignOfficersBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AssignOfficersBtnActionPerformed

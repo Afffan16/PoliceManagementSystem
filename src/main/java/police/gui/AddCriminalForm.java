@@ -104,7 +104,7 @@ public class AddCriminalForm extends javax.swing.JFrame
             }
         });
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         mainPanel.setBackground(new java.awt.Color(0, 0, 102));
         mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));

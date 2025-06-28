@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package police.gui;
+import java.awt.event.KeyEvent;
 import javax.swing.*;
 import java.io.*;
 import police.*;
@@ -42,13 +43,23 @@ public class PoliceLoginForm extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         headinglbl = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Police Login");
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         mainPanel.setBackground(new java.awt.Color(0, 0, 102));
         mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        mainPanel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                mainPanelKeyPressed(evt);
+            }
+        });
         mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Usernamelbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -60,6 +71,12 @@ public class PoliceLoginForm extends javax.swing.JFrame {
         Passwordlbl.setForeground(new java.awt.Color(255, 255, 255));
         Passwordlbl.setText("Password :");
         mainPanel.add(Passwordlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 81, -1));
+
+        Usernametxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                UsernametxtKeyPressed(evt);
+            }
+        });
         mainPanel.add(Usernametxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 180, 25));
 
         Backbtn.setBackground(new java.awt.Color(204, 0, 0));
@@ -87,6 +104,11 @@ public class PoliceLoginForm extends javax.swing.JFrame {
         Passwordtxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PasswordtxtActionPerformed(evt);
+            }
+        });
+        Passwordtxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                PasswordtxtKeyPressed(evt);
             }
         });
         mainPanel.add(Passwordtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 180, -1));
@@ -179,6 +201,28 @@ public class PoliceLoginForm extends javax.swing.JFrame {
     private void PasswordtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordtxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PasswordtxtActionPerformed
+
+    private void mainPanelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mainPanelKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mainPanelKeyPressed
+
+    private void UsernametxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UsernametxtKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) 
+        {
+           Passwordtxt.requestFocusInWindow(); 
+        }
+    }//GEN-LAST:event_UsernametxtKeyPressed
+
+    private void PasswordtxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PasswordtxtKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) 
+        {
+            Loginbtn.doClick();
+        }
+    }//GEN-LAST:event_PasswordtxtKeyPressed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        new HomePageForm().setVisible(true);
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

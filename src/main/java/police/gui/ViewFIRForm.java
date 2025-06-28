@@ -173,7 +173,7 @@ public class ViewFIRForm extends javax.swing.JFrame
         SearchResultsTable = new javax.swing.JTable();
         Backbtn = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Search?View FIRs");
         setResizable(false);
 
@@ -183,9 +183,9 @@ public class ViewFIRForm extends javax.swing.JFrame
 
         searchPanel.setBackground(new java.awt.Color(0, 0, 0));
 
-        searchlbl.setText("Search by FIR ID : ");
         searchlbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         searchlbl.setForeground(new java.awt.Color(255, 255, 255));
+        searchlbl.setText("Search by FIR ID : ");
 
         searchbartxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -193,10 +193,10 @@ public class ViewFIRForm extends javax.swing.JFrame
             }
         });
 
-        Searchbtn.setText("Search");
         Searchbtn.setBackground(new java.awt.Color(51, 204, 0));
         Searchbtn.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
         Searchbtn.setForeground(new java.awt.Color(255, 255, 255));
+        Searchbtn.setText("Search");
         Searchbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SearchbtnActionPerformed(evt);
@@ -326,8 +326,7 @@ public class ViewFIRForm extends javax.swing.JFrame
     }//GEN-LAST:event_SearchbtnActionPerformed
 
     private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
-        new FIRForm(loggedInUsername).setVisible(true);
-        this.dispose();
+            this.dispose();
     }//GEN-LAST:event_BackbtnActionPerformed
 
     private void SearchResultsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SearchResultsTableMouseClicked

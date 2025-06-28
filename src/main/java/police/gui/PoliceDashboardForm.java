@@ -73,10 +73,15 @@ public class PoliceDashboardForm extends javax.swing.JFrame {
             }
         });
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Police Dashboard");
         setPreferredSize(new java.awt.Dimension(890, 670));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
@@ -407,6 +412,12 @@ public class PoliceDashboardForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Opening files is not supported on this system.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_GuideBookbtnActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+            Session.clearSession();
+            new PoliceLoginForm().setVisible(true);
+            this.dispose();
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

@@ -121,7 +121,7 @@ public class CriminalManagementForm extends javax.swing.JFrame
         Updatebtn = new javax.swing.JButton();
         Backbtn = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         mainPanel.setBackground(new java.awt.Color(0, 0, 102));
         mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -368,8 +368,7 @@ public class CriminalManagementForm extends javax.swing.JFrame
     }//GEN-LAST:event_UpdatebtnActionPerformed
 
     private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
-        new CriminalForm(loggedInUsername).setVisible(true);
-        this.dispose();
+         this.dispose();
     }//GEN-LAST:event_BackbtnActionPerformed
 
     private void searchbartxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchbartxtActionPerformed

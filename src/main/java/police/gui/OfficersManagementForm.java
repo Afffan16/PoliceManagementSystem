@@ -373,8 +373,7 @@ public class OfficersManagementForm extends javax.swing.JFrame {
     }//GEN-LAST:event_UpdatebtnActionPerformed
 
     private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
-        new ManageOfficersForm().setVisible(true);
-        this.dispose();
+            this.dispose();
     }//GEN-LAST:event_BackbtnActionPerformed
 
     /**

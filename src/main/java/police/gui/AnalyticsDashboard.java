@@ -124,12 +124,10 @@ public class AnalyticsDashboard extends javax.swing.JFrame {
 
     private void criminalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criminalsActionPerformed
         new AnalyticsForm().setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_criminalsActionPerformed
 
     private void complainsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complainsActionPerformed
         new StatusChartGenerator().setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_complainsActionPerformed
 
     private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
